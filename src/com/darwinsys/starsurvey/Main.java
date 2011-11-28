@@ -29,7 +29,7 @@ public class Main extends Activity {
 				}
 				Toast.makeText(Main.this, 
 					message,
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_SHORT).show();
 			}
 		};
 		final RatingBar sBar = (RatingBar) findViewById(R.id.serviceBar);
