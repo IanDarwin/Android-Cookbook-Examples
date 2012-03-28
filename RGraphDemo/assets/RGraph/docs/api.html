@@ -1,0 +1,509 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - API documentation</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs api" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about the RGraph API" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        API Documentation
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - API documentation</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <br />
+
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#references">Canvas and context references</a></li>
+        <li><a href="#events">Working with events</a></li>
+        <li><a href="#coords">Working with graph coordinates</a></li>
+        <li><a href="#data">Working with graph data</a></li>
+        <li><a href="#updating">Updating your graphs dynamically</a></li>
+        <li><a href="#accessors">Setting properties</a></li>
+        <li><a href="#scale">Scale information</a></li>
+        <li>
+            <a href="#functions">RGraph functions</a>
+            <ul>
+                <li><a href="#functions.arrays">Arrays</a></li>
+                <li><a href="#functions.strings">Strings</a></li>
+                <li><a href="#functions.numbers">Numbers</a></li>
+                <li><a href="#functions.misc">Miscellaneous</a></li>
+                <li><a href="#functions.events">Custom RGraph event related functions</a></li>
+                <li><a href="#functions.other">Other</a></li>
+            </ul>
+        </li>
+        <li><a href="#questions">Questions</a></li>
+    </ul>
+
+    <a name="overview"></a>
+    <h4>Overview</h4>
+    
+    <p>
+        Working with RGraph objects is purposefully easy, to make them straight forward to integrate into your own scripts if you want to. For any
+        particular graph type there are a few files required - the common libraries and the graph specific library. Eg:
+    </p>
+    
+    <pre class="code">
+&lt;script src="RGraph.common.core.js"&gt;&lt;/script&gt;
+&lt;script src="RGraph.bar.js"&gt;&lt;/script&gt;
+</pre>
+
+    <p>
+        <i>RGraph.common.core.js</i> is a function library that contains a large set of functions that support the graph classes.
+        Some functions, and sets of functions, have their own files. For example, the zoom functions reside in <i>RGraph.common.zoom.js</i>,
+        so if you don't need zoom, you don't need this file.
+        Each of the graph libraries (<i>RGraph.*.js</i>) contains that particular graphs class. If you'd like to see a "bare bones"
+        implementation, you can look at the <a href="../examples/basic.html">basic example</a>.
+    </p>
+
+    <a name="references"></a>
+    <h4>Canvas and context references</h4>
+
+    <p>
+        Each graph object maintains references to the <i>context</i> and <i>canvas</i> as properties. So to get hold of them all you
+        need to do is this:
+    </p>
+    
+    <pre class="code">
+&lt;script&gt;
+    window.onload = function ()
+    {
+        // 1/2 First draw the chart
+        var myBar = new RGraph.Bar('myCanvas', [1,5,8,4,6,3,1,5,7,8,4,6]);
+        myBar.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+        myBar.Draw();
+    
+        // 2/2 Now get hold of the references
+        var context = myBar.context; // Get hold of a reference to the context
+        var canvas  = myBar.canvas;  // Get hold of a reference to the canvas
+    }
+&lt;/script&gt;
+</pre>
+
+    <a name="events"></a>
+    <h4>Working with events</h4>
+
+    <p>
+        When working with events, you may come across the situation where you have a reference to the <i>canvas</i>, but
+        also need to access the graph object. For this reason the constructor of each object adds a reference to the object to the
+        canvas and you can access it like this:
+    </p>
+
+    <pre class="code">
+&lt;script&gt;
+    document.getElementById("myCanvas").onclick = function (e)
+    {
+        var src = (document.all ? event.srcElement : e.target);
+    
+        // The RGraph object constructors add __object__ to the canvas.
+        var myBar = src.__object__;
+    }
+&lt;/script&gt;
+</pre>
+
+    <a name="coords"></a>
+    <h4>Working with graph coordinates</h4>
+
+    <p>
+        For most graph types, the coordinates of elements (eg bars, lines etc) are to be found in the class variable <i>obj.coords</i>.
+        This is usually a multi-dimensional array consisting of the coordinates of those shapes, or of points. As an example the bar
+        chart maintains the X, Y, width and height of each bar (or sections of bars in a stacked bar chart). The coords array is
+        usually a flat array, even when you have multiple sets of data.
+    </p>
+    
+    <p>
+        By using the RGraph.getMouseXY() function and this array you can determine if a bar was clicked on, or if the mouse is near a
+        line point etc.
+    </p>
+    
+    <pre class="code">
+var myCoords = myBar.coords;
+</pre>
+
+    <p>
+        <b>Note:</b> Previously the coords array values sometimes included the margin values, and sometimes didn't. As of 17th
+        April 2010 the values have all been unified to not include the margin values, so the values are as reported.
+    </p>
+
+    <a name="data"></a>
+    <h4>Working with graph data</h4>
+
+    <p>
+        Another variable you may need is the <i>data</i> variable. For most graph types, this is where the data is stored. It is usually
+        untouched, so it is as you supplied to the graph objects constructor. A notable exception to this is filled line charts.
+        Here the original data is stored in the class variable <i>original_data</i>. The data supplied is modified to produce the stacking
+        effect. If you need to modify a filled line charts data you will need to change this variable instead.
+    </p>
+    
+    <p>
+        Not all graph types use the <i>data</i> variable. For some the name is different so that it makes a little more sense. The
+        graph types and their associate data variables are listed below*.
+    </p>
+
+    <style>
+        table#data_properties td,
+        th {
+            text-align: center;
+        }
+    </style>
+
+    <table border="0" align="center" id="data_properties">
+        <tr>
+            <th>Graph type</th>
+            <th>Data variable(s)</th>
+        </tr>
+        
+        <tr>
+            <td>Bar</td>
+            <td>obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Bi-polar</td>
+            <td>obj.left, obj.right</td>
+        </tr>
+        
+        <tr>
+            <td>Donut</td>
+            <td>This is now a variant of the Pie chart</td>
+        </tr>
+        
+        <tr>
+            <td>Funnel</td>
+            <td>obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Gantt</td>
+            <td>See the <a href="gantt.html#events">docs</a></td>
+        </tr>
+        
+        <tr>
+            <td>Horizontal Bar</td>
+            <td>obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Horizontal Progress bar</td>
+            <td>obj.max, obj.value</td>
+        </tr>
+        
+        <tr>
+            <td>LED</td>
+            <td>obj.text</td>
+        </tr>
+        
+        <tr>
+            <td>Line</td>
+            <td>obj.original_data</td>
+        </tr>
+
+        <tr>
+            <td>Meter</td>
+            <td>obj.min, obj.max, obj.value</td>
+        </tr>
+        
+        <tr>
+            <td>Odometer</td>
+            <td>obj.start, obj.end, obj.value</td>
+        </tr>
+        
+        <tr>
+            <td>Pie</td>
+            <td>obj.angles, obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Radial Scatter chart</td>
+            <td>obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Rose</td>
+            <td>obj.max, obj.data</td>
+        </tr>
+        
+        <tr>
+            <td>Scatter</td>
+            <td>obj.max, obj.data**</td>
+        </tr>
+        
+        <tr>
+            <td>Traditional Radar</td>
+            <td>obj.data, obj.max</td>
+        </tr>
+        
+        <tr>
+            <td>Vertical Progress bar</td>
+            <td>obj.max, obj.value</td>
+        </tr>
+    </table>
+    
+    <p>
+        * In the table, <i>obj</i> refers to your graph object.<br />
+        ** For the Scatter chart, each data point is an array of X/Y coordinates, the color and the tooltip for that point.
+    </p>
+    
+    <a name="updating"></a>
+    <h4>Updating your graphs dynamically</h4>
+    
+        <p>
+            A common request is to be able to update graphs dynamically. This is quite simple and consists of three steps:
+        </p>
+        
+        <ol>
+            <li style="margin-top: 0">Get the new data from the server (with an AJAX request for example).</li>
+            <li style="margin-top: 0">Set the data in your graph object. See the above table for the appropriate property to use.</li>
+            <li style="margin-top: 0">Call the .Draw() method again.</li>
+        </ol>
+        
+        <p>
+            If you don't need to get data from your server (ie it's all client-side) then you can omit the first step. Also, it may be
+            sufficient to simply recreate the entire object from scratch. This means that you won't have to alter and
+            RGraph internal properties - just recreate the graph object and configuration. There's a simple function
+            you can use for AJAX purposes <a href="index.html#ajax">here</a>.
+        </p>
+
+
+    <a name="accessors"></a>
+    <h4>Setting properties</h4>
+    
+        <p>
+            To set RGraph properties, ideally you should use each objects setter  (there's also a corresponding getter). These functions
+            accomodate some backwards compatibility changes, so by not using them you run the risk of your graphs not working entirely as
+            expected.
+        </p>
+    
+    <pre class="code">
+myObj.Set('chart.gutter', 25);
+myObj.Get('chart.gutter');
+</pre>
+
+    <a name="scale"></a>
+    <h4>Scale information</h4>
+        <p>
+            For the Bar, Bipolar, HBar, Line and Scatter charts the scale that is used is stored in the <i>scale</i> class variable. Eg:
+        </p>
+        
+        <pre class="code">
+var myBar = new RGraph.Bar('cvs', [56,43,52,54,51,38,46,42,52]);
+myBar.Draw();
+
+var myScale = myBar.scale
+</pre>
+
+    <a name="functions"></a>
+    <h4>RGraph functions</h4>
+
+        <p>
+            This is a list of some of the functions available to you in the RGraph common libraries.
+            It's not every single one that's available, but is a list of the common ones that you're likely to want to use. Arguments
+            in square brackets are optional.
+        </p>
+
+    <pre class="code">
+&lt;script src="RGraph.common.core.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    // Returns 9
+    myArray = [3,2,5,4,9,7,8];
+    max = RGraph.array_max(myArray);
+&lt;/script&gt;
+</pre>
+
+    <a name="functions.arrays"></a>
+    <h4>Arrays</h4>
+
+    <ul>
+        <li><b>(number) RGraph.array_max(array)</b><br />Returns the maximum value in the array.<p /></li>
+        <li><b>(number) RGraph.array_sum(array)</b><br />Returns the sum of all values in the array. You can also pass a single integer, in which case it is simply returned as-is.<p /></li>
+        <li><b>(array) RGraph.array_clone(array)</b><br />Creates a copy/clone of the given array. Only numerically indexed arrays are supported.<p /></li>
+        <li><b>(array) RGraph.array_reverse(array)</b><br />Returns a reversal of the given array.<p /></li>
+        <li><b>(boolean) RGraph.is_array(obj)</b><br />Returns true or false as to whether the given object is an array or not.<p /></li>
+        <li><b>(array) RGraph.array_pad(array, length[, value])</b><br />Pads the given array to the specified length (if the length is less, if not the array is returned as is). The third, optional, argument is the value which is used as the pad value. If not specified, <i>null</i> is used.<p /></li>
+    </ul>
+    
+    <a name="functions.strings"></a>
+    <h4>Strings</h4>
+    
+    <ul>
+        <li><b>(string) RGraph.rtrim(string)</b><br />Strips the right hand white space from the string that you pass it.<p /></li>
+        <li><b>(string) RGraph.number_format(number[, prepend[, append]])</b><br />This formats the given number (which can be either an integer or a float. The prepend and append variables are strings which are added to the string (eg 5%).<p /></li>
+    </ul>
+    
+    <a name="functions.numbers"></a>
+    <h4>Numbers</h4>
+    
+    <ul>
+        <li><b>(number) RGraph.random(min, max)</b><br />Returns a random number between the minimum and maximum that you give.<br /><br /></li>
+        <li><b>(string) RGraph.number_format(number[, prepend[, append]])</b><br />See <a href="#functions.strings">above</a></li>
+    </ul>
+    
+    <a name="functions.misc"></a>
+    <h4>Miscellaneous</h4>
+
+    <ul>
+        <li>
+            <b>(object) RGraph.FixEventObject(event)</b><br />Pass this function an event object and it will attempt to "fill in" the missing properties (depending on the browser).
+            It tries to add:<br /><br />
+            
+            <ul>
+                <li>pageX (MSIE)</li>
+                <li>pageY (MSIE)</li>
+                <li>target (MSIE)</li>
+                <li>offsetX (FF)</li>
+                <li>offsetY (FF)</li>
+            </ul>
+            <p />
+        </li>
+        <li><b>(null) RGraph.OldBrowserCompat(context)</b><br />This function "fills in" any required functions that some browsers don't have. At the moment this consists of adding the measureText() and fillText() functions to the context when they're missing (usually this means older versions of Opera).<p /></li>
+        <li><b>(number) RGraph.GetDays(date)</b><br />This returns the number of days in the given month. The argument should be a Date object.<p /></li>
+        <li><b>(null) RGraph.pr(mixed)</b><br />Emulates the PHP function print_r() by recursively printing the structure of whatever you pass to it. It handles numbers, strings, arrays, booleans, functions and objects.<p /></li>
+        <li><b>(null) p(mixed)</b><br />An alias of the above albeit far shorter to type.<p /></li>
+        <li><b>(null) cl(mixed)</b><br />A shortcut for the Firebug and Google Chrome debug function console.log().<p /></li>
+        <li><b>(null) RGraph.Clear(canvas[, color])</b><br />Clears the canvas by drawing a white (or the optional color you give) rectangle over it.<p /></li>
+        <li>
+            <b>(null) RGraph.ClearAnnotations(id)</b><br />This function clears the annotation data associated with the given canvas ID (but DOES NOT redraw the graph). If you want to clear the visible annotations too, you will need to redraw the canvas. You could do this using the following code:
+            <br />
+            <pre class="code">
+function ClearAndRedraw (obj)
+{
+    RGraph.Clear(obj.canvas); // This function also calls the RGraph.ClearAnnotations() function
+    obj.Draw();
+}</pre>
+        </li>
+        <li><b>(null) RGraph.ReplayAnnotations(object)</b><br />This function redraws any annotations which have previously been drawn on the canvas. You would use this function when annotations are turned off and you want previous annotations to be displayed.<p /></li>
+        <li><b>(array) RGraph.getMouseXY(event)</b><br />When passed your event object, it returns the X and Y coordinates (in relation to the canvas) of the mouse pointer. (0,0) is in the top left corner, with the X value increasing going right and the Y value increasing going down.<p /></li>
+        <li><b>(array) RGraph.getCanvasXY(event)</b><br />Similar to the above function but returns the X/Y coordinates of the canvas in relation to the page.<p /></li>
+        <li><b>(number) RGraph.degrees2Radians(number)</b><br />Converts and returns the given number of degrees to radians. 1 radian = 57.3 degrees.<p /></li>
+        <li><b>(array) RGraph.getScale(max)</b><br />Given the maximum value this will return an appropriate scale.<p /></li>
+        <li><b>(mixed) RGraph.Registry.Get(name)</b><br />In conjunction with the next function, this is an implementation of the Registry pattern which can be used for storing settings.<br /><br /></li>
+        <li><b>(mixed) RGraph.Registry.Set(name, value)</b><br />In conjunction with the previous function, this is an implementation of the Registry pattern which can be used for storing settings.<br /><br /></li>
+        <li><b>(null) RGraph.Register(object)</b><br />This function is used in conjunction with the next to register a canvas for redrawing. Canvases are redrawn (for example) when tooltips or crosshairs are being used.<br /><br /></li>
+        <li><b>(null) RGraph.Redraw()</b><br />This function is used in conjunction with the previous to redraw a canvas. Canvases are redrawn (for example) when tooltips or crosshairs are being used.<br /><br /></li>
+        <li><b>(null) RGraph.SetShadow(object, color, offetX, offsetY, blur)</b><br />This function is a shortcut function used to set the four shadow properties. The arguments are: your graph object, the shadow color, the X offset, the Y offset, the shadow blur.<br /><br /></li>
+        <li><b>(null) RGraph.NoShadow(object)</b><br />This function is a shortcut function used to "turn off" the shadow. The argument is your graph object.<br /><br /></li>
+        <li><b>(array) RGraph.getSegment(event)</b><br />This function can be used with the Pie (including the donut variant) and Rose charts to get segment information when the canvas is clicked on (or the mouse is moved). It returns an array consisting of: <p /><ul><li>The center X coordinate</li><li>The center Y coordinate</li> <li>The radius</li><li>The start angle (in degrees)</li><li>The end angle (in degrees)</li></ul><br />Angles are measured starting from the "east" axis.<br /><br /></li>
+        <li>
+            <b>(number) RGraph.Async(mixed[, delay])</b><br />This is a simple function but has significant implications on your pages performance. You
+            can pass this either a function pointer, or a string containing the code to run and it will run the code asynchronously (ie in
+            parallel to the page loading). In doing so it can mean that your page is displayed faster, as the graph is created
+            seperate to the page loading. As such, the placement of your canvas tag becomes more important. What you can do is
+            define the canvas tag and then the code to produce the graph immediately after it. This is how the front page is coded,
+            (but not using the RGraph.Async() function).
+            There's an example of it <a href="async.html">here</a>. The optional delay argument is measured in milliseconds
+            (1 second = 1000 milliseconds) and defaults to 1. What you can do is specify something like 1000 to make the effect
+            more pronounced to ensure it's working as expected.
+            
+            <p>
+                <b>Note:</b> Since a dev release of version 4,  Google Chrome versions 4 and 5 have an issue with rendering text when using
+                the RGraph.Async() function. The solution here is to simply not use the RGraph.Async() function.
+            </p>
+        </li>
+
+        <li>
+            <b>(null) RGraph.filledCurvyRect(context, x, y, width, height[, radius[, curvy top left[, curvy top right[, curvy bottom right[, curvy bottom left]]]]])</b><br />
+            This draws a rectangle with curvy corners. Similar to the built in rectangle functions, and you can control
+            individual corners. The radius controls the severity of the corner curvature and defaults to 3. By default all
+            the corners are curvy.<br /><br />
+        </li>
+
+        <li>
+            <b>(null) RGraph.strokedCurvyRect(context, x, y, width, height[, radius[, curvy top left[, curvy top right[, curvy bottom right[, curvy bottom left]]]]])</b><br />
+            This draws a rectangle with curvy corners. Similar to the built in rectangle functions, and you can control
+            individual corners. The radius controls the severity of the corner curvature and defaults to 3. By default all
+            the corners are curvy.<br /><br />
+        </li>
+    </ul>
+
+    <a name="functions.events"></a>
+    <h4>Custom RGraph event related functions</h4>
+    
+    <ul>
+        <li><b>(null) RGraph.AddCustomEventHandler(object, event, callback)</b><br />This attaches a function to the spacified event. The object argument is your graph object, the event argument should be the name of the event, eg <i>ontooltip</i>, and the function argument is your function which handles the event.<br /><br /></li>
+        <li><b>(null) RGraph.FireCustomEvent(object, event)</b><br />This fires a custom event. The object is your graph object, and the name is a string specifying the name of the event.</li>
+    </ul>
+
+    <a name="functions.other"></a>
+    <h4>Other</h4>
+    
+    <p>
+        These are functions which are less generic, and used to build the graphs. You may still wish to use them however.
+    </p>
+
+    <ul>
+        <li><b>(null) RGraph.lineByAngle(context, x, y, angle, length)</b><br />This function draws a line from the given X and Y coordinates at the specified angle.<br /><br /></li>
+        
+        <li>
+            <b>(null) RGraph.Text(context, font, size, x, y, text[, valign[, halign[, border[, angle[, background[, bold[, indicator]]]]]]])</b><br />
+            This function acts as a wrapper around the canvas text functionality. The arguments are:
+        
+            <ul>
+                <li>The context is the canvases 2D context.</li>
+                <li>The font is the name of the font you want to use (eg Arial).</li>
+                <li>The size is an integer specifying the size of the text, (measured in points).</li>
+                <li>The x and y arguments are the X/Y coordinates at which to draw the text.</li>
+                <li>The text argument is the text to draw.</li>
+                <li>The optional valign argument is the vertical alignment and can be either <i>top</i>, <i>center</i> or <i>bottom</i>.</li>
+                <li>The optional halign argument is the horizontal alignment and can be <i>left</i>, <i>center</i> or <i>right</i>.</li>
+                <li>The optional border argument is a boolean (<i>true</i> or <i>false</i>) controlling whether the text has a border.</li>
+                <li>The optional angle argument specifies the angle at which the text is drawn (rotated around the X/Y coordinates and measured in degrees).</li>
+                <li>The optional background argument is the color of the background, (eg #fff).</li>
+                <li>The optional bold argument is boolean which controls whether the text is bold or not.</li>
+                <li>And the optional indicator argument is a boolean which controls whether a placement indicator is shown.</li>
+            </ul>
+            
+            <br />
+        </li>
+        
+        <li><b>(null) RGraph.DrawTitle(canvas, text, gutter[, centerx[, size]])</b><br />This function draws the title. The centerx argument is the center point to use. If not given the center of the canvas is used.<br /><br /></li>
+        <li><b>(null) RGraph.Tooltip(canvas, text, x, y, idx)</b><br />This function shows a tooltip. The idx value corresponds to the tooltip array that you give.<br /><br /></li>
+        <li><b>(null) RGraph.DrawKey(object, key, colors)</b><br />This function draws the key. The first argument is the graph object, the second is an array of key information and the last is an array of the colors to use.<br /><br /></li>
+        <li><b>(null) RGraph.DrawBars(object)</b><br />This draws the horizontal background bars. The argument is the graph object.<br /><br /></li>
+        <li><b>(null) RGraph.DrawInGraphLabels(object)</b><br />This draws the in-graph labels. The argument is the graph object.<br /><br /></li>
+        <li><b>(null) RGraph.DrawCrosshairs(object)</b><br />This function draws the crosshairs. The argument is the graph object.<br /><br /></li>
+        <li><b>(null) RGraph.HideContext()</b><br />This function clears the context menu. RGraph uses it to hide the context menu, but only AFTER your function/callback is run. You may wish to hide the context menu before your own function, in which case you can call this function.<br /><br /></li>
+    </ul>
+
+    <a name="questions"></a>
+    <h4>Questions</h4>
+
+    <p>
+        If you have a question regarding the API, you can ask it on the
+        <a href="http://groups.google.com/group/rgraph/topics?gvc=2" target="_blank">mailing list</a>
+    </p>
+</body>
+</html>

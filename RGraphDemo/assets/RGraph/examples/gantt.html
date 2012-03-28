@@ -1,0 +1,175 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - gantt chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example gantt chart" />
+    <meta name="description" content="RGraph: Gantt chart examples" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.gantt.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+    
+    <style>
+        .RGraph_tooltip {
+            color: #00a ! important;
+        }
+        
+        .RGraph_tooltip b {
+            color: black ! important;
+        }
+    </style>
+
+    <script>
+        window.onload = function ()
+        {
+            var gantt1 = new RGraph.Gantt('gantt1');
+            gantt1.Set('chart.xmax', 122);
+            gantt1.Set('chart.gutter', 35);
+            gantt1.Set('chart.labels', ['January', 'February', 'March', 'April']);
+            gantt1.Set('chart.title', 'Work schedule for Xyz Ltd (tooltips, context, zoom)');
+            gantt1.Set('chart.defaultcolor', '#faa');
+            gantt1.Set('chart.background.grid', false);
+
+            if (!RGraph.isIE8()) {
+                gantt1.Set('chart.tooltips', ["<b>Richard Crenshaw</b><br />Working through adding something<br /> to the website.",
+                                              "<b>Fred Bloggs</b><br />Building a new drive",
+                                              "<b>Barney Rubble</b><br />Not started adding the new garden",
+                                              "<b>Gloria Honeyford</b><br />Just started dinner",
+                                              "<b>Paul O'Grady</b><br />Nearly finished the front garden",
+                                              "<b>Harry Secombe</b><br />Roughly half way through the bible reading",
+                                              "<b>Shane Ritchy</b><br />Funny man",
+                                              "<b>Barry McGuigan</b><br />Beating up the gardener",
+                                              "<b>Cynthia Frances</b><br />Not entirely sure what she's doing",
+                                              "<b>Mabel Mincy</b><br />Making more mince.",
+                                               "<b>Paul McKenna</b><br />Putting everyone off their work",
+                                               "<b>Kiffen Sausage Farmer</b><br />Farming sausages",
+                                               "<b>John Doe</b><br />A deer"]);
+                gantt1.Set('chart.zoom.hdir', 'center');
+                gantt1.Set('chart.zoom.vdir', 'center');
+                gantt1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom]]);
+            }
+
+            gantt1.Set('chart.events', [
+                                 [31, 28, 75, 'Richard'],
+                                 [12, 28, 67, 'Fred'],
+                                 [59, 14, 0, 'Barney'],
+                                 [59, 21, 5, 'Gloria'],
+                                 [46, 31, 92, 'Paul', 'red', 'yellow'],
+                                 [80, 21, 46, 'Harry'],
+                                 [94, 17, 84, 'Shane'],
+                                 [34, 14, 32, 'Barry'],
+                                 [64, 14, 28, 'Cynthia'],
+                                 [13, 61, 74, 'Mabel'],
+                                 [84, 31, 16, 'Paul'],
+                                 [100, 22, 45, 'Kiffen'],
+                                 [0, 365, 50, 'John']
+                                ]);
+            var color = 'rgba(192,255,192,0.5)';
+            gantt1.Set('chart.vbars', [
+                                       [0, 10, color],
+                                       [20, 10, color],
+                                       [40, 10, color],
+                                       [60, 10, color],
+                                       [80, 10, color],
+                                       [100, 10, color]
+                                      ]);
+
+            gantt1.Draw();
+
+
+            var gantt3 = new RGraph.Gantt('gantt3');
+            gantt3.Set('chart.xmax', 365);
+            gantt3.Set('chart.title', 'Training completion (tooltips)');
+            gantt3.Set('chart.gutter', 35);
+            gantt3.Set('chart.color', '#fdd');
+            gantt3.Set('chart.defaultcolor', '#fdd');
+            gantt3.Set('chart.labels', ['Q1', 'Q2', 'Q3', 'Q4']);
+            gantt3.Set('chart.background.grid.autofit', true);
+            gantt3.Set('chart.events', [
+                                 [0, 98, 78, 'Richard'],
+                                 [30, 130, 50, 'Pete'],
+                                 [65, 114, 5, 'Gary'],
+                                 [88, 210, 97, 'Sean'],
+                                 [183, 75, 36, 'Michael', 'red']
+                                ]);
+
+            if (!RGraph.isIE8()) {
+                gantt3.Set('chart.tooltips', ['<b>Richard</b><br />Richard is a top geezer. Guvnor.', '<b>Pete</b><br />Pete likes going out clubbing', '<b>Gary</b><br />Gary is a top geezer too', '<b>Sean</b><br />Sean is very good at what he does.<br />Backgammon.', '<b>Michael</b><br />Michael is a secret ninja']);
+            }
+
+            gantt3.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Gantt chart
+</div>
+
+    <h1>RGraph: HTML5 canvas graph library - Gantt chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <div>
+        <p>
+            A Gantt chart is used to show scheduling information. It is commonly used in project management but can also be used,
+            for example, to show holiday schedule information. In this case it would be easy to see when someone is unavailable.
+            The Gantt chart can have clickable bars  that can be used to provide more detail. It can also show vertical bars
+            that can be used to indicate events, or as in the cases below, can be decorative.
+        </p>
+        
+        <p>
+            The chart is made of "units", in this case 365. This represents days in a year. The labels are separate, being equally
+            spaced across the chart. This means you can use more meaningful labels, which are easier to comprehend. As in the
+            example charts.
+        </p>
+    </div>
+
+    <div>
+        <ul>
+            <li><a href="../docs/gantt.html">Gantt chart API documentation</a></li>
+        </ul>
+    </div>
+
+    <div style="text-align: center">
+        <canvas id="gantt1" width="700" height="300">[No canvas support]</canvas>
+        <canvas id="gantt3" width="700" height="200">[No canvas support]</canvas>
+    </div>
+
+</body>
+</html>

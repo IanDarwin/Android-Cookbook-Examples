@@ -1,0 +1,54 @@
+
+  Backwards compatibility breaks and advisories
+ ===============================================
+ 
+                +---------------------------------------------------------------------------------------+
+ o [28-08-2010] | Stable release                                                                        |
+                +---------------------------------------------------------------------------------------+
+
+ o [28-08-2010] Removed option to have the labels on the outside of a Meter. Now they're always on the inside of the Meter
+                and there's always 11 of them (including zero)
+ o [14-08-2010] Changed the HBar property chart.strokecolor to chart.strokestyle
+ o [07-08-2010] The Odometer property chart.needle.thickness has been changed to chart.needle.width. Work has been done on the
+                needle head.
+ o [07-08-2010] Progress bar has now been split into two different graph types:
+                 o HProgress
+                 o VProgress
+ o [07-08-2010] Progress bar property chart.color is now chart.colors, and should be an array
+ o [07-08-2010] Changed default Bipolar colors to just one - green
+ 
+                +---------------------------------------------------------------------------------------+
+ o [31-07-2010] | Stable release                                                                        |
+                +---------------------------------------------------------------------------------------+
+
+  o [17-07-2010] Stepped line charts and their tickmarks have been marginally altered. No final tickmark is now shown (it looks
+                 odd being isolated)
+  o [17-07-2010] Changed the Odo chart.needle.style to chart.needle.color
+  o [17-07-2010] The Odo properties chart.start, chart.end and chart.value have all been changed to internal properties:
+                 obj.start, obj.end and obj.value
+  o [09-07-2010] With the Odometer the old property chart.needle.style has been renamed to be chart.needle.color
+  o [09-07-2010] The Progress bar has had it's properties chart.max and chart.value changed to class properties, this means
+                 that if you want to make use of these, you will now need to use myProgress.value and myProgress.max.
+                 myProgress being the name of your graph object.
+
+                +---------------------------------------------------------------------------------------+
+ o [26-06-2010] | Stable release                                                                        |
+                +---------------------------------------------------------------------------------------+
+
+ o [08-05-2010] The Rose charts "chart.labels" property is now different to the "chart.key" property
+ o [01-05-2010] The Donut chart is now a variant of the Pie chart (chart.variant = donut)
+ o [24-04-2010] The radar chart has been renamed to Rose. The library is now called RGraph.rose.js and the constructor has
+                been renamed. It has also been prettied up marginally and labels have been added.
+ o [17-04-2010] All charts have had their property "chart.tooltip.effect" renamed to "chart.tooltips.effect".
+                The Scatter chart has also had its property "chart.tooltip.hotspot" renamed to "chart.tooltips.hotspot"
+ o [17-04-2010] Default chart.tooltips bar chart property has changed from an empty array to null.
+ o [17-04-2010] The RGraph.common.js library has now been split into 5 separate files because it had
+                become far too large. You can read the new implementation details here:
+                http://www.rgraph.net/docs/index.html#implementation
+ o [10-04-2010] The "coords" arrays (for each object) have been unified. Now you no longer need to take
+                into account the margins. What you get in the coords arrays are as they are used on the
+                graph.
+
+                +---------------------------------------------------------------------------------------+
+ o [27-03-2010] | Initial stable release                                                                |
+                +---------------------------------------------------------------------------------------+

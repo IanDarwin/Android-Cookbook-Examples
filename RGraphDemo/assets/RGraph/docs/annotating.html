@@ -1,0 +1,162 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Annotating your graphs</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs animating" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about annotating your charts" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+    
+    <script>
+        window.onload = function ()
+        {
+            bar = new RGraph.Bar('myBar', [[45,64],[32,51],[41,52],[54,43],[43,50]]);
+            bar.Set('chart.title', 'An annotatable graph with context menu');
+            bar.Set('chart.labels', ['John','Fred', 'Barry', 'Charlie', 'Joan']);
+            bar.Set('chart.colors', ['red', 'blue']);
+            bar.Set('chart.background.barcolor1', '#fff');
+            bar.Set('chart.background.barcolor2', '#fff');
+            bar.Set('chart.annotatable', true);
+            bar.Set('chart.contextmenu', [['Show palette', RGraph.Showpalette], ['Clear', function () {RGraph.Clear(bar.canvas); bar.Draw();}]]);
+            bar.Draw();
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Annotating your graphs
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Annotating your graphs</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <div style="float: right">
+        <canvas id="myBar" width="400" height="200">[No canvas support]</canvas><br />
+    </div>
+
+    <p>
+        The annotations feature brings presentation style functionality to RGraph graphs. You can use this feature
+        for highlighting your graphs if you need to.
+    </p>
+    
+    <ul>
+        <li><a href="#how">How do annotations work?</a></li>
+        <li><a href="#browser">Browser support</a></li>
+        <li><a href="#what">What can I use annotations for?</a></li>
+        <li><a href="#persistent">Are annotations persistent?</a></li>
+        <li><a href="#palette">How do I show the mini-palette?</a></li>
+        <li><a href="#clear">How can I clear the annotations?</a></li>
+        <li><a href="#replay">Replaying annotations when they're off</a></li>
+    </ul>
+
+    <a name="how"></a>
+    <h4>How do annotations work?</h4>
+    
+    <p>
+        Enabling annotations is a very simple affair, and consists of doing the following:
+    </p>
+    
+    <pre class="code" style="width: 55%">myGraph.Set('chart.annotatable', true);</pre>
+
+    <a name="browser"></a>
+    <h4>Browser support</h4>
+
+    <p>
+        Annotations are supported in all browsers that RGraph works with - Firefox 3.5+, Chrome 2+, Safari 4+, Opera 10.5+ and
+        MSIE/Google Chrome Frame. They DO NOT however work with MSIE 8/ExCanvas.
+    </p>
+
+    <a name="what"></a>
+    <h4>What can I use annotations for?</h4>
+    
+    <p>
+        As mentioned you can use it for presentations, highlighting things to yourself or others or just to have fun drawing (!).
+    </p>
+    
+    <a name="persistent"></a>
+    <h4>Are annotations persistent?</h4>
+    
+    <p>
+        That depends on which browser you're using. The annotation data is stored in the users web browser (not on the web server),
+        meaning currently (21st March 2010) browser support is limited to Firefox 3.5+, Safari 4+,
+        Chrome 4+ and Opera 10.5+. MSIE 8 also has the required storage capabilities, but since it doesn't yet support canvas, the point is moot.
+        The user does not have to
+        confirm anything for storage to be allowed - try it out on this page by drawing on the graph and then refreshing the page.
+    </p>
+    
+    <a name="palette"></a>
+    <h4>How do I show the mini-palette?</h4>
+
+
+    <p>
+        You can show the palette by using the <i>RGraph.Showpalette</i> function shown below as a context menu item:
+    </p>
+    
+    <pre class="code">
+myObj.Set('chart.contextmenu', [
+                                ['Show palette', RGraph.Showpalette],
+                                ['Clear', function () {RGraph.Clear(myObj.canvas); myObj.Draw();}]
+                               ]);
+</pre>
+
+    <p>
+        This code will result in the same context menu as the graph above.
+    </p>
+
+    <a name="clear"></a>
+    <h4>How can I clear the annotations?</h4>
+
+    You can simply clear the graph and redraw it:
+    
+    <pre class="code">RGraph.Clear(myGraph.canvas); // Clear the graph
+myGraph.Draw();               // Redraw it</pre>
+
+    <p>
+        In the graph above, there is a context menu that allows you to both clear the graph and also demonstrates the mini-palette
+        feature available to you.
+    </p>
+
+    <a name="replay"></a>
+    <h4>Replaying annotations when they're off</h4>
+    
+    <p>
+        When annotations are not enabled, any prior annotations that may have been made are not displayed. To show them you need
+        to use the API function <i>RGraph.ReplayAnnotations(object)</i> after the call to .Draw().
+    </p>
+
+</html>

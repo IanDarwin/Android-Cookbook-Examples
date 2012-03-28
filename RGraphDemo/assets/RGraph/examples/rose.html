@@ -1,0 +1,91 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - rose chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example rose chart" />
+    <meta name="description" content="RGraph: Rose chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.rose.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var rose1 = new RGraph.Rose('rose1', [41,37,16,3,3,45,26,25,24,12,34,60,36,24,23,12]);
+            rose1.Set('chart.colors', ['rgba(0,255,0,0.5)']);
+            rose1.Set('chart.gutter', 30);
+            rose1.Set('chart.title', "Market share (context, zoom)");
+            if (!RGraph.isIE8()) {
+                rose1.Set('chart.zoom.vdir', 'center');
+                rose1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom]]);
+            }
+            rose1.Draw();
+
+
+
+            var rose2 = new RGraph.Rose('rose2', [10,15,13,12,11,26,14,13,24,12,26,23]);
+            rose2.Set('chart.colors', ['red', 'blue','green','yellow','black','pink','gray','cyan','blue','red','green','green']);
+            rose2.Set('chart.colors.alpha', 0.5);
+            rose2.Set('chart.labels', ['45','90','135','180','235','270','315','360']);
+            rose2.Set('chart.tooltips', ['John','Kyle','Kiffen','Jeff','Barney','Kev','Kiffen','Lou','Pete','Jane','Richard','Jake']);
+            rose2.Set('chart.labels.axes', 'n');
+            rose2.Set('chart.labels.position', 'edge');
+            rose2.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Rose chart
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - Rose chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <p>
+        The Rose chart was formally called the Radar chart.
+    </p>
+
+    <ul>
+        <li><a href="../docs/rose.html">Rose chart API documentation</a></li>
+    </ul>
+
+    <canvas id="rose1" width="450" height="350">[No canvas support]</canvas>
+    <canvas id="rose2" width="450" height="350">[No canvas support]</canvas>
+</body>
+</html>

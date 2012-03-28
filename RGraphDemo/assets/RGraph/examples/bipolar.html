@@ -1,0 +1,153 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - bi-polar chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example bipolar chart" />
+    <meta name="description" content="RGraph: Bipolar chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js"></script>
+    <script src="../libraries/RGraph.common.annotate.js"></script>
+    <script src="../libraries/RGraph.common.context.js"></script>
+    <script src="../libraries/RGraph.common.tooltips.js"></script>
+    <script src="../libraries/RGraph.common.zoom.js"></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.bipolar.js"></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var left  = [5,6,8,9,12,13,4,9];
+            var right = [5,8,4,11,15,26,13,16];
+           
+            var bipolar1 = new RGraph.Bipolar('bipolar1', left, right);        
+            bipolar1.Set('chart.colors', ['red']);
+            bipolar1.Set('chart.labels', ['Barry', 'John', 'Fred', 'George', 'Rich', 'Larry', 'John', 'Mike']);
+            bipolar1.Set('chart.title.left', '2007');
+            bipolar1.Set('chart.title.right', '2008');
+            bipolar1.Set('chart.title', 'Sales (tooltips, context, zoom)');
+            bipolar1.Set('chart.tooltips', ['Richard', 'Fred', 'Lou','Pete','Bob','Jane','Kev', 'John','Fiona','Kif','Nell','Sid','Ollie','Jeff','Alf','Kiffen']);
+            bipolar1.Set('chart.tooltips.effect', 'fade');
+            bipolar1.Set('chart.units.post', 'k');
+            bipolar1.Set('chart.contextmenu', [['Zoom', RGraph.Zoom], null, ['Cancel', function () {}]]);
+            bipolar1.Set('chart.xmax', 35);
+            bipolar1.Set('chart.shadow', true);
+            bipolar1.Set('chart.shadow.color', '#aaa');
+            bipolar1.Set('chart.shadow.blur', 3);
+            bipolar1.Draw();
+
+
+
+            var bipolar2 = new RGraph.Bipolar('bipolar2', left, right);
+            bipolar2.Set('chart.labels', ['Fezza', 'Porka', 'CRX', 'RX8', 'DB9', 'Aston', 'F430', 'BMX']);
+            bipolar2.Set('chart.title.left', 'July')
+            bipolar2.Set('chart.title.right', 'August');
+            bipolar2.Set('chart.title', 'Vehicles (context, annotatable)');
+            bipolar2.Set('chart.contextmenu', [['Show palette', function (e) {RGraph.Showpalette(e)}], ['Clear', function () {RGraph.Clear(bipolar2.canvas); bipolar2.Draw()}]]);
+            bipolar2.Set('chart.units.post', 'k');
+            bipolar2.Set('chart.annotatable', true);
+            bipolar2.Draw();
+
+            var bipolar3 = new RGraph.Bipolar('bipolar3', [1,2,3,4,5,6,7], [1,2,3,4,5,6,7]);
+
+            var gradient = bipolar3.context.createLinearGradient(0,0,475,0);
+            gradient.addColorStop(0,'red');
+            gradient.addColorStop(0.5,'white');
+            gradient.addColorStop(1,'red');
+
+            bipolar3.Set('chart.labels', ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh']);
+            bipolar3.Set('chart.title.left', '2007');
+            bipolar3.Set('chart.title.right', '2008');
+            bipolar3.Set('chart.title', 'A red chart (resizable)');
+            bipolar3.Set('chart.colors', [gradient]);
+            bipolar3.Set('chart.gutter', 30);
+            bipolar3.Set('chart.resizable', true);
+            
+            if (!document.all) {
+                bipolar3.Set('chart.zoom.mode', 'thumbnail');
+            }
+
+            bipolar3.Draw();
+
+            var bipolar4 = new RGraph.Bipolar('bipolar4', [45,43,46,78,41,42,35], [31,21,25,26,26,26,12]);
+            bipolar4.Set('chart.labels', ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
+            bipolar4.Set('chart.title.left', 'January');
+            bipolar4.Set('chart.title.right', 'February');
+            bipolar4.Set('chart.title', 'A bi-polar chart');
+            bipolar4.Set('chart.colors', ['#ff0']);
+            bipolar4.Set('chart.gutter', 20);
+            bipolar4.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Bi-polar chart
+</div>
+
+
+<h1>RGraph: HTML5 canvas graph library - Bi-polar chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <div>
+        <p>
+            The Bi-polar chart is also (possibly more commonly) known as an age-frequency chart or a population pyramid. It allows you to very straight forwardly
+            compare two sets of data. For example two years worth of sales figues. Using this type of chart abnormalities will become
+            apparent. Other charts that would also be comparable, include a grouped bar chart, a stacked bar chart, and a multiple
+            line graph.
+        </p>
+
+        <div>
+            <ul>
+                <li><a href="../docs/bipolar.html">Bi-polar chart API documentation</a></li>
+            </ul>
+        </div>
+        
+        <div style="width: 950px">
+            <div style="width: 450px; float: left">
+                <canvas id="bipolar1" width="475" height="250">[No canvas support]</canvas>
+                <canvas id="bipolar2" width="475" height="250">[No canvas support]</canvas>
+            </div>
+            
+            <div style="width: 450px; float: right">
+                <canvas id="bipolar3" width="475" height="250">[No canvas support]</canvas>
+                <canvas id="bipolar4" width="475" height="250">[No canvas support]</canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

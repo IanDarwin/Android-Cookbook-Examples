@@ -1,0 +1,235 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Integrating RGraph with external libraries</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs external libraries" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about integrating RGraph with external libraries" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/ModalDialog.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <script src="../libraries/RGraph.modaldialog.js" ></script>
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+    
+    <script>
+        window.onload = function ()
+        {
+            /**
+            * Draw the line graph
+            */
+            var line = new RGraph.Line('myLine', [45,12,16,18,44,54,23,21,56,58,33,47]);
+            line.Set('chart.background.barcolor1', 'white');
+            line.Set('chart.background.barcolor2', 'white');
+            line.Set('chart.tickmarks', null);
+            line.Set('chart.hmargin', 10);
+            line.Set('chart.linewidth', 3);
+            line.Set('chart.shadow', true);
+            line.Set('chart.shadow.offset', 2);
+            line.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+            line.Set('chart.title', 'A line graph with context menu');
+
+            // This defines a context menu which shows the dialog. The commented out
+            // bit defines an onclick handler on the background, so that when you
+            // click it (the background), the dialog is hidden.
+            line.Set('chart.contextmenu', [
+                                           ['Login to admin area...', function () {ModalDialog.Show('myDialog', 300);/*ModalDialog.background.onclick = function () {ModalDialog.Close();};*/}],
+                                           null,
+                                           ['Cancel', function () {}]
+                                          ]);
+
+            line.Draw();
+        }
+    </script>
+
+
+    <style>
+        /*
+        * These are the CSS classes that you can use to customise the appearance of the ModalDialog. If you trying to
+        * override something which the scripts set, then because of the ordering you may need to use the "! important"
+        * modifier.
+        */
+        .ModalDialog_background {
+        }
+
+        .ModalDialog_dialog {
+        }
+
+        .ModalDialog_topbar {
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Integrating RGraph with external libraries
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Integrating RGraph with external libraries</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <ul>
+        <li><a href="#msie">Note about Microsoft Internet Explorer and the ModalDialog</a></li>
+        <li><a href="#hiding">Hiding the ModalDialog</a></li>
+        <li><a href="#customising">Customising the ModalDialog</a></li>
+        <li><a href="#integration">ModalDialog integration</a></li>
+    </ul>
+
+    <canvas id="myLine" width="400" height="200" style="float: right">[No canvas support]</canvas>
+
+    <p>
+        This page shows you how you can easily integrate the graphs with other external Javascript libraries. This particular example
+        attaches a context menu to the graph, of which the only option is to show a login dialog. This could, for example, be used to
+        allow logging in to an admin area.
+    </p>
+    
+    <p>
+        The dialog doesn't need to require user input - it could just be a static "Please wait..." type dialog, which is shown while a
+        subsequent page loads that takes a few seconds.
+    </p>
+        
+    <p>
+        The ModalDialog was originally an external library, however it's now part of the RGraph package. It's also covered by the
+        RGraph license - so if you have an <a href="licensing.html">RGraph license</a>, then the ModalDialog is part of that.
+    </p>
+
+    <br /><br />
+
+    <pre class="code">
+&lt;script src="RGraph.common.js"&gt;
+&lt;script src="RGraph.line.js"&gt;
+&lt;script src="RGraph.modaldialog.js"&gt;
+
+&lt;script&gt;
+    window.onload = function ()
+    {
+        /**
+        * Draw the line graph
+        */
+        var line = new RGraph.Line('myLine', [45,12,16,18,44,54,23,21,56,58,33,47]);
+        line.Set('chart.background.barcolor1', 'white');
+        line.Set('chart.background.barcolor2', 'white');
+        line.Set('chart.tickmarks', null);
+        line.Set('chart.hmargin', 10);
+        line.Set('chart.linewidth', 3);
+        line.Set('chart.shadow', true);
+        line.Set('chart.shadow.offset', 2);
+        line.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+        line.Set('chart.title', 'A line graph with context menu');
+        <span style="color: green">
+        // This defines a context menu which calls the given function. This function in turn shows the dialog
+        line.Set('chart.contextmenu', [['Login to admin area...', function () {ModalDialog.Show('myDialog', 300);}}]]);
+        </span>
+        line.Draw();
+    }
+&lt;/script&gt;</pre>
+
+    <p>
+        If you're interested in using this modal dialog, then you'll probably also want the CSS that styles it. This can be found in the
+        &quot;css&quot; directory.
+    </p>
+
+    <a name="msie"></a>
+    <h3>Note about Microsoft Internet Explorer and the ModalDialog</h3>
+    
+    <p>
+        Microsoft Internet Explorer only supports fixed positioning in strict rendering mode, therefore you must specify a DTD
+        when using this browser. Eg:
+    </p>
+    
+    <pre class="code">
+&lt;!DOCTYPE html &gt;
+</pre>
+
+    <a name="hiding"></a>
+    <h3>Hiding the ModalDialog</h3>
+    <p>
+        To hide the ModalDialog (from a "Cancel" button for example), you can use the Close() method:
+    </p>
+    
+    <pre class="code">
+&lt;input type="reset" value="Cancel" onclick="ModalDialog.Close()"&gt;
+</pre>
+
+    <a name="customising"></a>
+    <h3>Customising the ModalDialog</h3>
+    <p>
+        You can customise the appearance of the ModalDialog by using three CSS classes, which are documented <a href="css.html">here</a>.
+    </p>
+
+    <a name="integration"></a>
+    <h3>ModalDialog integration</h3>
+    <p>
+        To integrate the ModalDialog look at the sample code above (the key line is where the context menu is defined). The method you should call is <b>ModalDialog.Show(id, width)</b>.
+        The <i>id</i> is the <i>id</i> of the layer to use. Only the <i>.innerHTML</i> is used, not the layer itself, so it can be hidden by
+        setting the display CSS <i>display</i> property to <i>none</i>. The <i>width</i> is a number which is used as the width of the dialog.
+    </p>
+    
+    <p>
+        The only library needed for the ModalDialog to work is <i>RGraph.modaldialog.js</i> - you do not need to use
+        <i>RGraph.common.js</i>. This makes for far smaller download requirements.
+        
+    </p>
+
+    <!-- This is the popup dialog-->
+
+        <div id="myDialog" class="modalDialog" style="display: none">
+
+            <b>Please login</b>
+            <p>
+                <table border="0">
+                    <tr>
+                        <td align="right" style="padding-top: 4px">Email</td>
+                        <td><input type="text" size="20" name="email" style="width: 150px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" style="padding-top: 4px">Password</td>
+                        <td><input type="password" size="20" name="password" style="width: 150px" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2" align="right">
+                            <input type="reset" value="Cancel" onclick="ModalDialog.Close()">
+                            <input type="submit" name="submit" value="Login &raquo;" onclick="alert('This is just an example'); if (document.all) event.cancelBubble = true; else event.stopPropagation()">
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+
+    <!-- End of dialog -->
+
+</body>
+</html>

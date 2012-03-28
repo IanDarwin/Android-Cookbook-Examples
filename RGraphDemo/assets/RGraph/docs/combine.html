@@ -1,0 +1,249 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - combining bar and line graphs</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs combining" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about combining charts" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            // Define the line first so that it can be added to the bar chart
+            var line = new RGraph.Line('myCanvas', [-1,-6,-4,-3,-2,-1,-4,-5,-2,-3,-8,-8], [5,6,7,9,7,5,6,3,5,2,5,1]);
+            line.Set('chart.linewidth', 2);
+            line.Set('chart.shadow', true);
+            line.Set('chart.shadow.offsetx', 2);
+            line.Set('chart.shadow.offsety', 2);
+            line.Set('chart.colors', ['red', 'green', '#ccc']);
+            line.Set('chart.key', ['Jane', 'Fred', 'Barney']);
+            line.Set('chart.key.shadow', true);
+            line.Set('chart.key.background', 'white');
+            line.Set('chart.xaxispos', 'center');
+            line.Set('chart.tickmarks', 'endsquare');
+            // No need to call Draw() - the bar chart will do it
+
+            var bar = new RGraph.Bar('myCanvas', [4,5,3,4,1,2,6,5,8,4,9,4]);
+            //bar.Set('chart.gutter', 35);
+            bar.Set('chart.xaxispos', 'center');
+            bar.Set('chart.title', 'A bar chart with an over-layed line chart & context menu');
+            bar.Set('chart.ymax', 15);
+            bar.Set('chart.text.angle', 45);
+            bar.Set('chart.colors', ['#ccc']);
+            bar.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+            bar.Set('chart.line', line); // Add the line graph to the bar chart
+            bar.Set('chart.contextmenu', [
+                                    ['Menu item 1', function () {alert('Menu item 1')}],
+                                    ['Menu item 2', function () {alert('Menu item 2')}]
+                                   ]);
+            
+            
+            // Draw the bar chart, which in turn draws the line graph for us
+            bar.Draw();
+
+            line2 = new RGraph.Line('myCanvas2', [51,22,23,33,35,23,32,45]);
+            line2.Set('chart.hmargin', 10);
+            line2.Set('chart.labels', ['Kiff', 'Wayne', 'Pete', 'Lou', 'Jake', 'Jo', 'Fred', 'Bob']);
+            line2.Set('chart.linewidth', 3);
+            line2.Set('chart.shadow', true);
+            line2.Set('chart.shadow.offsetx', 2);
+            line2.Set('chart.shadow.offsety', 2);
+            line2.Set('chart.ymax', 65);
+            line2.Set('chart.units.post', 'l');
+            line2.Set('chart.gutter', 35);
+            line2.Set('chart.noxaxis', true);
+            line2.Set('chart.noendxtick', true);
+            line2.Set('chart.title', 'An example of axes both sides');
+            //line2.Draw();
+    
+            line3 = new RGraph.Line('myCanvas2', [42,50,51,23,46,48,65,11]);
+            line3.Set('chart.hmargin', 10);
+            line3.Set('chart.linewidth', 3);
+            line3.Set('chart.shadow', true);
+            line3.Set('chart.shadow.offsetx', 2);
+            line3.Set('chart.shadow.offsety', 2);
+            line3.Set('chart.yaxispos', 'right');
+            line3.Set('chart.noendxtick', true);
+            line3.Set('chart.background.grid', false);
+            line3.Set('chart.ymax', 65);
+            line3.Set('chart.colors', ['blue', 'red']);
+            line3.Set('chart.units.pre', '$');
+            line3.Set('chart.gutter', 35);
+            line3.Set('chart.key', ['Cost', 'Volume']);
+            line3.Set('chart.key.background', 'rgba(255,255,255,0.5)');
+            //line3.Draw();
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="./index.html">Documentation</a>
+        >
+        Combining charts
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Combining charts</h1>
+    
+    <ul>
+        <li><a href="#barandline">Combining bar and line charts</a></li>
+        <li><a href="#combiningline">Combining Line charts</a></li>
+    </ul>
+    
+    <a name="barandline"></a>
+    <h4>Combining bar and line charts</h4>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <canvas id="myCanvas" width="600" height="250" style="float: right">[No canvas support]</canvas>
+
+    <p>
+        This is an example of combining Bar and Line charts. It's quite straight-forward, and the code here shows you how it can be achieved.
+    </p>
+    
+    <p>
+        If the values for the line and bar result in different Y scales you may need to specify the <i>chart.ymax</i> property for each graph
+        so that the scales are the same. The line turns off Y labels so as not to overwrite the Bars labels.
+    </p>
+    
+    <p>
+        The code that produces this graph is:
+    </p>
+    
+    <br clear="all" />
+    
+    <pre class="code">
+&lt;script&gt;
+    window.onload = function ()
+    {
+        // Define the line first so that it can be added to the bar chart
+        var line = new RGraph.Line('myCanvas', [-1,-6,-4,-3,-2,-1,-4,-5,-2,-3,-8,-8], [5,6,7,9,7,5,6,3,5,2,5,1]);
+        line.Set('chart.linewidth', 2);
+        line.Set('chart.shadow', true);
+        line.Set('chart.shadow.offsetx', 2);
+        line.Set('chart.shadow.offsety', 2);
+        line.Set('chart.colors', ['red', 'green', '#ccc']);
+        line.Set('chart.key', ['Jane', 'Fred', 'Barney']);
+        line.Set('chart.key.shadow', true);
+        line.Set('chart.key.background', '#fff');
+        line.Set('chart.xaxispos', 'center');
+        line.Set('chart.tickmarks', 'arrow');
+        // No need to call Draw() - the bar chart will do it
+
+        var bar = new RGraph.Bar('myCanvas', [4,5,3,4,1,2,6,5,8,4,9,4]);
+        bar.Set('chart.gutter', 35);
+        bar.Set('chart.xaxispos', 'center');
+        bar.Set('chart.title', 'A bar chart with an over-layed line chart & context menu');
+        bar.Set('chart.ymax', 15);
+        bar.Set('chart.text.angle', 45);
+        bar.Set('chart.colors', ['#ccc']);
+        bar.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+        bar.Set('chart.line', line); // Add the line graph to the bar chart
+        bar.Set('chart.contextmenu', [
+                                ['Menu item 1', function () {alert('Menu item 1')}],
+                                ['Menu item 2', function () {alert('Menu item 2')}]
+                               ]);
+        
+        
+        // Draw the bar chart, which in turn draws the line graph for us
+        bar.Draw();
+    }
+&lt;/script&gt;
+</pre>
+
+    <a name="combiningline"></a>
+    <h4>Combining Line charts</h4>
+
+    <!-- This is the canvas that both the line graphs use -->
+    <canvas id="myCanvas2" width="600" height="250" style="float: right">[No canvas support]</canvas>
+
+    <p>
+        Another type of chart you may want is a line chart with Y axes on both sides, as illustrated on the right. You should
+        be careful with this chart type as it can easily lead to confusion.
+    </p>
+    
+    <p>
+        This chart is made up from two line charts, one with the Y axis on the left and one on the right. The code that makes up
+        this chart is below.
+    </p>
+    
+    <p>
+         The only reason to combine line charts is to get Y axes on the left and right. If you simply want mutiple lines,
+         you can do this without combining any charts. <a href="../examples/line.html">See the line chart example page</a>
+    </p>
+
+    <br clear="all" />
+
+    <pre class="code">
+&lt;script&gt;
+    window.onload = function
+    {
+        line2 = new RGraph.Line('myCanvas2', [51,22,23,33,35,23,32,45]);
+        line2.Set('chart.hmargin', 10);
+        line2.Set('chart.labels', ['Kiff', 'Wayne', 'Pete', 'Lou', 'Jake', 'Jo', 'Fred', 'Bob']);
+        line2.Set('chart.linewidth', 3);
+        line2.Set('chart.shadow', true);
+        line2.Set('chart.shadow.offsetx', 2);
+        line2.Set('chart.shadow.offsety', 2);
+        line2.Set('chart.ymax', 65);
+        line2.Set('chart.units.post', 'l');
+        line2.Set('chart.gutter', 35);
+        line2.Set('chart.noxaxis', true);
+        line2.Set('chart.noendxtick', true);
+        line2.Set('chart.title', 'An example of axes both sides');
+        line2.Draw();
+
+        line3 = new RGraph.Line('myCanvas2', [42,50,51,23,46,48,65,11]);
+        line3.Set('chart.hmargin', 10);
+        line3.Set('chart.linewidth', 3);
+        line3.Set('chart.shadow', true);
+        line3.Set('chart.shadow.offsetx', 2);
+        line3.Set('chart.shadow.offsety', 2);
+        line3.Set('chart.yaxispos', 'right');
+        line3.Set('chart.noendxtick', true);
+        line3.Set('chart.background.grid', false);
+        line3.Set('chart.ymax', 65);
+        line3.Set('chart.colors', ['blue', 'red']);
+        line3.Set('chart.units.pre', '$');
+        line3.Set('chart.gutter', 35);
+        line3.Set('chart.key', ['Cost', 'Volume']);
+        line3.Set('chart.key.background', 'rgba(255,255,255,0.5)');
+        line3.Draw();
+    }
+&lt;/script&gt;
+</pre>
+
+</body>
+</html>

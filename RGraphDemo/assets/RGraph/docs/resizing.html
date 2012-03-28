@@ -1,0 +1,109 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Resizing your graphs</title>
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+    
+    <script>
+        window.onload = function ()
+        {
+            /**
+            * Draw the line chart
+            */
+            var line = new RGraph.Line('myLine', [4,6,3,7,8,4,9,5,6,4,8,5] );
+            line.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+            line.Set('chart.hmargin', 5);
+            line.Set('chart.title', 'A resizable line chart');
+            line.Set('chart.colors', ['red']);
+            line.Set('chart.resizable', true);
+            line.Set('chart.hmargin', 5);
+            line.Set('chart.shadow', true);
+            line.Set('chart.shadow.blur', 5);
+            line.Set('chart.shadow.offsetx', 1);
+            line.Set('chart.shadow.offsety', 1);
+            line.Set('chart.contextmenu', [['Sample!', function () {alert('A sample item');}]]);
+            line.Set('chart.background.grid.autofit', true);
+            line.Set('chart.background.grid.autofit.numhlines', 10);
+            line.Set('chart.linewidth', 3);
+            line.Draw();
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Resizing your graphs
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Resizing your graphs</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox, Chrome or Safari. RGraph also works in Opera though this browser does not yet support the shadow or text APIs.</li></ul></div>');
+        }
+    </script>
+
+    <canvas id="myLine" width="400" height="200" style="float: left">[No canvas support]</canvas>
+    
+    <p>&nbsp;</p>
+    
+    <p>
+        RGraph has the facility to allow you to resize your graphs. This is new as of 10th April 2010. Because of the
+        numerous events it has to install code on, it is unlikely to work with other dynamic features. The context
+        menu does though. Still, it can be useful if you are, for example, doing a presentation and need to enlarge
+        the graph.
+    </p>
+    
+    <p>
+        All you need to do to enable it is set <i>chart.resizable</i> to true. There are certain caveats that you should be aware of though:
+    </p>
+    
+    <br clear="all" />
+    
+    <ul>
+        <li>
+            Graphs can only be enlarged down and to the right, so you will get better results if your graph is not placed at the
+            right of the page.
+        </li>
+        
+        <li>
+            The minimum you can resize your graphs to is 50% of the original graph width/height.
+        </li>
+        
+        <li>
+            <b>Note:</b> Resizing can change the layout of your page (reflows). As such you will need to be careful when laying out your
+            page, and you may need to experiment with things like CSS float:, width, height etc so that the effect is either not apparent
+            or is minimal.
+        </li>
+    </ul>
+
+</body>
+</html>

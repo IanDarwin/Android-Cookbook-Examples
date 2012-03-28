@@ -1,0 +1,448 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Miscellaneous</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas misc docs" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Miscellaneous documentation" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Miscellaneous documentation
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Miscellaneous documentation</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <ul>
+        <li><a href="#fallback.content">Canvas fallback content and visually impaired users</a></li>
+        <li><a href="#limits">Upper and lower limits for horizontal bars</a></li>
+        <li><a href="#canvas.width.height">Setting the canvas width and height</a></li>
+        <li><a href="#older.browsers">RGraph and older browsers</a></li>
+        <li><a href="#msie">RGraph and Microsoft Internet Explorer</a></li>
+        <li><a href="#debugging">Debugging tips</a></li>
+        <li><a href="#context.menus">Double click context menus</a></li>
+        <li><a href="#event.handlers">Adding your own event handlers</a></li>
+        <li><a href="#crlf">Carriage returns and newlines in labels</a></li>
+        <li><a href="#tradar">Why is the Traditional Radar chart so called?</a></li>
+        <li><a href="#character.set">Character set issues</a></li>
+        <li><a href="#rgraph.identify">How to identify an RGraph object</a></li>
+        <li><a href="#static.y.axis">Static Y axis</a></li>
+        <li><a href="#reducing.white.space">Reducing white space</a></li>
+        <li><a href="#shorthand.ingraph.labels">Shorthand for ingraph labels</a></li>
+        <li><a href="#dom2.events">DOM2 Event handlers</a></li>
+        <li><a href="#known.issues">Known issues</a></li>
+    </ul>
+
+    <a name="fallback.content"></a>
+    <h4>Canvas fallback content and visually impaired users</h4>
+
+    <p>
+        When using the canvas element you should be aware of the accessibility of your graphs, for example where vision limited users are
+        concerned. Screen readers, for example, may not be able to convert a graph into something that is reasonable, so you should
+        consider
+        doing this yourself, possibly using the canvas fallback content (ie the content in between canvas tags). A possible example
+        would be to put a table of data inside the canvas tag that the graph on the canvas represents. Doing this goes a long way
+        towards making the data available to everyone. You might also wish to consider using the <a href="zoom.html">full canvas
+        zoom</a> or the <a href="resizing.html">resizing feature</a> to enable people to enlarge the graph.
+    </p>
+
+    <a name="limits"></a>
+    <h4>Upper and lower limits for horizontal bars</h4>
+
+    <p>
+        If you don't wish to specify an upper or lower limit for horizontal bars, and you just want them to extend to the upper or lower
+        limits of the graph, whatever they may be, you can specify null for the value determining how far they extend. For cases where
+        the X axis is in the middle and you're specifying a negative start value, or you want the bar to extend all the way to the
+        bottom, you can simply specify an arbitrary length (eg -999999). Eg:
+    </p>
+    
+    <pre class="code">myBar.Set('chart.background.hbars', [[0, null, 'green'], [0,-999999,'red']]);</pre>
+    
+    <a name="canvas.width.height"></a>
+    <h4>Setting the canvas width and height</h4>
+    
+    <p>
+        To set the canvas width and height you must use the HTML width/height attributes and NOT CSS. If you do use CSS, the canvas
+        will be scaled, and not enlarged, to fit the new width/height. Eg:
+    </p>
+    
+    <pre class="code">&lt;canvas id="myCanvas" width="200" height="100"&gt;[No canvas support]&lt;canvas&gt;</pre>
+    
+    <p />
+
+    <a name="older.browsers"></a>
+    <h4>RGraph and older browsers</h4>
+    
+    <p>
+        Older versions of browsers are supported (assuming they have canvas support), however, if they don't support the canvas text
+        or shadow APIs these will naturally be unavailable. The graphs will still be drawn, though without shadows or text.
+    </p>
+
+    <a name="msie"></a>
+    <h4>RGraph and Microsoft Internet Explorer</h4>
+
+    <p>
+        You can now use RGraph with Internet Explorer 8 in conjunction with ExCanvas, (which brings a degree of &lt;canvas&gt; support to MSIE).
+        Bear in mind though that shadows are not available and thus are simulated. Microsoft Internet Explorer 9 has native &lt;canvas&gt;
+        support. You can see some screenshots of it <a href="http://groups.google.com/group/rgraph/browse_thread/thread/3cce2cd655918b0c#" target="_blank">here</a>.
+    </p>
+
+    <a name="debugging"></a>
+    <h4>Debugging tips</h4>
+
+    <p>
+        If you're having a hard time debugging your graph, try these:
+    </p>
+    
+    <ul>
+        <li>Ensure you have only one graph on the page</li>
+        <li>Make sure you have disabled your web browsers cache (the Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/60" target="_blank">Web Developer toolbar</a> can do this for Firefox)</li>
+        <li>Try using <a href="http://www.getfirebug.com" target="_blank">Firebug</a> (for Firefox) or the Webkit developer tools (for Google Chrome and Safari)</li>
+        <li>Reduce the page to the bare minimum.</li>
+        <li>Start with a very basic graph and build it up slowly.</li>
+    </ul>
+
+    <a name="context.menus"></a>
+    <h4>Double click context menus</h4>
+
+    <p>
+        Windows Opera, Windows Safari, Mac Safari and Mac Firefox all attach the context menu to the double click event (left mouse button),
+        not the right, in order to make it more reliable.
+    </p>
+
+
+    <a name="event.handlers"></a>
+    <h4>Adding your own event handlers</h4>
+    
+    <p>
+        Because each RGraph object exposes the canvas element (the same as what you get from <i>document.getElementById()</i>),
+        you can use normal procedures to add your own event handlers. Eg If you wanted to add your own onclick handler you could
+        do this: <i style="color: red">myBar.canvas.onclick = function () {}</i>. But what if, for example, you're using an RGraph feature which
+        uses the event handler that you need? In this case you can use the standard DOM method <i>addEventListener()</i>. This will add
+        your new event handler without replacing any existing one (ie the one installed by RGraph). For example:
+        <i>myBar.canvas.addEventListener('click', myFunc, false)</i>.
+    </p>
+
+
+    <a name="crlf"></a>
+    <h4>Carriage returns and newlines in labels</h4>
+    
+    <p>
+        You can put carriage returns in your labels by using the string <i>\r\n</i>. This means your labels will span multiple lines.
+        Like so:
+    </p>
+    
+    <pre class="code">myBar.Set('chart.labels', 'John\r\n(Winner!)', ...)</pre>
+
+
+    <a name="tradar"></a>
+    <h4>Why is the Traditional Radar chart so called?</h4>
+
+    <p>
+        Historical reasons. There used to be two Radar charts in RGraph - the TRadar and an older one called the Pseudo radar chart.
+        The Pseudo Radar chart was converted into the Rose chart. Renaming the TRadar will only cause problems and there's no pressing
+        reason to do so, so for the moment it remains the TRadar chart.
+    </p>
+
+
+    <a name="character.set"></a>
+    <h4>Character set issues</h4>
+    
+    <p>
+        If you're seeing strange, unrecognised characters in your text labels or titles, you may need to specify the correct
+        character set that the browser should use. In PHP you can do this with the <i>header()</i> function (which, as the
+        name suggests, sends a HTTP header):
+    </p>
+    
+    <pre class="code">&lt;?php
+    header("Content-Type: text/html; charset=ISO-8859-1");
+?&gt;</pre>
+
+    <p>
+        If you use Apache, you could use the <i>header</i> directive, though this may be overridden by other directives,
+        eg <i>AddDefaultCharset</i>.
+    </p>
+    
+    <a name="rgraph.identify"></a>
+    <h4>How to identify an RGraph object</h4>
+    
+    <p>
+        Because identity can sometimes be a tricky affair, there are a few RGraph properties that you can use to check whether an object
+        is an RGraph object:
+    </p>
+    
+    <ul>
+        <li><i>obj.isRGraph</i> - This is a boolean that you can use to clearly identify an RGraph object.</li>
+        <li><i>obj.type</i> - This identifies the type of an RGraph object. It is a string which contains a one word description of the objects graph type, eg bar/line/pie.</li>
+    </ul>
+
+
+    <!------------------------------------------------------------------------------------------------------------->
+
+
+    <!--
+        The HTML and script necessary for a graph with a static Y axis. The libraries are included at the top of the page
+        in the <HEAD>
+    -->
+    <div style="position: relative; float: left; margin-right: 10px">
+        <!-- The width here is set further down the page in script -->
+        <canvas id="axes" width="0" height="200" style="position: absolute; top: 0; left: 0; z-index: 100"></canvas>
+        <div style="width: 600px; overflow-x: auto">
+            <canvas id="cvs" width="1000" height="200"></canvas>
+        </div>
+    </div>
+
+
+
+    <a name="static.y.axis"></a>
+    <h4>Static Y axis</h4>
+
+
+    <script>
+        window.onload = function ()
+        {
+            /**
+            * This is the script that draws the graph
+            */
+            line = new RGraph.Line('cvs', [3,15,22,26,28,24,22,25,23,24,26,23,24,25,27,28,29,26,23,22,24,21,24,25]);
+            line.Set('chart.noaxes', true); // We draw the Y axis ourselves further down the page
+            line.Set('chart.gutter', 27);
+            line.Set('chart.hmargin', 5);
+            line.Set('chart.linewidth', 3);
+            line.Set('chart.shadow', true);
+            line.Set('chart.shadow.offsetx', 0);
+            line.Set('chart.shadow.offsety', 0);
+            line.Set('chart.shadow.blur', 15);
+            line.Set('chart.shadow.color', 'red');
+            line.Set('chart.text.angle', 15);
+            line.Set('chart.tooltips', [
+                                        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',
+                                        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+                                       ]);
+            line.Set('chart.labels', [
+                                      '','Feb 09', 'Mar 09','Apr 09','May 09','Jun 09','Jul 09','Aug 09','Sep 09','Oct 09','Nov 09', 'Dec 09',
+                                      'Jan 10', 'Feb 10', 'Mar 10','Apr 10','May 10','Jun 10','Jul 10','Aug 10','Sep 10','Oct 10','Nov 10', 'Dec 10'
+                                     ]);
+            line.Draw();
+    
+    
+    
+            /**
+            * And this is the script that draws the left axis, on the other canvas (that doesn't move)
+            */
+            ca = document.getElementById("axes")
+            co = ca.getContext('2d');
+
+
+            /**
+            * This sets the smaller canvas to cover the whole of the graphs left gutter
+            */
+            ca.width = line.Get('chart.gutter') + 1;
+
+
+            RGraph.Clear(ca, 'white');
+
+
+            /**
+            * This draws the static axis
+            */
+            co.beginPath();
+                co.moveTo(line.Get('chart.gutter'), line.Get('chart.gutter'));
+                co.lineTo(line.Get('chart.gutter'), line.canvas.height - line.Get('chart.gutter'));
+    
+                // Draw the tickmarks on the axis
+                var numTicks = 10;
+                for (var i=0; i<=numTicks; ++i) {
+                    co.moveTo(line.Get('chart.gutter'), line.Get('chart.gutter') + (((ca.height - (2 * line.Get('chart.gutter'))) / numTicks) * i));
+                    co.lineTo(line.Get('chart.gutter') - 3, line.Get('chart.gutter') + (((ca.height - (2 * line.Get('chart.gutter'))) / numTicks) * i));
+                }
+
+            co.stroke();
+
+
+
+            /**
+            * This draws the labels for the static axis
+            */
+            co.beginPath();
+                var color = 'black';
+                var size = 10;
+
+                for (var i=0; i<5; ++i) {
+                    co.fillStyle = color;
+                    co.textAlign = 'right';
+                    co.textBaseline = 'middle';
+                    var h = line.canvas.height - (2 * line.Get('chart.gutter'));
+
+                    RGraph.Text(co, 'Verdana', size, line.Get('chart.gutter') - 4, line.Get('chart.gutter') + (h * (i/5)), line.max - (line.max * (i/5)));
+                }
+            co.fill();
+        }
+    </script>
+    
+    A static Y axis is useful if you have a wide chart but limited space. Whilst not part of the RGraph libraries itself, it can be
+    achieved with a little HTML, like the graph to the left. The HTML and the script to achieve this is documented in the source
+    of this page. It basically involves placing an extra canvas above the graph with the Y axis drawn on it. This canvas doesn't
+    move when the main canvas scrolls left and right.
+    
+    <p />
+    
+    <b>Note:</b> Because Firefox doesn't support the event.offsetX and event.offsetY properties, and they have to be simulated,
+    scrolling and tooltips in this case and this browser doesn't work.
+
+
+    <!------------------------------------------------------------------------------------------------------------->
+
+
+    <br clear="all" />
+    <br clear="all" />
+
+
+    <!-- This graph is an example of how you can eliminate the gutter white space by translating before you draw the graph. -->
+
+
+    <canvas id="myc" width="600" height="250" style="float: left; border: dashed  1px gray; margin-right: 10px"></canvas>
+
+    <script>    
+        // First translate to eliminate the top and gutters
+        document.getElementById("myc").getContext('2d').translate(15, -30);
+        
+    
+        var arg1 = [73, 65, 76, 75, 69, 73, 54, 61, 89, 77];
+        var arg2 = [264, 240, 240, 256, 200, 208, 240, 216, 248, 240]
+    
+        var line1 = new RGraph.Line('myc', arg1 , arg2); 
+        line1.Set('chart.colors', ['red', 'silver']); 
+        line1.Set('chart.background.barcolor1', 'white'); 
+        line1.Set('chart.background.barcolor2', 'white'); 
+        line1.Set('chart.labels', ['Jan 2000',
+                                   'Feb 2001',
+                                   'Mar 2002',
+                                   'Apr 2003',
+                                   'May 2004',
+                                   'Jun 2005',
+                                   'Jul 2006',
+                                   'Aug 2007',
+                                   'Sep 2008',
+                                   'Oct 2009'])
+        line1.Set('chart.filled', true); 
+        line1.Set('chart.fillstyle', ['#fcc', '#cfc']); 
+        line1.Set('chart.gutter', 45); 
+        line1.Set('chart.background.grid', true); 
+        line1.Set('chart.ymax', 365) 
+        line1.Set('chart.yaxispos', 'right'); 
+        line1.Set('chart.title.xaxis', 'Month'); 
+        line1.Set('chart.title.yaxis', 'Temperature');
+        line1.Set('chart.title.xaxis.pos', -0.3);
+        line1.Set('chart.title.yaxis.pos', 0.3);
+        line1.Set('chart.text.angle', 30);
+        line1.Set('chart.tooltips', [
+                                     'January 2000','February 2001','March 2002','April 2003','May 2004','June 2005','July 2006','August 2007','September 2008','October 2009',
+                                     'January 2000','February 2001','March 2002','April 2003','May 2004','June 2005','July 2006','August 2007','September 2008','October 2009'
+                                    ]);
+        line1.Set('chart.tooltips.coords.adjust', [15,-30]);
+        line1.Draw();
+    </script>
+    
+        <a name="reducing.white.space"></a>
+    <h4>Reducing white space</h4>
+    
+    <p style="margin-left: 610px">
+        If the labels that you have require a large gutter you can reduce the amount of wasted space by using the standard 2D
+        context method <i>translate()</i>. This effectively moves the coordinate system so that (0,0) is no longer in the top
+        left corner, but whereever you put it. For example if you translate by (15,-15), the origin will then  be 15 pixels right and
+        15 pixels up compared to where it was.
+    </p>
+    
+    <p style="margin-left: 610px">
+        Because the coordinate system is being changed things that rely on coordinates, eg tooltips, will be affected. For this reason
+        there is the property <i>chart.tooltips.coords.adjust</i> which you can use to tell RGraph that you've translated and the
+        tooltip coordinates will be adjusted appropriately.
+    </p>
+
+
+
+    <br clear="all" />
+
+    <a name="shorthand.ingraph.labels"></a>
+    <h4>Shorthand for ingraph labels</h4>
+        <p>
+            Instead of providing a full array of <i>null</i> elements for ingraph labels which may get a little unwieldy,
+            you can instead  specify an integer that specifies how many elements to skip. Like this:
+        </p>
+        
+        <pre class="code">line.Set('chart.labels.ingraph', [6, 'July', 3, 'November']);</pre>
+
+
+
+    <br clear="all" />
+
+    <a name="dom2.events"></a>
+    <h4>DOM2 Event handlers</h4>
+        <p>
+            Starting in August 2010, RGraph is moving towards using DOM2 event handlers. This will allow better integration with 
+            other code that uses the same event handler as the feature you want, both libraries and your own code. So far the following libraries have
+            been converted:
+        </p>
+        
+        <ul>
+            <li>Bipolar chart</li>
+            <li>Bar chart</li>
+            <li>Line chart</li>
+        </ul>
+        
+        <p>
+            The conversion process will happen gradually and is expected to take a number of months
+        </p>
+
+
+
+    <br clear="all" />
+
+
+    <a name="known.issues"></a>
+    <h4>Known issues</h4>
+    
+    <p>
+        There's a few known issues documented <a href="issues.html">here</a>
+    </p>
+
+
+    <p />
+</body>
+</html>

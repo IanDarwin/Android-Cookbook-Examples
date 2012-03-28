@@ -1,0 +1,113 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - horizontal progress bar</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example horizontal progress bar" />
+    <meta name="description" content="RGraph: Horizontal Progress Bar example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js"></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.hprogress.js"></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var progress1 = new RGraph.HProgress('progress1', 63, 100);
+            progress1.Set('chart.tickmarks', true);
+            progress1.Set('chart.annotatable', true);
+            progress1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom], ['Show the palette', RGraph.Showpalette], ['Clear', function () {RGraph.Clear(progress1.canvas, '#fff'); progress1.Draw();}]]);            
+            progress1.Set('chart.margin', 3);
+            progress1.Set('chart.tickmarks.inner', true);
+            progress1.Set('chart.label.inner', true);
+            progress1.Set('chart.units.post', '%');
+            progress1.Draw();
+
+            var progress2 = new RGraph.HProgress('progress2', [41,22], 100);
+            progress2.Set('chart.colors', ['red', 'yellow']);
+            progress2.Set('chart.shadow', true);
+            progress2.Set('chart.shadow.color', '#666');
+            progress2.Set('chart.shadow.offsetx', 0);
+            progress2.Set('chart.shadow.offsety', 0);
+            progress2.Set('chart.shadow.blur', 15);
+            progress2.Set('chart.margin', 3);
+            progress2.Set('chart.title', 'Disk usage (tooltip, context menu)');
+            progress2.Set('chart.units.post', 'Gb');
+            progress2.Set('chart.tooltips', ['<b>Warning!</b><br />Disk usage is high. It might be time to delete<br /> some of your files',
+                                             'Second tooltip'
+                                            ]);
+            progress2.Set('chart.tickmarks', false);
+            progress2.Set('chart.tickmarks.inner', true);
+            progress2.Set('chart.numticks.inner', 25);
+            progress2.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Horizontal Progress bar
+</div>
+
+    <h1>RGraph: HTML5 canvas graph library - Horizontal Progress bar</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <p>
+        This is a Progress Bar for showing state. You can show anything with it - use it to show load on your server,
+        or percentage space free on your servers disk drive. You could even incorporate it with some AJAX to retrieve status information
+        from your webserver dynamically, making the Progress Bar realtime. To redraw the progress bar simply call <i>RGraph.Clear()</i>
+        (which clears the canvas) and then call <i>myProgress.Draw()</i> again.
+    </p>
+        
+    <p>
+        The colours, title and scale are configurable, allowing you to represent a wide range of values.
+    </p>
+
+    <div>
+        <ul>
+            <li><a href="../docs/hprogress.html">Horizontal Progress bar API documentation</a></li>
+            <li><a href="vprogress.html">Vertical progress bar</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <canvas width="450" height="75" id="progress1">[No canvas support]</canvas>
+        <canvas width="450" height="75" id="progress2">[No canvas support]</canvas>
+    </div>
+
+</body>
+</html>

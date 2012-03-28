@@ -1,0 +1,114 @@
+<rgraph object="progress">
+    <property>
+        <name>chart.gutter</name>
+        <description>The size of the gutter. <br /><i>Default: 25</i></description>
+    </property>
+    <property>
+        <name>chart.color</name>
+        <description>The color of the bar. This can be a solid color, or a gradient that you create. <br /><i>Default: #0c0</i></description>
+    </property>
+    <property>
+        <name>chart.background.color</name>
+        <description>The background color. <br /><i>Default: #eee</i></description>
+    </property>
+    <property>
+        <name>chart.tickmarks</name>
+        <description>Whether the tickmarks are drawn. <br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.value</name>
+        <description>The indicated value. You don't need to set this because it's one of the arguments to the constructor.</description>
+    </property>
+    <property>
+        <name>chart.max</name>
+        <description>The maximum value. You don't need to set this because it's one of the arguments to the constructor.</description>
+    </property>
+    <property>
+        <name>chart.numticks</name>
+        <description>How many tick marks there are. <br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.orientation</name>
+        <description>Either <b>horizontal</b> (the default) or <b>vertical</b> determining how the progress bar is shown. <br /><i>Default: horizontal</i></description>
+    </property>
+    <property>
+        <name>chart.shadow</name>
+        <description>Whether the progress bar has a shadow. This uses the canvas shadow API and therefore is only supported on Chrome 2, Safari 3.1 and Firefox 3.1 (and above).<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.offsetx</name>
+        <description>The X offset of the progress bar shadow.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.offsety</name>
+        <description>The Y offset of the progress bar shadow.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.color</name>
+        <description>The color of the shadow.<br /><i>Default: rgba(0,0,0,0.5)</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.blur</name>
+        <description>The blurring effect that is applied to the shadow.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.text.font</name>
+        <description>The font used to render the text.<br /><i>Default: Verdana</i></description>
+    </property>
+    <property>
+        <name>chart.text.color</name>
+        <description>The color of the labels. <br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.text.size</name>
+        <description>The size of the text (in points). <br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.units.pre</name>
+        <description>The units that the Y scale is measured in (these are preppend to the number). <br /><i>Default: none</i></description>
+    </property>
+    <property>
+        <name>chart.units.post</name>
+        <description>The units that the Y scale is measured in (these are appended to the number). <br /><i>Default: none</i></description>
+    </property>
+    <property>
+        <name>chart.title</name>
+        <description>The title of the progress bar. <br /><i>Default: An empty string</i></description>
+    </property>
+    <property>
+        <name>chart.title.vpos</name>
+        <description>This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.title.color</name>
+        <description>The color of the title.<br /> <i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.tooltips</name>
+        <description>An array, albeit one element only. This is shown when the progress bar is clicked on. This can contain HTML.<br /><i>Default: An empty array</i></description>
+    </property>
+    <property>
+        <name>chart.tooltip.effect</name>
+        <description>The animated effect used for showing the tooltip. Can be either <i>fade</i> or <i>expand</i>.<br /><i>Default: fade</i></description>
+    </property>
+    <property>
+        <name>chart.labels</name>
+        <description>Labels that are applied to the graph. <br /><i>Default: An empty array</i></description>
+    </property>
+    <property>
+        <name>chart.contextmenu</name>
+        <description>An array of context menu items. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i></description>
+    </property>
+    <property>
+        <name>chart.annotatable</name>
+        <description>Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.annotate.color</name>
+        <description>If you do not allow the use of the palette, then this will be the only colour allowed for annotations.<br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.tickmarks.color</name>
+        <description>The color used for tickmarks.<br /><i>Default: black</i></description>
+    </property>
+</rgraph>

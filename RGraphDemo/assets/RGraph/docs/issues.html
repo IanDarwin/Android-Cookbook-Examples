@@ -1,0 +1,130 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Common issues</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs common issues" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about common issues" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Common issues
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Common issues</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <!-- Google Groups code -->
+        <table border="0" style="float: right; background-color: #eee; border: 2px dashed gray; padding: 5px" cellspacing=0>
+            <tr>
+                <td>
+                    <img src="../images/googlegroups.png" height="26" width="132" alt="Google Groups" />
+                </td>
+            </tr>
+  
+            <tr>
+                <td style="padding-left: 5px">
+                    <b>Subscribe to RGraph support</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding-left: 5px;">
+                    <form action="http://groups.google.com/group/rgraph/boxsubscribe" method="get">
+                        Email: <input type=text name=email>
+                        <input type=submit name="sub" value="Subscribe">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    <a href="http://groups.google.com/group/rgraph/topics?gvc=2" target="_blank">Visit this group</a>
+                </td>
+            </tr>
+        </table>
+    <!-- End of Google Groups code -->
+
+    <p>
+        These are some common issues that you should be aware of. If you're having trouble, you may want to look through these to see
+        if any apply to you or may be the source of your problem.
+    </p>
+
+    <a name="annotations"></a>
+    <h4>Annotations aren't saved when running locally in Mozilla Firefox</h4>
+
+    <p>
+        The solution here is to run the graphs using a web server. At this time (March 2010) only Safari, Chrome and Opera
+        support saving annotations when running locally.
+    </p>
+
+    <a name="missing.text"></a>
+    <h4>Missing text in Google Chrome</h4>
+
+    <p>
+        Since one of the Chrome 4 dev releases there has been an issue with Google Chrome 4 and 5, asynchronous processing and  not rendering
+        graph labels. This has been remedied by simply not using asynchronous processing. Because of the tag placement on the front page,
+        the effect shouldn't be apparent. Other browsers (eg Firefox, Safari, Opera, MSIE) are fine.
+    </p>
+
+    <a name="firefox.tooltips.clipboard"></a>
+    <h4>Firefox, tooltips and the clipboard</h4>
+
+    <p>
+        Firefox, tooltips and using the clipboard is a little convoluted. To copy the text in a tooltip you must do the following:
+    </p>
+
+    <ol>
+        <li style="margin-top: 0">Select the text you want with the mouse.</li>
+        <li style="margin-top: 0">Press CTRL+C (it may be a different key combination if you're not using Windows) to copy the text to the clipboard.</li>
+    </ol>
+
+    <h4>Shadows in Google Chrome 6 and the line chart</h4>
+
+    <p>
+        At the moment (28th August 2010) shadows in Google Chrome 6 are somewhat broken. Currently Google Chrome 6 is available
+        on the dev and beta channels. Firefox, MSIE, Opera and Safari are fine. The reason for this
+        error is a combination of factors it seems - shadow blurring and line width. A fix has been added to allow shadow blurring,
+        but you will still need to increase your charts line width.
+    </p>
+
+<!--
+
+    <p>
+        <b></b><br />
+    </p>
+-->
+
+</body>
+</html>

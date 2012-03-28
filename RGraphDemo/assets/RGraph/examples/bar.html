@@ -1,0 +1,228 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - bar chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example bar chart" />
+    <meta name="description" content="RGraph: Bar chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        /**
+        * These are the callback functions for the context menu
+        */
+        function Callback1()
+        {
+            alert('Menu item 1 selected!');
+        }
+
+        function Callback2()
+        {
+            alert('Menu item 2 selected!');
+        }
+
+
+        /**
+        * The onload function creates the graph
+        */
+        window.onload = function ()
+        {
+            var bar = new RGraph.Bar('bar1', [1.2, 1.3, 1.4, 1.5,6,1.9,2,2.1,2.5]);
+            bar.Set('chart.units.pre', '$');
+            bar.Set('chart.units.post', 'k');
+            bar.Set('chart.title', 'A sketch bar chart (context, resizable)');
+            bar.Set('chart.gutter', 35);
+            bar.Set('chart.colors', ['rgb(255,0,0)']);
+            bar.Set('chart.labels', ['John', 'Barry', 'Rich', 'Craig', 'Tom', 'Frank', 'Helen', 'Joyce', 'Fred'])
+            bar.Set('chart.background.grid.hsize', 20);
+            bar.Set('chart.background.grid.vsize', 20);
+            bar.Set('chart.background.barcolor1', 'white');
+            bar.Set('chart.background.barcolor2', 'white');
+            bar.Set('chart.text.angle', 30);
+            bar.Set('chart.contextmenu', [['A test!', function () {}]]);
+            bar.Set('chart.labels.above', true);
+            bar.Set('chart.resizable', true);
+            bar.Set('chart.variant', 'sketch');
+            bar.Set('chart.linewidth', 2);
+            bar.Set('chart.background.grid.autofit', true);
+            bar.Draw();
+
+
+            var bar2 = new RGraph.Bar('bar2', [140, 150, 160, 150, 120, 150, 160, 140, 120, 160]);
+            bar2.Set('chart.background.barcolor1', 'white');
+            bar2.Set('chart.background.barcolor2', 'white');
+            bar2.Set('chart.title', 'Sales last quarter (annotatable, context)');
+            bar2.Set('chart.title.vpos', 0.6);
+            bar2.Set('chart.labels', ['Fred', 'Rich', 'Alex','John','Nick', 'Doug', 'Jaz', 'Pat', 'Baz', 'Bob']);
+            bar2.Set('chart.tooltips', ['Fred', 'Rich', 'Alex','John','Nick', 'Doug', 'Jaz', 'Pat', 'Baz', 'Bob']);
+            bar2.Set('chart.text.angle', 45);
+            bar2.Set('chart.gutter', 35);
+            bar2.Set('chart.shadow', true);
+            bar2.Set('chart.shadow.blur', 5);
+            bar2.Set('chart.shadow.color', '#aaa');
+            bar2.Set('chart.shadow.offsety', -3);
+            bar2.Set('chart.colors', ['#FF7B21']);
+            bar2.Set('chart.key.position', 'gutter');
+            bar2.Set('chart.text.size', 10);
+            bar2.Set('chart.text.font', 'Georgia');
+            bar2.Set('chart.text.angle', 45);
+            bar2.Set('chart.grouping', 'stacked');
+            bar2.Set('chart.strokecolor', 'rgba(0,0,0,0)');
+
+            if (0) {
+                bar2.Set('chart.contextmenu', [
+                                              ['Show palette', RGraph.Showpalette],
+                                              ['Clear', function () {RGraph.Clear(bar2.canvas);bar2.Draw();}],
+                                              null,
+                                              ['Cancel', function () {}]
+                                             ]);
+                bar2.Set('chart.annotatable', true);
+                bar2.Set('chart.annotate.color', 'black');
+            }
+
+            bar2.Draw();
+
+            var bar4 = new RGraph.Bar('bar4', [
+                                        [0.000092, 0.00008],
+                                        [0.000034, 0.000057],
+                                        [0.000056, 0.000062],
+                                        [0.000055, 0.000045],
+                                        [0.000036, 0.000012],
+                                        [0.000044, 0.000056],
+                                        [0.000051, 0.000066],
+                                        [0.000068, 0.000088]]);
+            bar4.Set('chart.title', 'A grouped bar chart (small values)');
+            bar4.Set('chart.background.barcolor1', 'white');
+            bar4.Set('chart.background.barcolor2', 'white');
+            bar4.Set('chart.labels', ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']);
+            bar4.Set('chart.key', ['John', 'Bob']);
+            bar4.Set('chart.key.position', 'graph');
+            bar4.Set('chart.key.shadow', true);
+            bar4.Set('chart.colors', ['blue', '#0f0']);
+            bar4.Set('chart.shadow', true);
+            bar4.Set('chart.shadow.offsety', -3);
+            bar4.Set('chart.shadow.color', '#aaa');
+            bar4.Set('chart.yaxispos', 'right');
+            bar4.Set('chart.labels.ingraph', [9,'The lowest']);
+            bar4.context.translate(-20,0);
+            bar4.Draw();
+
+            var bar5 = new RGraph.Bar('bar5', [[23,25, 27, 30], [30,25,29, 32], [27,28,35,33], [26,18,29,30], [31,20,25,27], [39,28,28,35], [27,29,28,29], [26,23,26,27]]);
+            bar5.Set('chart.units.pre', '$');
+            bar5.Set('chart.title', 'Sales in the last 8 months (tooltips)');
+            bar5.Set('chart.colors', ['red', 'yellow', 'green', 'orange']);
+            bar5.Set('chart.gutter', 40);
+            bar5.Set('chart.shadow', true);
+            bar5.Set('chart.shadow.color', '#aaa');
+            bar5.Set('chart.background.barcolor1', '#fff');
+            bar5.Set('chart.background.barcolor2', '#fff');
+            bar5.Set('chart.background.grid.hsize', 5);
+            bar5.Set('chart.background.grid.vsize', 5);
+            bar5.Set('chart.grouping', 'stacked');
+            bar5.Set('chart.labels', ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']);
+            bar5.Set('chart.labels.above', true);
+            bar5.Set('chart.key', ['Richard', 'Barbara', 'Johnny', 'Frederick']);
+            bar5.Set('chart.key.background', 'rgba(255,255,255,0.7)');
+            bar5.Set('chart.key.position', 'gutter');
+            bar5.Set('chart.background.grid.width', 0.3); // Decimals are permitted
+            bar5.Set('chart.text.angle', 0);
+            bar5.Set('chart.strokecolor', 'rgba(0,0,0,0)');
+            bar5.Set('chart.tooltips.event', 'onmousemove');
+            bar5.Set('chart.tooltips.effect', 'fade');
+            bar5.Set('chart.tooltips', [
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick',
+                                  'Richard', 'Barbara', 'Johnny', 'Frederick'
+                                 ]);
+            bar5.Draw();
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="./index.html">Examples</a>
+        >
+        Bar chart
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Bar chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <div>
+        <p>
+            The bar chart is probably one of the most widely used of charts, and also one of the most versatile. It's defined as a chart with
+            rectangular bars with lengths proportional to the values they represent. The bar chart can be used to represent two
+            or more values. With grouped and stacked bar charts, you can visualise two or more sets of data. For example two years
+            worth of sales figures. Doing this you will be able to easily see differences, for example a better year when it comes
+            to sales. You can also show negative values by having the X axis in the center, like the examples shown. If you use a
+            grouped or stacked bar chart, a key may be helpful to your users.
+        </p>
+        
+        <p>
+            By using the tooltips feature, you can provide more detail about what a particular bar represents. The tooltips in
+            <b>RGraph</b> can contain wide range of HTML, so you can use them to show photos or movies for example.
+        </p>
+    
+        <div>
+            <ul>
+                <li><a href="../docs/bar.html">Bar chart API documentation</a></li>
+            </ul>
+        </div>
+        
+        <div style="width: 950px">
+            <div style="width: 450px; float: left">
+                <canvas id="bar1" width="450" height="200">[No canvas support]</canvas>
+                <canvas id="bar4" width="450" height="200" style="border: 1px dashed black">[No canvas support]</canvas>
+            </div>
+            
+            <div style="width: 450px; float: right">
+                <canvas id="bar2" width="450" height="200">[No canvas support]</canvas>
+                <canvas id="bar5" width="450" height="200">[No canvas support]</canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

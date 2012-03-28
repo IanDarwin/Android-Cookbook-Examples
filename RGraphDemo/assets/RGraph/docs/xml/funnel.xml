@@ -1,0 +1,166 @@
+<rgraph object="funnel">
+    <property>
+        <name>chart.gutter</name>
+        <description>The gutter of the chart. This is the whitespace area around the chart.<br /><i>Default: 25</i></description>
+    </property>
+    <property>
+        <name>chart.colors</name>
+        <description>These are the colors used for each segment.<br /><i>Default: ['red', 'green', 'gray', 'blue', 'black', 'white']</i></description>
+    </property>
+    <property>
+        <name>chart.labels</name>
+        <description>An array of the labels to be used on the graph. <br /><i>Default: An empty array</i></description>
+    </property>
+    <property>
+        <name>chart.text.font</name>
+        <description>The font used to render the text.<br /><i>Default: Verdana</i></description>
+    </property>
+    <property>
+        <name>chart.text.color</name>
+        <description>The color of the labels. <br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.text.size</name>
+        <description>The size (in points) of the labels. <br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.text.boxed</name>
+        <description>Whether the text is contained within a white bounding box. In some cases this can help readability.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.text.halign</name>
+        <description>The horizontal alignment of the text. Can be <i>center</i> or <i>left</i>.<br /><i>Default: left</i></description>
+    </property>
+    <property>
+        <name>chart.title</name>
+        <description>The title of the graph, if any. <br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.title.hpos</name>
+        <description>This allows you to completely override the horizontal positioning of the title. It should be a number between 0 and 1, and is multiplied with the whole width of the canvas and then used as the horizontal position. <br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.title.vpos</name>
+        <description>This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.title.color</name>
+        <description>The color of the title.<br /> <i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.shadow</name>
+        <description>Whether a drop shadow is applied to the Funnel chart. The funnel is the first to use the canvas shadow API, and as such they won't be supported on all browsers. Currently only Safari 4+ (possibly earlier versions too), Firefox 3.5+ and Chrome 2+ support canvas shadows.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.color</name>
+        <description>The color of the drop shadow.<br /><i>Default: #666</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.blur</name>
+        <description>The severity of the shadow blurring effect.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.offsetx</name>
+        <description>The X offset of the shadow.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.offsety</name>
+        <description>The Y offset of the shadow.<br /><i>Default: 3</i></description>
+    </property>
+    <property>
+        <name>chart.contextmenu</name>
+        <description>An array of context menu items. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i></description>
+    </property>
+    <property>
+        <name>chart.tooltips</name>
+        <description>An array of tooltips for the Funnel chart segments.<br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.tooltips.effect</name>
+        <description>The animated effect that tooltips use - <i>fade</i> or <i>expand</i><br /><i>Default: fade</i></description>
+    </property>
+    <property>
+        <name>chart.tooltips.css.class</name>
+        <description>This is the name of the CSS class the graph uses.<br /><i>Default: RGraph_tooltip</i></description>
+    </property>
+    <property>
+        <name>chart.tooltips.override</name>
+        <description>If you wish to handle showing tooltips yourself, this should be a function object which does just that. There's more information on the <a href="tooltips.html">tooltips documentation page</a><br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.annotatable</name>
+        <description>Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.annotate.color</name>
+        <description>If you do not allow the use of the palette, then this will be the only colour allowed for annotations.<br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.resizable</name>
+        <description>Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.key</name>
+        <description>An array of informational texts to be used as the key<br /><i>Default: [] (An empty array)</i></description>
+    </property>
+    <property>
+        <name>chart.key.position</name>
+        <description>This determines where the key is drawn. It can be "graph" or "gutter".<br /><i>Default: graph</i></description>
+    </property>
+    <property>
+        <name>chart.key.background</name>
+        <description>This is the colour used for the background of the key.<br /><i>Default: #fff</i></description>
+    </property>
+    <property>
+        <name>chart.key.shadow</name>
+        <description>Whether a small drop shadow is applied to the key.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.mode</name>
+        <description>Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.factor</name>
+        <description>This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.in</name>
+        <description>Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.out</name>
+        <description>Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.hdir</name>
+        <description>The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.vdir</name>
+        <description>The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.delay</name>
+        <description>The delay (in milliseconds) between frames.<br /><i>Default: 50</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.frames</name>
+        <description>The number of frames in the zoom animation.<br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.shadow</name>
+        <description>Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.width</name>
+        <description>When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.height</name>
+        <description>When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.background</name>
+        <description>Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i></description>
+    </property>
+</rgraph>
