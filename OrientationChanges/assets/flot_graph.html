@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+ <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <title>Flot Examples</title> 
+    <link href="./javascript/flot/examples/layout.css" rel="stylesheet" type="text/css"></link> 
+    <!--[if IE]><script language="javascript" type="text/javascript" src="./javascript/flot/excanvas.min.js"></script><![endif]--> 
+    <script language="javascript" type="text/javascript" src="./javascript/flot/jquery.js"></script> 
+    <script language="javascript" type="text/javascript" src="./javascript/flot/jquery.flot.js"></script> 
+ </head> 
+    <body> 
+    <div id="placeholder" style="width:600px;height:300px;"></div> 
+ 
+    <p id="choices">Show:</p> 
+ 
+<script id="source" language="javascript" type="text/javascript"> 
+$(function () {
+    var datasets = {
+        "Symptoms": {
+            label: "Symptoms",
+            data: [[1988, 10], [1989, 20], [1990, 10], [1991, 30], [1992, 40]]
+        },        
+        "Reactions": {
+            label: "Reactions",
+                        data: [[1988, 0], [1989, 0], [1990, 10], [1991, 30], [1992, 40]]
+            
+        },
+        "Injections": {
+            label: "Injections",
+                        data: [[1988, 0], [1989, 0], [1990, 0], [1991, 30], [1992, 40]]
+            
+        },
+      
+    };
+ 
+    // hard-code color indices to prevent them from shifting as
+    // countries are turned on/off
+    var i = 0;
+    $.each(datasets, function(key, val) {
+        val.color = i;
+        ++i;
+    });
+    
+    // insert checkboxes 
+    var choiceContainer = $("#choices");
+    $.each(datasets, function(key, val) {
+        choiceContainer.append('<br/><input type="checkbox" name="' + key +
+                               '" checked="checked" id="id' + key + '">' +
+                               '<label for="id' + key + '">'
+                                + val.label + '</label>');
+    });
+    choiceContainer.find("input").click(plotAccordingToChoices);
+ 
+    
+    // 
+    function plotAccordingToChoices() {
+        var data = [];
+ 
+        choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && datasets[key])
+                data.push(datasets[key]);
+        });
+ 
+        if (data.length > 0)
+            $.plot($("#placeholder"), data, {
+                yaxis: { min: 0 },
+                xaxis: { tickDecimals: 0 }
+            });
+    }
+ 
+    plotAccordingToChoices();
+});
+</script> 
+ 
+ </body> 
+</html> 

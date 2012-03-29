@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="C:/repos/android-feed-reader-read-only/AFR/lib/rome-0.9.jar"/>
+	<classpathentry kind="lib" path="C:/repos/android-feed-reader-read-only/AFR/lib/jdom-1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TableLayout
+		android:id="@+id/table"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:stretchColumns="0">
+		<TableRow
+			android:id="@+id/top_add_entry_row"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent">
+
+			<EditText
+				android:id="@+id/rssURL"
+				android:hint="Enter RSS URL"
+				android:singleLine="true"
+				android:maxLines="1"
+				android:maxWidth="220dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+			</EditText>
+			<Button
+				android:id="@+id/goButton"
+				android:text="Go"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+			</Button>
+		</TableRow>
+	</TableLayout>
+
+	<!--  Mid Panel -->
+	<ListView
+		android:id="@+id/ListView"
+		android:layout_weight="1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</ListView>
+
+	<Button
+		android:id="@+id/clearButton"
+		android:text="Clear"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</Button>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="libs/andengine.jar"/>
+	<classpathentry kind="lib" path="libs/andengineaugmentedrealityextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginelivewallpaperextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginemodplayerextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginemultiplayerextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginemultitouchextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginephysicsbox2dextension.jar"/>
+	<classpathentry kind="lib" path="libs/andenginesvgtextureregionextension.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

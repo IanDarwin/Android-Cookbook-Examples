@@ -1,0 +1,199 @@
+{
+  "imports": [
+    {
+      "kind": "TYPE_REFERENCE",
+      "name": "Ljava/lang/Object",
+      "fingerprint": "635cbebe3e412f5b036d9d2d887a2be4ddb93b96"
+    }
+  ],
+  "kind": "SNAPSHOT",
+  "analysedOn": "2011-06-23T16:44:17.739-04:00",
+  "fingerprint": "0c98fc8ac403192a0609191a66ba75c0ac7feee4",
+  "name": "Lcom/dzinelabs/game/R",
+  "primaryType": {
+    "name": "Lcom/dzinelabs/game/R",
+    "superclass": "Ljava/lang/Object",
+    "interfaces": [],
+    "fields": [],
+    "methods": [
+      {
+        "name": "Lcom/dzinelabs/game/R.\u003cinit\u003e()V",
+        "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+        "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+        "line": 10,
+        "nestedTypes": [],
+        "modifiers": 1,
+        "objects": [
+          {
+            "type": "Ljava/lang/Object",
+            "names": [
+              "this"
+            ],
+            "kind": "PARAMETER",
+            "parameterCallSites": [],
+            "receiverCallSites": [
+              {
+                "receiver": "this",
+                "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                "sourceMethod": "Lcom/dzinelabs/game/R.\u003cinit\u003e()V",
+                "line": 10
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "line": 0,
+    "memberTypes": [
+      {
+        "name": "Lcom/dzinelabs/game/R$layout",
+        "superclass": "Ljava/lang/Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "Lcom/dzinelabs/game/R$layout.\u003cinit\u003e()V",
+            "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "line": 16,
+            "nestedTypes": [],
+            "modifiers": 1,
+            "objects": [
+              {
+                "type": "Ljava/lang/Object",
+                "names": [
+                  "this"
+                ],
+                "kind": "PARAMETER",
+                "parameterCallSites": [],
+                "receiverCallSites": [
+                  {
+                    "receiver": "this",
+                    "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                    "sourceMethod": "Lcom/dzinelabs/game/R$layout.\u003cinit\u003e()V",
+                    "line": 16
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "line": 0,
+        "memberTypes": [],
+        "modifiers": 49
+      },
+      {
+        "name": "Lcom/dzinelabs/game/R$drawable",
+        "superclass": "Ljava/lang/Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "Lcom/dzinelabs/game/R$drawable.\u003cinit\u003e()V",
+            "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "line": 13,
+            "nestedTypes": [],
+            "modifiers": 1,
+            "objects": [
+              {
+                "type": "Ljava/lang/Object",
+                "names": [
+                  "this"
+                ],
+                "kind": "PARAMETER",
+                "parameterCallSites": [],
+                "receiverCallSites": [
+                  {
+                    "receiver": "this",
+                    "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                    "sourceMethod": "Lcom/dzinelabs/game/R$drawable.\u003cinit\u003e()V",
+                    "line": 13
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "line": 0,
+        "memberTypes": [],
+        "modifiers": 49
+      },
+      {
+        "name": "Lcom/dzinelabs/game/R$string",
+        "superclass": "Ljava/lang/Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "Lcom/dzinelabs/game/R$string.\u003cinit\u003e()V",
+            "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "line": 19,
+            "nestedTypes": [],
+            "modifiers": 1,
+            "objects": [
+              {
+                "type": "Ljava/lang/Object",
+                "names": [
+                  "this"
+                ],
+                "kind": "PARAMETER",
+                "parameterCallSites": [],
+                "receiverCallSites": [
+                  {
+                    "receiver": "this",
+                    "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                    "sourceMethod": "Lcom/dzinelabs/game/R$string.\u003cinit\u003e()V",
+                    "line": 19
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "line": 0,
+        "memberTypes": [],
+        "modifiers": 49
+      },
+      {
+        "name": "Lcom/dzinelabs/game/R$attr",
+        "superclass": "Ljava/lang/Object",
+        "interfaces": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "Lcom/dzinelabs/game/R$attr.\u003cinit\u003e()V",
+            "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+            "line": 11,
+            "nestedTypes": [],
+            "modifiers": 1,
+            "objects": [
+              {
+                "type": "Ljava/lang/Object",
+                "names": [
+                  "this"
+                ],
+                "kind": "PARAMETER",
+                "parameterCallSites": [],
+                "receiverCallSites": [
+                  {
+                    "receiver": "this",
+                    "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                    "sourceMethod": "Lcom/dzinelabs/game/R$attr.\u003cinit\u003e()V",
+                    "line": 11
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "line": 0,
+        "memberTypes": [],
+        "modifiers": 49
+      }
+    ],
+    "modifiers": 49
+  }
+}
