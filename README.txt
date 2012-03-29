@@ -4,4 +4,6 @@ Each Directory is its own Eclipse project, and has a name that is cited at the e
     "create all projects"
 checkbox.
 
+Many of the projects will give you some noise when you first open them due to bin and/or gen being missing. For now, just create the directories and Refresh, or close and re-open, the project. There is a workaround but I haven't had time to apply it to all projects yet (creating empty directories).
+
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/).
