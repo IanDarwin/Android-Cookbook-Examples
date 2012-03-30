@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbarAlwaysDrawVerticalTrack="false">
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">          
+                        <TextView android:text="Serivice State" 
+style="@style/labelStyleRight"/>
+                        <TextView android:id="@+id/serviceState_info" 
+style="@style/textStyle"/>
+                </LinearLayout> 
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">                
+                        <TextView android:text="Cell Location" 
+style="@style/labelStyleRight"/>
+                        <TextView android:id="@+id/cellLocation_info" 
+style="@style/textStyle"/>
+                </LinearLayout>              
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">                
+                        <TextView android:text="Call State" 
+style="@style/labelStyleRight"/>
+                        <TextView android:id="@+id/callState_info" 
+style="@style/textStyle"/>
+                </LinearLayout>            
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">                    
+                        <TextView android:text="Connection State" 
+style="@style/labelStyleRight"/>
+                        <TextView android:id="@+id/connectionState_info" 
+style="@style/textStyle"/>
+                </LinearLayout>      
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">                
+                        <TextView android:text="Signal Level" 
+style="@style/labelStyleRight"/>             
+                        <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:orientation="horizontal">
+                                <ProgressBar 
+android:id="@+id/signalLevel" style="@style/progressStyle"/>
+                                <TextView 
+android:id="@+id/signalLevelInfo" style="@style/textSmallStyle"/>
+                        </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">            
+                        <TextView android:text="Data" 
+style="@style/labelStyleRight"/>
+                        <ImageView android:id="@+id/dataDirection" 
+style="@style/imageStyle"/>
+                </LinearLayout>
+                <TextView android:id="@+id/device_info" 
+style="@style/labelStyleLeft"/>
+        </LinearLayout>
+</ScrollView>
