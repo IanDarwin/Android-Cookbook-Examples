@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="libs/andenginemultitouchextension.jar"/>
 	<classpathentry kind="lib" path="libs/andenginephysicsbox2dextension.jar"/>
 	<classpathentry kind="lib" path="libs/andenginesvgtextureregionextension.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
