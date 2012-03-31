@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Intents Demo</string>
+    <string name="intent_label">Intent:</string>
+    <string name="go_easy">Go (Simple)</string>
+    <string name="go_results">Go With Results</string>
+</resources>
