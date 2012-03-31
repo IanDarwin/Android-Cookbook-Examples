@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ListPreference
+		android:key="listChoice"
+		android:title="List Choice"
+		android:entries="@array/choices"
+		android:entryValues="@array/choices"
+		/>
+
+	<PreferenceCategory 
+		android:title="Personal">
+		
+		<EditTextPreference
+			android:key="nameChoice"
+			android:title="Name"
+			android:hint="Name"
+		/>
+			
+		<CheckBoxPreference
+			android:key="booleanChoice"
+			android:title="Binary Choice"
+		/>
+			
+	</PreferenceCategory>
+	
+</PreferenceScreen>
