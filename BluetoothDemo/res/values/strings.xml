@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BT</string>
+    <string name="hello">Bluetooth Demo</string>
+    <string name="select_device">Select Me!</string>
+    <string name="none_paired">No devices paired, see manual</string>
+    <string name="discover">Discover Devices</string>
+</resources>
