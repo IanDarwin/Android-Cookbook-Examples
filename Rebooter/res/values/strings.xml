@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Rebooter</string>
+    <string name="rebootNormal">Reboot Normal</string>
+    <string name="rebootHack">Reboot Hack</string>
+</resources>
