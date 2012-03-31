@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Add Contacts Data</string>
+    <string name="app_name">HotContacts</string>
+    <string name="addAccounrSuccess">Account created</string>
+    <string name="addAccounrFailure">Account creation failed</string>
+    <string name="addContactSuccess">Contact Inserted</string>
+    <string name="addContactFailure">Contact Insertion failed</string>
+</resources>
