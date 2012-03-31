@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NotificationDemo</string>
+    <string name="hello">Hello World, Main!</string>
+    <string name="noticeMe">Lookie Here!!</string>
+    <string name="title">My Notification"</string>
+    <string name="message">This is my message</string>
+    <string name="target_name">Notification Target</string>
+    <string name="thanks">Thank you for selecting the notification.</string>
+    <string name="quitButton">Exit App</string>
+</resources>
