@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    <string name="app_name">CalAdder</string>
+    <string name="title">Well, this CalendarAdder at least started up...</string>
+	<string name="addUsingIntent">Add Using Intent</string>
+	<string name="addUsingContentProvider">Add Using Content Provider (ICS+ only)</string>
+</resources>
