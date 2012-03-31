@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Font Demo</string>
+    <string name="plain">Standard Font</string>
+    <string name="nicer">Custom Font</string>
+</resources>

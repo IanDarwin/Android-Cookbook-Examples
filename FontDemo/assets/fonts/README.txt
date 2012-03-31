@@ -1,0 +1,1 @@
+To run this demo, install a TTF font here, named fontdemo.ttf.
