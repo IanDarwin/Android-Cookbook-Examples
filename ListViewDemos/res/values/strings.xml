@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ListViewDemos</string>
+    <string name="order_takeout">Order for take-away</string>
+    <string name="order_eat_in">Order to dine in</string>
+    <string name="orderZone">Order Now!</string>
+</resources>

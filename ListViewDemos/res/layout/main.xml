@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<ListView 
+	android:id="@+id/myList"
+	android:layout_height="450px" 
+	android:layout_width="match_parent" 
+	></ListView>
+<TextView
+	android:id="@+id/orderZone"
+	android:editable="false"
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	android:gravity="center_horizontal"
+	android:text="@string/orderZone"/>
+</LinearLayout>
