@@ -1,2 +1,8 @@
+.metadata
+bin
 bin/*
+gen
 gen/*
+*.ap?
+*.class
+*.dex
