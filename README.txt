@@ -2,7 +2,7 @@ This repo contains most of the source code examples from the recipes published i
 
 Each Directory comprises its own Eclipse project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. If you open the repo in Eclipse with eGit, be sure to check the
     "create all projects"
-checkbox.
+checkbox. If you want to keep these mini-projects separate, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
 
 Many of the projects will give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. There is a workaround but I haven't had time to apply it to all projects yet (creating empty directories).
 
