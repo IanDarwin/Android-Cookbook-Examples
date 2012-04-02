@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="D:/Projects/AveryPatch/Trunk/Mobile Application/Source Code/MetriaApp/libs/phonegap-1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/cordova-1.5.0.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

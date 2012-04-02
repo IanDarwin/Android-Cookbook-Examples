@@ -4,7 +4,7 @@ package android.app.hello.phonegap;
 import android.os.Bundle;
 
 //Add phonegap.jar to build path
-import com.phonegap.DroidGap;
+import org.apache.cordova.DroidGap;
 
 public class HomeScreen extends DroidGap {
     /** Called when the activity is first created. */
