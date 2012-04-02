@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>PhoneGap</title>
+
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.0b2.min.css" > </link>
+<link rel="stylesheet" href="hello.css" > </link>
+<script src="jquery-1.6.2.min.js"></script>
+<script src="jquery.mobile-1.0b2.min.js"></script>
+
+<script src="helloresponse.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<div data-role="header" data-position="fixed">
+			<h1>Hello World from PHONEGAP</h1>
+		</div>
+		<div data-role="content">
+		
+			<span>
+				<li>
+				<a data-role="button" data-icon="grid"
+						data-theme="b" onClick="showAlert()">
+						
+						Click Me!!!</a>
+				</span>
+				</li>
+			<span>
+					<label for="name"> Random Number</label> <input type="text" name="name"
+							id="name" value="88" size="3" style="width: 28px;" />
+				<button	data-icon="refresh" data-theme="b" onclick="startRecallAfterXMilliSec()">Start</button>
+				<button	data-icon="refresh" data-theme="b" onclick="stopRecall()">Stop</button>
+			</span>
+		</div>
+		<!-- /content -->
+
+		<div data-role="footer" data-position="fixed">
+			<h5>&copy; SSC 2011</h5>
+		</div>
+
+</body>
+</html>
