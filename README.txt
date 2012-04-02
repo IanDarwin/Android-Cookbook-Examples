@@ -1,4 +1,4 @@
-This repo containsa number of source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/). Not all recipes have code; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. And of course some projects used as examples in the book are routinely hosted elsewhere.
+This repo contains a number of source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/). Not all recipes have code; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. And of course some projects used as examples in the book are routinely hosted elsewhere.
 
 Each Directory comprises its own Eclipse project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. If you open the repo in Eclipse with eGit, be sure to check the
     "create all projects"
