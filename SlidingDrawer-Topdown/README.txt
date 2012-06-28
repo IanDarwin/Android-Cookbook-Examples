@@ -9,4 +9,5 @@ and is apparently not able to at present.
 Some of the graphic elements were taken from the http://smart-timetable.googlecode.com/
 "Smart Timetable" googlecode project, and are copyright, and ASL-2 licensed, by Google Inc.
 
-The Panel class is missing, but I'm committing this in case anybody can finish it.
+*** WE KNOW IT'S BROKEN ***
+The Panel class is missing, but I'm committing this project in case anybody cares to finish it.
