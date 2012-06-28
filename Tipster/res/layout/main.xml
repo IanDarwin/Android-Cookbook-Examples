@@ -22,8 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:layout_column="2"
-                android:layout_span="2"
+                android:layout_column="1"
+                android:layout_span="3"
                 />                     
         </TableRow>
         
@@ -37,13 +37,22 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:text="@string/textLbl2"/>
+		<Button
+				android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+				android:text="-"
+				android:onClick="decrement"/>
         <EditText
                 android:id="@+id/txtPeople"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numeric="integer"
-                android:layout_column="2"
-                android:layout_span="3"/>                      
+                android:text="2"/>                      
+		<Button
+				android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+				android:text="+"
+				android:onClick="increment"/>
         </TableRow>
    
         <TableRow>

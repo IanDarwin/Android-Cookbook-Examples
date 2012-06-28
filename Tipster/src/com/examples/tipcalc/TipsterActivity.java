@@ -175,6 +175,14 @@ public class TipsterActivity extends Activity {
         // set focus on the first field
         txtAmount.requestFocus();
     }
+    
+    public void decrement(View v) {
+    	
+    }
+    
+    public void increment(View v) {
+    	
+    }
  
     /**
      * Calculate the tip as per data entered by the user.
