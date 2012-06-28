@@ -1,5 +1,7 @@
 package com.examples.tipcalc;
 
+import com.darwinsys.android.NumberPickerLogic;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,6 +31,7 @@ public class TipsterActivity extends Activity {
  
     // For the id of radio button selected
     private int radioCheckedId = -1;
+	private NumberPickerLogic mLogic;
  
     /** Called when the activity is first created. */
     @Override
@@ -63,39 +66,39 @@ public class TipsterActivity extends Activity {
          * Attach a OnCheckedChangeListener to the
          * radio group to monitor radio buttons selected by user
          */
-         rdoGroupTips.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-       
-         @Override
-         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            // Enable/disable Other Percentage tip field
-           if (checkedId == R.id.radioFifteen
-                      || checkedId == R.id.radioTwenty) {
-               txtTipOther.setEnabled(false);
-               /*
-                * Enable the calculate button if Total Amount and No. of
-                * People fields have valid values.
-                */
-               btnCalculate.setEnabled(txtAmount.getText().length() > 0
-                         && txtPeople.getText().length() > 0);
-           }
-           if (checkedId == R.id.radioOther) {
-              // enable the Other Percentage tip field
-              txtTipOther.setEnabled(true);
-              // set the focus to this field
-              txtTipOther.requestFocus();
-              /*
-               * Enable the calculate button if Total Amount and No. of
-               * People fields have valid values. Also ensure that user
-               * has entered a Other Tip Percentage value before enabling
-               * the Calculate button.
-               */
-              btnCalculate.setEnabled(txtAmount.getText().length() > 0
-                      && txtPeople.getText().length() > 0
-                      && txtTipOther.getText().length() > 0);
-           }
-           // To determine the tip percentage choice made by user
-           radioCheckedId = checkedId;
-          }
+        rdoGroupTips.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+        	@Override
+        	public void onCheckedChanged(RadioGroup group, int checkedId) {
+        		// Enable/disable Other Percentage tip field
+        		if (checkedId == R.id.radioFifteen
+        				|| checkedId == R.id.radioTwenty) {
+        			txtTipOther.setEnabled(false);
+        			/*
+        			 * Enable the calculate button if Total Amount and No. of
+        			 * People fields have valid values.
+        			 */
+        			btnCalculate.setEnabled(txtAmount.getText().length() > 0
+        					&& txtPeople.getText().length() > 0);
+        		}
+        		if (checkedId == R.id.radioOther) {
+        			// enable the Other Percentage tip field
+        			txtTipOther.setEnabled(true);
+        			// set the focus to this field
+        			txtTipOther.requestFocus();
+        			/*
+        			 * Enable the calculate button if Total Amount and No. of
+        			 * People fields have valid values. Also ensure that user
+        			 * has entered a Other Tip Percentage value before enabling
+        			 * the Calculate button.
+        			 */
+        			btnCalculate.setEnabled(txtAmount.getText().length() > 0
+        					&& txtPeople.getText().length() > 0
+        					&& txtTipOther.getText().length() > 0);
+        		}
+        		// To determine the tip percentage choice made by user
+        		radioCheckedId = checkedId;
+        	}
         });
          
          /*
@@ -105,6 +108,9 @@ public class TipsterActivity extends Activity {
          txtAmount.setOnKeyListener(mKeyListener);
          txtPeople.setOnKeyListener(mKeyListener);
          txtTipOther.setOnKeyListener(mKeyListener);
+         
+         /** Create a NumberPickerLogic to handle the + and - keys */
+         mLogic = new NumberPickerLogic(txtPeople, 1, Integer.MAX_VALUE);
     }
     
     /*
@@ -177,11 +183,11 @@ public class TipsterActivity extends Activity {
     }
     
     public void decrement(View v) {
-    	
+    	mLogic.decrement();
     }
     
     public void increment(View v) {
-    	
+    	mLogic.increment();
     }
  
     /**
