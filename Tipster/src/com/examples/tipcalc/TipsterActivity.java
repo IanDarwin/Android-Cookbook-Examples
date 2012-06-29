@@ -109,6 +109,9 @@ public class TipsterActivity extends Activity {
          txtPeople.setOnKeyListener(mKeyListener);
          txtTipOther.setOnKeyListener(mKeyListener);
          
+         btnCalculate.setOnClickListener(mClickListener);
+         btnReset.setOnClickListener(mClickListener);
+         
          /** Create a NumberPickerLogic to handle the + and - keys */
          mLogic = new NumberPickerLogic(txtPeople, 1, Integer.MAX_VALUE);
     }
