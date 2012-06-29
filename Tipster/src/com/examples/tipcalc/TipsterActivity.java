@@ -1,5 +1,7 @@
 package com.examples.tipcalc;
 
+import java.text.NumberFormat;
+
 import com.darwinsys.android.NumberPickerLogic;
 
 import android.app.Activity;
@@ -17,6 +19,12 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class TipsterActivity extends Activity {
+	
+	final static int DEFAULT_NUM_PEOPLE = 3;
+	
+	final static NumberFormat formatter =
+			NumberFormat.getCurrencyInstance();
+	
     // Widgets in the application
     private EditText txtAmount;
     private EditText txtPeople;
@@ -45,6 +53,8 @@ public class TipsterActivity extends Activity {
         txtAmount.requestFocus();
        
         txtPeople = (EditText) findViewById(R.id.txtPeople);
+        txtPeople.setText(Integer.toString(DEFAULT_NUM_PEOPLE));
+
         txtTipOther = (EditText) findViewById(R.id.txtTipOther);
  
         rdoGroupTips = (RadioGroup) findViewById(R.id.RadioGroupTips);
@@ -177,7 +187,7 @@ public class TipsterActivity extends Activity {
         txtTotalToPay.setText("");
         txtTipPerPerson.setText("");
         txtAmount.setText("");
-        txtPeople.setText("");
+        txtPeople.setText(Integer.toString(DEFAULT_NUM_PEOPLE));
         txtTipOther.setText("");
         rdoGroupTips.clearCheck();
         rdoGroupTips.check(R.id.radioFifteen);
@@ -241,13 +251,13 @@ public class TipsterActivity extends Activity {
          * calculate the tips
          */
         if (!isError) {
-            Double tipAmount = ((billAmount * percentage) / 100);
-            Double totalToPay = billAmount + tipAmount;
-            Double perPersonPays = totalToPay / totalPeople;
+            double tipAmount = ((billAmount * percentage) / 100);
+            double totalToPay = billAmount + tipAmount;
+            double perPersonPays = totalToPay / totalPeople;
      
-            txtTipAmount.setText(tipAmount.toString());
-            txtTotalToPay.setText(totalToPay.toString());
-            txtTipPerPerson.setText(perPersonPays.toString());
+            txtTipAmount.setText(formatter.format(tipAmount));
+            txtTotalToPay.setText(formatter.format(totalToPay));
+            txtTipPerPerson.setText(formatter.format(perPersonPays));
         }
     }
     
