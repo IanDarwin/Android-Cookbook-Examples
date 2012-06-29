@@ -1,5 +1,7 @@
 package com.example.numberpicker;
 
+import com.darwinsys.android.NumberPickerLogic;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -27,6 +29,7 @@ public class NumberPickerJava extends ViewGroup {
 	private static final String TAG = "NumberPickerJava";
 	EditText number;
 	Button plus, minus;
+	private NumberPickerLogic logic;
 
 	public NumberPickerJava(Context context) {
 		this(context, null);
@@ -40,6 +43,8 @@ public class NumberPickerJava extends ViewGroup {
 		addView(this.number = new EditText(context));
 		number.setTextSize(3, 24f);
 		number.setGravity(Gravity.CENTER);
+		
+		logic = new NumberPickerLogic(number);
 
 		addView(this.plus = new Button(context));
 		plus.setText("+");
@@ -47,38 +52,22 @@ public class NumberPickerJava extends ViewGroup {
 		addView(this.minus = new Button(context));
 		minus.setText("-");
 
-		setValue(1);
+		logic.setValue(1);
 
 		this.plus.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				increment();
+				logic.increment();
 			}           
 		});
 		this.minus.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				decrement();
+				logic.decrement();
 			}           
 		});
 	}
 
-	public void increment() {
-		number.setText(Integer.toString(getValue() + 1));
-	}
-
-	public void decrement() {
-		number.setText(Integer.toString(getValue() - 1));
-	}
-
-	/** Return the integer value of the clicker. Do not call if you are re-using this as a three-component layout manager! */
-	public int getValue() {
-		return Integer.parseInt(number.getText().toString());
-	}
-
-	public void setValue(int value) {
-		number.setText(Integer.toString(value));
-	}
 
 	/** 
 	 * Compute sizes and positions of subfields.
