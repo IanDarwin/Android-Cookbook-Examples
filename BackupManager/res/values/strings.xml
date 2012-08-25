@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="title_activity_backup_manager">BackupManagerActivity</string>
+    <string name="hello">BackupManagerActivity</string>
+    <string name="app_name">BackupManager</string>
+    <string name="filling_text">Choose Settings for your application:</string>
+    <string name="bacon_label">Sound On</string>
+    <string name="pastrami_label">Vibration On</string>
+    <string name="hummus_label">Backlight On</string>
+    <string name="extras_text">Extras:</string>
+    <string name="mayo_text">Use Orientation?</string>
+    <string name="tomato_text">Use Camera?</string>
+    <string name="menu_settings">Settings</string>
+
+</resources>
