@@ -15,4 +15,5 @@
     </application>
 
     <supports-screens android:anyDensity="true"/>
+    <uses-sdk android:targetSdkVersion="10" />
 </manifest> 
