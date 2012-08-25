@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="hello">Hello World</string>
+    <string name="app_name">Torch Demo</string>
+    <string name="app_title">Torch Demo</string>
+</resources>
