@@ -1,0 +1,49 @@
+Testing for Android 4.1 on a Galaxy Nexus; tests run by Ian
+
+AndroidPlot	java.lang.ClassNotFoundException: com.androidplot.xy.XYPlot
+AndroidRss	Class File Format errors on rss.jar
+BackupManager	Blank screen
+BluetoothDemo	Works
+CalAdder	Works
+CountDownTimerExample	Works
+CustomMenu	Works
+CustomToast	Works
+DisplayInfo	Works
+EmailAndroid	Works
+EpochJSCalendar	(incomplete)
+FacebookSdk	Connects to FB
+FaceFinder	Displays image but does not detect faces - threading/timing issue maybe?
+FontDemo	Works
+HelloCommandLine	
+HelloEclipse	
+HelloMaven	
+HelloTestingTarget	
+HelloTestingTestProject	
+HomeAppListView	developed on 4.1
+HoneycombGallery	(incomplete)
+HotContacts	Works (contact appears in Contacts app)
+IconizedListView	Works
+IntentsDemo	Works (tested geo and content://contacts... examples)
+JpsTrack	Not here! App does run on 4.1
+ListViewDemos	Works
+MarketSearch	Works (program name)
+MediaPlayerDemo	Works (missing mp3 though)
+NdkDemo		(awaiting NDK download)
+NotificationDemo	Works
+NumberPickers	Works
+OrientationChanges	Only shows list as run.
+PhoneGapDemo	Works
+PreferencesDemo	Works
+RGraphDemo	Works
+Rebooter	Cannot test without signing keys from custom rom!
+SectionedHeaderListView	(placeholder project)
+SendSMS	Works (appears to send; not received yet)
+SimpleCalendar	Works (doesn't handle rotation really well)
+SimpleJumper	(placeholder project)
+SimplePool	Works (nice graphics)
+SimpleTorchLight	Updated and works.
+SlidingDrawer-Topdown	Doesn't quite compile: Eclipse R gen can't find panel: attrs?
+Speaker		Works
+SplashDialog	Works
+TelephonyManager	Works
+Tipster		Works
