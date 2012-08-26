@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">MalibuApp</string>
+	<string name="app_name">FacebookSdkDemo</string>
 	<string name="Loading">Loading...</string>
 	<string name="recipes_window_title">Cocktails/Shooters Browse</string>
 	<string name="current_event_home_window_title">Current Event Home</string>
