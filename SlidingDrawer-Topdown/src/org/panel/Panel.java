@@ -1,23 +1,19 @@
 package org.panel;
 
-import java.security.spec.MGF1ParameterSpec;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Looper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.LinearLayout;
 
 public class Panel extends LinearLayout {
