@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>Getting Started - Epoch DHTML Javascript Calendar</title>
+<!--Epoch-related code-->
+<link rel="stylesheet" type="text/css" href="epoch_styles.css" />
+<script type="text/javascript" src="epoch_classes.js"></script>
+<!--This page's styles:-->
+<style type="text/css">
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+code {
+	display: block;
+	white-space: pre;
+	color: #999999;
+	border: solid #999999 1px;
+	padding: 1em;
+}
+div.main {
+	max-width: 70em;
+}
+.unimportant {
+	color: #999999;
+}
+.important {
+	color: blue;
+	font-weight: bold;
+}
+dl {
+	font-size: 0.8em;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 1em;
+}
+em {
+	font-weight: bold;
+}
+p {
+	margin-top: 0.5em;
+	text-align: justify;
+}
+h1, h2, h3, h4, h5 {
+	margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+<div class="main">
+<h1>Epoch DHTML Javascript Calendar &ndash; Getting Started</h1>
+<p>For those who've never heard the term 'RTFM' and want to dive in, check out the <a href="minimum_code.html">minimum code required</a> page to see the bare minimum you need to run Epoch.</p>
+<h2>Introduction</h2>
+<p>I developed Epoch as a free alternative to the existing Javascript calendars I found on the web&mdash;each one had some great
+   features but none had everything I wanted.  Those that did have features charged exorbitant licensing fees, and even then the
+   code was poorly organized and written using tons of hacks, poorly-organized 1999-era methods, and unneccessary &lt;iframes&gt;
+   or popup windows.</p>
+<p>Epoch is designed to be fully standards-compliant, with minimal allotments for obsolete browsers like IE4/Netscape 4.  Despite
+ this so called "lack" of backwards-compatibility, Epoch will work for over 98% of users with Javascript enabled &ndash; the
+ dominant browsers out there all support it!  More importantly, because of its standards-compliance, Epoch is future-compatible
+ and its use of many of the object-oriented features of Javascript makes it easier to maintain.  We've also have a nice list of
+ features and upgrades for future versions on Epoch, including:</p>
+<ul>
+  <li>Improved Customization</li>
+  <li>Improved Styles</li>
+  <li>AJAX &amp; XML Support</li>
+</ul>
+<p>If you have any questions or feedback on Epoch, or wish to contribute an add-on or skin for the calendar, let us know!</p>
+<p>Thanks for your interest in Epoch!<br />
+Nick Baicoianu<br />
+Epoch Lead Developer<br />
+<a href="mailto:nick@meanfreepath.com?subject=Epoch%20Javascript%20Calendar">nick@meanfreepath.com</a></p>
+<p>If you liked Epoch, please rate it on the major JavaScript directories:</p>
+<ul>
+  <li><a href="http://www.bigwebmaster.com/rate.cgi?ID=4146">BigWebmaster.com</a></li>
+  <li><a href="http://hotscripts.com/rate/58123.html">HotScripts.com</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p><img src="cc-LGPL-a.png" style="float: left;" alt="Creative Commons LGPL" />Epoch is licensed under the
+   <a href="http://creativecommons.org/licenses/LGPL/2.1/">Creative Commons GNU Lesser Public License</a>&mdash;this means you may copy and modify it as you
+   please provided you keep the copyright notice (in the .js files) intact. This applies to you only if you plan to distribute Epoch or any code based on Epoch.</p><br style="clear:both;" />
+<h2>Who Epoch is For</h2>
+<p>Epoch is designed to be easy for the webmaster as well as the user.  Integrating Epoch into your web pages doesn't require any hacks or complicated code
+  because of its object-oriented structure. If you aren't familiar with object-oriented programming in Javascript (or any other language, for that matter),
+  don't fret! Using Epoch's features requires no special knowledge outside of basic Javascript and HTML.  Everything you need to get Epoch running on your
+  web pages is included in this file and the <a href="minimum_code.html">example file</a>.</p>
+<p>Before you add Epoch to your web pages, consider your audience: are they advanced users who use the latest technology, or less-experienced
+   users who may not be using "modern browsers" (i.e. Internet Explorer 4 and below, Netscape 4 and below, IE for Mac)? You can easily check your users'
+   browsers if your webserver has a web stats program installed &ndash; if you use cPanel you have several options available.   If you think your users
+   are the less-experienced type, we recommend you use Epoch only for non-critical applications or in popup mode&mdash;that way if your users' browsers
+   can't run Epoch, or have switched off Javascript, they won't be left out in the cold.</p>
+
+  
+
+<h2>The Basics</h2>
+<p>For those who've never heard the term 'RTFM' and want to dive in, check out the <a href="minimum_code.html">minimum code required</a> page to see the bare minimum you need to run Epoch.</p>
+<h3>1. Uploading Epoch</h3>
+<p>Before you can do anything, you must upload the Epoch files (via FTP or SCP/SFTP) to a publicly-accessible folder on your webserver.  For example, if you site's root directory is <em>/var/www/mysite/</em> (UNIX/Linux), or
+   <em>C:\inetpub\mysite\</em> (for Windows), you can place them in any subdirectory, i.e. <em>/var/www/mysite/javascript/</em>, or <em>C:\inetpub\mysite\css\</em>.</p>
+<h3>2. Linking to the Epoch files</h3>
+<p>Before you can begin using Epoch in your page, you need to include the files necessary for Epoch to function and look good.  There are two files: a javascript file (<em>epoch_classes.js</em>), and a css file(<em>epoch_styles.css</em>).  You can rename these to whatever you want&mdash;just make sure that the file names match with what you're putting on your page.</p>
+<p>Both files should go in the &lt;HEAD&gt; section of eny webpage that uses Epoch &ndash; make sure they point to the correct subdirectory!</p>
+<code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;My Cool Calendar Page&lt;/title&gt;
+<span class="important">&lt;link rel="stylesheet" type="text/css" href="/path_to_css/epoch_styles.css" /&gt;</span> &lt;!--Epoch's styles--&gt;
+<span class="important">&lt;script type="text/javascript" src="/path_to_javascript/epoch_classes.js"&gt;&lt;/script&gt;</span> &lt;!--Epoch's Code--&gt;
+&lt;/head&gt;</code>
+<h3>3. Initializing and using Epoch in your Page</h3>
+<p>Once you've added the 2 files in the page head, you can start using Epoch!  To add an Epoch calendar to you page you will first need to create an
+   empty HTML element in the page body to physically hold the calendar; &lt;div&gt;, &lt;input&gt;, &lt;td&gt;, &lt;p&gt; are all acceptable elements. 
+   The containing element should be placed at the exact location you want Epoch to appear.</p>
+<h4>Syntax</h4>
+<p>When you've created the container element, you need to initialize an Epoch calendar for each one. You can do this using a line of code like this:</p>
+ <code><span class="important">calendar1 = new Epoch(<var>name</var>,<var>mode</var>,<var>container</var>,<var>multiselect</var>);</span></code>
+<h4>The Initialization Variables</h4>
+ <dl>
+   <dt>name</dt>
+   <dd>A unique name for the calendar &ndash; this will become the base for the calendar's <strong>id</strong> attribute.</dd>
+   <dt>mode</dt>
+   <dd>The mode the calendar will run in &ndash; can be <em>flat</em> or <em>popup</em></dd>
+   <dt>container</dt>
+   <dd>A Javascript resource pointing to the HTML element that will hold the calendar.  Usually accessed through the Javascript method <em>document.getElementById('container_id')</em>.</dd>
+   <dt>multiselect</dt>
+   <dd>Whether you can select multiple dates &ndash; <em>true</em> for yes, <em>false</em> for no.</dd>
+ </dl>
+ <p>This code must lie inside a &lt;SCRIPT&gt; tag.</p>
+<h4>Where to put it</h4>
+<p>You have several options on where to put the Epoch declarations</p>
+<h5>In the Page &lt;HEAD&gt;</h5>
+<code>&lt;head&gt;
+&lt;title&gt;My Cool Calendar Page&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="/path_to_css/epoch_styles.css" /&gt;   &lt;!--Epoch's styles--&gt;
+&lt;script type="text/javascript" src="/path_to_javascript/epoch_classes.js"&gt;&lt;/script&gt;   &lt;!--Epoch's Code--&gt;
+<span class="important">&lt;script type="text/javascript"&gt;
+var calendar1, calendar2, calendar3; /*must be declared in global scope*/
+/*put the calendar initializations in the window's <em>onload()</em> method*/
+window.onload = function() {
+	calendar1 = new Epoch('cal1','flat',document.getElementById('calendar1_container'),false);
+	calendar2 = new Epoch('cal2','popup',document.getElementById('calendar2_container'),false);
+	calendar3 = new Epoch('cal3','flat',document.getElementById('calendar3_container'),true);
+	...
+};
+&lt;/script&gt;</span>
+&lt;/head&gt;</code>
+<h5>In a separate .js file (using the code in blue above)</h5>
+<code>&lt;head&gt;
+&lt;title&gt;My Cool Calendar Page&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="/path_to_css/epoch_styles.css" /&gt;   &lt;!--Epoch's styles--&gt;
+&lt;script type="text/javascript" src="/path_to_javascript/epoch_classes.js"&gt;&lt;/script&gt;   &lt;!--Epoch's Code--&gt;
+<span class="important">&lt;script type="text/javascript" src="/path_to_javascript/my_declarations.js"&gt;&lt;/script&gt;   &lt;!--Epoch Declarations--&gt;</span>
+&lt;/head&gt;</code>
+<h5>Inside the containing HTML element (flat mode only)&mdash;not recommended</h5>
+<code>&lt;body&gt;
+&lt;h1&gt;My cool calendars&lt;/h1&gt;
+&lt;p&gt;Check out our great events calendars!&lt;/p&gt;
+<span class="important">&lt;div id="calendar1_container"&gt;
+  &lt;script type="text/javascript"&gt;new Epoch('cal1','flat',document.getElementById('calendar1_container'),false);&lt;/script&gt;
+&lt;/div&gt;
+&lt;!--No "appropriate" way of associating a calendar with an inline script--&gt;
+&lt;input id="calendar2_container" type="text" name="date" /&gt;
+&lt;div id="calendar3_container"&gt;
+  &lt;script type="text/javascript"&gt;new Epoch('cal3','flat',document.getElementById('calendar3_container'),true);&lt;/script&gt;
+&lt;/div&gt;</span>
+&lt;/body&gt;</code>
+<h2>Summary</h2>
+<p>In short, integrating Epoch into your webpage requires only 4 basic steps:</p>
+<ol>
+  <li>Copy <em>epoch_classes.js</em> and <em>epoch_styles.css</em> to your web server's Javascript and CSS directories.</li>
+  <li>Include the Epoch files in your page's head&mdash;be sure to include the correct path to the files!</li>
+  <li>Add containing elements in your page's body where you want Epoch to appear.  Each element should have a unique <strong>id</strong> attribute.</li>
+  <li>Initialize a calendar for each containing element.</li>
+</ol>
+<p>For a demo that shows the minimum required code to use Epoch, <a href="minimum_code.html">click here</a>.</p>
+</div>
+</body>
+</html>
