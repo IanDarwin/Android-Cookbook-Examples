@@ -18,12 +18,6 @@ public class MainActivity extends Activity {
 	private static final int DLG_UNSAVED = 1;
 	private static final String TAG = "DialogDemos";
 	
-	interface bleah {
-		public class X {
-			public void setFoo() {}
-		}
-	}
-	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
