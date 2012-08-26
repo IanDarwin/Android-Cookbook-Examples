@@ -3,13 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
+    <Button android:id="@+id/oldWayButton"
+        android:onClick="oldWay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
+        android:text="@string/old_way"
+        tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/newWayButton"
+        android:onClick="newWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oldWayButton"
+        android:layout_alignBottom="@+id/oldWayButton"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/oldWayButton"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/new_way"
         tools:context=".MainActivity" />
 
 </RelativeLayout>
