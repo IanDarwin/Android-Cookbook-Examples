@@ -28,7 +28,7 @@ JpsTrack	Not here! App does run on 4.1
 ListViewDemos	Works
 MarketSearch	Works (program name)
 MediaPlayerDemo	Works (missing mp3 though)
-NdkDemo		(awaiting NDK download)
+NdkDemo		Works. Only takes 0 or 1 mSec on today's phones; bump count or resolution?
 NotificationDemo	Works
 NumberPickers	Works
 OrientationChanges	Only shows list as run.
