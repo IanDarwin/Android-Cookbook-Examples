@@ -1,5 +1,6 @@
 package com.simpleflashlightdemo;
 
+import java.io.IOException;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,12 +13,14 @@ import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements SurfaceHolder.Callback {
 	private final static String TAG = "SimpleTorch";
 	Camera cam;
 	ToggleButton mTorch;
@@ -25,6 +28,8 @@ public class MainActivity extends Activity {
 	private Context context;
 	AlertDialog.Builder builder;
 	AlertDialog alertDialog;
+	private SurfaceView surfaceView;
+	private SurfaceHolder surfaceHolder;
 	private final int FLASH_NOT_SUPPORTED = 0;
 	private final int FLASH_TORCH_NOT_SUPPORTED = 1;
 	
@@ -71,10 +76,13 @@ public class MainActivity extends Activity {
 					}
 				}
 			});
-		}else{
+			surfaceView = (SurfaceView) this.findViewById(R.id.hiddenSurfaceView);
+			surfaceHolder = surfaceView.getHolder();
+			surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+			surfaceHolder.addCallback(this);
+		} else {
 			showDialog(MainActivity.this, FLASH_NOT_SUPPORTED);
 		}
-
 	}
 
 	@Override
@@ -99,11 +107,11 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public void showDialog (Context context, int dialogId){
+	public void showDialog (Context context, int dialogId) {
 		switch(dialogId){
 		case FLASH_NOT_SUPPORTED:
 			builder = new AlertDialog.Builder(context);
-			builder.setMessage("Sorry, Your phone does not support Flash")
+			builder.setMessage("Sorry, Your phone does not support Camera Flash")
 			.setCancelable(false)
 			.setNeutralButton("Close", new OnClickListener() {
 
@@ -131,4 +139,26 @@ public class MainActivity extends Activity {
 		}
 
 	}
+
+	@Override
+	public void surfaceChanged(SurfaceHolder holder, int format, int width,
+			int height) {
+		// Empty - required by interface
+	}
+
+	@Override
+	public void surfaceCreated(SurfaceHolder holder) {
+		try {
+			cam.setPreviewDisplay(holder);
+		} catch (IOException e) {
+			Log.e(TAG, "Unexpected IO Exception in setPreviewDisplay()", e);
+		}
+	}
+
+	@Override
+	public void surfaceDestroyed(SurfaceHolder holder) {
+		// Empty - required by interface.
+	}
+	
+	
 }
