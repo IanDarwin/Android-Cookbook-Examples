@@ -13,8 +13,8 @@
         tools:context=".MainActivity" />
 
     <Button
-        android:id="@+id/newWayButton"
-        android:onClick="newWay"
+        android:id="@+id/qdWayButton"
+        android:onClick="qdWay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/oldWayButton"
@@ -22,7 +22,21 @@
         android:layout_marginLeft="15dp"
         android:layout_toRightOf="@+id/oldWayButton"
         android:padding="@dimen/padding_medium"
-        android:text="@string/new_way"
+        android:text="@string/qd_way"
         tools:context=".MainActivity" />
+    
+    <Button
+        android:id="@+id/dlgFragButton"
+        android:onClick="dlgFragWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oldWayButton"
+        android:layout_alignBottom="@+id/qdWayButton"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/oldWayButton"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/dlgFragWay"
+        tools:context=".MainActivity" />
+    
 
 </RelativeLayout>
