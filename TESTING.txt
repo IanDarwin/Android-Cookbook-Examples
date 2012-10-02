@@ -37,7 +37,7 @@ PreferencesDemo	Works
 RGraphDemo	Works
 Rebooter	Cannot test without signing keys from custom rom!
 SectionedHeaderListView	(placeholder project)
-SendSMS	Works (appears to send; not received yet)
+SendSMS	Works (claims to send; but SMS not received)
 SimpleCalendar	Works (doesn't handle rotation really well)
 SimpleJumper	(placeholder project)
 SimplePool	Works (nice graphics)
