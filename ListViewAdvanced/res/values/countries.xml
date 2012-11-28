@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_names">
+        <item>Bhutan</item>
+        <item>Colombia</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+    </string-array>
+    <array name="country_icons">
+        <item>@drawable/bhutan</item>
+        <item>@drawable/colombia</item>
+        <item>@drawable/italy</item>
+        <item>@drawable/jamaica</item>
+        <item>@drawable/kazakhstan</item>
+        <item>@drawable/kenya</item>
+    </array>
+</resources>

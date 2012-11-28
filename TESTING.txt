@@ -11,8 +11,8 @@ CustomToast	Works
 DisplayInfo	Works
 EmailAndroid	Works
 EpochJSCalendar	(incomplete)
-FacebookSdk	Connects to FB
-FaceFinder	Displays image but does not detect faces - threading/timing issue maybe?
+FacebookSdk	Works - Connects to FB
+FaceFinder	Works - Displays image but does not detect faces - threading/timing issue maybe?
 FontDemo	Works
 HelloCommandLine	
 HelloEclipse	

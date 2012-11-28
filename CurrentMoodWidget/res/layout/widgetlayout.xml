@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#dd55ff"
+  android:padding="0.1dp">
+	<TextView android:text="@string/widgettext" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8" android:layout_gravity="center_vertical" android:textColor="#000000"></TextView>
+	<TextView android:text="@string/widgetmoodtext" android:id="@+id/widgetMood" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.3" android:layout_gravity="center_vertical" android:textColor="#000000"></TextView>
+	<ImageButton android:id="@+id/widgetBtn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.5" android:src="@drawable/smile_icon" android:layout_gravity="center_vertical"></ImageButton>
+</LinearLayout>

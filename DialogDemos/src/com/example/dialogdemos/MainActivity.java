@@ -65,10 +65,14 @@ public class MainActivity extends Activity {
     	}
     }
     
-    public void newWay(View v) {
-    	Log.d(TAG, "New Way invoked");
+    public void qdWay(View v) {
+    	Log.d(TAG, "Quick&Dirty Way invoked");
     	Dialog dlg = onCreateDialog(DLG_UNSAVED);
     	dlg.show();
+    	
+    }
+    
+    class MyDialog extends DialogFragment {
     	
     }
     

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="oreillymedia.cookbook.android.spikes"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/smile_icon" android:label="@string/app_name">
+    	<service android:name=".CurrentMoodService">
+    	</service>
+		<receiver android:name=".CurrentMoodWidgetProvider">
+		    <intent-filter>
+		        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+		        <category android:name="android.intent.category.DEFAULT"></category>
+		        <category android:name="android.intent.category.ALTERNATIVE"></category>
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="oreillymedia.cookbook.android.spikes.CurrentMoodService.MOODY" />
+		    </intent-filter>
+		    <meta-data android:name="android.appwidget.provider"
+		               android:resource="@xml/widgetproviderinfo" />
+		</receiver>
+    </application>
+    <uses-sdk android:minSdkVersion="8" />
+</manifest> 
