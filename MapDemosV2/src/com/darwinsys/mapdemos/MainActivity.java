@@ -31,6 +31,9 @@ public class MainActivity extends Activity {
 		case R.id.menu_mapsDemo:
 			startActivity(new Intent(this, MapsActivity.class));
 			return true;
+		case R.id.menu_about:
+			startActivity(new Intent(this, AboutActivity.class));
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
