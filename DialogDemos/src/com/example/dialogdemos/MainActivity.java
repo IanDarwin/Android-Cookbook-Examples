@@ -44,17 +44,17 @@ public class MainActivity extends Activity {
     		.setMessage(R.string.unsaved_changes_message)
     		.setPositiveButton(R.string.save_changes, new AlertDialog.OnClickListener() {
     			public void onClick(DialogInterface dialog, int which) {
-    				// saveInformation();
+    				// saveInformation(); // application-provided Save method.
     			}
     			})
     		.setNeutralButton(R.string.discard_changes, new AlertDialog.OnClickListener() {
     			public void onClick(DialogInterface dialog, int which) {
-    			        // finish();
+    			        finish();
     		        }
     			})
     		.setNegativeButton(R.string.cancel_dialog, new AlertDialog.OnClickListener() {
     			public void onClick(DialogInterface dialog, int which) {
-    			        // cancel();
+    			        dialog.cancel();
     			}
     			})
     			.create();

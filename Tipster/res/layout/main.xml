@@ -28,8 +28,8 @@
         </TableRow>
         
     <!-- Row 2: Text label placed in column zero,
-         text field placed in column two and allowed to
-         span two columns. So a total of 4 columns in this row -->
+         text field placed in column two and (post-book publication) surrounded
+         by increment and decrement buttons. So a total of 4 columns in this row -->
         <TableRow>
         <TextView
                 android:id="@+id/txtLbl2"
@@ -37,22 +37,22 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:text="@string/textLbl2"/>
-		<Button
-				android:layout_width="wrap_content"
+        <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-				android:text="-"
-				android:onClick="decrement"/>
+                android:text="-"
+                android:onClick="decrement"/>
         <EditText
                 android:id="@+id/txtPeople"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numeric="integer"
                 android:text="2"/>                      
-		<Button
-				android:layout_width="wrap_content"
+        <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-				android:text="+"
-				android:onClick="increment"/>
+                android:text="+"
+                android:onClick="increment"/>
         </TableRow>
    
         <TableRow>

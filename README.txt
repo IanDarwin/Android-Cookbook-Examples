@@ -11,3 +11,9 @@ You can download this as a Zip file, but then you won't get updates, and it will
 Many of the projects will give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. There is a workaround but I haven't had time to apply it to all projects yet (creating empty directories).
 
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
+
+N.B. There have been a few projects added since the very first edition, and
+a few renamed, so if you have the printed edition prior to December, 2012 you 
+should rummage around here before re-typing anythig that looks like a full example,
+and you will need to make the following adjustments:
+	EmailAndroid was renamed to EmailTextView, and EmailWithAttachments is new.

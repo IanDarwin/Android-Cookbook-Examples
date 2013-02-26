@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <LinearLayout 
+            android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical">
+            
+        <WebView
+            android:id="@+id/about_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    
+    	<TextView
+        	android:id="@+id/about_version_tv"
+        	android:textSize="18sp"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/about_done_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="@string/done"
+        />
+
+</LinearLayout>
