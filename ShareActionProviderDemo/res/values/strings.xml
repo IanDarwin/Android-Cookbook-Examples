@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ShareActionProviderDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
+    <string name="instructions">Press the Share icon to share some sample text</string>
+
+</resources>

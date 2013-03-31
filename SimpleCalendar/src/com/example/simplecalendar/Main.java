@@ -34,7 +34,6 @@ public class Main extends Activity implements OnClickListener
 		private GridCellAdapter adapter;
 		private Calendar _calendar;
 		private int month, year;
-		private final DateFormat dateFormatter = new DateFormat();
 		private static final String dateTemplate = "MMMM yyyy";
 
 		private void getRequestParameters()
@@ -71,7 +70,7 @@ public class Main extends Activity implements OnClickListener
 				prevMonth.setOnClickListener(this);
 
 				currentMonth = (Button) this.findViewById(R.id.currentMonth);
-				currentMonth.setText(dateFormatter.format(dateTemplate, _calendar.getTime()));
+				currentMonth.setText(DateFormat.format(dateTemplate, _calendar.getTime()));
 
 				nextMonth = (ImageView) this.findViewById(R.id.nextMonth);
 				nextMonth.setOnClickListener(this);
