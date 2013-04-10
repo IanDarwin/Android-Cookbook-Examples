@@ -47,7 +47,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 	 */
 	private int mActivatedPosition = ListView.INVALID_POSITION;
 
-	private Uri mDataUrl = Uri.parse("content:" + MyContentProvider.AUTHORITY);
+	private Uri mDataUrl = MyContentProvider.CONTENT_URI;
 	
 	public String[] mFromColumns = {
 			MyContentProvider.COLUMNS[1]
