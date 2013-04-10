@@ -55,6 +55,7 @@ public class MapsActivity extends Activity {
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		    
 		if (map==null) {
+			// XXX Warn about this to the user!
 			Log.d(TAG, "Map Fragment Not Found or no Map in it!!");
 			return;
 		}
@@ -66,10 +67,13 @@ public class MapsActivity extends Activity {
 		          .snippet(d.snippet));
 		}
 		
-		// Move the "camera" (view position) to our center point with a zoom vale.
-	    map.moveCamera(CameraUpdateFactory.newLatLngZoom(CENTER, 22f));
-
-	    // Zoom in, animating the camera.
-	    map.animateCamera(CameraUpdateFactory.zoomTo(10), 1500, null);
+		// Let the user see indoor maps if available.
+		map.setIndoorEnabled(true);
+		
+		// Enable my-location stuff
+		map.setMyLocationEnabled(true);
+		
+		map.moveCamera(CameraUpdateFactory.zoomTo(14));
+	    map.animateCamera(CameraUpdateFactory.newLatLng(CENTER), 1750, null);
 	}
 }

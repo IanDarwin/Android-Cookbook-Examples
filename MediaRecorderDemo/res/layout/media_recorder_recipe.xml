@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent">
+<ToggleButton
+ android:id="@+id/toggleRecordingButton"
+ android:layout_width="fill_parent"
+ android:textOff="Start Recording" 
+ android:textOn="Stop Recording"
+ android:layout_height="wrap_content"
+ />
+<FrameLayout
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent">
+    <SurfaceView android:id="@+id/surfaceView" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"></SurfaceView>
+
+</FrameLayout>
+</LinearLayout>
