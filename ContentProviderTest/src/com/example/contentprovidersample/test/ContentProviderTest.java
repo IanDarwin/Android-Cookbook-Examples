@@ -34,12 +34,12 @@ public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 		values.clear();
 		values.put("content", "Testing");
 		MyContentProvider cp = getProvider();
-		long id = ContentUris.parseId(cp.insert(MyContentProvider.CONTENT_URI, values));
+		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("created OK", id > -1);
-		long id2 = ContentUris.parseId(cp.insert(MyContentProvider.CONTENT_URI, values));
+		long id2 = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("id's increment", id2 > id);
 		String[] columns = {"content"};
-		final Cursor queryResults = cp.query(MyContentProvider.CONTENT_URI, columns, CONTENT_EQ_TESTING, null, null);
+		final Cursor queryResults = cp.query(MyContentProvider.ITEMS_URI, columns, CONTENT_EQ_TESTING, null, null);
 		assertEquals(2, queryResults.getCount());
 	}
 	
@@ -47,9 +47,9 @@ public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 		values.clear();
 		values.put("content", "Testing");
 		MyContentProvider cp = getProvider();
-		long id = ContentUris.parseId(cp.insert(MyContentProvider.CONTENT_URI, values));
+		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("created OK", id > -1);
-		final int deleted = cp.delete(MyContentProvider.CONTENT_URI, CONTENT_EQ_TESTING, null);
+		final int deleted = cp.delete(MyContentProvider.ITEMS_URI, CONTENT_EQ_TESTING, null);
 		assertEquals("deleted rows", 1, deleted);
 	}
 }
