@@ -24,7 +24,7 @@ public class MyContentProvider extends ContentProvider {
 	public static final String AUTHORITY = "com.example.contentprovidersample";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
-	public static final String TABLE = "mydata";
+	public static final String TABLE_NAME = "mydata";
 	
 	public static final String[] COLUMNS = { "_id", "content" };
 
@@ -38,7 +38,7 @@ public class MyContentProvider extends ContentProvider {
 	
 	@Override
 	public boolean onCreate() {
-		// do any database init needed?
+		mDatabase = new MyDatabaseHelper(getContext());
 		return true;
 	}
 	
@@ -62,7 +62,7 @@ public class MyContentProvider extends ContentProvider {
 		// it can be as simple as follows; inserting all values in database and
 		// returning the record id
 		long id = mDatabase.getWritableDatabase().insert(
-				MyDatabaseHelper.TABLE_NAME, null, values);
+				TABLE_NAME, null, values);
 		uri = Uri.withAppendedPath(uri, "/" + id);
 		return uri;
 	}
@@ -73,11 +73,13 @@ public class MyContentProvider extends ContentProvider {
 			String[] selectionArgs, String sortOrder) {
 		// build the query with SQLiteQueryBuilder
 		SQLiteQueryBuilder qBuilder = new SQLiteQueryBuilder();
-		qBuilder.setTables(MyDatabaseHelper.TABLE_NAME);
+		qBuilder.setTables(TABLE_NAME);
 		int uriType = matcher.match(uri);
+		System.out.println("URI Type = " + uriType);
 
 		// query the database and get result in cursor
-		Cursor resultCursor = qBuilder.query(mDatabase.getWritableDatabase(),
+		final SQLiteDatabase db = mDatabase.getWritableDatabase();
+		Cursor resultCursor = qBuilder.query(db,
 				projection, selection, selectionArgs, null, null, sortOrder,
 				null);
 		resultCursor.setNotificationUri(getContext().getContentResolver(), uri);
@@ -106,9 +108,7 @@ public class MyContentProvider extends ContentProvider {
 	final static class MyDatabaseHelper extends SQLiteOpenHelper {
 
 		public static final String DBNAME = "data_db.sqlite";
-		public static final String TABLE_NAME = "data";
 		public static final int VERSION = 1;
-		public static final String[] COLUMNS = { "id", "content" };
 		
 		public MyDatabaseHelper(Context context) {
 			// Super's constructor arguments:
@@ -131,7 +131,7 @@ public class MyContentProvider extends ContentProvider {
 					COLUMNS[1] + " varchar " + 
 					");");
 			int i = 0;
-			db.execSQL("inert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + ++i + ")");
+			db.execSQL("insert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + ++i + "')");
 		}
 
 		@Override
