@@ -25,6 +25,8 @@ public class MyContentProvider extends ContentProvider {
 	
 	public static final String TABLE_NAME = "mydata";
 	
+	public static final String MIME_VND_TYPE = "vnd.example.item";
+	
 	public static final String[] COLUMNS = { "_id", "content" };
 
 	private static final UriMatcher matcher = new UriMatcher(
@@ -48,9 +50,9 @@ public class MyContentProvider extends ContentProvider {
 		int matchType = matcher.match(uri);
 		switch (matchType) {
 		case ITEM:
-			return ContentResolver.CURSOR_ITEM_BASE_TYPE + "/item";
+			return ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + MIME_VND_TYPE;
 		case ITEMS:
-			return ContentResolver.CURSOR_DIR_BASE_TYPE + "/item";
+			return ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + MIME_VND_TYPE;
 		default:
 			throw new IllegalArgumentException("Unknown or Invalid URI " + uri);
 		}
