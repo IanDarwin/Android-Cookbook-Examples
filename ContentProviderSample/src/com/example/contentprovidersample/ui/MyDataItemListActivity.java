@@ -59,13 +59,13 @@ public class MyDataItemListActivity extends FragmentActivity implements MyDataIt
 	 * that the item with the given ID was selected.
 	 */
 	@Override
-	public void onItemSelected(int id) {
+	public void onItemSelected(long id) {
 		if (mTwoPane) {
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
 			// fragment transaction.
 			Bundle arguments = new Bundle();
-			arguments.putInt(MyDataItemDetailFragment.ARG_ITEM_ID, id);
+			arguments.putLong(MyDataItemDetailFragment.ARG_ITEM_ID, id);
 			MyDataItemDetailFragment fragment = new MyDataItemDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()

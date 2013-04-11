@@ -44,8 +44,7 @@ public class MyDataItemDetailActivity extends FragmentActivity {
 			Bundle arguments = new Bundle();
 			arguments.putString(
 					MyDataItemDetailFragment.ARG_ITEM_ID,
-					getIntent().getStringExtra(
-							MyDataItemDetailFragment.ARG_ITEM_ID));
+					getIntent().getStringExtra(MyDataItemDetailFragment.ARG_ITEM_ID));
 			MyDataItemDetailFragment fragment = new MyDataItemDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()

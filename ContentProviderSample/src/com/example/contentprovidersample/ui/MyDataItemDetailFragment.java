@@ -1,5 +1,6 @@
 package com.example.contentprovidersample.ui;
 
+import android.content.ContentProvider;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ public class MyDataItemDetailFragment extends Fragment {
 	 * represents.
 	 */
 	public static final String ARG_ITEM_ID = "item_id";
-
+	
 	/**
 	 * The dummy content this fragment is presenting.
 	 */
@@ -38,12 +39,10 @@ public class MyDataItemDetailFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			// Load the dummy content specified by the fragment
-			// arguments. In a real-world scenario, use a Loader
-			// to load content from a content provider.
-			// mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID)); // XXX
-			mItem = new MyDataItem(1, "Hello");
+		final Bundle arguments = getArguments();
+		if (arguments.containsKey(ARG_ITEM_ID)) {
+			int id = arguments.getInt(ARG_ITEM_ID);
+			mItem = new MyDataItem(1, "Placeholder for item #" + id);
 		}
 	}
 

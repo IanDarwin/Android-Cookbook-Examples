@@ -10,6 +10,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -27,6 +28,8 @@ import com.example.contentprovidersample.R;
  * interface.
  */
 public class MyDataItemListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
+
+	private static final String TAG = "ContentProviderSample";
 
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
@@ -56,7 +59,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 			R.id.mydataitem_detail
 	};
 	
-	SimpleCursorAdapter mCursorAdapter;
+	SimpleCursorAdapter mAdapter;
 	
 	
 	// Get the List View
@@ -71,7 +74,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 		/**
 		 * Callback for when an item has been selected.
 		 */
-		public void onItemSelected(int id);
+		public void onItemSelected(long id);
 	}
 
 	/**
@@ -80,7 +83,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 	 */
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
-		public void onItemSelected(int id) {
+		public void onItemSelected(long id) {
 		}
 	};
 
@@ -98,10 +101,13 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 		
 		mListView = (ListView) getActivity().findViewById(R.id.mydataitem_list);
 		
-		mCursorAdapter = 
+		// mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
+        //        android.R.layout.simple_list_item_activated_1,
+        //        android.R.id.text1, DummyContent.ITEMS));
+		mAdapter = 
 			    new SimpleCursorAdapter(
 			            getActivity(),                // Current context
-			            R.layout.activity_mydataitem_list,  // Layout for a single row
+			            android.R.layout.simple_list_item_activated_1,  // Layout for a single row
 			            null,                // No Cursor yet
 			            mFromColumns,        // Cursor columns to use
 			            mToFields,           // Layout fields to use
@@ -114,7 +120,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
          */
         getLoaderManager().initLoader(URL_LOADER, (Bundle)null, (LoaderCallbacks<Cursor>) this);
 
-		setListAdapter(mCursorAdapter);
+		setListAdapter(mAdapter);
 	}
 
 	@Override
@@ -157,7 +163,8 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 
 		// Notify the active callbacks interface (the activity, if the
 		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(((MyDataItem)mCursorAdapter.getItem(position)).id);
+		
+		mCallbacks.onItemSelected(id);
 	}
 
 	@Override
@@ -227,7 +234,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 	     * Moves the query results into the adapter, causing the
 	     * ListView fronting this adapter to re-display
 	     */
-	    mCursorAdapter.changeCursor(cursor);
+	    mAdapter.changeCursor(cursor);
 	}
 	
 	@Override
@@ -236,7 +243,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 	     * Clears out the adapter's reference to the Cursor.
 	     * This prevents memory leaks.
 	     */
-	    mCursorAdapter.changeCursor(null);
+	    mAdapter.changeCursor(null);
 	}
 
 
