@@ -6,7 +6,6 @@ The UI was provided by the Android New Project wizard by
 selecting "List-Detail" for the type of application.
 
 STATUS - 
-	INCOMPLETE    NOT WORKING
-	But at least it compiles, so it's a good starting point.
-	
-	Only committed in this state b/c I had to change computers to keep working on it.
+	INCOMPLETE - It compiles and runs, and the ContentProvider works
+	The UI does not display the list from the CP correctly (blanks) and the detail
+	shows a faked-up item, not the corresponding one from the CP.
