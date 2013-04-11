@@ -2,6 +2,7 @@ package com.example.contentprovidersample;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
@@ -112,13 +113,15 @@ public class MyContentProvider extends ContentProvider {
 		Log.d(Constants.TAG, "MyContentProvider.update()");
 		switch(matcher.match(uri)) {
 		case ITEM: // OK
+			long id = ContentUris.parseId(uri);
+			return mDatabase.getWritableDatabase().update(
+					TABLE_NAME, values, "_id = ?", new String[]{ Long.toString(id) });
 		case ITEMS: // OK
-			break;
+			return mDatabase.getWritableDatabase().update(
+					TABLE_NAME, values, selection, selectionArgs);
 		default:
 			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
-		return mDatabase.getWritableDatabase().update(
-				TABLE_NAME, values, selection, selectionArgs);
 	}
 	
 	/** The D of CRUD */
