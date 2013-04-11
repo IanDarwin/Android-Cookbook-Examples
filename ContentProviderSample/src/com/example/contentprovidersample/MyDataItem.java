@@ -15,6 +15,6 @@ public class MyDataItem {
 
 		@Override
 		public String toString() {
-			return content;
+			return id + "--" + content;
 		}
 	}
