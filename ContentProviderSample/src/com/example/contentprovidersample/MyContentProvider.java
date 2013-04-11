@@ -33,8 +33,8 @@ public class MyContentProvider extends ContentProvider {
 	private static final int ITEM = 0;
 	private static final int ITEMS = 1;
 	static {
-		matcher.addURI(AUTHORITY, "items", ITEMS);
 		matcher.addURI(AUTHORITY, "items/#", ITEM);
+		matcher.addURI(AUTHORITY, "items", ITEMS);
 	}
 	
 	@Override
