@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 /**
  * A sample Content Provider.
@@ -19,8 +20,6 @@ import android.net.Uri;
 public class MyContentProvider extends ContentProvider {
 
 	MyDatabaseHelper mDatabase;
-	private static final int ITEM = 0;
-	private static final int ITEMS = 1;
 	public static final String AUTHORITY = "com.example.contentprovidersample";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
@@ -31,6 +30,8 @@ public class MyContentProvider extends ContentProvider {
 	private static final UriMatcher matcher = new UriMatcher(
 			UriMatcher.NO_MATCH);
 
+	private static final int ITEM = 0;
+	private static final int ITEMS = 1;
 	static {
 		matcher.addURI(AUTHORITY, "items", ITEMS);
 		matcher.addURI(AUTHORITY, "items/#", ITEM);
@@ -58,9 +59,10 @@ public class MyContentProvider extends ContentProvider {
 	/** The C of CRUD */
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
-		// App-specific insertion code goes here
-		// it can be as simple as follows; inserting all values in database and
-		// returning the record id
+		Log.d(Constants.TAG, "MyContentProvider.insert()");
+		if (matcher.match(uri) == ITEM) {
+			throw new RuntimeException("Cannot specify ID when inserting");
+		}
 		long id = mDatabase.getWritableDatabase().insert(
 				TABLE_NAME, null, values);
 		uri = Uri.withAppendedPath(uri, "/" + id);
@@ -71,11 +73,10 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
+		Log.d(Constants.TAG, "MyContentProvider.query()");
 		// build the query with SQLiteQueryBuilder
 		SQLiteQueryBuilder qBuilder = new SQLiteQueryBuilder();
 		qBuilder.setTables(TABLE_NAME);
-		int uriType = matcher.match(uri);
-		System.out.println("URI Type = " + uriType);
 
 		// query the database and get result in cursor
 		final SQLiteDatabase db = mDatabase.getWritableDatabase();
@@ -91,15 +92,16 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
-		// to be implemented
-		return 0;
+		Log.d(Constants.TAG, "MyContentProvider.update()");
+		return mDatabase.getWritableDatabase().update(
+				TABLE_NAME, values, selection, selectionArgs);
 	}
 	
 	/** The D of CRUD */
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		// the app specific code for deleting records from database goes here
-		return 0;
+		Log.d(Constants.TAG, "MyContentProvider.delete()");
+		return mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
 	}
 	
 	/**
@@ -130,8 +132,10 @@ public class MyContentProvider extends ContentProvider {
 					COLUMNS[0] + " integer primary key autoincrement not null, " + 
 					COLUMNS[1] + " varchar " + 
 					");");
-			int i = 0;
-			db.execSQL("insert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + ++i + "')");
+			for (int i = 0; i < 3; i++) {
+				db.execSQL(
+					"insert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + i + "')");
+			}
 		}
 
 		@Override
