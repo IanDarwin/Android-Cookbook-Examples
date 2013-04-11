@@ -23,6 +23,8 @@ public class MyContentProvider extends ContentProvider {
 	public static final String AUTHORITY = "com.example.contentprovidersample";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
+	public static final Uri ITEMS_URI = Uri.withAppendedPath(CONTENT_URI, "/items");
+	
 	public static final String TABLE_NAME = "mydata";
 	
 	public static final String MIME_VND_TYPE = "vnd.example.item";
@@ -62,9 +64,15 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
 		Log.d(Constants.TAG, "MyContentProvider.insert()");
-		if (matcher.match(uri) == ITEM) {
+		switch(matcher.match(uri)) {
+		case ITEM: // Fail
 			throw new RuntimeException("Cannot specify ID when inserting");
+		case ITEMS: // OK
+			break;
+		default:
+			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
+		
 		long id = mDatabase.getWritableDatabase().insert(
 				TABLE_NAME, null, values);
 		uri = Uri.withAppendedPath(uri, "/" + id);
@@ -76,6 +84,13 @@ public class MyContentProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		Log.d(Constants.TAG, "MyContentProvider.query()");
+		switch(matcher.match(uri)) {
+		case ITEM: // OK
+		case ITEMS: // OK
+			break;
+		default:
+			throw new IllegalArgumentException("Did not recognize URI " + uri);
+		}
 		// build the query with SQLiteQueryBuilder
 		SQLiteQueryBuilder qBuilder = new SQLiteQueryBuilder();
 		qBuilder.setTables(TABLE_NAME);
@@ -95,6 +110,13 @@ public class MyContentProvider extends ContentProvider {
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
 		Log.d(Constants.TAG, "MyContentProvider.update()");
+		switch(matcher.match(uri)) {
+		case ITEM: // OK
+		case ITEMS: // OK
+			break;
+		default:
+			throw new IllegalArgumentException("Did not recognize URI " + uri);
+		}
 		return mDatabase.getWritableDatabase().update(
 				TABLE_NAME, values, selection, selectionArgs);
 	}
@@ -103,6 +125,13 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		Log.d(Constants.TAG, "MyContentProvider.delete()");
+		switch(matcher.match(uri)) {
+		case ITEM: // OK
+		case ITEMS: // OK
+			break;
+		default:
+			throw new IllegalArgumentException("Did not recognize URI " + uri);
+		}
 		return mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
 	}
 	
