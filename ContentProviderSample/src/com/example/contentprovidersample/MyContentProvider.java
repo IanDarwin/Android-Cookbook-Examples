@@ -19,10 +19,10 @@ import android.net.Uri;
 public class MyContentProvider extends ContentProvider {
 
 	MyDatabaseHelper mDatabase;
-	private static final int RECORDS = 1;
+	private static final int ITEM = 0;
+	private static final int ITEMS = 1;
 	public static final String AUTHORITY = "com.example.contentprovidersample";
-	public static final Uri CONTENT_URI = 
-		Uri.parse("content://" + AUTHORITY);
+	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
 	public static final String TABLE = "mydata";
 	
@@ -32,12 +32,13 @@ public class MyContentProvider extends ContentProvider {
 			UriMatcher.NO_MATCH);
 
 	static {
-		matcher.addURI(AUTHORITY, "records", RECORDS);
+		matcher.addURI(AUTHORITY, "items", ITEMS);
+		matcher.addURI(AUTHORITY, "items/#", ITEM);
 	}
 	
 	@Override
 	public boolean onCreate() {
-		// initialize your database constructs
+		// do any database init needed?
 		return true;
 	}
 	
@@ -45,8 +46,10 @@ public class MyContentProvider extends ContentProvider {
 	public String getType(Uri uri) {
 		int matchType = matcher.match(uri);
 		switch (matchType) {
-		case RECORDS:
-			return ContentResolver.CURSOR_DIR_BASE_TYPE + "/records";
+		case ITEM:
+			return ContentResolver.CURSOR_ITEM_BASE_TYPE + "/item";
+		case ITEMS:
+			return ContentResolver.CURSOR_DIR_BASE_TYPE + "/item";
 		default:
 			throw new IllegalArgumentException("Unknown or Invalid URI " + uri);
 		}
@@ -127,6 +130,8 @@ public class MyContentProvider extends ContentProvider {
 					COLUMNS[0] + " integer primary key autoincrement not null, " + 
 					COLUMNS[1] + " varchar " + 
 					");");
+			int i = 0;
+			db.execSQL("inert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + ++i + ")");
 		}
 
 		@Override
