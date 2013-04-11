@@ -29,10 +29,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MyDataitemListActivity" />
         </activity>
-        <!-- Only needed if you want to export the content provider to other apps - consider security before you do!
         <provider android:authorities="com.example.contentprovidersample"
 			android:name="MyContentProvider" />
-         -->
     </application>
 
 </manifest>
