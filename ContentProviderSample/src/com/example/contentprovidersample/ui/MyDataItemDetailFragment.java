@@ -1,5 +1,7 @@
 package com.example.contentprovidersample.ui;
 
+import android.content.ContentUris;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.contentprovidersample.MyContentProvider;
 import com.example.contentprovidersample.MyDataItem;
 import com.example.contentprovidersample.R;
 
@@ -41,8 +44,11 @@ public class MyDataItemDetailFragment extends Fragment {
 		final Bundle arguments = getArguments();
 		if (arguments.containsKey(ARG_ITEM_ID)) {
 			long id = arguments.getLong(ARG_ITEM_ID);
-			// XXX TODO Use the ContentResolver to get the actual item
-			mItem = new MyDataItem(1, "Placeholder for item #" + id);
+			final Cursor ret = getActivity().getContentResolver().query(ContentUris.withAppendedId(MyContentProvider.ITEMS_URI, id), null, null, null, null);
+			ret.moveToFirst();
+			long _id = ret.getLong(0);
+			String text = ret.getString(1);
+			mItem = new MyDataItem((int)_id, text);
 		}
 	}
 
