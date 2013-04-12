@@ -165,9 +165,6 @@ public class MyContentProvider extends ContentProvider {
 			super(context, DBNAME, null, VERSION);
 		}
 
-		// CREATE TABLE <table-name> (column1 INTEGER PRIMARY KEY AUTOINCREMENT
-		// NOT NULL, column2 TEXT);
-
 		public void onCreate(SQLiteDatabase db) {
 			createDatabase(db);
 		}
@@ -175,18 +172,17 @@ public class MyContentProvider extends ContentProvider {
 		private void createDatabase(SQLiteDatabase db) {
 			db.execSQL("create table " + TABLE_NAME + "(" +
 					COLUMNS[0] + " integer primary key autoincrement not null, " + 
-					COLUMNS[1] + " varchar " + 
+					COLUMNS[1] + " text " + 
 					");");
 			for (int i = 0; i < 3; i++) {
-				db.execSQL(
-					"insert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + i + "')");
+				db.execSQL("insert into " + TABLE_NAME + "(" + COLUMNS[1] + ") values ('" + "Item " + i + "')");
 			}
 		}
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			throw new IllegalStateException(
-					"No versions exist yet, this should not get called.");
+				"No versions exist yet, this should not get called.");
 		}
 	}
 
