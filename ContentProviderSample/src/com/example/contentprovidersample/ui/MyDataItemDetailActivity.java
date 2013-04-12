@@ -1,14 +1,12 @@
 package com.example.contentprovidersample.ui;
 
-import com.example.contentprovidersample.R;
-import com.example.contentprovidersample.R.id;
-import com.example.contentprovidersample.R.layout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+
+import com.example.contentprovidersample.R;
 
 /**
  * An activity representing a single MyDataitem detail screen. This activity is

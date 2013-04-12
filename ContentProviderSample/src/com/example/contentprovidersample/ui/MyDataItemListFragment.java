@@ -10,12 +10,10 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
 import com.example.contentprovidersample.MyContentProvider;
-import com.example.contentprovidersample.MyDataItem;
 import com.example.contentprovidersample.R;
 
 /**
