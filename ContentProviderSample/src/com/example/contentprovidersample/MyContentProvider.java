@@ -23,6 +23,7 @@ public class MyContentProvider extends ContentProvider {
 	private static final String _ID_EQ_QUESTION = "_id = ?";
 	MyDatabaseHelper mDatabase;
 	public static final String AUTHORITY = "com.example.contentprovidersample";
+	
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
 	public static final Uri ITEMS_URI = Uri.withAppendedPath(CONTENT_URI, "/items");
@@ -47,6 +48,12 @@ public class MyContentProvider extends ContentProvider {
 	public boolean onCreate() {
 		mDatabase = new MyDatabaseHelper(getContext());
 		return true;
+	}
+	
+	@Override
+	public void shutdown() {
+		mDatabase.close();
+		super.shutdown();
 	}
 	
 	@Override
