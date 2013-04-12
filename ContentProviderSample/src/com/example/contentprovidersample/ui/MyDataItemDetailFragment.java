@@ -41,7 +41,7 @@ public class MyDataItemDetailFragment extends Fragment {
 
 		final Bundle arguments = getArguments();
 		if (arguments.containsKey(ARG_ITEM_ID)) {
-			int id = arguments.getInt(ARG_ITEM_ID);
+			long id = arguments.getLong(ARG_ITEM_ID);
 			mItem = new MyDataItem(1, "Placeholder for item #" + id);
 		}
 	}
