@@ -54,7 +54,7 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 			MyContentProvider.COLUMNS[1]
 	};
 	public int[] mToFields = {
-			R.id.mydataitem_detail
+			android.R.id.text1
 	};
 	
 	SimpleCursorAdapter mAdapter;
