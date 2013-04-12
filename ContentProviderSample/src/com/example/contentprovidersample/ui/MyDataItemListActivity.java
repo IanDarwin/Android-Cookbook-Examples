@@ -1,12 +1,10 @@
 package com.example.contentprovidersample.ui;
 
-import com.example.contentprovidersample.R;
-import com.example.contentprovidersample.R.id;
-import com.example.contentprovidersample.R.layout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+
+import com.example.contentprovidersample.R;
 
 /**
  * An activity representing a list of Data Items. This activity has different
