@@ -216,11 +216,11 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 	            // Returns a new CursorLoader
 	            return new CursorLoader(
 	                        getActivity(),   // Parent activity context
-	                        mDataUrl,        // Table to query
-	                        null,		     // Projection to return
-	                        null,            // No selection clause
-	                        null,            // No selection arguments
-	                        null             // Default sort order
+	                        mDataUrl,        // What to query
+	                        MyContentProvider.COLUMNS,	// Projection to return
+	                        null,			// No selection clause
+	                        null,			// No selection arguments
+	                        "_id asc"		// Sort order
 	            		);
 	        default:
 	            // An invalid LoaderId id was passed in
