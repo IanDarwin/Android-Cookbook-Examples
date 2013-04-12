@@ -20,7 +20,7 @@ public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 	}
 	
 	public void testGetType() {
-		Uri uriItems = Uri.withAppendedPath(MyContentProvider.CONTENT_URI, "/items");
+		Uri uriItems = MyContentProvider.ITEMS_URI;
 		Uri uriItemSingle = Uri.withAppendedPath(MyContentProvider.CONTENT_URI, "/items/5");
 		MyContentProvider cp = getProvider();
 		assertEquals("cp getType multi", 
