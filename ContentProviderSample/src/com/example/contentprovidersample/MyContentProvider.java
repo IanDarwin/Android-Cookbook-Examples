@@ -20,6 +20,7 @@ import android.util.Log;
  */
 public class MyContentProvider extends ContentProvider {
 
+	private static final String _ID_EQ_QUESTION = "_id = ?";
 	MyDatabaseHelper mDatabase;
 	public static final String AUTHORITY = "com.example.contentprovidersample";
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
@@ -87,6 +88,8 @@ public class MyContentProvider extends ContentProvider {
 		Log.d(Constants.TAG, "MyContentProvider.query()");
 		switch(matcher.match(uri)) {
 		case ITEM: // OK
+			selection = _ID_EQ_QUESTION;
+			selectionArgs = new String[]{ Long.toString(ContentUris.parseId(uri)) };
 		case ITEMS: // OK
 			break;
 		default:
@@ -115,7 +118,7 @@ public class MyContentProvider extends ContentProvider {
 		case ITEM: // OK
 			long id = ContentUris.parseId(uri);
 			return mDatabase.getWritableDatabase().update(
-					TABLE_NAME, values, "_id = ?", new String[]{ Long.toString(id) });
+					TABLE_NAME, values, _ID_EQ_QUESTION, new String[]{ Long.toString(id) });
 		case ITEMS: // OK
 			return mDatabase.getWritableDatabase().update(
 					TABLE_NAME, values, selection, selectionArgs);
@@ -130,12 +133,13 @@ public class MyContentProvider extends ContentProvider {
 		Log.d(Constants.TAG, "MyContentProvider.delete()");
 		switch(matcher.match(uri)) {
 		case ITEM: // OK
+			long id = ContentUris.parseId(uri);
+			return mDatabase.getWritableDatabase().delete(TABLE_NAME, _ID_EQ_QUESTION, new String[]{ Long.toString(id) });
 		case ITEMS: // OK
-			break;
+			return mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
 		default:
 			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
-		return mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
 	}
 	
 	/**

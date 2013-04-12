@@ -81,7 +81,17 @@ public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 		assertEquals("Query the updated rows", 3, c.getCount());
 	}
 	
-	public void testDelete() {
+	public void testDeleteById() {
+		values.clear();
+		values.put("content", "Testing");
+		MyContentProvider cp = getProvider();
+		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
+		assertTrue("created OK", id > -1);
+		final int deleted = cp.delete(ContentUris.withAppendedId(MyContentProvider.ITEMS_URI, id), null, null);
+		assertEquals("deleted rows", 1, deleted);
+	}
+	
+	public void testDeleteByWhere() {
 		values.clear();
 		values.put("content", "Testing");
 		MyContentProvider cp = getProvider();
