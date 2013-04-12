@@ -41,6 +41,7 @@ public class MyDataItemDetailFragment extends Fragment {
 		final Bundle arguments = getArguments();
 		if (arguments.containsKey(ARG_ITEM_ID)) {
 			long id = arguments.getLong(ARG_ITEM_ID);
+			// XXX TODO Use the ContentResolver to get the actual item
 			mItem = new MyDataItem(1, "Placeholder for item #" + id);
 		}
 	}
