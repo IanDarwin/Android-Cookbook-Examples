@@ -27,8 +27,6 @@ import com.example.contentprovidersample.R;
  */
 public class MyDataItemListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
-	private static final String TAG = "ContentProviderSample";
-
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
 	 * activated item position. Only used on tablets.
