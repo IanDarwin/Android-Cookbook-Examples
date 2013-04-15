@@ -97,9 +97,6 @@ public class MyDataItemListFragment extends ListFragment implements LoaderManage
 		
 		mListView = (ListView) getActivity().findViewById(R.id.mydataitem_list);
 		
-		// mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-        //        android.R.layout.simple_list_item_activated_1,
-        //        android.R.id.text1, DummyContent.ITEMS));
 		mAdapter = 
 			    new SimpleCursorAdapter(
 			            getActivity(),                // Current context
