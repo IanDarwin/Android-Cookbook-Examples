@@ -10,13 +10,13 @@ import android.test.ProviderTestCase2;
 
 import com.example.contentprovidersample.MyContentProvider;
 
-public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
+public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 
 	private static final String CONTENT_EQ_TESTING = "content = 'Testing'";
 	private static final String[] contentColumns = {"content"};
 	final static ContentValues values = new ContentValues();
 
-	public ContentProviderTest() {
+	public MyContentProviderTest() {
 		super(MyContentProvider.class, MyContentProvider.AUTHORITY);
 	}
 	
