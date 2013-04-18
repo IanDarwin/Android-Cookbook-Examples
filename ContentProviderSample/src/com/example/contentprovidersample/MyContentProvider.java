@@ -35,13 +35,10 @@ public class MyContentProvider extends ContentProvider {
 	
 	public static final String MIME_VND_TYPE = "vnd.example.item";
 	
-	public static final String[] COLUMNS = { "_id", "content" };
+	private static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-	private static final UriMatcher matcher = new UriMatcher(
-			UriMatcher.NO_MATCH);
-
-	private static final int ITEM = 0;
-	private static final int ITEMS = 1;
+	private static final int ITEM = 1;
+	private static final int ITEMS = 2;
 	static {
 		matcher.addURI(AUTHORITY, "items/#", ITEM);
 		matcher.addURI(AUTHORITY, "items", ITEMS);
@@ -62,6 +59,7 @@ public class MyContentProvider extends ContentProvider {
 	@Override
 	public String getType(Uri uri) {
 		int matchType = matcher.match(uri);
+		Log.d("ReadingsContentProvider.getType()", uri + " --> " + matchType);
 		switch (matchType) {
 		case ITEM:
 			return ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + MIME_VND_TYPE;
@@ -151,6 +149,10 @@ public class MyContentProvider extends ContentProvider {
 			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
 	}
+	
+	public static final String[] COLUMNS = {
+		"_id", "content" 
+		};
 	
 	/**
 	 * Typical Android SQLite DB Helper class

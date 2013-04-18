@@ -12,7 +12,8 @@ import com.example.contentprovidersample.MyContentProvider;
 
 public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 
-	private static final String CONTENT_EQ_TESTING = "content = 'Testing'";
+	private static final String TEST_VALUE_COMMENT = "Testing";
+	private static final String CONTENT_EQ_TESTING = "content = '" + TEST_VALUE_COMMENT + "'";
 	private static final String[] contentColumns = {"content"};
 	final static ContentValues values = new ContentValues();
 
@@ -22,7 +23,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	
 	public void testGetTypeSingle() {
 		Uri uriItemSingle = Uri.withAppendedPath(MyContentProvider.CONTENT_URI, "items/5");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		assertEquals("cp getType single", 
 				ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + MyContentProvider.MIME_VND_TYPE,
 				cp.getType(uriItemSingle));
@@ -30,7 +31,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	
 	public void testGetTypeMulti() {
 		Uri uriItems = MyContentProvider.ITEMS_URI;
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		assertEquals("cp getType multi", 
 				ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + MyContentProvider.MIME_VND_TYPE,
 				cp.getType(uriItems));
@@ -50,7 +51,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	public void testInsertAndQuery() {
 		values.clear();
 		values.put("content", "Testing");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("created OK", id > -1);
 		long id2 = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
@@ -62,7 +63,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	public void testUpdateSingleViaUri() {
 		values.clear();
 		values.put("content", "Testing");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("row for update test created OK", id > -1);
 		values.put("content", "Not testing!");
@@ -74,7 +75,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	public void testUpdateMultipleWithWhere() {
 		values.clear();
 		values.put("content", "Testing");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("row for update test created OK", id > -1);
 		values.put("content", "Not testing!");
@@ -88,7 +89,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	 */
 	public void testUpdateMultipleWithoutWhere() {
 		values.clear();
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		values.put("content", "Not testing!");
 		Uri updateUri = MyContentProvider.ITEMS_URI;
 		int rc = cp.update(updateUri, values, null, null);
@@ -100,7 +101,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	public void testDeleteById() {
 		values.clear();
 		values.put("content", "Testing");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("created OK", id > -1);
 		final int deleted = cp.delete(ContentUris.withAppendedId(MyContentProvider.ITEMS_URI, id), null, null);
@@ -110,7 +111,7 @@ public class MyContentProviderTest extends ProviderTestCase2<MyContentProvider> 
 	public void testDeleteByWhere() {
 		values.clear();
 		values.put("content", "Testing");
-		MyContentProvider cp = getProvider();
+		ContentProvider cp = getProvider();
 		long id = ContentUris.parseId(cp.insert(MyContentProvider.ITEMS_URI, values));
 		assertTrue("created OK", id > -1);
 		final int deleted = cp.delete(MyContentProvider.ITEMS_URI, CONTENT_EQ_TESTING, null);
