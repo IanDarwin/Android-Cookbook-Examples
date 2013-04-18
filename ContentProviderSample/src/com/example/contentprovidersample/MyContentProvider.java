@@ -1,5 +1,6 @@
 package com.example.contentprovidersample;
 
+import android.annotation.TargetApi;
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -11,6 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 /**
@@ -18,6 +20,7 @@ import android.util.Log;
  * @author Ashwini Shahapurkar, http://androidcookbook.com/Recipe.seam?recipeId=1558
  * @author Ian Darwin - fleshed out
  */
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MyContentProvider extends ContentProvider {
 
 	private static final String _ID_EQ_QUESTION = "_id = ?";
@@ -26,7 +29,7 @@ public class MyContentProvider extends ContentProvider {
 	
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 	
-	public static final Uri ITEMS_URI = Uri.withAppendedPath(CONTENT_URI, "/items");
+	public static final Uri ITEMS_URI = Uri.withAppendedPath(CONTENT_URI, "items");
 	
 	public static final String TABLE_NAME = "mydata";
 	

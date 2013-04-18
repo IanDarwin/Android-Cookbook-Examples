@@ -1,5 +1,6 @@
 package com.example.contentprovidersample.test;
 
+import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -19,16 +20,31 @@ public class ContentProviderTest extends ProviderTestCase2<MyContentProvider> {
 		super(MyContentProvider.class, MyContentProvider.AUTHORITY);
 	}
 	
-	public void testGetType() {
+	public void testGetTypeSingle() {
+		Uri uriItemSingle = Uri.withAppendedPath(MyContentProvider.CONTENT_URI, "items/5");
+		MyContentProvider cp = getProvider();
+		assertEquals("cp getType single", 
+				ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + MyContentProvider.MIME_VND_TYPE,
+				cp.getType(uriItemSingle));
+	}
+	
+	public void testGetTypeMulti() {
 		Uri uriItems = MyContentProvider.ITEMS_URI;
-		Uri uriItemSingle = Uri.withAppendedPath(MyContentProvider.CONTENT_URI, "/items/5");
 		MyContentProvider cp = getProvider();
 		assertEquals("cp getType multi", 
 				ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + MyContentProvider.MIME_VND_TYPE,
 				cp.getType(uriItems));
-		assertEquals("cp getType single", 
-				ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + MyContentProvider.MIME_VND_TYPE,
-				cp.getType(uriItemSingle));
+	}
+	
+	public void testGetTypeInvalid() {
+		Uri einval = Uri.parse("geo:49.0000,49.000");
+		ContentProvider cp = getProvider();
+		try {
+			cp.getType(einval);
+			fail("Did not get expected RuntimeException");
+		} catch (RuntimeException expected) {
+			// empty
+		}
 	}
 	
 	public void testInsertAndQuery() {
