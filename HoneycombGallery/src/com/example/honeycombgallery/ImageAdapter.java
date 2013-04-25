@@ -10,11 +10,14 @@ import android.widget.ImageView.ScaleType;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context _context = null;
-	private final int[] imageIds = { R.drawable.formula, R.drawable.hollywood,
-			R.drawable.mode1, R.drawable.mode2, R.drawable.mother1,
-			R.drawable.mother2, R.drawable.nights, R.drawable.ontwerpje1,
-			R.drawable.ontwerpje2, R.drawable.relation1, R.drawable.relation2,
-			R.drawable.renaissance, R.drawable.renaissance_zoom };
+	private final int[] imageIds = { 
+			R.drawable.earthmover1,
+			R.drawable.grain,
+			R.drawable.palm_tree_backlit,
+			R.drawable.red_green_macaw,
+			R.drawable.september_sunset,
+			R.drawable.vancouver_narrows_bridge,
+		};
 
 	public ImageAdapter(Context context) {
 		this._context = context;
