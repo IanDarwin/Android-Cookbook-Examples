@@ -25,6 +25,8 @@ public class MyContentProvider extends ContentProvider {
 
 	private static final String _ID_EQ_QUESTION = "_id = ?";
 	MyDatabaseHelper mDatabase;
+	
+	/** The authority name. MUST be as listed as <provider android:authorities=...> in AndroidManifest */
 	public static final String AUTHORITY = "com.example.contentprovidersample";
 	
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
