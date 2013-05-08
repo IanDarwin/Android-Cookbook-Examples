@@ -44,12 +44,12 @@ public class MainActivity extends Activity {
 	/** Allow the JavaScript to pass some data in to us. */
 	@JavascriptInterface
 	public void setData(String newData) throws JSONException {
+		Log.d(TAG, "MainActivity.setData()");
 		JSONArray streamer = new JSONArray(newData);
 		data = new double[streamer.length()];
 		for (int i = 0; i < streamer.length(); i++) {
 			Double n = streamer.getDouble(i);
 			data[i] = n;
-			Log.d(TAG, "Value = " + n);
 		}
 	}
 	
