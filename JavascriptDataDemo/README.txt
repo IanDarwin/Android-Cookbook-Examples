@@ -1,0 +1,1 @@
+This is a simple project that just shows getting an ARRAY of data from Java to JavaScript and vice versa.
