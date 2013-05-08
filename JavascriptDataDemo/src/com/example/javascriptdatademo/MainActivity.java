@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
 		return a1dToJson(data).toString();
 	}
 	
+	/** Allow the JavaScript to pass some data in to us. */
 	@JavascriptInterface
 	public void setData(String newData) throws JSONException {
 		JSONArray streamer = new JSONArray(newData);
