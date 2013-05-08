@@ -1,15 +1,12 @@
 package com.example.javascriptdatademo;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONTokener;
 
-import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -35,13 +32,6 @@ public class MainActivity extends Activity {
 
 		// Load the URL
 		webView.loadUrl("file:///android_asset/jsdatademo.html");
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 	
 	double[] data = new double[] {42.6, 24, 17, 15.4};
