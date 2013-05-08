@@ -29,8 +29,6 @@ public class MainActivity extends Activity {
 		webView.requestFocusFromTouch();
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
-
-		// Load the URL
 		webView.loadUrl("file:///android_asset/jsdatademo.html");
 	}
 	
