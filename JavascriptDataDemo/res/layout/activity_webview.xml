@@ -8,10 +8,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button android:id="@+id/viewButton"
+    <WebView android:id="@+id/webView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="showWebView"
-        android:text="@string/showWebView" />
+        />
 
 </RelativeLayout>
