@@ -1,31 +1,32 @@
-package com.examples;
+package com.example.javascriptdatademo;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Application;
 import android.os.Bundle;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class Main extends Activity {
+public class WebViewActivity extends Activity {
+	static final String TAG = ArrayApplication.TAG;
 
-	/** Called when the activity is first created. */
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-
-		WebView webView = (WebView) this.findViewById(R.id.webview);
+		setContentView(R.layout.activity_webview);
+		
+		WebView webView = (WebView) this.findViewById(R.id.webView);
 		WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
-		webSettings.setBuiltInZoomControls(true);
+		Application application = getApplication();
+		webView.addJavascriptInterface(application, "android");
+		((ArrayApplication) application).setActivity(this);
 		webView.requestFocusFromTouch();
 		webView.setWebViewClient(new WebViewClient());
 		webView.setWebChromeClient(new WebChromeClient());
-
-		// Load the URL
-		webView.loadUrl("file:///android_asset/rgraphview.html");
+		webView.loadUrl("file:///android_asset/jsdatademo.html");
 	}
 }
