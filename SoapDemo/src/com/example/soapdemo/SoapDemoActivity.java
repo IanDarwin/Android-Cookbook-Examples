@@ -34,23 +34,31 @@ public class SoapDemoActivity extends Activity {
 	}
 	
 	public void convert(View v) {
-		try {
-		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-		request.addProperty("Celsius", degreesC.getText());
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.dotNet = true;
-		envelope.setOutputSoapObject(request);
-			HttpTransportSE httpTransport = new HttpTransportSE(URL);
-			httpTransport.debug = true;
-			httpTransport.call(SOAP_ACTION, envelope);
-			SoapPrimitive result = (SoapPrimitive) envelope.getResponse();
-			degreesF.setText(result.toString());
-		} catch (SoapFault e) {
-			System.out.println("Soap Fault: " + e.getMessage());
-		} catch (IOException e) {
-			System.out.println("IOException: " + e.getMessage());
-		} catch (XmlPullParserException e) {
-			System.out.println("XML Error: " + e.getMessage());
-		}
+		new Thread() {
+			public void run() {
+				try {
+					SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+					request.addProperty("Celsius", degreesC.getText().toString());
+					SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+					envelope.dotNet = true;
+					envelope.setOutputSoapObject(request);
+					HttpTransportSE httpTransport = new HttpTransportSE(URL);
+					httpTransport.debug = true;
+					httpTransport.call(SOAP_ACTION, envelope);
+					final SoapPrimitive result = (SoapPrimitive) envelope.getResponse();
+					runOnUiThread(new Runnable() {
+						public void run() {
+							degreesF.setText(result.toString());					
+						}
+					});
+				} catch (SoapFault e) {
+					System.out.println("Soap Fault: " + e.getMessage());
+				} catch (IOException e) {
+					System.out.println("IOException: " + e.getMessage());
+				} catch (XmlPullParserException e) {
+					System.out.println("XML Error: " + e.getMessage());
+				}
+			}
+		}.start();
 	}
 }
