@@ -3,6 +3,7 @@
 
     <string name="app_name">SoapDemo</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="degreesC">Centigrade</string>
+    <string name="degreesF">Fahrenheit</string>
 
 </resources>

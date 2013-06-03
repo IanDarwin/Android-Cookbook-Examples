@@ -27,14 +27,13 @@ public class SoapDemo extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.main_activity);
-		degreesC = findViewById(R.id.degreesC);
-		degreesF = findViewById(R.id.degreesF);
+		setContentView(R.layout.activity_main);
+		degreesC = (EditText) findViewById(R.id.degreesC);
+		degreesF = (EditText) findViewById(R.id.degreesF);
 		try {
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 		request.addProperty("Celsius", degreesC.getText());
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-				SoapEnvelope.VER11);
+		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		envelope.dotNet = true;
 		envelope.setOutputSoapObject(request);
 			HttpTransportSE httpTransport = new HttpTransportSE(URL);
