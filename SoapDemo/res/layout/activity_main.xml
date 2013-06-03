@@ -18,6 +18,7 @@
         android:id="@+id/degreesC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="4"
         android:inputType="number"/>
     
     <TextView
@@ -29,6 +30,7 @@
         android:id="@+id/degreesF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="4"
         android:inputType="number"/>
    </TableRow>
     </TableLayout>

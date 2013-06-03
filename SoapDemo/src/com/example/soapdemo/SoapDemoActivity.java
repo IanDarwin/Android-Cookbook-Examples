@@ -32,6 +32,7 @@ public class SoapDemoActivity extends Activity {
 	}
 	
 	public void convert(View v) {
+		Log.d(TAG, "Starting conversion thread.");
 		new Thread() {
 			public void run() {
 				try {
@@ -49,6 +50,7 @@ public class SoapDemoActivity extends Activity {
 							degreesF.setText(result.toString());					
 						}
 					});
+					Log.d(TAG, "Conversion finished, runOnUiThread started.");
                 } catch (Exception e) {
                     Log.e(TAG, "Web Service Error", e);
                     Toast.makeText(SoapDemoActivity.this, "Web Service Error: " + e, Toast.LENGTH_LONG).show();
