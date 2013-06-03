@@ -13,9 +13,10 @@ import org.ksoap2.transport.HttpTransportSE;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
-public class SoapDemo extends Activity {
+public class SoapDemoActivity extends Activity {
 	private static final String SOAP_ACTION = "http://tempuri.org/CelsiusToFahrenheit";
 	private static final String METHOD_NAME = "CelsiusToFahrenheit";
 	private static final String NAMESPACE = "http://tempuri.org/";
@@ -30,6 +31,9 @@ public class SoapDemo extends Activity {
 		setContentView(R.layout.activity_main);
 		degreesC = (EditText) findViewById(R.id.degreesC);
 		degreesF = (EditText) findViewById(R.id.degreesF);
+	}
+	
+	public void convert(View v) {
 		try {
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 		request.addProperty("Celsius", degreesC.getText());
