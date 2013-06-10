@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="template/template.xhtml">
+
+	<ui:define name="title">Site Failure or User Error</ui:define>
+	<ui:define name="body">
+	<h:form>
+		<p:panel>
+			<f:facet name="header">Error Page</f:facet>
+
+<p>
+Dude!! That ended badly!
+</p>
+<p>
+The mice inside our server squeak out the problem as follows: "#{errorHandler.exception}".  Eek eek!
+</p>
+
+<p>
+Please <a href="/readingList.jsf">try again.</a>
+</p>
+
+</p:panel>
+</h:form>
+</ui:define>
+</ui:composition>

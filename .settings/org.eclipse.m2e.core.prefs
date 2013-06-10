@@ -1,0 +1,4 @@
+activeProfiles=arquillian-weld-ee-embedded
+eclipse.preferences.version=1
+resolveWorkspaceProjects=true
+version=1

@@ -1,0 +1,14 @@
+This project is the backend server for Razorback. It implements in
+JavaEE (JAX-RS) both the web-service and the web UI parts of the
+CHF server.  In the old Rails version, both parts run on different
+ports (the REST service normally runs on port 8099). Here there is
+no distinction, both run on port 80.
+
+It needs an app server and a database. Developed with JBoss AS7
+(now known as WildFly see http://wildfly.org) and PostgreSQL 9. For
+JBoss AS7 setup, see files under jbossas7/.
+
+The JPA model exported by datamodel-java is used to save the actual
+data.
+
+The service needs to be configured for BASIC AUTH on the PUT services.
