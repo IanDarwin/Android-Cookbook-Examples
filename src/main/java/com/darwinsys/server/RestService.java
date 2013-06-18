@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -31,8 +33,6 @@ import model.reading.ReadingType;
 import model.reading.SymptomReading;
 import model.reading.WeightReading;
 
-import org.ehealthinnovation.entityframework.EntityHome;
-
 /**
  * This implements only the web-service part of the CHF server.
  * It uses a JPA model to access the data.
@@ -47,7 +47,7 @@ public class RestService {
 	private static final String TEST_ALERT_STRING = "This is a test alert! Do not act upon it.";
 
 	@Inject
-	ReadingHome readingBean; 						// Believed to be thread-safe.
+	EntityManager entityManager;
 	
 	boolean
 		/** True if we want to print/log call activity */
@@ -257,7 +257,7 @@ public class RestService {
 		reading.setTimeSource(Integer.valueOf(params.get("reading[time_source]").get(0)));
 		
 		try {
-			readingBean.persist(reading);
+			entityManager.persist(reading);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.notModified("FAIL-persistence: " + e).build();
@@ -280,7 +280,10 @@ public class RestService {
 			@PathParam("readingId")long rId) {
 		trace(String.format("GET /patients/%s/reading %d", userName, rId));
 
-		Reading r = readingBean.findReading(userName, rId);
+		Query q = entityManager.createQuery("SELECT r from Reading r where r.id = ? AND r.userName = ?");
+		q.setParameter(1, userName);
+		q.setParameter(2, rId);
+		Reading r = (Reading) q.getSingleResult();
 		return r.toString();
 	}
 	
@@ -326,16 +329,6 @@ public class RestService {
 		System.out.println("ClientLog: " + level + ": " + message);
 		System.out.println("... for patient " +patientId + " device " + deviceId + " running " + clientOs);
 		return Response.ok().build();
-	}
-
-	/** Accessor, used in unit testing. */
-	public EntityHome<Reading> getReadingBean() {
-		return readingBean;
-	}
-
-	/** Accessor, used in unit testing. */
-	public void setReadingBean(ReadingHome readingBean) {
-		this.readingBean = readingBean;
 	}
 
 }
