@@ -1,4 +1,4 @@
-package org.ehealthinnovation.server;
+package com.darwinsys.server;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
