@@ -49,6 +49,10 @@ public class RestService {
 	@Inject
 	EntityManager entityManager;
 	
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
 	boolean
 		/** True if we want to print/log call activity */
 		trace = true,
@@ -56,8 +60,6 @@ public class RestService {
 		alert = false;
 
 	private boolean debug;
-	
-	private Date serviceStarted = new Date();
 
 	public static final String WEB_SERVICE_VERSION = "2.0";
 	
@@ -330,5 +332,4 @@ public class RestService {
 		System.out.println("... for patient " +patientId + " device " + deviceId + " running " + clientOs);
 		return Response.ok().build();
 	}
-
 }

@@ -19,7 +19,6 @@ import org.junit.Test;
 
 public class RestServiceTest extends DatabaseUsingTest {
 	
-	private ReadingHome readingBean;
 	private RestService target;
 	
 	// Beware of using @BeforeClass - it's in superclass.
@@ -27,10 +26,8 @@ public class RestServiceTest extends DatabaseUsingTest {
 	@Before
 	public void setUp() {
 		target = new RestService();
-		readingBean = new ReadingHome();
-		target.setReadingBean(readingBean);
 		super.setUp();
-		readingBean.setEntityManager(entityManager);  // simulate CDI; EM created in super.
+		target.setEntityManager(entityManager);  // simulate CDI; EM created in super.
 	}
 
 	@Test
