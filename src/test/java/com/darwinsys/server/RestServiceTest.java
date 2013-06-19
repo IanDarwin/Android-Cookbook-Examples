@@ -88,7 +88,7 @@ public class RestServiceTest extends DatabaseUsingTest {
 		
 		transaction.commit();
 		
-		String ret = target.getOneReading(username, rId);
+		String ret = target.getOneItem(username, rId);
 		assertNotNull(ret);
 		System.out.println("RestServiceTest.testGetOneReading() -> " + ret);
 	}

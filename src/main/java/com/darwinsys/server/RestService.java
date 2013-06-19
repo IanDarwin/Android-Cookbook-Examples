@@ -6,8 +6,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -23,18 +21,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
-import model.Patient;
-import model.reading.BloodGlucoseReading;
-import model.reading.BloodPressureReading;
-import model.reading.EcgReading;
-import model.reading.PulseReading;
-import model.reading.Reading;
-import model.reading.ReadingType;
-import model.reading.SymptomReading;
-import model.reading.WeightReading;
+import com.example.myaccount.model.ToDoItem;
+
+
 
 /**
- * This implements only the web-service part of the CHF server.
+ * This implements only the web-service part of the ToDo server.
  * It uses a JPA model to access the data.
  * @author Ian Darwin
  */
@@ -137,136 +129,36 @@ public class RestService {
 			return "ok; set to " + this.debug;
 		} else if ("alerts".equals(option)) {
 			alert = value;
-			return "ok; all readings will now return: " + TEST_ALERT_STRING;
+			return "ok; all items will now return: " + TEST_ALERT_STRING;
 		}
 		return "ok; WARNING: unknown option: " + option;
 	}
 	
-	/** Used to upload a reading 
+	/** Used to upload a todo item
 	 * @throws ParseException on certain invalid inputs
 	 *  */
-	@POST @Path("/patients/{userName}/readings")
+	@POST @Path("/todo/{userName}/item")
 	@Produces("text/plain")
 	@Consumes({"application/x-www-form-urlencoded", "multipart/form-data"})
-	public Response postNormalReading(
+	public Response SaveToDoItem(
 		@PathParam("userName")String userName, // aka patient id!
 		MultivaluedMap<String, String> params) throws ParseException {
 		
-		final String TAG = "RazorbackServer.postNormalReading(): ";
+		final String TAG = "RestService.postNormalitem(): ";
 		
-		trace("POST /patients/" + userName + "/readings");
-		String type = params.getFirst("type");
-		if (type == null) {
-			final String message = "no type field";
-			System.out.println(TAG + message);
-			return Response.notModified(message).build();
-		}
-		ReadingType readingType;
-		try {
-			readingType = ReadingType.valueFromString(type);
-		} catch (RuntimeException e1) {
-			final String message = "Invalid type field " + type;
-			System.err.println(TAG + message);
-			return Response.notModified(message).build();
-		}
-		System.out.printf("RestService.postNormalReading(): Update %s reading for %s%n", readingType, userName);
-
-		// Dump map for debugging; remove when done!
-		if (debug) {
-			final Set<String> keys = params.keySet();
-			for (String k : keys) {
-				String v = params.getFirst(k);
-				System.out.printf("%s -> %s%n", k, v);
-			}
-		}
+		trace("POST /patients/" + userName + "/items");
 		
-		Reading reading = null;
-		switch(readingType) {
-		case BloodGlucose:
-			BloodGlucoseReading bg = new BloodGlucoseReading();
-			reading = bg;
-			bg.setMeasurement(Double.valueOf(params.get("reading[measurement]").get(0)));
-			bg.setUnits(params.get("reading[units]").get(0));
-			break;
-		case BloodPressure:
-			BloodPressureReading bp = new BloodPressureReading();
-			reading = bp;
-			bp.setDbp(Integer.valueOf(params.get("reading[dbp]").get(0).trim())); // diastolic
-			bp.setSbp(Integer.valueOf(params.get("reading[sbp]").get(0).trim())); // systolic
-			bp.setMap(Integer.valueOf(params.get("reading[map]").get(0).trim()));
-			break;
-		case ECG:
-			EcgReading ecg = new EcgReading();
-			reading = ecg;
-			// XXX FINISH ME - get details
-			break;
-		case Pulse:
-			PulseReading pr = new PulseReading();
-			reading = pr;
-			pr.setMeasurement(Integer.valueOf(params.get("reading[measurement]").get(0).trim()));
-			pr.setUnits(params.get("reading[units]").get(0));
-			break;
-		case Symptom:
-			SymptomReading sr = new SymptomReading();
-			reading = sr;
-			int answers[] = new int[20];
-			for (int i = 0; i < answers.length; i++) {
-				final List<String> list = params.get("response" + i);
-				if (list == null) {
-					break;
-				}
-				String raw = list.get(0);
-				if (raw == null) {
-					break;
-				}
-				System.out.println("ANSWER " + i + " " + raw);
-				answers[i] = Integer.valueOf(raw.trim());
-			}
-			break;
-		case Weight:
-			WeightReading w = new WeightReading();
-			reading = w;
-			w.setMeasurement(Double.valueOf(params.get("reading[measurement]").get(0).trim()));
-			w.setUnits(params.get("reading[units]").get(0));
-			break;
-		default:
-			System.err.println("Unhandled case - reading type from client: " + readingType);
-			return Response.serverError().build();
-		}
-		
-		// Common fields
-		Patient pat = new Patient();
-		pat.setId(100);						// XXX HUGE HACK
-		pat.setLogin(userName);
-		reading.setPatient(pat);
-		reading.setRid(Long.valueOf(params.get("reading[rid]").get(0)));
-		reading.setMeasurementContext(params.get("reading[measurement_context]").get(0));
-		reading.setRelationship(params.get("reading[relationship]").get(0));
-		// Use a list here because the created_at can be null, and otherwise we get an NPE
-		// There should be only one element.
-		final List<String> dateCreatedParams = params.get("reading[created_at]");	
-		if (dateCreatedParams != null) {
-			final String dateEntered = dateCreatedParams.get(0).trim();
-			synchronized(df) {	// see comments on field.
-				reading.setCreatedAt(df.parse(dateEntered));
-			}
-		}
-		final String dateMeasured = params.get("reading[measured_at]").get(0);
-		synchronized(df) {
-			reading.setMeasuredAt(df.parse(dateMeasured));
-		}
-		reading.setSerialNumber(params.get("reading[serial_number]").get(0));
-		reading.setTimeSource(Integer.valueOf(params.get("reading[time_source]").get(0)));
+		ToDoItem item = new ToDoItem();
 		
 		try {
-			entityManager.persist(reading);
+			entityManager.persist(item);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.notModified("FAIL-persistence: " + e).build();
 		}
 		
 		try {
-			return Response.created(new URI(String.format("/patients/%s/readings/%d", userName, reading.getRid()))).build();
+			return Response.created(new URI(String.format("/patients/%s/items/%d", userName, item.getId()))).build();
 		} catch (URISyntaxException e) {
 			// CANT HAPPEN
 			System.err.println("IMPOSSIBLE ERROR: " + e);
@@ -275,17 +167,17 @@ public class RestService {
 		}
 	}
 	
-	/** Used to download a reading BY READING ID */
-	@GET @Path("/patients/{userName}/readings/{readingId}")
-	public String getOneReading(
+	/** Used to download a item BY item ID */
+	@GET @Path("/patients/{userName}/items/{itemId}")
+	public String getOneItem(
 			@PathParam("userName")String userName,
-			@PathParam("readingId")long rId) {
-		trace(String.format("GET /patients/%s/reading %d", userName, rId));
+			@PathParam("itemId")long rId) {
+		trace(String.format("GET /patients/%s/item %d", userName, rId));
 
-		Query q = entityManager.createQuery("SELECT r from Reading r where r.id = ? AND r.userName = ?");
+		Query q = entityManager.createQuery("SELECT r from ToDoItem r where r.id = ? AND r.userName = ?");
 		q.setParameter(1, userName);
 		q.setParameter(2, rId);
-		Reading r = (Reading) q.getSingleResult();
+		ToDoItem r = (ToDoItem) q.getSingleResult();
 		return r.toString();
 	}
 	
