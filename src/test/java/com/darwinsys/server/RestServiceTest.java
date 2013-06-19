@@ -2,20 +2,13 @@ package com.darwinsys.server;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Date;
 
 import javax.persistence.EntityTransaction;
 
-import model.Patient;
-import model.reading.ReadingEncoder;
-import model.reading.WeightReading;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import com.example.myaccount.model.ToDoItem;
 
 public class RestServiceTest extends DatabaseUsingTest {
 	
@@ -47,49 +40,24 @@ public class RestServiceTest extends DatabaseUsingTest {
 	public void testPostNormalReading() {
 		// Can't do this until we have readingEncoder in new code.
 	}
-	
-	@Test
-	public void testDateParse() {
-		String data = "2012-05-29T14:00:56.000Z";
-		final DateFormat serverDF = RestService.df;
-		final DateFormat encoderDF = ReadingEncoder.df;
-		synchronized(serverDF) {
-			try {
-				serverDF.parse(data);
-				serverDF.parse(encoderDF.format(new Date()));
-			} catch (ParseException e) {
-				fail(data + " failed to parse: " + e);
-			}
-		}
-	}
 
 	@Test
-	public void testGetOneReading() {
+	public void testGetOneItem() {
 		final EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		
-		Patient p = new Patient();
-		String username = "fred";
-		p.setLogin(username);
-		p.setFirstName("Fredi");
-		p.setLastName("Smith");
-		entityManager.persist(p);
-		entityManager.flush();	// should force generation of p.id
-		System.out.println("RestServiceTest.testGetOneReading(): patient.id = " + p.getId());
-		
-		WeightReading w = new WeightReading();
-		w.setPatient(p);
+		ToDoItem item = new ToDoItem();
 		
 		long rId = System.currentTimeMillis();
-		w.setRid(rId);
-		w.setMeasurement(150d);
-		w.setUnits("pounds");
-		entityManager.persist(w);
+		item.setId(rId);
+		item.setName("Get the lead out");
+		item.setDescription("Have a plumber remove lead solder joints in all exposed pipes");
+		entityManager.persist(item);
 		
 		transaction.commit();
 		
-		String ret = target.getOneItem(username, rId);
+		String ret = target.getOneItem("ian", rId);
 		assertNotNull(ret);
-		System.out.println("RestServiceTest.testGetOneReading() -> " + ret);
+		System.out.println("RestServiceTest.testGetOneItemg() -> " + ret);
 	}
 }

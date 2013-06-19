@@ -25,11 +25,13 @@
 
 <dependencies>
     <!-- Need our own Model code to compile against. -->
+    <!-- 
     <dependency>
-         <groupId>org.ehealthinnovation</groupId>
-         <artifactId>datamodel-jpa</artifactId>
+         <groupId>com.example</groupId>
+         <artifactId>todomodel</artifactId>
          <version>1.0.0</version>
     </dependency>
+     -->
   
   <!-- Yo dudes! Test early and often -->
   <dependency>
