@@ -2,24 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.ehealthinnovation</groupId>
-	<artifactId>razorback-server</artifactId>
+	<groupId>com.darwinsys</groupId>
+	<artifactId>todo-sync-server</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<inceptionYear>2011</inceptionYear>
+	<inceptionYear>2013</inceptionYear>
 
-	<name>Web (Browser and REST) Server for CHF/Razorback</name>
+	<name>RESTful Server for ToDo Synchronization</name>
 	<description>
-	A Java EE 6 JBossAS7 webapp project for the CHF/Razorback Server
+	A Java EE 6 JBossAS7 webapp project for the ToDo Synchronization Server
 	</description>
-	<url>http://ehealthinnovation.org/</url>
+	<url>http://darwinsys.com/sync</url>
 	
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <!-- Timestamp format for the maven.build.timestamp property -->
       <!-- You can reference property in pom.xml or filtered resources -->
       <maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
-      <org.richfaces.bom.version>4.1.0.Final</org.richfaces.bom.version>
    </properties>
 
 
