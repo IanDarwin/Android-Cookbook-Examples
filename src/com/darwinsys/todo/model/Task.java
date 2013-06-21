@@ -1,7 +1,17 @@
 package com.example.myaccount.model;
 
+import java.util.Date;
+
 public class ToDoItem {
 	
+	long id;
+	String name;	// what to do
+	Date creationDate; // when you decided you had to do it
+	String project;		// what this task is part of
+	String context;	// where to do it
+	Date dueDate;	// when to do it by
+	Date completedDate; // when you actually did it
+
 	public long getId() {
 		return id;
 	}
@@ -14,14 +24,35 @@ public class ToDoItem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescription() {
-		return description;
+	public Date getCreationDate() {
+		return creationDate;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+	public String getProject() {
+		return project;
+	}
+	public void setProject(String project) {
+		this.project = project;
+	}
+	public String getContext() {
+		return context;
+	}
+	public void setContext(String context) {
+		this.context = context;
+	}
+	public Date getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+	public Date getCompletedDate() {
+		return completedDate;
+	}
+	public void setCompletedDate(Date completedDate) {
+		this.completedDate = completedDate;
 	}
 	
-	long id;
-	String name;
-	String description;
 }
