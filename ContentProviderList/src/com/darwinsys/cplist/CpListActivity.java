@@ -6,8 +6,13 @@ import android.app.ListActivity;
 import android.content.pm.ProviderInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class CpListActivity extends ListActivity {
 	
@@ -28,5 +33,14 @@ public class CpListActivity extends ListActivity {
 		ListAdapter adapter = new ArrayAdapter<ProviderInfo>(this, R.layout.cp_list_item, providers);
 
 		setListAdapter(adapter);
+		
+		getListView().setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+				Toast.makeText(CpListActivity.this, 
+						"You picked " + ((TextView)view).getText(), 
+						Toast.LENGTH_LONG).show();
+			}
+		});
     }
 }
