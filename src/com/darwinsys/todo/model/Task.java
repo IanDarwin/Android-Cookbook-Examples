@@ -2,6 +2,10 @@ package com.example.myaccount.model;
 
 import java.util.Date;
 
+/** One ToDo item or "task".
+ * See http://todotxt.com/ and https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format.
+ * @author Ian Darwin
+ */
 public class ToDoItem {
 	
 	long id;
