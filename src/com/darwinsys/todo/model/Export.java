@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Export {
 	
-	public List<String> exportTasks(List<ToDoItem> tasks) {
+	public List<String> exportTasks(List<Task> tasks) {
 		List<String> list = new ArrayList<String>();
-		for (ToDoItem t : tasks) {
+		for (Task t : tasks) {
 			exportTask(t);
 		}
 		return list;
 	}
 
-	private String exportTask(ToDoItem t) {
+	private String exportTask(Task t) {
 		// TODO XXX
 		return null;
 	}

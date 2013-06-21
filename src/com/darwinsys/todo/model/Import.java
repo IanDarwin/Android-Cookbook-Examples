@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Import {
 
-	public List<ToDoItem> importTasks(List<String> input) {
-		List<ToDoItem> list = new ArrayList<ToDoItem>();
+	public List<Task> importTasks(List<String> input) {
+		List<Task> list = new ArrayList<Task>();
 		for (String s : input) {
 			list.add(importTask(s));
 		}
 		return list;
 	}
 	
-	public ToDoItem importTask(String str) {
+	public Task importTask(String str) {
 		// XXX
-		return (ToDoItem)null;
+		return (Task)null;
 	}
 }
