@@ -6,7 +6,7 @@ import java.util.Date;
  * See http://todotxt.com/ and https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format.
  * @author Ian Darwin
  */
-public class ToDoItem {
+public class Task {
 	
 	long id;
 	String name;	// what to do
