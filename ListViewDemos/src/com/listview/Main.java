@@ -1,6 +1,6 @@
 package com.listview;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -9,14 +9,14 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
-public class Main extends Activity {
+public class Main extends ListActivity {
 
     /** Called when the activity is first created. */
     @Override
@@ -26,8 +26,8 @@ public class Main extends Activity {
         String[] data = getResources().getStringArray(R.array.foodstuffs);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
         		this, android.R.layout.simple_list_item_1, data);
-        final ListView myList = (ListView) findViewById(R.id.myList);
-        myList.setAdapter(adapter);
+        setListAdapter(adapter);
+        final ListView myList = getListView();
         myList.setFastScrollEnabled(true);
         myList.setOverScrollMode(AbsListView.OVER_SCROLL_IF_CONTENT_SCROLLS);
         myList.setOnItemClickListener(new OnItemClickListener() {
