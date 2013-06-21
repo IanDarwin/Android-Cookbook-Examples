@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.myaccount.model.ToDoItem;
+import com.example.myaccount.model.Task;
 
 public class RestServiceTest extends DatabaseUsingTest {
 	
@@ -46,12 +46,12 @@ public class RestServiceTest extends DatabaseUsingTest {
 		final EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		
-		ToDoItem item = new ToDoItem();
+		Task item = new Task();
 		
 		long rId = System.currentTimeMillis();
 		item.setId(rId);
 		item.setName("Get the lead out");
-		item.setDescription("Have a plumber remove lead solder joints in all exposed pipes");
+		// item.setDescription("Have a plumber remove lead solder joints in all exposed pipes");
 		entityManager.persist(item);
 		
 		transaction.commit();

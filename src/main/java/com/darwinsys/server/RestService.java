@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
-import com.example.myaccount.model.ToDoItem;
+import com.example.myaccount.model.Task;
 
 
 
@@ -140,7 +140,7 @@ public class RestService {
 	@POST @Path("/todo/{userName}/item")
 	@Produces("text/plain")
 	@Consumes({"application/x-www-form-urlencoded", "multipart/form-data"})
-	public Response SaveToDoItem(
+	public Response SaveTask(
 		@PathParam("userName")String userName, // aka patient id!
 		MultivaluedMap<String, String> params) throws ParseException {
 		
@@ -148,7 +148,7 @@ public class RestService {
 		
 		trace("POST /patients/" + userName + "/items");
 		
-		ToDoItem item = new ToDoItem();
+		Task item = new Task();
 		
 		try {
 			entityManager.persist(item);
@@ -174,10 +174,10 @@ public class RestService {
 			@PathParam("itemId")long rId) {
 		trace(String.format("GET /patients/%s/item %d", userName, rId));
 
-		Query q = entityManager.createQuery("SELECT r from ToDoItem r where r.id = ? AND r.userName = ?");
+		Query q = entityManager.createQuery("SELECT r from Task r where r.id = ? AND r.userName = ?");
 		q.setParameter(1, userName);
 		q.setParameter(2, rId);
-		ToDoItem r = (ToDoItem) q.getSingleResult();
+		Task r = (Task) q.getSingleResult();
 		return r.toString();
 	}
 	

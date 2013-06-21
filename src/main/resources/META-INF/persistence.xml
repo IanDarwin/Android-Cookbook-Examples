@@ -15,40 +15,7 @@
 	-->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-	<class>model.AdherenceCheck</class>
-	<class>model.Admin</class>
-	<class>model.Admission</class>
-	<class>model.AlertProfile</class>
-	<class>model.Caregiver</class>
-	<class>model.ClientLogMessage</class>
-	<class>model.Clinic</class>
-	<class>model.ClinicalNote</class>
-	<class>model.ContactInformation</class>
-	<class>model.Demographic</class>
-	<class>model.DeterminantSet</class>
-	<class>model.Evaluation</class>
-	<class>model.Goal</class>
-	<class>model.InstructionTimeoutCheck</class>
-	<class>model.Patient</class>
-	<class>model.Person</class>
-	<class>model.Privilege</class>
-	<class>model.Reminder</class>
-	<class>model.Scorecard</class>
-	<class>model.Session</class>
-	<class>model.Tag</class>
-	
-	<class>model.reading.BloodGlucoseReading</class>
-	<class>model.reading.BloodPressureReading</class>
-	<class>model.reading.EcgReading</class>
-	<class>model.reading.PulseReading</class>
-	<class>model.reading.SymptomReading</class>
-	<class>model.reading.WeightReading</class>
-
-	<class>model.action.AdherenceCheckAction</class>
-	<class>model.action.EmailAction</class>
-	<class>model.action.VoipAction</class>
-	<class>model.action.WebsiteAction</class>
-	<class>model.action.WirelessAction</class>
+	<class>com.example.myaccount.model.Task</class>
 	
 	<properties>
 		<!-- Properties for Hibernate -->
