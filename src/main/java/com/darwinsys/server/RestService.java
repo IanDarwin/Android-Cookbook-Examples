@@ -174,9 +174,8 @@ public class RestService {
 			@PathParam("itemId")long rId) {
 		trace(String.format("GET /patients/%s/item %d", userName, rId));
 
-		Query q = entityManager.createQuery("SELECT r from Task r where r.id = ? AND r.userName = ?");
-		q.setParameter(1, userName);
-		q.setParameter(2, rId);
+		Query q = entityManager.createQuery("SELECT r from Task r where r.id = ?");
+		q.setParameter(1, rId);
 		Task r = (Task) q.getSingleResult();
 		return r.toString();
 	}
