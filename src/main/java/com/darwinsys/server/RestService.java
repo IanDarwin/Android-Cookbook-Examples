@@ -143,8 +143,6 @@ public class RestService {
 		@PathParam("userName")String userName, // aka patient id!
 		MultivaluedMap<String, String> params) throws ParseException {
 		
-		final String TAG = "RestService.postNormalitem(): ";
-		
 		trace("POST /todo/" + userName + "/items");
 		
 		Task item = new Task();
@@ -168,8 +166,8 @@ public class RestService {
 	
 	/** Used to download a item BY item ID */
 	@GET @Path("/todo/items/{itemId}")
-	public String getOneItem( @PathParam("itemId")long id) {
-		trace(String.format("GET /todo/%s/item %d", id));
+	public String findTaskById( @PathParam("itemId")long id) {
+		trace(String.format("GET /todo/item %d", id));
 
 		Task r = entityManager.find(Task.class, id);
 		return r.toString();
