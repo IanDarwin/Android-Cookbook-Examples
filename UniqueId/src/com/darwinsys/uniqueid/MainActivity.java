@@ -31,7 +31,8 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		
-		// Get "Device Serial Number"
+		// Get "Device Serial Number". The Android SystemProperties is apparently not for public use,
+		// as it exists on-device but is NOT exposed in the SDK, so treat with a grain of salt!
 		String serialNumber = "unknown";
 		try {
 			Class<?> c = Class.forName("android.os.SystemProperties");
