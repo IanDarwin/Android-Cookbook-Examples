@@ -15,8 +15,8 @@ public abstract class DatabaseUsingTest {
 	 * (and to keep the database around in an examinable form).
 	 * Does not seem worth creating a dynamic mechanism to change this.
 	 */
-	static final String puNameFast = "ehealth_hsqldb",
-			puNamePersistent = "ehealth_pgsql";
+	static final String puNameFast = "todo_hsqldb",
+			puNamePersistent = "todo_pgsql";
 	static final String PERSISTENCE_UNIT_NAME = puNameFast;
 	protected static EntityManagerFactory factory;
 	protected EntityManager entityManager;	// used in subclasses

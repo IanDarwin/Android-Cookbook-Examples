@@ -3,50 +3,16 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
    version="1.0">
    
-<persistence-unit name="ehealth_hsqldb" transaction-type="RESOURCE_LOCAL">
+<persistence-unit name="todo_hsqldb" transaction-type="RESOURCE_LOCAL">
 	<description>
 	    TEST-ONLY version of the JPA modelling configuration.
-		This persistent unit models Patients, Readings, etc.
 		To extend this to also run local tests with PostgreSQL, see also
 		http://www.murraywilliams.com/2012/04/maven-and-jpa-programming/ (viewed 2012-08-10).
     </description>
 
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-	<class>model.AdherenceCheck</class>
-	<class>model.Admin</class>
-	<class>model.Admission</class>
-	<class>model.AlertProfile</class>
-	<class>model.Caregiver</class>
-	<class>model.ClientLogMessage</class>
-	<class>model.Clinic</class>
-	<class>model.ClinicalNote</class>
-	<class>model.ContactInformation</class>
-	<class>model.Demographic</class>
-	<class>model.DeterminantSet</class>
-	<class>model.Evaluation</class>
-	<class>model.Goal</class>
-	<class>model.InstructionTimeoutCheck</class>
-	<class>model.Patient</class>
-	<class>model.Person</class>
-	<class>model.Privilege</class>
-	<class>model.Reminder</class>
-	<class>model.Scorecard</class>
-	<class>model.Session</class>
-	<class>model.Tag</class>
-	
-	<class>model.reading.BloodGlucoseReading</class>
-	<class>model.reading.BloodPressureReading</class>
-	<class>model.reading.EcgReading</class>
-	<class>model.reading.PulseReading</class>
-	<class>model.reading.SymptomReading</class>
-	<class>model.reading.WeightReading</class>
-
-	<class>model.action.AdherenceCheckAction</class>
-	<class>model.action.EmailAction</class>
-	<class>model.action.VoipAction</class>
-	<class>model.action.WebsiteAction</class>
-	<class>model.action.WirelessAction</class>
+	<class>com.example.myaccount.model.Task</class>
 	
 	<properties>
 		<!-- Properties for Hibernate -->
@@ -64,50 +30,14 @@
 	
 </persistence-unit>
 
-<persistence-unit name="ehealth_pgsql" transaction-type="RESOURCE_LOCAL">
+<persistence-unit name="todo_pgsql" transaction-type="RESOURCE_LOCAL">
 	<description>
 	    Test version of the JPA model configuration FOR POSTGRES.
-		This persistent unit models Patients, Readings, etc.
-		To extend this to also run local tests with PostgreSQL, see also
-		http://www.murraywilliams.com/2012/04/maven-and-jpa-programming/ (viewed 2012-08-10).
     </description>
 
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-	<class>model.AdherenceCheck</class>
-	<class>model.Admin</class>
-	<class>model.Admission</class>
-	<class>model.AlertProfile</class>
-	<class>model.Caregiver</class>
-	<class>model.ClientLogMessage</class>
-	<class>model.Clinic</class>
-	<class>model.ClinicalNote</class>
-	<class>model.ContactInformation</class>
-	<class>model.Demographic</class>
-	<class>model.DeterminantSet</class>
-	<class>model.Evaluation</class>
-	<class>model.Goal</class>
-	<class>model.InstructionTimeoutCheck</class>
-	<class>model.Patient</class>
-	<class>model.Person</class>
-	<class>model.Privilege</class>
-	<class>model.Reminder</class>
-	<class>model.Scorecard</class>
-	<class>model.Session</class>
-	<class>model.Tag</class>
-	
-	<class>model.reading.BloodGlucoseReading</class>
-	<class>model.reading.BloodPressureReading</class>
-	<class>model.reading.EcgReading</class>
-	<class>model.reading.PulseReading</class>
-	<class>model.reading.SymptomReading</class>
-	<class>model.reading.WeightReading</class>
-
-	<class>model.action.AdherenceCheckAction</class>
-	<class>model.action.EmailAction</class>
-	<class>model.action.VoipAction</class>
-	<class>model.action.WebsiteAction</class>
-	<class>model.action.WirelessAction</class>
+	<class>com.example.myaccount.model.Task</class>
 	
 	<properties>
 		<!-- Properties for Hibernate -->
