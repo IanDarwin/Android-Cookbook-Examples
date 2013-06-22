@@ -13,7 +13,7 @@ public class Export {
 		return list;
 	}
 
-	private String exportTask(Task t) {
+	public String exportTask(Task t) {
 		// TODO XXX
 		return null;
 	}

@@ -70,4 +70,11 @@ public class Task {
 		this.completedDate = completedDate;
 	}
 	
+	/** ToString converts to String but in todo.txt format! */
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(name);
+		return sb.toString();
+	}
 }
