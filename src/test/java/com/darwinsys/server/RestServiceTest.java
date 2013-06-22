@@ -48,15 +48,13 @@ public class RestServiceTest extends DatabaseUsingTest {
 		
 		Task item = new Task();
 		
-		long rId = System.currentTimeMillis();
-		item.setId(rId);
 		item.setName("Get the lead out");
 		// item.setDescription("Have a plumber remove lead solder joints in all exposed pipes");
 		entityManager.persist(item);
 		
 		transaction.commit();
 		
-		String ret = target.getOneItem("ian", rId);
+		String ret = target.getOneItem("ian", item.getId());
 		assertNotNull(ret);
 		System.out.println("RestServiceTest.testGetOneItemg() -> " + ret);
 	}

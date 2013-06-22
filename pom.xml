@@ -24,14 +24,12 @@
 
 <dependencies>
     <!-- Need our own Model code to compile against. -->
-    <!-- 
-    <dependency>
-         <groupId>com.example</groupId>
-         <artifactId>todomodel</artifactId>
+   <dependency>
+         <groupId>com.darwinsys</groupId>
+         <artifactId>todo-model</artifactId>
          <version>1.0.0</version>
     </dependency>
-     -->
-  
+ 
   <!-- Yo dudes! Test early and often -->
   <dependency>
     <groupId>junit</groupId>
