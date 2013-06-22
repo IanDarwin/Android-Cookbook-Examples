@@ -10,7 +10,6 @@ import java.util.Date;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -146,7 +145,7 @@ public class RestService {
 		
 		final String TAG = "RestService.postNormalitem(): ";
 		
-		trace("POST /patients/" + userName + "/items");
+		trace("POST /todo/" + userName + "/items");
 		
 		Task item = new Task();
 		
@@ -158,7 +157,7 @@ public class RestService {
 		}
 		
 		try {
-			return Response.created(new URI(String.format("/patients/%s/items/%d", userName, item.getId()))).build();
+			return Response.created(new URI(String.format("/todo/%s/items/%d", userName, item.getId()))).build();
 		} catch (URISyntaxException e) {
 			// CANT HAPPEN
 			System.err.println("IMPOSSIBLE ERROR: " + e);
@@ -168,59 +167,11 @@ public class RestService {
 	}
 	
 	/** Used to download a item BY item ID */
-	@GET @Path("/patients/{userName}/items/{itemId}")
-	public String getOneItem(
-			@PathParam("userName")String userName,
-			@PathParam("itemId")long rId) {
-		trace(String.format("GET /patients/%s/item %d", userName, rId));
+	@GET @Path("/todo/items/{itemId}")
+	public String getOneItem( @PathParam("itemId")long id) {
+		trace(String.format("GET /todo/%s/item %d", id));
 
-		Query q = entityManager.createQuery("SELECT r from Task r where r.id = ?");
-		q.setParameter(1, rId);
-		Task r = (Task) q.getSingleResult();
+		Task r = entityManager.find(Task.class, id);
 		return r.toString();
-	}
-	
-	/** Called occasionally to get the patient's report (containing Goals, Status, an Alert if any), ... */
-	@GET @Path("/patients/{userName}/report")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String getPatientReport(@PathParam("userName")String userName) {
-		trace("GET PatientReport " + userName);
-		// XXX ALL VALUES ARE FAKE AT PRESENT
-		return String.format(
-				"{\n" +
-					"\"weight_goal_min\":    150.0,\n" +
-					"\"weight_goal_max\":    160.0,\n" +
-					"\"weight_goal_delta\":  2.0,\n" +
-					"\"bp_goal_min_sys\":    80,\n" +
-					"\"bp_goal_min_dia\":    40,\n" +
-					"\"bp_goal_max_sys\":    180,\n" +
-					"\"bp_goal_max_dia\":    100,\n" +
-					"\"pulse_goal_min\":     40.0,\n" +
-					"\"pulse_goal_max\":     150.0,\n" +
-					"\"rid\":                %d,\n" +
-					"\"summary\":           \"%s\",\n" +
-					"\"alert\":             \"%s\"\n" +
-				"}\n",
-				System.currentTimeMillis(),
-				TEST_MESSAGE_STRING + userName + ".",
-				alert ? TEST_ALERT_STRING : ""
-		);
-	}
-	
-	/** Called from the client's HttpLogger */
-	@POST
-	@Path("/client_log_messages")
-	@Consumes("application/x-www-form-urlencoded")
-	public Response postLogMessage(MultivaluedMap<String, String> params) throws ParseException {
-		// You may think that these key names take the notion of "self-
-		// identifying data" too far. Or not. Try XML :-) 
-		String message = params.getFirst("client_log_message[message]");
-		String level = params.getFirst("client_log_message[log_level]");
-		String patientId = params.getFirst("client_log_message[patient_id]");
-		String clientOs = params.getFirst("client_log_message[platform_revision]");
-		String deviceId = params.getFirst("client_log_message[device_id]");
-		System.out.println("ClientLog: " + level + ": " + message);
-		System.out.println("... for patient " +patientId + " device " + deviceId + " running " + clientOs);
-		return Response.ok().build();
 	}
 }
