@@ -2,10 +2,13 @@ package com.example.myaccount.model;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
 /** One ToDo item or "task".
  * See http://todotxt.com/ and https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format.
  * @author Ian Darwin
  */
+@Entity
 public class Task {
 	
 	long id;
@@ -16,6 +19,7 @@ public class Task {
 	Date dueDate;	// when to do it by
 	Date completedDate; // when you actually did it
 
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
