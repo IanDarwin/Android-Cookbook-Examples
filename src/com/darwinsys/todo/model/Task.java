@@ -32,30 +32,37 @@ public class Task {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Temporal(TemporalType.DATE)
 	public Date getCreationDate() {
 		return creationDate;
 	}
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
+	
 	public String getProject() {
 		return project;
 	}
 	public void setProject(String project) {
 		this.project = project;
 	}
+	
 	public String getContext() {
 		return context;
 	}
 	public void setContext(String context) {
 		this.context = context;
 	}
+	
+	@Temporal(TemporalType.DATE)
 	public Date getDueDate() {
 		return dueDate;
 	}
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
+	
+	@Temporal(TemporalType.DATE)
 	public Date getCompletedDate() {
 		return completedDate;
 	}
