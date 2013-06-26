@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 	
 	AutoCompleteTextView emailText;
 	Cursor cursor;
-	CursorAdapter emailAdapter;
+	SimpleCursorAdapter emailAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,7 @@ public class MainActivity extends Activity {
 		emailAdapter = new SimpleCursorAdapter(this, R.layout.email_and_name, cursor = getNamesAndEmails(null), fromCols, toViewIds);
 		
 		// important difference 1
-		// emailAdapter.setStringConversionColumn(
-		//         emailAdapter.getColumnIndexOrThrow(null));
+		emailAdapter.setStringConversionColumn(2);
 		// Or use setCursorToStringConverter(SimpleCursorAdapter.CursorToStringConverter)?
 
 		// important difference 2
