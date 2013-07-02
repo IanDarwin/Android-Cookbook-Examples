@@ -15,7 +15,7 @@
 	-->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-	<class>com.example.myaccount.model.Task</class>
+	<class>com.darwinsys.todo.model.Task</class>
 	
 	<properties>
 		<!-- Properties for Hibernate -->

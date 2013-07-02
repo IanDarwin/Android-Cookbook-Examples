@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.myaccount.model.Task;
+import com.darwinsys.todo.model.Task;
 
 public class RestServiceTest extends DatabaseUsingTest {
 	
