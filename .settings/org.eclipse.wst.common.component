@@ -7,6 +7,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <dependent-module archiveName="todo-model-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ToDoModel/ToDoModel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="razorback-server"/>
         <property name="java-output-path" value="/MedlyServerJava/target/classes"/>
     </wb-module>
