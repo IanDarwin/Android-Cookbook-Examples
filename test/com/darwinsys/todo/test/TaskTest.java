@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import com.example.myaccount.model.Task;
+import com.darwinsys.todo.model.Task;
 
 public class TaskTest {
 	

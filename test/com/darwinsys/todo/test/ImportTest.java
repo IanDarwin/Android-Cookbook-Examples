@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.example.myaccount.model.Import;
-import com.example.myaccount.model.Task;
+import com.darwinsys.todo.model.Import;
+import com.darwinsys.todo.model.Task;
 
 public class ImportTest {
 

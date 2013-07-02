@@ -1,4 +1,4 @@
-package com.example.myaccount.model;
+package com.darwinsys.todo.model;
 
 import java.util.ArrayList;
 import java.util.List;
