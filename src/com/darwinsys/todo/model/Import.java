@@ -8,9 +8,10 @@ import java.util.regex.Pattern;
 public class Import {
 	
 	public static Pattern re = Pattern.compile(
-			"x?( \\d{4}\\-\\d{2}\\-\\d{2}) ?" + // Completion flag, completion date+
+			"(x)?( \\d{4}\\-\\d{2}\\-\\d{2})?" + // Completion flag, completion date+
+			" ?" +
 			"(\\([A-Z]\\))?( \\d{4}-\\d{2}-\\d{2}) ?" +		// PRIORITY, CreationDate
-			".*((\\+\\w+)|(@\\w+) ).*",			// name, optional +Project, @Context in either order anywhere
+			".*((\\+\\w+)|(@\\w+))*.*",			// name, optional +Project, @Context in either order anywhere
 					
 			Pattern.COMMENTS);
 			
