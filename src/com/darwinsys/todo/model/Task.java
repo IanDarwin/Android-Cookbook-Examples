@@ -21,9 +21,11 @@ public class Task {
 	public static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	private static final char SPACE = ' ';
+	private static final Date today = new Date();
 
 	private static final char PROJECT = '+', CONTEXT = '@';
 	long id;
+	Character priority; // 'A'..'Z': how important?
 	String name;	// what to do
 	Date creationDate; // when you decided you had to do it
 	String project;		// what this task is part of
@@ -33,7 +35,42 @@ public class Task {
 	Date completedDate; // when you actually did it
 	
 	public Task() {
+		super();
 		creationDate = new Date();
+	}
+	
+	public Task(String name) {
+		this();
+		this.name = name;
+	}
+	
+	public Task(String name, String project, String context) {
+		this(0, null, name, today, project, context, false, null, null);
+	}
+
+	/**
+	 * Construct a Task with all values
+	 * @param id
+	 * @param name
+	 * @param creationDate
+	 * @param project
+	 * @param context
+	 * @param complete
+	 * @param completedDate
+	 * @param dueDate
+	 */
+	public Task(long id, Character priority, String name, Date creationDate, String project,
+			String context, boolean complete, Date completedDate, Date dueDate) {
+		super();
+		this.id = id;
+		this.priority = priority;
+		this.name = name;
+		this.creationDate = creationDate;
+		this.project = project;
+		this.context = context;
+		this.complete = complete;
+		this.completedDate = completedDate;
+		this.dueDate = dueDate;
 	}
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -43,6 +80,20 @@ public class Task {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public Character getPriority() {
+		return priority;
+	}
+	public void setPriority(Character priority) {
+		this.priority = priority;
+	}
+	public void setPriority(char priority) {
+		if (priority < 'A' || priority > 'Z') {
+			throw new IllegalArgumentException("Invalid priority " + priority);
+		}
+		setPriority(Character.valueOf(priority));
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -129,5 +180,68 @@ public class Task {
 			sb.append(SPACE).append(CONTEXT).append(context);
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (complete ? 1231 : 1237);
+		result = prime * result
+				+ ((completedDate == null) ? 0 : completedDate.hashCode());
+		result = prime * result + ((context == null) ? 0 : context.hashCode());
+		result = prime * result
+				+ ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((dueDate == null) ? 0 : dueDate.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((project == null) ? 0 : project.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (complete != other.complete)
+			return false;
+		if (completedDate == null) {
+			if (other.completedDate != null)
+				return false;
+		} else if (!completedDate.equals(other.completedDate))
+			return false;
+		if (context == null) {
+			if (other.context != null)
+				return false;
+		} else if (!context.equals(other.context))
+			return false;
+		if (creationDate == null) {
+			if (other.creationDate != null)
+				return false;
+		} else if (!creationDate.equals(other.creationDate))
+			return false;
+		if (dueDate == null) {
+			if (other.dueDate != null)
+				return false;
+		} else if (!dueDate.equals(other.dueDate))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (project == null) {
+			if (other.project != null)
+				return false;
+		} else if (!project.equals(other.project))
+			return false;
+		return true;
 	}
 }
