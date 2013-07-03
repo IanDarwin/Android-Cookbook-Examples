@@ -17,14 +17,18 @@ import com.darwinsys.todo.model.Task;
 @RunWith(Parameterized.class)
 public class ImportTest {
 
+	final static Object[][] data = new Object[][]  {
+		{new Task("Call Mom 1"), "(A) Call Mom 1"},
+		{new Task("Call Mom 2"), "Call Mom 2"},
+		{new Task("Call Mom 3", null, "Home"),  "Call Mom 3 @Home"},
+	};
+	static {
+		((Task) data[0][0]).setPriority('A');
+	}
+	
 	/** This method provides data to the constructor for use in tests */
     @Parameters
     public static List<Object[]> data() {           
-            final Object[][] data = new Object[][]  {
-                            {new Task("Call Mom"),  "(A) Call Mom"},
-                            {new Task("Call Mom"), "Call Mom"},
-                            {new Task("Call Mom @Home", null, "Home"),  "Call Mom @Home"},
-            };
             return Arrays.asList(data);                                     
     }
     
