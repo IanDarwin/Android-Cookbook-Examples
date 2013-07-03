@@ -2,6 +2,7 @@ package com.darwinsys.todo.model;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -33,9 +34,13 @@ public class Date {
 	/** Construct a date from a YYYY-mm-DD String */
 	public Date(String dateString) {
 		Scanner scan = new Scanner(dateString.replace('-', ' '));
-		year = scan.nextInt();
-		month = scan.nextInt();
-		day = scan.nextInt();
+		try {
+			year = scan.nextInt();
+			month = scan.nextInt();
+			day = scan.nextInt();
+		} catch (InputMismatchException e) {
+			throw new IllegalArgumentException("Not YYYY-MM-DD: " + dateString);
+		}
 		validate();
 	}
 

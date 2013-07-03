@@ -23,6 +23,12 @@ public class DateTest {
 		Date dd = new Date(DATE_STRING);
 		assertEquals(d, dd);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testDateBadString() {
+		Date dd = new Date(DATE_STRING.replace("06","June"));
+		assertEquals(d, dd);
+	}
 
 	@Test
 	public void testDateDate() {
