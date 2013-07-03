@@ -22,8 +22,6 @@ import javax.ws.rs.core.Response;
 
 import com.darwinsys.todo.model.Task;
 
-
-
 /**
  * This implements only the web-service part of the ToDo server.
  * It uses a JPA model to access the data.
