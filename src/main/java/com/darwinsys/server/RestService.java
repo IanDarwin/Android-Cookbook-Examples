@@ -58,10 +58,9 @@ public class RestService {
 	public static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
 	
 	static {
-		System.out.println("RazorbackServer.RestService class loaded.");
+		System.out.println("ToDoServer.RestService class loaded.");
 	}
 	public RestService() {
-		System.out.println("RazorbackServer.RestService instantiated.");
 	}
 	
 	/** Diagnostic printing */
@@ -83,7 +82,7 @@ public class RestService {
 	@Produces(MediaType.TEXT_HTML)
 	public String getIndex() {
 		trace("GET RestService.getIndex()");
-		return "<html><head><title>Razorback Server</title></head>" +
+		return "<html><head><title>ToDo Server</title></head>" +
 			"<body><h1>Yeah.</h1><p>The server is running. That's all I can tell you.</p></body></html>";
 	}
 
@@ -92,9 +91,6 @@ public class RestService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getStatus() {
 		trace("GET RestService.getStatus()");
-		// May also wish to add:
-		// "unreported_exceptions": ", [ list of exceptions ] // SHOULD TIMESTAMP EACH ONE!
-		// "uptime": "(19 weeks, 5 days, 22:29:29)" 
 		return String.format(
 				"{" +
 					"\"database_status\": \"working\", " +
@@ -138,7 +134,7 @@ public class RestService {
 	@Produces("text/plain")
 	@Consumes({"application/x-www-form-urlencoded", "multipart/form-data"})
 	public Response SaveTask(
-		@PathParam("userName")String userName, // aka patient id!
+		@PathParam("userName")String userName,
 		MultivaluedMap<String, String> params) throws ParseException {
 		
 		trace("POST /todo/" + userName + "/items");
