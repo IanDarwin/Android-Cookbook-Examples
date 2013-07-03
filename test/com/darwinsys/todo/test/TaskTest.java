@@ -1,11 +1,12 @@
 package com.darwinsys.todo.test;
 
-import static org.junit.Assert.*;
-
-import java.util.Date;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
+import com.darwinsys.todo.model.Date;
 import com.darwinsys.todo.model.Task;
 
 public class TaskTest {
@@ -15,7 +16,7 @@ public class TaskTest {
 	private static final String PROJECT = "Plumbing";
 	private static final String CONTEXT = "Home";
 	Task t = new Task();
-	String today = Task.dateFormat.format(new Date());
+	String today = new Date().toString();
 	
 	@Test
 	public void testConstructor() {

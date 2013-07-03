@@ -1,9 +1,5 @@
 package com.darwinsys.todo.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +13,6 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Task {
-	
-	public static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	private static final char SPACE = ' ';
 	private static final Date today = new Date();
@@ -168,9 +162,9 @@ public class Task {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		if (isComplete()) {
-			sb.append('x').append(SPACE).append(dateFormat.format(getCompletedDate())).append(SPACE);
+			sb.append('x').append(SPACE).append(getCompletedDate()).append(SPACE);
 		}
-		sb.append(dateFormat.format(getCreationDate()));
+		sb.append(getCreationDate());
 		sb.append(SPACE);
 		sb.append(name);
 		if (getProject() != null) {
