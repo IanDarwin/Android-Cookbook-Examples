@@ -11,15 +11,14 @@ import android.view.Menu;
 
 public class MainActivity extends FragmentActivity {
 
-	private CountryPageAdapter pageAdapter;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		 
+
 		List<Fragment> fragments = getFragments();
-		pageAdapter = new CountryPageAdapter(getSupportFragmentManager(), fragments); 
+		CountryPageAdapter pageAdapter = 
+				new CountryPageAdapter(getSupportFragmentManager(), fragments); 
 		ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
 		pager.setAdapter(pageAdapter);
 	}
