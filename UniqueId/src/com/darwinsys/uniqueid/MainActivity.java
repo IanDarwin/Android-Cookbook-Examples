@@ -2,13 +2,12 @@ package com.darwinsys.uniqueid;
 
 import java.lang.reflect.Method;
 
-import android.os.Bundle;
-import android.provider.Settings;
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.TextView;
 
 /** Unique Identifiers for device. Sources:
