@@ -19,9 +19,9 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		 
 		List<Fragment> fragments = getFragments();
-			 pageAdapter = new CountryPageAdapter(getSupportFragmentManager(), fragments); 
-		    ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
-		    pager.setAdapter(pageAdapter);
+		pageAdapter = new CountryPageAdapter(getSupportFragmentManager(), fragments); 
+		ViewPager pager = (ViewPager)findViewById(R.id.viewpager);
+		pager.setAdapter(pageAdapter);
 	}
 
 	private List<Fragment> getFragments() {
