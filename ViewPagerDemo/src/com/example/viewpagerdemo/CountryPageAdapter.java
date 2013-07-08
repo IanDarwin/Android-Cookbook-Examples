@@ -30,7 +30,6 @@ public class CountryPageAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		return this.fragments.size();
-
 	}
 
 }
