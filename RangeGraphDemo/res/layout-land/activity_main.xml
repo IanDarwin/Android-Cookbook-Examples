@@ -24,19 +24,22 @@
         android:text="@string/high_label" />
     </TableRow>  	    
     
-    <TableRow>  	    
+    <TableRow  android:padding="10dp">  	    
     <com.example.rangegraph.RangeGraph
         android:id="@+id/lowGauge"
+        style="@style/RoundedBorderHolo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
   	
     <com.example.rangegraph.RangeGraph
         android:id="@+id/okGauge"
+        style="@style/RoundedBorderHolo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     
     <com.example.rangegraph.RangeGraph
         android:id="@+id/highGauge"
+        style="@style/RoundedBorderHolo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     </TableRow>
