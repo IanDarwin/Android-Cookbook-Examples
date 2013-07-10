@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -11,18 +12,17 @@ import android.view.View;
 /**
  * Draw a Range Graph to show if the current value is in range or not
  * Example AsciiArt:<pre>
- *       | T |
- *       | T |
+ *     | T |
+ *     | T |
  * 140 | M |
- *        | M |
+ *     | M |
  * 120 | B |
- *        | B |
+ *     | B |
  * </pre>
  * The region T will be red if the value is too high, blank otherwise
  * The region M will be red if the value is out of range, green otherwise
  * The region B will be red if the value is too low, green otherwise
  * @author Ian Darwin
- *
  */
 public class RangeGraph extends View {
 
@@ -96,14 +96,16 @@ public class RangeGraph extends View {
 		canvas.drawText(Integer.toString(mMin), 
         		getPaddingLeft(), oneThirdHeight, mPaint);
         
-        // Draw the uprights, at 1/2 and 2/3 of the width
+        // Draw the bar outline, at 1/2 and 2/3 of the width
         int top = getPaddingTop();
         int bot = mHeight - getPaddingBottom();
         int leftSide = (int) (mWidth*0.40f);
         int rightSide = (int) (mWidth*0.60f);
-        canvas.drawLine(leftSide, top, leftSide, bot, mPaint);
-		canvas.drawLine(rightSide, top, rightSide, bot, mPaint);
-        
+        Style oldStyle = mPaint.getStyle();
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawRect(leftSide, top, rightSide, bot, mPaint);
+        mPaint.setStyle(oldStyle);
+		
 		// Now draw the bar graph.
 		// The distance from min to max fills the middle third of the graph
 		int oneThirdValue = mMax - mMin;
@@ -111,6 +113,12 @@ public class RangeGraph extends View {
 		int valueAtBottom = mMin - oneThirdValue;
 		int visibleValue = Math.max(0, mValue - valueAtBottom);
 		int barHeight = Math.min(mHeight, (int) (mHeight * (1f * visibleValue / valueRange)));
+		
+		// First put in three tick marks before changing the color
+		canvas.drawLine(leftSide-20, oneThirdHeight, leftSide, oneThirdHeight, mPaint);
+		canvas.drawLine(leftSide-20, twoThirdsHeight, leftSide, twoThirdsHeight, mPaint);
+		canvas.drawLine(rightSide, mHeight - barHeight, rightSide + 20, mHeight - barHeight, mPaint);
+		
 		mPaint.setColor(isInRange() ? Color.GREEN : Color.RED);
 		Log.d(TAG,
 			String.format("drawRect(%d %d %d %d)",
