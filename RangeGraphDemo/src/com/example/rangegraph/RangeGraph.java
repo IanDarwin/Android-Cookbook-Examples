@@ -116,6 +116,11 @@ public class RangeGraph extends View {
 			String.format("drawRect(%d %d %d %d)",
 					leftSide, mHeight - barHeight, rightSide, bot));
 		canvas.drawRect(leftSide, mHeight - barHeight, rightSide, bot, mPaint);
+		
+		// Draw the actual reading beside the bar top
+		mPaint.setColor(isInRange() ? Color.BLACK : Color.RED);
+		canvas.drawText(Integer.toString(mValue), 
+				mWidth*0.75f, mHeight - barHeight, mPaint);
 	}
 
 	public boolean isInRange() {
