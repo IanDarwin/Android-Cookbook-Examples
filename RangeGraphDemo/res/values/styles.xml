@@ -16,5 +16,10 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="roundedBorderHolo" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:background">@drawable/rounded_border</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>
