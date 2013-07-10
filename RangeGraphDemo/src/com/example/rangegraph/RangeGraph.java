@@ -57,9 +57,9 @@ public class RangeGraph extends View {
 	
 	private void commonSetup() {
 		// for now
-		mMin = 140;
-		mMax = 160;
-		mValue = 132;
+		mMin = 0;
+		mMax = 100;
+		mValue = 50;
 		
 		// for now
 		mWidth = 200;
