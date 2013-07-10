@@ -99,8 +99,8 @@ public class RangeGraph extends View {
         // Draw the uprights, at 1/2 and 2/3 of the width
         int top = getPaddingTop();
         int bot = mHeight - getPaddingBottom();
-        int leftSide = mWidth/2;
-        int rightSide = (int) (mWidth*0.66f);
+        int leftSide = (int) (mWidth*0.40f);
+        int rightSide = (int) (mWidth*0.60f);
         canvas.drawLine(leftSide, top, leftSide, bot, mPaint);
 		canvas.drawLine(rightSide, top, rightSide, bot, mPaint);
         
@@ -120,7 +120,7 @@ public class RangeGraph extends View {
 		// Draw the actual reading beside the bar top
 		mPaint.setColor(isInRange() ? Color.BLACK : Color.RED);
 		canvas.drawText(Integer.toString(mValue), 
-				mWidth*0.75f, mHeight - barHeight, mPaint);
+				mWidth*0.65f, mHeight - barHeight, mPaint);
 	}
 
 	public boolean isInRange() {
