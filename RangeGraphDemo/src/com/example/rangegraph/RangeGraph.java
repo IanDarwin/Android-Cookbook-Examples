@@ -91,9 +91,14 @@ public class RangeGraph extends View {
 		int oneThirdHeight = getPaddingTop() + (2*mHeight/3);
         int twoThirdsHeight = getPaddingTop() + (mHeight/3);
         
-        canvas.drawText(Integer.toString(mMax), 
+        String stringMax = Integer.toString(mMax);
+        String stringMin = Integer.toString(mMin);
+        String stringValue = Integer.toString(mValue);
+		int advance = (int) mPaint.measureText(stringMax);
+		
+		canvas.drawText(stringMax, 
         		getPaddingLeft(), twoThirdsHeight, mPaint);
-		canvas.drawText(Integer.toString(mMin), 
+		canvas.drawText(stringMin, 
         		getPaddingLeft(), oneThirdHeight, mPaint);
         
         // Draw the bar outline, at 1/2 and 2/3 of the width
@@ -127,7 +132,7 @@ public class RangeGraph extends View {
 		
 		// Draw the actual reading beside the bar top
 		mPaint.setColor(isInRange() ? Color.BLACK : Color.RED);
-		canvas.drawText(Integer.toString(mValue), 
+		canvas.drawText(stringValue, 
 				mWidth*0.65f, mHeight - barHeight, mPaint);
 	}
 
