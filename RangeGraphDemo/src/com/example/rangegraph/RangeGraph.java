@@ -59,21 +59,21 @@ public class RangeGraph extends View {
 				
 		// Then allow overrides from XML
 		TypedArray a = context.getTheme().obtainStyledAttributes(
-		        attrs,
-		        R.styleable.RangeGraph,
-		        0, 0);
+				attrs,
+				R.styleable.RangeGraph,
+				0, 0);
 
-		   try {
-			   colorNeutral = a.getColor(R.styleable.RangeGraph_colorNeutral, Color.BLACK);
-			   colorInRange = a.getColor(R.styleable.RangeGraph_colorInRange, Color.GREEN);
-			   colorOutOfRange = a.getColor(R.styleable.RangeGraph_colorOutOfRange, Color.RED);
-		       mMin = a.getInteger(R.styleable.RangeGraph_minimum, 0);
-		       mMax = a.getInteger(R.styleable.RangeGraph_maximum, 100);
-		   } finally {
-		       a.recycle();
-		   }
-		   
-			commonSetup();
+		try {
+			colorNeutral = a.getColor(R.styleable.RangeGraph_colorNeutral, Color.BLACK);
+			colorInRange = a.getColor(R.styleable.RangeGraph_colorInRange, Color.GREEN);
+			colorOutOfRange = a.getColor(R.styleable.RangeGraph_colorOutOfRange, Color.RED);
+			mMin = a.getInteger(R.styleable.RangeGraph_minimum, 0);
+			mMax = a.getInteger(R.styleable.RangeGraph_maximum, 100);
+		} finally {
+			a.recycle();
+		}
+
+		commonSetup();
 	}
 	
 	private void commonSetup() {
