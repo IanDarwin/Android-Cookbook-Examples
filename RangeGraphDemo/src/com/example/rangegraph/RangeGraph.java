@@ -1,6 +1,7 @@
 package com.example.rangegraph;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -30,8 +31,8 @@ public class RangeGraph extends View {
 	private static final String TAG = "RangeGraph";
 	
 	// State
-	private int mMin, mMax;
-	private int mValue;
+	private int mMin = 0, mMax = 100;
+	private int mValue = 50;
 	
 	// Graphics
 	protected int colorNeutral = Color.BLACK;
@@ -41,8 +42,8 @@ public class RangeGraph extends View {
 	private Paint mPaint;
     
 	// Layout
-	private int mWidth = 50;
-	private int mHeight = 200;
+	private int mWidth = 200;
+	private int mHeight = 300;
 
 	public RangeGraph(Context context) {
 		super(context);
@@ -55,19 +56,27 @@ public class RangeGraph extends View {
 	 */
 	public RangeGraph(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// XXX deal with AttributedSet here
-		commonSetup();
+				
+		// Then allow overrides from XML
+		TypedArray a = context.getTheme().obtainStyledAttributes(
+		        attrs,
+		        R.styleable.RangeGraph,
+		        0, 0);
+
+		   try {
+			   colorNeutral = a.getColor(R.styleable.RangeGraph_colorNeutral, Color.BLACK);
+			   colorInRange = a.getColor(R.styleable.RangeGraph_colorInRange, Color.GREEN);
+			   colorOutOfRange = a.getColor(R.styleable.RangeGraph_colorOutOfRange, Color.RED);
+		       mMin = a.getInteger(R.styleable.RangeGraph_minimum, 0);
+		       mMax = a.getInteger(R.styleable.RangeGraph_maximum, 100);
+		   } finally {
+		       a.recycle();
+		   }
+		   
+			commonSetup();
 	}
 	
 	private void commonSetup() {
-		// for now
-		mMin = 0;
-		mMax = 100;
-		mValue = 50;
-		
-		// for now
-		mWidth = 200;
-		mHeight = 300;
 
 		mPaint = new Paint();
 		mPaint.setColor(colorNeutral);
@@ -85,11 +94,6 @@ public class RangeGraph extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		
-		// In case you forget, Android drawing co-ordinates:
-		// mPaint.setColor(Color.MAGENTA);
-		// canvas.drawLine(120, 200, 160, 240, mPaint);
-		// Draws a line that leads downward to the right.
 		
 		// Label it
 		int oneThirdHeight = getPaddingTop() + (2*mHeight/3);
