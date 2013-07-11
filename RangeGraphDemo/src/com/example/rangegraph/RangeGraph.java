@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.FontMetrics;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -32,7 +33,10 @@ public class RangeGraph extends View {
 	private int mMin, mMax;
 	private int mValue;
 	
-	// Graphic
+	// Graphics
+	protected int colorNeutral = Color.BLACK;
+	protected int colorOutOfRange = Color.RED;
+	protected int colorInRange = Color.GREEN;
 	private int mFontSize = 16;
 	private Paint mPaint;
     
@@ -66,7 +70,7 @@ public class RangeGraph extends View {
 		mHeight = 300;
 
 		mPaint = new Paint();
-		mPaint.setColor(Color.BLACK);
+		mPaint.setColor(colorNeutral);
 		// Scale the desired text size to match screen density
         mPaint.setTextSize(mFontSize * getResources().getDisplayMetrics().density);
 		mPaint.setStrokeWidth(2f);
@@ -94,12 +98,13 @@ public class RangeGraph extends View {
         String stringMax = Integer.toString(mMax);
         String stringMin = Integer.toString(mMin);
         String stringValue = Integer.toString(mValue);
-		int advance = (int) mPaint.measureText(stringMax);
+		FontMetrics fm = mPaint.getFontMetrics();
+		final float fontHeight = fm.ascent + fm.descent;
 		
 		canvas.drawText(stringMax, 
-        		getPaddingLeft(), twoThirdsHeight, mPaint);
+        		getPaddingLeft(), twoThirdsHeight - fontHeight/2, mPaint);
 		canvas.drawText(stringMin, 
-        		getPaddingLeft(), oneThirdHeight, mPaint);
+        		getPaddingLeft(), oneThirdHeight - (fontHeight/2), mPaint);
         
         // Draw the bar outline, at 1/2 and 2/3 of the width
         int top = getPaddingTop();
@@ -124,16 +129,16 @@ public class RangeGraph extends View {
 		canvas.drawLine(leftSide-20, twoThirdsHeight, leftSide, twoThirdsHeight, mPaint);
 		canvas.drawLine(rightSide, mHeight - barHeight, rightSide + 20, mHeight - barHeight, mPaint);
 		
-		mPaint.setColor(isInRange() ? Color.GREEN : Color.RED);
+		mPaint.setColor(isInRange() ? colorInRange : colorOutOfRange);
 		Log.d(TAG,
 			String.format("drawRect(%d %d %d %d)",
 					leftSide, mHeight - barHeight, rightSide, bot));
 		canvas.drawRect(leftSide, mHeight - barHeight, rightSide, bot, mPaint);
 		
 		// Draw the actual reading beside the bar top
-		mPaint.setColor(isInRange() ? Color.BLACK : Color.RED);
+		mPaint.setColor(isInRange() ? colorNeutral : colorOutOfRange);
 		canvas.drawText(stringValue, 
-				mWidth*0.65f, mHeight - barHeight, mPaint);
+				mWidth*0.65f, mHeight - barHeight - (fontHeight/2), mPaint);
 	}
 
 	public boolean isInRange() {
@@ -159,6 +164,30 @@ public class RangeGraph extends View {
 	}
 	public void setValue(int value) {
 		this.mValue = value;
+	}
+
+	public int getColorOutOfRange() {
+		return colorOutOfRange;
+	}
+
+	public void setColorOutOfRange(int colorOutOfRange) {
+		this.colorOutOfRange = colorOutOfRange;
+	}
+
+	public int getColorInRange() {
+		return colorInRange;
+	}
+
+	public void setColorInRange(int colorInRange) {
+		this.colorInRange = colorInRange;
+	}
+
+	public int getColorNeutral() {
+		return colorNeutral;
+	}
+
+	public void setColorNeutral(int colorNeutral) {
+		this.colorNeutral = colorNeutral;
 	}
 	
 }
