@@ -1,5 +1,4 @@
-RangeGraph
-==========
+= RangeGraph
 
 RangeGraph is a custom View to show, in a simplified bar chart, where a given value fits in a range.
 
