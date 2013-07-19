@@ -13,15 +13,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Handler;
 import android.view.View;
 
 public class XYLineChartView extends View {
 
-		private final String _chartTitle;
-		private final String _xLabel;
-		private final String _yLabel;
-		private final XYDataset _dataSet;
+		private final String mChartTitle;
+		private final String mXLabel;
+		private final String mYLabel;
+		private final XYDataset mDataSet;
 
 		/** The view bounds. */
 		private final Rect mRect = new Rect();
@@ -36,11 +35,15 @@ public class XYLineChartView extends View {
 		 */
 		public XYLineChartView(Context context, String chartTitle, String xLabel, String yLabel, XYDataset dataSet) {
 				super(context);
-				_chartTitle = chartTitle;
-				_xLabel = xLabel;
-				_yLabel = yLabel;
-				_dataSet = dataSet;
-			}
+				mChartTitle = chartTitle;
+				mXLabel = xLabel;
+				mYLabel = yLabel;
+				mDataSet = dataSet;
+		}
+		
+		public XYLineChartView(Context context) {
+			this(context, "A Title", "An X label", "A Y Label", null);
+		}
 
 		@Override
 		protected void onDraw(Canvas canvas) {
@@ -49,16 +52,14 @@ public class XYLineChartView extends View {
 				canvas.getClipBounds(mRect);
 
 				// Get the passed in data set
-				final XYDataset dataset = _dataSet;
+				final XYDataset dataset = mDataSet;
 
 				// Create the Chart
 				final JFreeChart chart = createChart(dataset);
 
 				// Draw it
 				chart.draw(canvas, new Rectangle2D.Double(0, 0, mRect.width(), mRect.height()));
-				Paint p = new Paint();
-				p.setColor(Color.RED);
-			}
+		}
 
 		/**
 		 * Creates a chart.
@@ -73,7 +74,7 @@ public class XYLineChartView extends View {
 				// (chart title, x-axis label, y-axis label,
 				// dataset,orientation,orientation ,url)
 
-				final JFreeChart chart = ChartFactory.createXYLineChart(_chartTitle, _xLabel, _yLabel, dataset, PlotOrientation.VERTICAL, true, true, false);
+				final JFreeChart chart = ChartFactory.createXYLineChart(mChartTitle, mXLabel, mYLabel, dataset, PlotOrientation.VERTICAL, true, true, false);
 
 				Paint white = new Paint(Paint.ANTI_ALIAS_FLAG);
 				white.setColor(Color.WHITE);
