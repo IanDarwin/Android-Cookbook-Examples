@@ -16,8 +16,7 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.view.View;
 
-public class XYLineChartView extends View
-	{
+public class XYLineChartView extends View {
 
 		private final String _chartTitle;
 		private final String _xLabel;
@@ -27,9 +26,6 @@ public class XYLineChartView extends View
 		/** The view bounds. */
 		private final Rect mRect = new Rect();
 
-		/** The user interface thread handler. */
-		private final Handler mHandler;
-
 		/**
 		 * Creates a new graphical view.
 		 * 
@@ -38,10 +34,8 @@ public class XYLineChartView extends View
 		 * @param chart
 		 *          the chart to be drawn
 		 */
-		public XYLineChartView(Context context, String chartTitle, String xLabel, String yLabel, XYDataset dataSet)
-			{
+		public XYLineChartView(Context context, String chartTitle, String xLabel, String yLabel, XYDataset dataSet) {
 				super(context);
-				mHandler = new Handler();
 				_chartTitle = chartTitle;
 				_xLabel = xLabel;
 				_yLabel = yLabel;
@@ -49,8 +43,7 @@ public class XYLineChartView extends View
 			}
 
 		@Override
-		protected void onDraw(Canvas canvas)
-			{
+		protected void onDraw(Canvas canvas) {
 
 				super.onDraw(canvas);
 				canvas.getClipBounds(mRect);
@@ -68,20 +61,6 @@ public class XYLineChartView extends View
 			}
 
 		/**
-		 * Schedule a user interface repaint.
-		 */
-		public void repaint()
-			{
-				mHandler.post(new Runnable()
-					{
-						public void run()
-							{
-								invalidate();
-							}
-					});
-			}
-
-		/**
 		 * Creates a chart.
 		 * 
 		 * @param dataset
@@ -89,8 +68,7 @@ public class XYLineChartView extends View
 		 * 
 		 * @return a chart.
 		 */
-		private JFreeChart createChart(final XYDataset dataset)
-			{
+		private JFreeChart createChart(final XYDataset dataset) {
 				// create the chart...
 				// (chart title, x-axis label, y-axis label,
 				// dataset,orientation,orientation ,url)
