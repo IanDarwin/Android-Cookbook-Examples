@@ -6,9 +6,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FontDemo extends Activity {
 	private static final int DLG_FONTFAILED = 1;
@@ -18,14 +16,19 @@ public class FontDemo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		TextView v = (TextView) findViewById(R.id.FontView);	// 1
-		Typeface t = null;
+		TextView vR = (TextView) findViewById(R.id.FontViewR);	// 1
+		TextView vBI = (TextView) findViewById(R.id.FontViewBI);
+		Typeface tf = null;
 		try {
-			t = Typeface.createFromAsset(getAssets(),			// 2
-					"fonts/fontdemo.ttf");
+			tf = Typeface.createFromAsset(getAssets(),	// 2
+					"fonts/Montserrat-Regular.ttf");
 		} catch (RuntimeException e) {
-			showDialog(DLG_FONTFAILED);		}
-		v.setTypeface(t, Typeface.BOLD_ITALIC);					// 3
+			showDialog(DLG_FONTFAILED);
+		}
+		vR.setText("Montserrat Regular");
+		vR.setTypeface(tf, Typeface.NORMAL);	
+		vBI.setText("Montserrat Bold Italic");
+		vBI.setTypeface(tf, Typeface.BOLD_ITALIC);			// 3
 	}
 
 	@Override
