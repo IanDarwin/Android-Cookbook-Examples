@@ -13,6 +13,10 @@ public class MainActivity extends Activity {
 		final int min = 140, max = 160;
 		
 		RangeGraph low = (RangeGraph) findViewById(R.id.lowGauge);
+		if (low == null) {
+			Log.wtf(TAG, "Custom view is null, did you provide a 2-arg constructor + pass both args to super?");
+			return;
+		}
 		low.setMin(min); low.setMax(max); low.setValue(138);
 		RangeGraph ok = (RangeGraph) findViewById(R.id.okGauge);
 		ok.setMin(min); ok.setMax(max); ok.setValue(146);
