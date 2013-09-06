@@ -1,4 +1,4 @@
-This repo contains a number of source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/). Not all recipes have code; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. 
+This repo contains about seventy source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/). Not all recipes have code; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. 
 
 Note that not all programs used in the book appear here; some are only program fragments taken from other programs that can't be included. And of course some projects used as examples in the book are routinely hosted elsewhere.
 
