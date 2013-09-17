@@ -88,6 +88,7 @@ public class MyContentProvider extends ContentProvider {
 		long id = mDatabase.getWritableDatabase().insert(
 				TABLE_NAME, null, values);
 		uri = Uri.withAppendedPath(uri, "/" + id);
+		getContext().getContentResolver().notifyChange(uri, null); 
 		return uri;
 	}
 	
@@ -100,6 +101,7 @@ public class MyContentProvider extends ContentProvider {
 		case ITEM: // OK
 			selection = _ID_EQ_QUESTION;
 			selectionArgs = new String[]{ Long.toString(ContentUris.parseId(uri)) };
+			break;
 		case ITEMS: // OK
 			break;
 		default:
@@ -124,32 +126,50 @@ public class MyContentProvider extends ContentProvider {
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
 		Log.d(Constants.TAG, "MyContentProvider.update()");
+		int rowsUpdated = 0; 
 		switch(matcher.match(uri)) {
 		case ITEM: // OK
 			long id = ContentUris.parseId(uri);
-			return mDatabase.getWritableDatabase().update(
+			rowsUpdated = mDatabase.getWritableDatabase().update(
 					TABLE_NAME, values, _ID_EQ_QUESTION, new String[]{ Long.toString(id) });
+			break;
 		case ITEMS: // OK
-			return mDatabase.getWritableDatabase().update(
+			rowsUpdated = mDatabase.getWritableDatabase().update(
 					TABLE_NAME, values, selection, selectionArgs);
+			break;
 		default:
 			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
+		
+		if (rowsUpdated != 0) {
+			getContext().getContentResolver().notifyChange(uri, null);
+		}
+			
+		return rowsUpdated; 
 	}
 	
 	/** The D of CRUD */
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		Log.d(Constants.TAG, "MyContentProvider.delete()");
+		int rowsDeleted = 0; 
 		switch(matcher.match(uri)) {
 		case ITEM: // OK
 			long id = ContentUris.parseId(uri);
-			return mDatabase.getWritableDatabase().delete(TABLE_NAME, _ID_EQ_QUESTION, new String[]{ Long.toString(id) });
+			rowsDeleted = mDatabase.getWritableDatabase().delete(TABLE_NAME, _ID_EQ_QUESTION, new String[]{ Long.toString(id) });
+			break;
 		case ITEMS: // OK
-			return mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
+			rowsDeleted = mDatabase.getWritableDatabase().delete(TABLE_NAME, selection, selectionArgs);
+			break;
 		default:
 			throw new IllegalArgumentException("Did not recognize URI " + uri);
 		}
+		
+		if (rowsDeleted != 0) {
+			getContext().getContentResolver().notifyChange(uri, null);
+		}
+		
+		return rowsDeleted;
 	}
 	
 	public static final String[] COLUMNS = {
