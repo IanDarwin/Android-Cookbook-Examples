@@ -65,10 +65,5 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.pobox.cbarham</groupId>
-			<artifactId>TestHelpers</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 </project>
