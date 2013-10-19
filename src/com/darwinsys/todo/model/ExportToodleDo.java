@@ -1,6 +1,5 @@
 package com.darwinsys.todo.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExportToodleDo extends Export {
@@ -26,7 +25,7 @@ public class ExportToodleDo extends Export {
 		.append(notNull(t.project)).append(COMMA) // == goal
 		.append(COMMA) // location
 		.append(quote(t.creationDate.toString())).append(COMMA) // = startdate
-		.append(quote((String)notNull(t.dueDate.toString()))).append(COMMA)
+		.append(quote(notNull(t.dueDate).toString())).append(COMMA)
 		.append(COMMA) // duetime
 		.append(COMMA) // repeat
 		.append(COMMA) // length
