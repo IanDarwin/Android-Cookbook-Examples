@@ -19,7 +19,7 @@ public class ExportToodleDo extends Export {
 	@Override
 	public String export(Task t) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(t.name).append(COMMA)
+		sb.append(quote(t.name)).append(COMMA)
 		.append(COMMA) // folder
 		.append(notNull(t.context)).append(COMMA)
 		.append(notNull(t.project)).append(COMMA) // == goal
