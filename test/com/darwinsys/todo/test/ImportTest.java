@@ -29,6 +29,12 @@ public class ImportTest {
 	/** This method provides data to the constructor for use in tests */
     @Parameters
     public static List<Object[]> data() {           
+            final Object[][] data = new Object[][]  {
+                            {new Task("Call Mom"),  "(A) Call Mom"},
+                            {new Task("Call Mom"), "Call Mom"},
+                            {new Task("Call Mom @Home"),  "Call Mom @Home"},
+                            //{new Task("Call Mom", null, "Home"),  "Call Mom @Home"},
+            };
             return Arrays.asList(data);                                     
     }
     
