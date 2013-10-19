@@ -8,7 +8,7 @@ public abstract class Export {
 	public List<String> export(List<Task> tasks) {
 		List<String> list = new ArrayList<String>();
 		for (Task t : tasks) {
-			export(t);
+			list.add(export(t));
 		}
 		return list;
 	}
