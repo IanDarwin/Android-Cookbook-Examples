@@ -32,9 +32,9 @@ public class Import {
 		Matcher m = re.matcher(str);
 		Task t = new Task();
 		if (m.matches()) {
-			for (int i = 0; i < m.groupCount(); i++) {
-				System.out.println(i + " " + m.group(i));
-			}
+			//for (int i = 0; i < m.groupCount(); i++) {
+			//	System.out.println(i + " " + m.group(i));
+			//}
 			if (m.group(GROUP_COMPLETED) != null) {
 				t.setComplete(true);
 			}
