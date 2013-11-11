@@ -8,7 +8,7 @@ import android.view.View;
 
 public class Vibrate extends Activity {
 	
-	// The vibration times in mSect are pairs of silent time and vibrate time.
+	// The vibration times in mSec are pairs of silent time and vibrate time.
 	private static final long[] ONE_CYCLE = new long[]{100, 1000};
     private static final long[] THREE_CYCLES = new long[]{100, 1000, 1000, 1000, 1000, 1000};
 
