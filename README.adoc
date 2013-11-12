@@ -1,13 +1,13 @@
 Android Cookbook Examples
 -------------------------
 
-This repo contains about seventy source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/). Not all recipes have code; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. 
+This repo contains about seventy source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/), a great source of tutorial material for the Android Developer. Not all recipes in the book or online have code accompanying them; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. 
 
-Note that not all programs used in the book appear here; some are only program fragments taken from other programs that can't be included. And of course some projects used as examples in the book are routinely hosted elsewhere.
+Further note that not all programs used in the book/online appear here; some of the examples in the book/online are only program fragments taken from other programs that can't be included. And of course some projects used as examples in the book/online are routinely hosted elsewhere.
 
 Each Directory comprises its own Eclipse project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. If you open the repo in Eclipse with eGit, be sure to check the
     "create all projects"
-checkbox. If you want to keep these 40 or so mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
+checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
 
 You can download this as a Zip file, but then you won't get updates, and it will be hard to collaborate with the Editor and other contributors. If you're new to Git, see the page on GitHub about how to collaborate. You can either send diff/patch files or, if you forked your own copy, send a pull request.  Remember that GitHub is a free service for public projects!
 
