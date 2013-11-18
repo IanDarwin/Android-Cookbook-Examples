@@ -14,8 +14,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.print.PrintAttributes;
 import android.print.pdf.PrintedPdfDocument;
+import android.support.v4.content.FileProvider;
 import android.view.Menu;
 import android.view.View;
+
 
 public class MainActivity extends Activity implements Runnable {
 
@@ -64,29 +66,29 @@ public class MainActivity extends Activity implements Runnable {
 		// Now write the PDF document to a file; it actually needs to be a file
 		// since the Share mechanism can't accept a byte[]. though it can
 		// accept a String/CharSequence. Meh.
-		File file = null;
 		try {
-			file = File.createTempFile("pdfsend", "pdf");
+			File pdfDirPath = new File(getFilesDir(), "pdfs");
+			File file = new File(pdfDirPath, "pdfsend.pdf");
+			Uri contentUri = FileProvider.getUriForFile(this, "com.example.fileprovider", file);
 			os = new FileOutputStream(file);
 			document.writeTo(os);
 			document.close();
 			os.close();
+			
+			shareDocument(contentUri);
 		} catch (IOException e) {
 			throw new RuntimeException("Error generating file", e);
 		}
-
-		shareDocument(file);
-
 	}
 
-	private void shareDocument(File file) {
+	private void shareDocument(Uri uri) {
 		mShareIntent = new Intent();
 		mShareIntent.setAction(Intent.ACTION_SEND);
 		mShareIntent.setType("application/pdf");
 		// Assuming it may go via eMail:
-		mShareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Here is a PDF from PdfSend");
+		mShareIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is a PDF from PdfSend");
 		// Attach the PDf as a Uri, since Android can't take it as bytes yet.
-		mShareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+		mShareIntent.putExtra(Intent.EXTRA_STREAM, uri);
 		startActivity(mShareIntent);
 		return;
 	}
