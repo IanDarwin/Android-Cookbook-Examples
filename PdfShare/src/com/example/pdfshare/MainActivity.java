@@ -1,6 +1,5 @@
 package com.example.pdfshare;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +12,8 @@ import android.graphics.pdf.PdfDocument.Page;
 import android.graphics.pdf.PdfDocument.PageInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
+import android.print.PrintAttributes;
+import android.print.pdf.PrintedPdfDocument;
 import android.view.Menu;
 import android.view.View;
 
@@ -37,7 +37,13 @@ public class MainActivity extends Activity implements Runnable {
 	public void run() {
 		
 		// Create a shiny new (but blank) PDF document in memory
-		PdfDocument document = new PdfDocument();
+		// We want it to optionally be printable, so add PrintAttributes
+		// and use a PrintedPdfDocument. Simpler: new PdfDocument().
+		PrintAttributes printAttrs = new PrintAttributes.Builder().
+				setColorMode(PrintAttributes.COLOR_MODE_COLOR).
+				setMediaSize(PrintAttributes.MediaSize.NA_LETTER).
+				build();
+		PdfDocument document = new PrintedPdfDocument(this, printAttrs);
 
 		// crate a page description
 		PageInfo pageInfo = new PageInfo.Builder(300, 300, 1).create();
