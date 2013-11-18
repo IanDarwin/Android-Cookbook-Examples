@@ -2,8 +2,11 @@ package com.example.rangegraph;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends Activity {
+	
+	private final static String TAG = "RangeGraphDemo";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
