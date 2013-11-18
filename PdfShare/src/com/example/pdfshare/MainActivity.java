@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements Runnable {
 		document.finishPage(page);
 
 		// Here you could add more pages in a longer doc app, but you'd have
-		// to handle page-breaking yourself in e.g., a word processor
+		// to handle page-breaking yourself in e.g., write your own word processor...
 
 		// Now write the PDF document to a file; it actually needs to be a file
 		// since the Share mechanism can't accept a byte[]. though it can
@@ -61,9 +61,7 @@ public class MainActivity extends Activity implements Runnable {
 		File file = null;
 		try {
 			file = File.createTempFile("pdfsend", "pdf");
-		
 			os = new FileOutputStream(file);
-		
 			document.writeTo(os);
 			document.close();
 			os.close();
