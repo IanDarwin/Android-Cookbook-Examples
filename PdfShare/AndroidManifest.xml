@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <!-- FileProvider - a ContenProvider for making the image file securely available to the other end -->
+        <!-- FileProvider - a ContentProvider for making the image file securely available to the other end -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.fileprovider"

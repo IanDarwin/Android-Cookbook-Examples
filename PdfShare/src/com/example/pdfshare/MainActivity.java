@@ -13,6 +13,7 @@ import android.graphics.pdf.PdfDocument.PageInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.print.PrintAttributes;
+import android.print.PrintAttributes.Resolution;
 import android.print.pdf.PrintedPdfDocument;
 import android.support.v4.content.FileProvider;
 import android.view.Menu;
@@ -44,8 +45,13 @@ public class MainActivity extends Activity implements Runnable {
 		PrintAttributes printAttrs = new PrintAttributes.Builder().
 				setColorMode(PrintAttributes.COLOR_MODE_COLOR).
 				setMediaSize(PrintAttributes.MediaSize.NA_LETTER).
+				setResolution(new Resolution("zooey", PRINT_SERVICE, 300, 300)).
 				build();
-		PdfDocument document = new PrintedPdfDocument(this, printAttrs);
+		if (printAttrs == null) {
+			throw new IllegalStateException();
+		}
+		//PdfDocument document = new PrintedPdfDocument(this, printAttrs);
+		PdfDocument document = new PdfDocument();
 
 		// crate a page description
 		PageInfo pageInfo = new PageInfo.Builder(300, 300, 1).create();
@@ -68,6 +74,7 @@ public class MainActivity extends Activity implements Runnable {
 		// accept a String/CharSequence. Meh.
 		try {
 			File pdfDirPath = new File(getFilesDir(), "pdfs");
+			pdfDirPath.mkdirs();
 			File file = new File(pdfDirPath, "pdfsend.pdf");
 			Uri contentUri = FileProvider.getUriForFile(this, "com.example.fileprovider", file);
 			os = new FileOutputStream(file);
