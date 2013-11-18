@@ -68,6 +68,9 @@ public class MainActivity extends Activity implements Runnable {
 		mShareIntent = new Intent();
 		mShareIntent.setAction(Intent.ACTION_SEND);
 		mShareIntent.setType("application/pdf");
+		// Assuming it may go via eMail:
+		mShareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Here is a PDF from PdfSend");
+		// Attach the PDf with a package-based name
 		mShareIntent.putExtra(getClass().getPackage().getName() + "." + "SendPDF", os.toByteArray());
 		startActivity(mShareIntent);
 		return;
