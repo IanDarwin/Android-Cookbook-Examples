@@ -13,6 +13,7 @@ import android.graphics.pdf.PdfDocument.PageInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.print.PrintAttributes;
+import android.print.PrintAttributes.Margins;
 import android.print.PrintAttributes.Resolution;
 import android.print.pdf.PrintedPdfDocument;
 import android.support.v4.content.FileProvider;
@@ -46,12 +47,9 @@ public class MainActivity extends Activity implements Runnable {
 				setColorMode(PrintAttributes.COLOR_MODE_COLOR).
 				setMediaSize(PrintAttributes.MediaSize.NA_LETTER).
 				setResolution(new Resolution("zooey", PRINT_SERVICE, 300, 300)).
+				setMinMargins(Margins.NO_MARGINS).
 				build();
-		if (printAttrs == null) {
-			throw new IllegalStateException();
-		}
-		//PdfDocument document = new PrintedPdfDocument(this, printAttrs);
-		PdfDocument document = new PdfDocument();
+		PdfDocument document = new PrintedPdfDocument(this, printAttrs);
 
 		// crate a page description
 		PageInfo pageInfo = new PageInfo.Builder(300, 300, 1).create();
