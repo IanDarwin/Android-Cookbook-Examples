@@ -1,0 +1,44 @@
+Using This Code in Eclipse
+--------------------------
+
+It is assummed that Eclipse has been installed and configured for Android development. To install and set up Eclipse for Windows see the article http://tekeye.biz/2011/set-up-windows-for-android-development or view the Android developer page http://developer.android.com/sdk/eclipse-adt.html.
+
+1. Open Eclipse.
+
+2. Select New from the File menu and then Android Project (or File then Other then Android Project under the Android folder).
+
+3. In the Project Name box on the New Android Project dialog enter a name, e.g.: MyAndroid
+
+4. Select Next.
+
+5. Set the Build Target to 1.5, or any of the installed Android APIs, it can be changed later if required.
+
+6. Select Next.
+
+7. Enter the Package Name: com.example
+
+8. Uncheck the Create Activity option.
+
+9. Click Finish. The new project will be created.
+
+10. With the new project selected in the Eclipse Package Explorer select the Import option from the File menu.
+
+11. Select Archive File under General on the Import dialog.
+
+12. Select Next.
+
+13. Browse to and select secondscreen.zip.
+
+14. All the files will be checked for import, uncheck this file (instructions.txt).
+
+15. Check the "Overwrite existing resources without warning" box to prevent messages about files being overwritten shown, this is a new project so nothing is being lost. (If you want to see what is overwritten leave it unchecked.)
+
+16. Click Finish.
+
+With the files imported the project should compile and run.
+
+If the message "Could not find MyAndroid.apk!" or similar is shown in the console confirm the Launch Configuration. With the project selected in the Package Explorer use the File menu to select Properties. Select Run/Debug. Select the project name and click the Edit button. Click OK to close the dialog. The project should now run.
+
+During the import a message box with the title "Launch Configuration Update" may appear. It is likely to display "The package definition in the manifest changed. Do you want to update your Launch configuration?" Select Yes. The Package Name selected for the new project is likely not to match the Package Name in the files being imported, probably due to a typing mistake or case difference when naming the package. This can be checked when the files have finished importing. Open AndroidManifest.xml and make a note of the package attribute on the manifest element. Check that it matches the package name under the src folder in the project tree. Open the Launch Configuration as described in the previous paragraph, either Launch Default Activity is selected or Launch is set to the correct starting Activity in the correctly named package. Make any changes that are not correct, use the Refactor option on the File menu to rename a package.
+
+If the project is still not running Eclipse will show any errors that need addressing. Alternatively See the tutorial at http://tekeye.biz/2012/starting-a-second-activity to code a similar example manually.
