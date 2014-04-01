@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
 
 		receiveFilter = new IntentFilter(getClass().getName());
 		LocalBroadcastManager.getInstance(this).registerReceiver(handler, receiveFilter);
+		LocalBroadcastManager.getInstance(this).registerReceiver(handler2, receiveFilter);
 	}
 
 	@Override
@@ -44,6 +45,14 @@ public class MainActivity extends Activity {
 		public void onReceive(Context context, Intent intent) {
 			Log.d(TAG,"MainActivity.handler.new BroadcastReceiver() {...}.onReceive(): " + Thread.currentThread());
 			Toast.makeText(MainActivity.this, "Message received", Toast.LENGTH_LONG).show();
+		}	
+	};
+	
+	private BroadcastReceiver handler2 = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			Log.d(TAG,"MainActivity.handler.new BroadcastReceiver() {...}.onReceive(): " + Thread.currentThread());
+			Toast.makeText(MainActivity.this, "Message received here too", Toast.LENGTH_LONG).show();
 		}	
 	};
 
