@@ -25,16 +25,16 @@ public class MainActivity extends Activity {
 
     }
 
-    final String apkName = "MyDemoApp.apk";
+    final static String APK_NAME = "MyDemoApp.apk";
     public static final String TAG = MainActivity.class.getSimpleName();
 
 	/** The URL for the target app that we want to download and install */
     public static final String HTTP_DEV_MY_INSTALLEE_URL =
-            "http://darwinsys.com/tmp/" + apkName;
+            "http://darwinsys.com/tmp/" + APK_NAME;
 
     final String downloadPath = Environment.getExternalStorageDirectory() + "/download/";
     final File file = new File(downloadPath);
-    final File outputFile = new File(file, apkName);
+    final File outputFile = new File(file, APK_NAME);
 
     public void doDelete(View v) {
         if (outputFile.exists()) {
