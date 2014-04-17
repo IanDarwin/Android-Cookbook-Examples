@@ -1,0 +1,8 @@
+== AppInstaller
+
+This will download an APK, save it to the SD card, and install it.
+
+Tested and shown to work once, for one APK, on one device.
+
+May not work on old (API 7-era) devices due to APK format changes.
+If you get "APK Parse Error", try buying a new phone :-)
