@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
             try {
 
                 if (!outputFile.exists()) {
-                    Log.d(TAG, "DOWNLOADING");
+                    notifyFromBackground("Downloading...");
                     URL url = new URL(apkUrl);
                     HttpURLConnection c = (HttpURLConnection) url.openConnection();
                     c.setDoOutput(true);
@@ -88,6 +88,7 @@ public class MainActivity extends Activity {
                 }
 
                 // Do the install
+                notifyFromBackground("Installing...");
                 Intent promptInstall = new Intent(Intent.ACTION_VIEW)
                         .setDataAndType(Uri.fromFile(outputFile),
                                 "application/vnd.android.package-archive");
@@ -104,5 +105,14 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Boolean b) {
             MainActivity.this.setProgressBarIndeterminateVisibility(false);
         }
+    }
+
+    /** Really should use a spinner to notify of progress; this will do for a quick demo */
+    private void notifyFromBackground(final String mesg) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(MainActivity.this, mesg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
