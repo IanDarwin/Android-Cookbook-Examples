@@ -15,11 +15,11 @@ import android.util.Log;
  * @author Ian Darwin
  *
  */
-public class ReadingSyncAdapter extends AbstractThreadedSyncAdapter {
+public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	private final static String TAG = "ReadingSyncAdapter";
 
-	public ReadingSyncAdapter(Context appContext, boolean b) {
+	public ToDoSyncAdapter(Context appContext, boolean b) {
 		super(appContext, b);
 		Log.d(TAG, "ReadingSyncAdapter.ReadingSyncAdapter()");
 	}
