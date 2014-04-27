@@ -1,3 +1,5 @@
+== ToDoSyncServer
+
 This project is the backend server for the ToDoList Sync Server. 
 It implements in JavaEE (JAX-RS) both a REST service and the web UI parts of the
 server.
@@ -12,6 +14,7 @@ data.
 The service needs to be configured for BASIC AUTH on the PUT services.
 
 TODO:
-	Should provide both its internal form (in JSON presumably) as well
-	as import/export traditional "todo.txt" format; See http://todotxt.com/
-	and http://lifehacker.com/5859642/why-you-should-set-up-your-to+do-list-in-a-plain-text-file-and-how-to-do-it
+
+* Should provide both its internal form (in JSON presumably) as well
+as import/export traditional "todo.txt" format; See http://todotxt.com/
+and http://lifehacker.com/5859642/why-you-should-set-up-your-to+do-list-in-a-plain-text-file-and-how-to-do-it
