@@ -27,7 +27,7 @@
    <dependency>
          <groupId>com.darwinsys</groupId>
          <artifactId>todo-model</artifactId>
-         <version>1.0.0</version>
+         <version>1.0.1</version>
     </dependency>
  
   <!-- Yo dudes! Test early and often -->
