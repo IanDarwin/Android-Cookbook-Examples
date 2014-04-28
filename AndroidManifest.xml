@@ -6,10 +6,10 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="19" />
 
     <permission
-        android:name="com.example.MyService"
+        android:name="com.darwinsys.MyService"
         android:description="@string/myPermissionDescription"
         android:label="MyService"
         android:protectionLevel="dangerous" />
@@ -43,7 +43,7 @@
         </activity>
 
         <!--  May be called explicitly or from the Settings App section "Accounts" -->
-        <service android:name=".MyAccountService" android:exported="true">
+        <service android:name="com.darwinsys.myaccountmechanism.MyAccountService" android:exported="true">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -53,7 +53,7 @@
                 android:resource="@xml/authenticator" />
         </service>
         
-        <service android:name=".ReadingSyncService" android:exported="true">
+        <service android:name="com.darwinsys.todosynch.ToDoSyncService" android:exported="false">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>

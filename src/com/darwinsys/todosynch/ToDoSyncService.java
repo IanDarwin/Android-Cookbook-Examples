@@ -8,7 +8,7 @@ import android.os.IBinder;
  * This will be the Reading Synchronizer service, for use after the user has signed in successfully.
  * @author Ian Darwin
  */
-public class ToDoSynchService extends Service {
+public class ToDoSyncService extends Service {
 
 	private ToDoSyncAdapter sSyncAdapter;
 	private static final Object sLock = new Object();
