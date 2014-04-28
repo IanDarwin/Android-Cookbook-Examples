@@ -11,11 +11,16 @@ import android.os.IBinder;
 public class ToDoSynchService extends Service {
 
 	private ToDoSyncAdapter sSyncAdapter;
+	private static final Object sLock = new Object();
 
 	@Override
-	public synchronized void onCreate() {
+	public void onCreate() {
 		super.onCreate();
-		sSyncAdapter = new ToDoSyncAdapter(getApplicationContext(), true);
+		synchronized(sLock) {
+			if (sSyncAdapter == null) {
+				sSyncAdapter = new ToDoSyncAdapter(getApplicationContext(), true);
+			}
+		}
 	}
 	
 	@Override
