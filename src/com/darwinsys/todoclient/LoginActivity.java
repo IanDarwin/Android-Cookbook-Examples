@@ -1,4 +1,4 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.todoclient;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -29,7 +29,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 	/**
 	 * The default email to populate the email field with.
 	 */
-	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
+	public static final String EXTRA_EMAIL = "com.darwinsys.android.authenticatordemo.extra.EMAIL";
 
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.

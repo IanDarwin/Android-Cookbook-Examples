@@ -1,4 +1,4 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.todosynch;
 
 import android.app.Service;
 import android.content.Intent;

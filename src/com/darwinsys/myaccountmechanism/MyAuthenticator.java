@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.example.myaccountmechanism;
+package com.darwinsys.myaccountmechanism;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
@@ -25,6 +25,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.darwinsys.todoclient.LoginActivity;
+import com.darwinsys.todoclient.MainActivity;
 
 public class MyAuthenticator extends AbstractAccountAuthenticator {
 	

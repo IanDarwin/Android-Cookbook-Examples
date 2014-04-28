@@ -1,9 +1,11 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.myaccountmechanism;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+
+import com.darwinsys.todoclient.MainActivity;
 
 /**
  * This is used if the user invokes the "Add Account" dialog.

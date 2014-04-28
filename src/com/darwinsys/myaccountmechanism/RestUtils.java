@@ -1,4 +1,4 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.myaccountmechanism;
 
 import java.io.IOException;
 import java.util.List;

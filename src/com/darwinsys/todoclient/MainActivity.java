@@ -1,4 +1,4 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.todoclient;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	static final String TAG = "AuthFake";
+	public static final String TAG = "AuthFake";
 	
 	private Account mAccount;
 

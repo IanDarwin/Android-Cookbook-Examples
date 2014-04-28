@@ -1,4 +1,4 @@
-package com.example.myaccountmechanism;
+package com.darwinsys.todosynch;
 
 import android.accounts.Account;
 import android.content.AbstractThreadedSyncAdapter;
