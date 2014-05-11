@@ -1,0 +1,8 @@
+<!-- 
+The empty beans.xml file is apparently needed for CDI, which is needed
+for the injection of the DataSource using @PersistenceContext.
+So don't go deleting it, hear?
+ -->
+ <beans>
+     <!-- empty -->
+ </beans>

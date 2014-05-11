@@ -1,0 +1,25 @@
+<!--
+  Add this after these two lines:
+  &lt;subsystem xmlns="urn:jboss:domain:datasources:1.0"&gt;
+      &lt;datasources&gt;
+ -->
+                <datasource jta="false" jndi-name="java:jboss/datasources/RazorbackDatasource" pool-name="RazorbackDatasource" enabled="true" use-ccm="false">
+                    <connection-url>jdbc:postgresql:telemonitoring</connection-url>
+                    <driver-class>org.postgresql.Driver</driver-class>
+                    <driver>postgresql-9.1-902.jdbc4.jar</driver>
+                    <pool>
+                        <min-pool-size>25</min-pool-size>
+                        <max-pool-size>75</max-pool-size>
+                    </pool>
+                    <security>
+                        <user-name>telemon_db</user-name>
+                        <password>spamhead</password>
+                    </security>
+                    <validation>
+                        <validate-on-match>false</validate-on-match>
+                        <background-validation>false</background-validation>
+                    </validation>
+                    <statement>
+                        <share-prepared-statements>false</share-prepared-statements>
+                    </statement>
+                </datasource>

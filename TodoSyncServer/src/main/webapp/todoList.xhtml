@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="template/template.xhtml">
+
+	<ui:define name="title">ToDo List</ui:define>
+	<ui:define name="body">
+	<h:form>
+		<p:panel>
+			<f:facet name="header">ToDo List for #{remoteUser}</f:facet>
+
+			<div class="results">
+
+				<p:tabView switchType='ajax'>
+					<p:tab header="All Items">
+						<h:outputText value="No tasks Yet"
+							rendered="#{empty taskList.resultList}" />
+						<p:dataTable id="ToDoList" rules="all"
+							var="task" value="#{todoList.resultList}"
+							rendered="#{not empty todoList.resultList}">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+                    			#{task.id}
+                			</h:column>
+							<h:column>
+								<f:facet name="header">Date</f:facet>
+                    			#{task.creation}
+                			</h:column>
+							<h:column>
+								<f:facet name="header">Detail</f:facet>
+                    			#{task.name}
+                			</h:column>
+						</p:dataTable>
+					</p:tab>
+
+ 					<p:tab header="Yada yada">
+ 					Not implemented yet.
+ 					</p:tab>
+ 					
+
+				</p:tabView>
+			</div>
+
+		</p:panel>
+
+		<div class="actionButtons">
+			<h:button id="done" value="Logout" view="/index.html" />
+		</div>
+	</h:form>
+	</ui:define>
+
+</ui:composition>
+
