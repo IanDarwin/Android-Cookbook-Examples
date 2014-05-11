@@ -1,0 +1,5 @@
+== ContentProviderList
+
+Provides a list of all visible ContentProviders on your device.
+
+Visibility does not imply permission, so you may or may not be able to use some of these.
