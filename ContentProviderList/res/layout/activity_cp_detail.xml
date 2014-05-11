@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,9 +8,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".CpDetailActivity" >
 
+    <TableRow>
+        
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/pi_name" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/pi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    </TableRow>
+
+</TableLayout>
