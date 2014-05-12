@@ -1,0 +1,7 @@
+== Bookmarks
+
+This is a really simple ContentProvider client that displays your browser bookmarks.
+
+Should let you choose between history and bookmarks, since the CP has both.
+
+It should be extended to allow you to delete unused ones, and maybe even add new ones.
