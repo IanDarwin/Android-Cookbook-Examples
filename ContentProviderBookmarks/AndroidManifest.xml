@@ -3,10 +3,14 @@
 	package="com.example.bookmarks" 
 	android:versionCode="1" android:versionName="1.0-SNAPSHOT">
 	
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19"/>
+    
     <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
     <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
 
-  <application android:icon="@drawable/icon" android:label="@string/app_name">
+  <application android:icon="@drawable/icon" 
+      android:label="@string/app_name"
+      android:allowBackup="true">
     <activity android:name=".BookmarksActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
