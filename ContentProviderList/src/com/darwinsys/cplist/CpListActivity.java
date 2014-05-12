@@ -1,5 +1,6 @@
 package com.darwinsys.cplist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
@@ -17,29 +18,27 @@ public class CpListActivity extends ListActivity {
 	
 	private static final String TAG = "Cp24";
 	
-	ListAdapter mAdapter;
-
+	List<ProviderInfo> mProviders;
+	
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cp_list);
         
-		List<ProviderInfo> providers = getPackageManager().queryContentProviders(null, 0, 0);
-
-		for (ProviderInfo pi : providers) {
+		mProviders = getPackageManager().queryContentProviders(null, 0, 0);
+		List<String> names = new ArrayList<>(mProviders.size());
+		for (ProviderInfo pi : mProviders) {
 			Log.d(TAG, "Provider " + pi.name);
+			names.add(pi.name);
 		}
 		
-		mAdapter = new ArrayAdapter<ProviderInfo>(this, R.layout.cp_list_item, providers);
-		// TODO override getItem() to return just the name.
-
-		setListAdapter(mAdapter);
+		setListAdapter(new ArrayAdapter<String>(this, R.layout.cp_list_item, names));
 		
 		getListView().setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-				ProviderInfo pi = (ProviderInfo) mAdapter.getItem(pos);
+				ProviderInfo pi = mProviders.get(pos);
 				Intent intent = new Intent(CpListActivity.this, CpDetailActivity.class);
 				intent.putExtra("provider", pi);
 				startActivity(intent);
