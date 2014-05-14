@@ -61,13 +61,13 @@ There are some things I'd love it if people would contribute:
 | FaceFinder | - | - |
 | FacebookSdk | - | - |
 | FontDemo | - | - |
-| GcmClient | - | - |
-| GcmMockServer | - | - |
-| HelloCommandLine | - | - |
-| HelloEclipse | - | - |
-| HelloMaven | - | - |
-| HelloTestingTarget | - | - |
-| HelloTestingTestProject | - | - |
+| GcmClient | Google Cloud Messaging - receiver | - |
+| GcmMockServer | Google Cloud Messaging - sender | - |
+| HelloCommandLine | HelloWorld | SDK |
+| HelloEclipse | HelloWorld | Eclipse ADT |
+| HelloMaven | HelloWorld | Maven, JayWay Plug-in |
+| HelloTestingTarget | ADT Testing - subject| - |
+| HelloTestingTestProject | ADT Testing - Tests | - |
 | HomeAppListView | - | - |
 | HoneycombGallery | - | - |
 | HotContacts | - | - |
@@ -75,7 +75,6 @@ There are some things I'd love it if people would contribute:
 | IntentsDemo | - | - |
 | JavascriptDataDemo | - | - |
 | JpsTrack | - | - |
-| LICENSE.txt | - | - |
 | ListViewAdvanced | - | - |
 | ListViewDemos | - | - |
 | ListViewEmpty | - | - |
