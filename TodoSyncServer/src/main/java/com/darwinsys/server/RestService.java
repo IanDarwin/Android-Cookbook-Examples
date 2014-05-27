@@ -31,10 +31,6 @@ import com.darwinsys.todo.model.Task;
 @ApplicationScoped
 public class RestService {
 	
-	private static final String TEST_MESSAGE_STRING = "This is a test message for ";
-
-	private static final String TEST_ALERT_STRING = "This is a test alert! Do not act upon it.";
-
 	@Inject
 	EntityManager entityManager;
 	
@@ -42,13 +38,10 @@ public class RestService {
 		this.entityManager = entityManager;
 	}
 	
-	boolean
+	private boolean
 		/** True if we want to print/log call activity */
 		trace = true,
-		/** True if we want to send Alert text to test the Client's alerting code. */
-		alert = false;
-
-	private boolean debug;
+		debug = false;
 
 	public static final String WEB_SERVICE_VERSION = "2.0";
 	
@@ -97,13 +90,12 @@ public class RestService {
 					"\"web_service_version: \"%s\", " +
 					"\"time_on_server\": \"%s\", " +
 					"\"options/trace\": \"%s\", " +
-					"\"status\": \"W00table\", " +
-					"\"options/alert\": \"%s\", " +
+					"\"status\": \"running"
+					+ "\", " +
 				"}",
 				WEB_SERVICE_VERSION,
 				new Date(),
-				trace,
-				alert 
+				trace 
 		);
 	}
 	
@@ -120,9 +112,6 @@ public class RestService {
 			System.out.println("RestService.set debug = " + value + ")");
 			this.debug = value;
 			return "ok; set to " + this.debug;
-		} else if ("alerts".equals(option)) {
-			alert = value;
-			return "ok; all items will now return: " + TEST_ALERT_STRING;
 		}
 		return "ok; WARNING: unknown option: " + option;
 	}
@@ -159,7 +148,7 @@ public class RestService {
 	}
 	
 	/** Used to download a item BY item ID */
-	@GET @Path("/todo/items/{itemId}")
+	@GET @Path("/todo/{userName}/items/{itemId}")
 	public String findTaskById( @PathParam("itemId")long id) {
 		trace(String.format("GET /todo/item %d", id));
 
