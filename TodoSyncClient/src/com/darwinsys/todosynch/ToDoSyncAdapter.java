@@ -5,10 +5,14 @@ import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.Credentials;
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
@@ -47,11 +51,10 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	private SharedPreferences mPrefs;
 
 	private static final String SERVER = "172.17.162.115";
+	private static int PORT = 8080;
 	// CONTEXT may be the empty string or a directory name ending in "/"
 	private static final String CONTEXT = "todoserver/";
 	
-	private Account mAccount;
-
 	public ToDoSyncAdapter(Context appContext, boolean b) {
 		super(appContext, b);
 		Log.d(TAG, "ReadingSyncAdapter.ReadingSyncAdapter()");
@@ -82,20 +85,21 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		// Get the username and password, set there by our LoginActivity.
 		final AccountManager accountManager = AccountManager.get(getContext());
 		
-		mAccount = account;;
-		String userName = mAccount.name;
-		String password = accountManager.getPassword(mAccount);
+		long tStamp = mPrefs.getLong(LAST_SYNC_TSTAMP, 0L);
+		
+		String userName = account.name;
+		String password = accountManager.getPassword(account);
 		Toast.makeText(getContext(), "Starting TODO Sync for " + userName, Toast.LENGTH_LONG).show();
 		
-		long tStamp = mPrefs.getLong(LAST_SYNC_TSTAMP, 0L);
 		HttpClient client = new DefaultHttpClient();
-		
-		String authToken = "xxx xxx xxx";
+		Credentials creds = new UsernamePasswordCredentials(userName, password);        
+        ((AbstractHttpClient)client).getCredentialsProvider()
+        	.setCredentials(new AuthScope(SERVER, PORT), creds); 
 		
 		// First get list of items modified on the server
 		try {
-		final URI getUri = new URI(String.format("https://%s/%s/todo/%s/tasks"), 
-				SERVER, CONTEXT, userName);
+		final URI getUri = new URI(String.format("https://%s:%d/%s/todo/%s/tasks", 
+				SERVER, PORT, CONTEXT, userName));
 	
 		// NOW SEND ANY ITEMS WE'VE MODIFIED
 
@@ -113,7 +117,6 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			postAccessor.setURI(postUri);
 			postAccessor.addHeader("Content-Type", "application/json");
 			postAccessor.addHeader("Accept", "application/json");
-			postAccessor.addHeader("Authorization", "Token token=\"" + authToken + "\"");
 			
 			String json = JSON.std
 					.with(Feature.PRETTY_PRINT_OUTPUT)
@@ -146,7 +149,6 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		httpAccessor.setURI(getUri);
 		httpAccessor.addHeader("Content-Type", "application/json");
 		httpAccessor.addHeader("Accept", "application/json");
-		httpAccessor.addHeader("Authorization", "Token token=\"" + authToken + "\"");
 		HttpResponse getResponse = client.execute(httpAccessor);
 		final HttpEntity getResults = getResponse.getEntity();
 		final String tasksStr = EntityUtils.toString(getResults);
