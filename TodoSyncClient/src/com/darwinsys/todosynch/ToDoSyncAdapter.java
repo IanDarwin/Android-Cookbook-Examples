@@ -26,7 +26,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.darwinsys.authenticator.AuthConstants;
 import com.darwinsys.todo.model.Task;
 import com.darwinsys.todocontent.TaskUtils;
 import com.darwinsys.todocontent.TodoContentProvider;
@@ -81,46 +80,24 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		Log.d(TAG, "ReadingSyncAdapter.onPerformSync()");
 		
 		// Get the username and password, set there by our LoginActivity.
-		Account[] accounts = AccountManager.get(getContext()).getAccountsByType(AuthConstants.MY_ACCOUNT_TYPE);
-		switch (accounts.length) {
-		case 0:
-			Toast.makeText(getContext(), "You don't appear to be logged in to your device; cannot sync!", Toast.LENGTH_LONG).show();
-			return;
-		case 1:
-			mAccount = accounts[0];
-			String userName = mAccount.name;
-			Toast.makeText(getContext(), "Starting TODO Sync for " + userName, Toast.LENGTH_LONG).show();
-			break;
-		default:
-			Toast.makeText(getContext(), "You have multiple accounts on your device; cannot sync!", Toast.LENGTH_LONG).show();
-			Log.d(TAG, "Multiple accounts!!");
-			return;
-		}
+		final AccountManager accountManager = AccountManager.get(getContext());
+		
+		mAccount = account;;
+		String userName = mAccount.name;
+		String password = accountManager.getPassword(mAccount);
+		Toast.makeText(getContext(), "Starting TODO Sync for " + userName, Toast.LENGTH_LONG).show();
 		
 		long tStamp = mPrefs.getLong(LAST_SYNC_TSTAMP, 0L);
 		HttpClient client = new DefaultHttpClient();
 		
 		String authToken = "xxx xxx xxx";
 		
-		// First get any items modified on the server
+		// First get list of items modified on the server
 		try {
 		final URI getUri = new URI(String.format("https://%s/%s/todo/%s/tasks"), 
-				SERVER, CONTEXT, USERNAME);
-		HttpGet httpAccessor = new HttpGet();
-		httpAccessor.setURI(getUri);
-		httpAccessor.addHeader("Content-Type", "application/json");
-		httpAccessor.addHeader("Accept", "application/json");
-		httpAccessor.addHeader("Authorization", "Token token=\"" + authToken + "\"");
-		HttpResponse getResponse = client.execute(httpAccessor);
-		final HttpEntity getResults = getResponse.getEntity();
-		final String tasksStr = EntityUtils.toString(getResults);
-		List<Task> newToDos = JSON.std.listOfFrom(Task.class, tasksStr);
-		for (Task t : newToDos) {
-			mResolver.insert(TodoContentProvider.CONTENT_URI, TaskUtils.taskToContentValues(t));
-			Log.d(TAG, "Downloaded this new Task: " + t);
-		}
-		
-		// SEND ANY ITEMS WE'VE MODIFIED
+				SERVER, CONTEXT, userName);
+	
+		// NOW SEND ANY ITEMS WE'VE MODIFIED
 
 		final URI postUri = new URI(String.format("https://%s/todo/%s/task"), CONTEXT, "12345");
 		String sqlQuery = "modified < ?";
@@ -161,6 +138,24 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			}
 			Log.d(TAG, "UPDATED " + t2 + ", new _ID = " + t2.getId());
 		}
+		
+		// NOW GET ONES UPDATED ON THE SERVER
+		
+		// Order matters to avoid possibility of bouncing items back to the server that we just got
+		HttpGet httpAccessor = new HttpGet();
+		httpAccessor.setURI(getUri);
+		httpAccessor.addHeader("Content-Type", "application/json");
+		httpAccessor.addHeader("Accept", "application/json");
+		httpAccessor.addHeader("Authorization", "Token token=\"" + authToken + "\"");
+		HttpResponse getResponse = client.execute(httpAccessor);
+		final HttpEntity getResults = getResponse.getEntity();
+		final String tasksStr = EntityUtils.toString(getResults);
+		List<Task> newToDos = JSON.std.listOfFrom(Task.class, tasksStr);
+		for (Task t : newToDos) {
+			mResolver.insert(TodoContentProvider.CONTENT_URI, TaskUtils.taskToContentValues(t));
+			Log.d(TAG, "Downloaded this new Task: " + t);
+		}
+	
 	} catch (Exception e) {
 		Log.wtf(TAG, "ERROR in synchronization!: " + e, e);
 	}
