@@ -40,7 +40,7 @@ public class DateTest {
 
 	@Test
 	public void testGetDate() {
-		java.util.Date jud = d.getDate();
+		java.util.Date jud = d.asJULDate();
 		assertEquals(2013, jud.getYear());
 		assertEquals(6-1, jud.getMonth());
 	}

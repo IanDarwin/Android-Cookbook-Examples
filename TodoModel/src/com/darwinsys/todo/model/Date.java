@@ -1,7 +1,5 @@
 package com.darwinsys.todo.model;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -40,6 +38,8 @@ public class Date {
 			day = scan.nextInt();
 		} catch (InputMismatchException e) {
 			throw new IllegalArgumentException("Not YYYY-MM-DD: " + dateString);
+		} finally {
+			scan.close();
 		}
 		validate();
 	}
@@ -54,7 +54,7 @@ public class Date {
 	}
 
 	/** Convert a Date to a java.util.Date() */
-	public java.util.Date getDate() {
+	public java.util.Date asJULDate() {
 		return new java.util.Date(year, month - 1, day);
 	}
 
