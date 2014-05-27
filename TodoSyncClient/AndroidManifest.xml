@@ -75,6 +75,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.darwinsys.todoclient.TodoTaskListActivity" />
         </activity>
+
+        <provider android:authorities="com.darwinsys.todo" 
+			android:exported="true"
+			android:name="com.darwinsys.todocontent.TodoContentProvider"
+			android:readPermission="org.ehealth.data.read"
+            android:writePermission="org.ehealth.data.write"/>
+
     </application>
 
 </manifest>
