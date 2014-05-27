@@ -1,4 +1,4 @@
-package com.darwinsys.myaccountmechanism;
+package com.darwinsys.authenticator;
 
 import android.app.Service;
 import android.content.Intent;

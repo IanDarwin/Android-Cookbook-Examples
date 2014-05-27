@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.darwinsys.myaccountmechanism;
+package com.darwinsys.authenticator;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
@@ -101,7 +101,4 @@ public class MyAuthenticator extends AbstractAccountAuthenticator {
 		Log.d(TAG, "MyAuthenticator.updateCredentials()");
 		return null;
 	}
-
-	
-
 }
