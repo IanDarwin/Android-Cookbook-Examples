@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyAccountMechanism</string>
+    <string name="action_settings">Account</string>
+    <string name="hello_world">This is a test of the Emergency Account Activation System.</string>
+    <string name="authenticator_label">Demo Account</string>
+	<string name="myPermissionDescription">You should not accept this permission</string>
+    
+</resources>
