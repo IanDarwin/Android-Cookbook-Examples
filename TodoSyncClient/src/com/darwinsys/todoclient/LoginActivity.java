@@ -5,7 +5,7 @@ import android.accounts.AccountAuthenticatorActivity;
 import android.accounts.AccountManager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
+// import android.annotation.TargetApi;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.darwinsys.authenticator.AuthConstants;
 
 /**
  * Make sure we have a username and password, and pass it over the net to our account validation service;
@@ -150,7 +152,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 	/**
 	 * Shows the progress UI and hides the login form.
 	 */
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+	// @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
 	private void showProgress(final boolean show) {
 		// On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
 		// for very easy animations. If available, use these APIs to fade-in
@@ -208,10 +210,10 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 			}
 
 			// Register the new account with the on-device list of accounts.
-			final Account account = new Account(mUserName, Constants.MY_ACCOUNT_TYPE);
+			final Account account = new Account(mUserName, AuthConstants.MY_ACCOUNT_TYPE);
 			AccountManager am = AccountManager.get(LoginActivity.this);
 			
-			// XXX EPIC FAIL - don't store raw password; it MUST be encrypted.
+			// XXX BIT OF A FAIL - don't store raw password; it MUST be encrypted.
 			am.addAccountExplicitly(account, mPassword, null);
 			return true;
 		}

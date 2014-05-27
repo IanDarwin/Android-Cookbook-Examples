@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="13"
         android:targetSdkVersion="19" />
 
     <permission
@@ -16,6 +16,7 @@
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
     <application
@@ -40,7 +41,7 @@
 
         <!-- May be called explicitly or from the Settings App section "Accounts" -->
         <service
-            android:name="com.darwinsys.myaccountmechanism.MyAccountService"
+            android:name="com.darwinsys.authenticator.MyAccountService"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />

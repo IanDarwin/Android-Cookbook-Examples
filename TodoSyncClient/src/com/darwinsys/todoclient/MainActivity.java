@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.darwinsys.authenticator.AuthConstants;
+
 public class MainActivity extends Activity {
 
 	public static final String TAG = "AuthFake";
@@ -22,7 +24,7 @@ public class MainActivity extends Activity {
 		Log.d(TAG, "MainActivity.onCreate()");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Account[] accounts = AccountManager.get(this).getAccountsByType(Constants.MY_ACCOUNT_TYPE);
+		Account[] accounts = AccountManager.get(this).getAccountsByType(AuthConstants.MY_ACCOUNT_TYPE);
 		switch (accounts.length) {
 		case 0:
 			Toast.makeText(this, "You don't appear to be logged in to your device!", Toast.LENGTH_LONG).show();

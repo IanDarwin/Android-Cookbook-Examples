@@ -1,6 +1,6 @@
 <sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
-    android:contentAuthority="com.android.contacts"
-    android:accountType="com.example.android.samplesync"
+    android:contentAuthority="com.darwinsys.todo"
+    android:accountType="com.darwinsys.accounts"
     android:supportsUploading="true"
     android:userVisible="true"
 />
