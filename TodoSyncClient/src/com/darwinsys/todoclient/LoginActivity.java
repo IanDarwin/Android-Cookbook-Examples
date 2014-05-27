@@ -206,7 +206,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 				// Simulate network access.
 				Thread.sleep(750);
 			} catch (InterruptedException e) {
-				return false;
+				// Nothing to do
 			}
 
 			// Register the new account with the on-device list of accounts.
@@ -215,6 +215,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 			
 			// XXX BIT OF A FAIL - don't store raw password; it should be encrypted.
 			am.addAccountExplicitly(account, mPassword, null);
+			
 			return true;
 		}
 
