@@ -17,7 +17,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import com.darwinsys.todo.model.Task;
@@ -118,27 +117,26 @@ public class RestService {
 	
 	/** Used to upload a todo item
 	 * @throws ParseException on certain invalid inputs
-	 *  */
-	@POST @Path("/todo/{userName}/item")
+	 */
+	@POST @Path("/todo/{userName}/task")
 	@Produces("text/plain")
-	@Consumes({"application/x-www-form-urlencoded", "multipart/form-data"})
+	@Consumes("application/json")
 	public Response SaveTask(
-		@PathParam("userName")String userName,
-		MultivaluedMap<String, String> params) throws ParseException {
+		@PathParam("userName")String userName) {
 		
-		trace("POST /todo/" + userName + "/items");
+		trace("POST /todo/" + userName + "/task");
 		
-		Task item = new Task();
+		Task task = new Task();
 		
 		try {
-			entityManager.persist(item);
+			entityManager.persist(task);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.notModified("FAIL-persistence: " + e).build();
 		}
 		
 		try {
-			return Response.created(new URI(String.format("/todo/%s/items/%d", userName, item.getId()))).build();
+			return Response.created(new URI(String.format("/todo/%s/items/%d", userName, task.getId()))).build();
 		} catch (URISyntaxException e) {
 			// CANT HAPPEN
 			System.err.println("IMPOSSIBLE ERROR: " + e);
