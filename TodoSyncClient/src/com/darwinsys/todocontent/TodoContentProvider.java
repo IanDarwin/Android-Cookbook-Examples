@@ -17,6 +17,8 @@ public class TodoContentProvider extends ContentProvider {
 
 	public static final String AUTHORITY = "com.darwinsys.todo";
 	
+	public static final int DB_VERSION = 1;
+	
 	public static final String TODO_TABLE = "tasks";
 	
 	public static final Uri CONTENT_URI = 
@@ -41,7 +43,7 @@ public class TodoContentProvider extends ContentProvider {
 	@Override
 	public boolean onCreate() {
 		Log.d(TAG, "TodoContentProvider.onCreate()");
-		mDatabase = new DatabaseHelper(getContext(), "tasks.db", null, 0);
+		mDatabase = new DatabaseHelper(getContext(), "tasks.db", null, DB_VERSION);
 		return true;
 	}
 	
