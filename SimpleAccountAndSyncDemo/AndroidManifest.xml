@@ -53,7 +53,7 @@
                 android:resource="@xml/authenticator" />
         </service>
         
-        <service android:name=".ReadingSyncService" android:exported="true">
+        <service android:name=".MySyncService" android:exported="true">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
