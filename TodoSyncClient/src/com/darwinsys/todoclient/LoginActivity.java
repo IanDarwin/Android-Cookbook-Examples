@@ -199,12 +199,12 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 		protected Boolean doInBackground(Void... params) {
 			Log.d(TAG, "LoginActivity.UserLoginTask.doInBackground()");
 			
-			// First time for this user on this device, try to authentication against our network service.
+			// First time for this user on this device, try to authenticate against our network service.
 
 			// XXX write code to send a JSON request to the remote web service.
 			try {
 				// Simulate network access.
-				Thread.sleep(1500);
+				Thread.sleep(750);
 			} catch (InterruptedException e) {
 				return false;
 			}
@@ -213,7 +213,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 			final Account account = new Account(mUserName, AuthConstants.MY_ACCOUNT_TYPE);
 			AccountManager am = AccountManager.get(LoginActivity.this);
 			
-			// XXX BIT OF A FAIL - don't store raw password; it MUST be encrypted.
+			// XXX BIT OF A FAIL - don't store raw password; it should be encrypted.
 			am.addAccountExplicitly(account, mPassword, null);
 			return true;
 		}
