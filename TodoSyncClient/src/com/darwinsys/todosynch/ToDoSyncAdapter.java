@@ -5,13 +5,19 @@ import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.SyncResult;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.darwinsys.todo.model.Task;
+import com.darwinsys.todocontent.TaskUtils;
+import com.darwinsys.todocontent.TodoContentProvider;
+
 /**
- * This is hopefully going to morph into:
- * Android Synch Adapter for eHealth Readings;
+ * Android Synch Adapter for Todo List Tasks;
  * write readings to, and read readings from, the REST server.
  * @author Ian Darwin
  *
@@ -20,12 +26,16 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	private final static String TAG = "ReadingSyncAdapter";
 	
-	private final ContentResolver mContentResolver;
+	private final static String LAST_SYNC_TSTAMP = "last sync";
+	
+	private final ContentResolver mResolver;
+	private SharedPreferences mPrefs;
 
 	public ToDoSyncAdapter(Context appContext, boolean b) {
 		super(appContext, b);
 		Log.d(TAG, "ReadingSyncAdapter.ReadingSyncAdapter()");
-		mContentResolver = appContext.getContentResolver();
+		mResolver = appContext.getContentResolver();
+		mPrefs = PreferenceManager.getDefaultSharedPreferences(appContext);
 	}
 	
 	/** Alternate constructor form to maintain compatibility with Android 3.0
@@ -37,7 +47,7 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
             boolean allowParallelSyncs) {
         super(context, autoInitialize, allowParallelSyncs);
 
-        mContentResolver = context.getContentResolver();
+        mResolver = context.getContentResolver();
     }
 
 
@@ -49,6 +59,18 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			SyncResult syncResult) {
 		Log.d(TAG, "ReadingSyncAdapter.onPerformSync()");
 		
-		// TODO DO THE WORK HERE	
+		long tStamp = mPrefs.getLong(LAST_SYNC_TSTAMP, 0L);
+		
+		// First get any items modified on the server
+		
+		
+		// now send any items we've modified
+		String query = "modified < ?";
+		Cursor cur = mResolver.query(TodoContentProvider.CONTENT_URI, null, query, 
+				new String[]{Long.toString(tStamp)}, null);
+		while (cur.moveToNext()) {
+			Task t = TaskUtils.cursorToTask(cur);
+			mResolver.insert(TodoContentProvider.CONTENT_URI, TaskUtils.taskToContentValues(t));
+		}
 	}
 }

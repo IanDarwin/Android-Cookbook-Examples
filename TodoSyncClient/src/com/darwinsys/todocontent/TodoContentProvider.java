@@ -19,7 +19,7 @@ public class TodoContentProvider extends ContentProvider {
 	
 	public static final String TODO_TABLE = "tasks";
 	
-	private static final Uri CONTENT_URI = 
+	public static final Uri CONTENT_URI = 
 		Uri.parse("content://" + AUTHORITY);
 	
 	private DatabaseHelper mDatabase;

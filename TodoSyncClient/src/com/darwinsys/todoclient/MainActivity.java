@@ -61,10 +61,9 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * 
+	 * Start the accounts activity.
 	 */
 	void startAccountRegistration() {
 		startActivity(new Intent(this, LoginActivity.class));
 	}
-
 }

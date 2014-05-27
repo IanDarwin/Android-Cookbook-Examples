@@ -1,13 +1,19 @@
 package com.darwinsys.todoclient;
 
+import java.util.List;
+
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.darwinsys.todoclient.dummy.DummyContent;
+import com.darwinsys.todo.model.Task;
+import com.darwinsys.todoclient.TodoTaskListFragment.Callbacks;
+import com.darwinsys.todocontent.TaskUtils;
+import com.darwinsys.todocontent.TodoContentProvider;
 
 /**
  * A list fragment representing a list of Todo Tasks. This fragment also
@@ -36,6 +42,12 @@ public class TodoTaskListFragment extends ListFragment {
 	 * The current activated item position. Only used on tablets.
 	 */
 	private int mActivatedPosition = ListView.INVALID_POSITION;
+	
+	/**
+	 * The current list of items, fresh from the Content Provider
+	 * XXX Probably not ideal to hold this list in a field
+	 */
+	List<Task> mItems;
 
 	/**
 	 * A callback interface that all activities containing this fragment must
@@ -70,10 +82,11 @@ public class TodoTaskListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// TODO: replace with a real list adapter.
-		setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
+		Cursor cur = getActivity().getContentResolver().query(TodoContentProvider.CONTENT_URI, null, null, null, null);
+		mItems = TaskUtils.cursorToTaskList(cur);
+		setListAdapter(new ArrayAdapter<Task>(getActivity(), 
 				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, DummyContent.ITEMS));
+				android.R.id.text1, mItems));
 	}
 
 	@Override
@@ -116,7 +129,7 @@ public class TodoTaskListFragment extends ListFragment {
 
 		// Notify the active callbacks interface (the activity, if the
 		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+		mCallbacks.onItemSelected(mItems.get(position).toString());
 	}
 
 	@Override
