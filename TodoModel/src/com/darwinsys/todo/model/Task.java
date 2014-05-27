@@ -27,6 +27,7 @@ public class Task {
 	Date dueDate;	// when to do it by
 	boolean complete;
 	Date completedDate; // when you actually did it
+	long modified = System.currentTimeMillis();	// tstamp (UTC!) when last modified.
 	
 	public Task() {
 		super();
@@ -237,5 +238,13 @@ public class Task {
 		} else if (!project.equals(other.project))
 			return false;
 		return true;
+	}
+
+	public long getModified() {
+		return modified;
+	}
+
+	public void setModified(long modified) {
+		this.modified = modified;
 	}
 }
