@@ -4,9 +4,9 @@ This project is the backend server for the ToDoList Sync Server.
 It implements in JavaEE (JAX-RS) both a REST service and the web UI parts of the
 server.
 
-It needs an app server and a database. Developed with JBoss AS7
+It needs an app server and a database. Developed with JBoss AS
 (now known as WildFly see http://wildfly.org) and PostgreSQL 9. For
-JBoss AS7 setup, see files under jbossas7/.
+JBoss AS/Wildfly setup, see files under wildfly/.
 
 The JPA model exported by ToDoModel is used to save the actual
 data.
