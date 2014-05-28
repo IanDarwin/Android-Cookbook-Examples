@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.darwinsys</groupId>
-	<artifactId>TodoSyncClient</artifactId>
+	<artifactId>TodoClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
 
