@@ -95,7 +95,6 @@ public class Task {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Temporal(TemporalType.DATE)
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -117,7 +116,6 @@ public class Task {
 		this.context = context;
 	}
 	
-	@Temporal(TemporalType.DATE)
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -146,7 +144,6 @@ public class Task {
 		}
 	}
 	
-	@Temporal(TemporalType.DATE)
 	public Date getCompletedDate() {
 		return completedDate;
 	}
