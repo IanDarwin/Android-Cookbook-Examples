@@ -1,13 +1,22 @@
 package com.darwinsys.todo.model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.persistence.Embeddable;
 
 /*
  * Simple Date for Tasks: only has Year, Month, and Day.
  * Month is number the human way, starting at one.
  */
+@Embeddable
 public class Date implements Serializable {
 
 	private static final long serialVersionUID = -5944728253397921658L;
@@ -18,6 +27,8 @@ public class Date implements Serializable {
 	public Date() {
 		this(new java.util.Date());
 	}
+	
+
 	
 	/** Construct a Date for the given y-m-d */
 	public Date(int year, int month, int day) {
@@ -35,6 +46,13 @@ public class Date implements Serializable {
 
 	/** Construct a date from a YYYY-mm-DD String */
 	public Date(String dateString) {
+		populate(dateString);
+	}
+	
+	private void populate(String dateString) {
+		if (dateString == null) {
+			throw new NullPointerException("dateString may not be null");
+		}
 		Scanner scan = new Scanner(dateString.replace('-', ' '));
 		try {
 			year = scan.nextInt();

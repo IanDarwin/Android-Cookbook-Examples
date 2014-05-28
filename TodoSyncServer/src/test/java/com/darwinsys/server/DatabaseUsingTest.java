@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import static org.junit.Assert.*;
 
 public abstract class DatabaseUsingTest {
 
@@ -19,7 +20,7 @@ public abstract class DatabaseUsingTest {
 			puNamePersistent = "todo_pgsql";
 	static final String PERSISTENCE_UNIT_NAME = puNameFast;
 	protected static EntityManagerFactory factory;
-	protected EntityManager entityManager;	// used in subclasses
+	protected transient EntityManager entityManager;	// used in subclasses
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {		
@@ -39,9 +40,10 @@ public abstract class DatabaseUsingTest {
 	}
 
 	@Before
-	public void setUp() {
+	public void setUpDb() {
 		System.out.println(getClass().getName() + ".setUp()");
 		entityManager = factory.createEntityManager(); // must be per-thread, per-usage
+		assertNotNull(entityManager);
 	}
 
 	@After

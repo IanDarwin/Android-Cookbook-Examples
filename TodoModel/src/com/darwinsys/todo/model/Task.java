@@ -2,12 +2,14 @@ package com.darwinsys.todo.model;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /** One ToDo item or "task".
  * See http://todotxt.com/ and https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format.
@@ -29,7 +31,7 @@ public class Task implements Serializable {
 	String project;		// what this task is part of
 	String context;	// where to do it
 	Date dueDate;	// when to do it by
-	boolean complete;
+	boolean complete = false;
 	Date completedDate; // when you actually did it
 	long modified = System.currentTimeMillis();	// tstamp (UTC!) when last modified.
 	
@@ -99,6 +101,13 @@ public class Task implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@Embedded
+	@AttributeOverrides({
+	    @AttributeOverride(name="year",column=@Column(name="createdYear")),
+	    @AttributeOverride(name="month",column=@Column(name="createdMonth")),
+	    @AttributeOverride(name="day",column=@Column(name="createdDay")),
+	  })
 	public Date getCreationDate() {
 		return creationDate;
 	}
@@ -120,6 +129,12 @@ public class Task implements Serializable {
 		this.context = context;
 	}
 	
+	@Embedded
+	@AttributeOverrides({
+	    @AttributeOverride(name="year",column=@Column(name="dueYear")),
+	    @AttributeOverride(name="month",column=@Column(name="dueMonth")),
+	    @AttributeOverride(name="day",column=@Column(name="dueDay")),
+	  })
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -148,6 +163,12 @@ public class Task implements Serializable {
 		}
 	}
 	
+	@Embedded
+	@AttributeOverrides({
+	    @AttributeOverride(name="year",column=@Column(name="completedYear")),
+	    @AttributeOverride(name="month",column=@Column(name="completedMonth")),
+	    @AttributeOverride(name="day",column=@Column(name="completedDay")),
+	  })
 	public Date getCompletedDate() {
 		return completedDate;
 	}

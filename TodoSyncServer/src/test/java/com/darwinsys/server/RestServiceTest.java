@@ -18,6 +18,7 @@ public class RestServiceTest extends DatabaseUsingTest {
 
 	@Before
 	public void setUp() {
+		super.setUpDb();
 		target = new RestService();
 		target.setEntityManager(entityManager);  // simulate CDI; EM created in super.
 	}
