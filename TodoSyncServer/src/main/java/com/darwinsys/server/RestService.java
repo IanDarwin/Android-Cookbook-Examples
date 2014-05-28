@@ -6,6 +6,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -43,6 +45,8 @@ public class RestService {
 		debug = false;
 
 	public static final String WEB_SERVICE_VERSION = "2.0";
+	
+	private Map<String, String> users = new HashMap<String,String>(100);
 	
 	/** SimpleDateFormat used for parsing dates; note that it is NOT THREAD SAFE, so
 	 * usage must be synchronized!
@@ -98,6 +102,27 @@ public class RestService {
 		);
 	}
 	
+	/** A very simple (and very bad) signup mechanism.
+	 * DO NOT USE IN PRODUCTION - insecure since the passwords is in the URL
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	@GET @Path("/signup/{userName}/{password}")
+	@Produces("text/plain")
+	public String signin(@PathParam("userName")String userName, 
+			@PathParam("password")String password) {
+		System.out.println("RestService.signin()");
+		if (userName == null || userName.trim().length() <= 3) {
+			return "Missing username";
+		}
+		if (password == null || password.trim().length() <= 4) {
+			return "Missing username";
+		}
+		users.put(userName, password);
+		return "OK";
+	}
+	
 	/** Options settings - simple for now */
 	@GET @Path("/options/{option}/{value}")
 	@Produces("text/plain")
@@ -115,7 +140,7 @@ public class RestService {
 		return "ok; WARNING: unknown option: " + option;
 	}
 	
-	/** Used to upload a todo item
+	/** Used to upload a ToDo item known as a "Task"
 	 * @throws ParseException on certain invalid inputs
 	 */
 	@POST @Path("/todo/{userName}/task")
