@@ -1,5 +1,7 @@
 package com.darwinsys.todo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,9 @@ import javax.persistence.TemporalType;
  * @author Ian Darwin
  */
 @Entity
-public class Task {
+public class Task implements Serializable {
+	
+	private static final long serialVersionUID = 4917727200248757334L;
 	
 	private static final char SPACE = ' ';
 	private static final Date today = new Date();

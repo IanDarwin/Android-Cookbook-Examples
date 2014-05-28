@@ -1,5 +1,6 @@
 package com.darwinsys.todo.model;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +8,10 @@ import java.util.Scanner;
  * Simple Date for Tasks: only has Year, Month, and Day.
  * Month is number the human way, starting at one.
  */
-public class Date {
+public class Date implements Serializable {
+
+	private static final long serialVersionUID = -5944728253397921658L;
+	
 	int year, month, day;
 
 	/** Construct a Date for today */
