@@ -25,7 +25,10 @@
 		<property name="hibernate.archive.autodetection" value="class"/>
 		
 		<!-- Moronically, you may have to comment this out during unit testing; see code comment. -->
+		<!--
 		<property name="hibernate.connection.datasource" value="java:jboss/datasources/ToDoDatasource"/>
+		-->
+		<property name="hibernate.connection.datasource" value="java:jboss/datasources/ExampleDS"/>
 
 		<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 
