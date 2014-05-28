@@ -7,11 +7,12 @@ server.
 It needs an app server and a database. Developed with JBoss AS
 (now known as WildFly see http://wildfly.org) and PostgreSQL 9. For
 JBoss AS/Wildfly setup, see files under wildfly/.
+Note: for demo purposes you do NOT need to do this setup.
 
-The JPA model exported by ToDoModel is used to save the actual
-data.
+The JPA model exported by TodoModel is used to save the actual data;
+this is the SAME set of classes used in the TodoClient.
 
-The service needs to be configured for BASIC AUTH on the PUT services.
+For production, the service would need to be configured for BASIC AUTH on the PUT services.
 
 TODO:
 
