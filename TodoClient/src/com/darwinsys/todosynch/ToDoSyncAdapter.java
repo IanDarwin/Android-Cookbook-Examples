@@ -28,7 +28,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.darwinsys.Constants;
 import com.darwinsys.todo.model.Task;
@@ -85,7 +84,7 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		
 		String userName = account.name;
 		String password = accountManager.getPassword(account);
-		Toast.makeText(getContext(), "Starting TODO Sync for " + userName, Toast.LENGTH_LONG).show();
+		Log.d(TAG, "Starting TODO Sync for " + userName);
 		
 		HttpClient client = new DefaultHttpClient();
 		Credentials creds = new UsernamePasswordCredentials(userName, password);        
