@@ -29,7 +29,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.darwinsys.Constants;
+import com.darwinsys.RestConstants;
 import com.darwinsys.todo.model.Task;
 import com.darwinsys.todocontent.TaskUtils;
 import com.darwinsys.todocontent.TodoContentProvider;
@@ -89,12 +89,12 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		HttpClient client = new DefaultHttpClient();
 		Credentials creds = new UsernamePasswordCredentials(userName, password);        
         ((AbstractHttpClient)client).getCredentialsProvider()
-        	.setCredentials(new AuthScope(Constants.SERVER, Constants.PORT), creds); 
+        	.setCredentials(new AuthScope(RestConstants.SERVER, RestConstants.PORT), creds); 
 		
 		// First, get list of items modified on the server
 		try {
-		final URI getUri = new URI(String.format("https://%s:%d/%s/%s/tasks", 
-				Constants.SERVER, Constants.PORT, Constants.PATH_PREFIX, userName));
+		final URI getUri = new URI(String.format(RestConstants.PROTO + "://%s:%d/%s/%s/tasks", 
+				RestConstants.SERVER, RestConstants.PORT, RestConstants.PATH_PREFIX, userName));
 		Log.d(TAG, "Getting Items From " + getUri);
 		HttpGet httpAccessor = new HttpGet();
 		httpAccessor.setURI(getUri);
@@ -104,10 +104,11 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		final HttpEntity getResults = getResponse.getEntity();
 		final String tasksStr = EntityUtils.toString(getResults);
 		List<Task> newToDos = JSON.std.listOfFrom(Task.class, tasksStr);
+		Log.d(TAG, "Done Getting Items, list size = " + newToDos.size());
 	
 		// NOW SEND ANY ITEMS WE'VE MODIFIED
 
-		final URI postUri = new URI(String.format("https://%s/todo/%s/task"), Constants.PATH_PREFIX, userName);
+		final URI postUri = new URI(String.format(RestConstants.PROTO + "://%s/todo/%s/task"), RestConstants.PATH_PREFIX, userName);
 		String sqlQuery = "modified < ?";
 		Cursor cur = mResolver.query(TodoContentProvider.CONTENT_URI, null, sqlQuery, 
 				new String[]{Long.toString(tStamp)}, null);
