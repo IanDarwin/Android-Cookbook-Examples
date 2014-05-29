@@ -9,15 +9,16 @@
 	<ui:define name="body">
 	<h:form>
 		<pf:panel>
-			<f:facet name="header">ToDo List for #{remoteUser}</f:facet>
+			<f:facet name="header">ToDo List for user #{remoteUser}</f:facet>
 
 			<div class="results">
 
 				<pf:tabView switchType='ajax'>
-					<pf:tab header="All Items">
+					<pf:tab title="All Tasks">
 						<h:outputText value="No tasks Yet"
 							rendered="#{empty todoList.resultList}" />
-						<pf:dataTable id="ToDoList" rules="all"
+						<!--  Cannot use pf:dataTable here, should work, doesn't. -->
+						<h:dataTable id="todoList" rules="all"
 							var="task" value="#{todoList.resultList}"
 							rendered="#{not empty todoList.resultList}">
 							<h:column>
@@ -26,19 +27,18 @@
                 			</h:column>
 							<h:column>
 								<f:facet name="header">Date</f:facet>
-                    			#{task.creation}
+                    			#{task.creationDate}
                 			</h:column>
 							<h:column>
 								<f:facet name="header">Detail</f:facet>
                     			#{task.name}
                 			</h:column>
-						</pf:dataTable>
+						</h:dataTable>
 					</pf:tab>
 
- 					<pf:tab header="Another Tab">
+ 					<pf:tab title="Completed Tasks">
  					Not implemented yet.
  					</pf:tab>
- 					
 
 				</pf:tabView>
 			</div>
