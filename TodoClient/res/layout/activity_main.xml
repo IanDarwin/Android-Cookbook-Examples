@@ -4,22 +4,42 @@
     android:layout_height="match_parent"
     >
 <TextView
-    android:id="@+id/textView1"
+    android:id="@+id/label"
     android:text="@string/app_name"
     android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	/>
+<Button
+    android:id="@+id/refreshButton"
+    android:layout_below="@id/label"
+	android:text="@string/refresh"
+	android:onClick="refresh"
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	/>
+
+<Button
+    android:id="@+id/addButton"
+    android:layout_below="@id/refreshButton"
+	android:text="@string/add"
+	android:onClick="addNewTask"
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	/>
+
 <ListView 
 	android:id="@id/android:list"
+	android:layout_below="@id/addButton"
 	android:layout_height="match_parent" 
 	android:layout_width="match_parent" 
-	></ListView>
+	/>
+	
 <TextView
 	android:id="@id/android:empty"
 	android:text="@string/list_is_empty"
 	android:layout_height="match_parent"
 	android:layout_width="match_parent"
-	android:layout_below="@id/textView1"
+	android:layout_below="@id/label"
 	android:textSize="25sp"
 	android:gravity="center_vertical|center_horizontal"
 	/>
