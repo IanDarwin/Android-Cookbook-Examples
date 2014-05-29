@@ -58,6 +58,15 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
 		// or start a new one.
 		getLoaderManager().initLoader(0, null, this);
 		
+		// refresh(null);
+	}
+
+	/** 
+	 * Trigger an on-demand sync: DEMO ONLY!!
+	 * You should NOT normally expose this functionality to users;
+	 * see the Android docs for the many reasons why!
+	 */
+	public void refresh(View v) {
 		// Now schedule a sync for this authority
 		Bundle settingsBundle = new Bundle();
         settingsBundle.putBoolean(
@@ -105,11 +114,7 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		Log.d(TAG, "onMenuItemSelected: " + featureId);
-		switch (featureId) {
-		default:
-			startAccountRegistration();
-		}
-		return super.onMenuItemSelected(featureId, item);
+		return false;
 	}
 	
 	public void doAccounts(View v) {
@@ -122,5 +127,9 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
 	 */
 	void startAccountRegistration() {
 		startActivity(new Intent(this, LoginActivity.class));
+	}
+	
+	public void addNewTask(View v) {
+		startActivity(new Intent(this, AddTaskActivity.class));
 	}
 }
