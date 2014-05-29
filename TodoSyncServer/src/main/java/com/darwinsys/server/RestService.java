@@ -2,9 +2,7 @@ package com.darwinsys.server;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -49,15 +47,12 @@ public class RestService {
 	
 	private Map<String, String> users = new HashMap<String,String>(100);
 	
-	/** SimpleDateFormat used for parsing dates; note that it is NOT THREAD SAFE, so
-	 * usage must be synchronized!
-	 */
-	public static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss.SSS'Z'");
-	
 	static {
 		System.out.println("ToDoServer.RestService class loaded.");
 	}
+	
 	public RestService() {
+		// empty, required.
 	}
 	
 	/** Diagnostic printing */
