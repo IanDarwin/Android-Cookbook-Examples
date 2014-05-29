@@ -47,43 +47,43 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
 			Toast.makeText(this, "You have too many accounts? " + accounts, Toast.LENGTH_LONG).show();
 			return;
 		}
-        mAdapter = new SimpleCursorAdapter(this,
-        android.R.layout.simple_list_item_2, null,
-        new String[] { },
-        new int[] { android.R.id.text1, android.R.id.text2 }, 0);
-        setListAdapter(mAdapter);
+		mAdapter = new SimpleCursorAdapter(this,
+				android.R.layout.simple_list_item_2, null,
+				new String[] { },
+				new int[] { android.R.id.text1, android.R.id.text2 }, 0);
+		setListAdapter(mAdapter);
 
-        // Prepare the loader.  Either re-connect with an existing one,
-        // or start a new one.
-        getLoaderManager().initLoader(0, null, this);
-}
+		// Prepare the loader.  Either re-connect with an existing one,
+		// or start a new one.
+		getLoaderManager().initLoader(0, null, this);
+	}
 
-@Override
-public Loader<Cursor> onCreateLoader(int id, Bundle stuff) {
-        Log.d(TAG, "MainActivity.onCreateLoader()");
-        Uri baseUrl = TodoContentProvider.TASKS_URI;
-        
-        // This assumes you want to see all the columns
-        String[] projection = null;
-        
-        // Write code here to build a query to only select for incomplete,
-        // to change the sorting order, etc.
-        String select = null;
-        String[] selectionArgs = null;
-        String order = null;
-        
-        return new CursorLoader(this, baseUrl, projection, select, selectionArgs, order);
-}
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle stuff) {
+		Log.d(TAG, "MainActivity.onCreateLoader()");
+		Uri baseUrl = TodoContentProvider.TASKS_URI;
 
-@Override
-public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mAdapter.swapCursor(data);
-}
+		// This assumes you want to see all the columns
+		String[] projection = null;
 
-@Override
-public void onLoaderReset(Loader<Cursor> loader) {
-        mAdapter.swapCursor(null);
-}
+		// Write code here to build a query to only select for incomplete,
+		// to change the sorting order, etc.
+		String select = null;
+		String[] selectionArgs = null;
+		String order = null;
+
+		return new CursorLoader(this, baseUrl, projection, select, selectionArgs, order);
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+		mAdapter.swapCursor(data);
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> loader) {
+		mAdapter.swapCursor(null);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
