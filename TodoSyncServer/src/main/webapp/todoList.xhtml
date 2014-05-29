@@ -18,7 +18,7 @@
 						<h:outputText value="No tasks Yet"
 							rendered="#{empty todoList.resultList}" />
 						<!--  Cannot use pf:dataTable here, should work, doesn't. -->
-						<h:dataTable id="todoList" rules="all"
+						<h:dataTable id="todoList" border='1' rules="all"
 							var="task" value="#{todoList.resultList}"
 							rendered="#{not empty todoList.resultList}">
 							<h:column>
