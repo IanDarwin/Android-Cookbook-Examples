@@ -143,13 +143,13 @@ public class RestService {
 	/** Used to upload a ToDo item known as a "Task"
 	 * @throws ParseException on certain invalid inputs
 	 */
-	@POST @Path("/todo/{userName}/task")
+	@POST @Path("/{userName}/task")
 	@Produces("text/plain")
 	@Consumes("application/json")
 	public Response SaveTask(
 		@PathParam("userName")String userName) {
 		
-		trace("POST /todo/" + userName + "/task");
+		trace("POST /" + userName + "/task");
 		
 		Task task = new Task();
 		
@@ -161,7 +161,7 @@ public class RestService {
 		}
 		
 		try {
-			return Response.created(new URI(String.format("/todo/%s/items/%d", userName, task.getId()))).build();
+			return Response.created(new URI(String.format("/%s/items/%d", userName, task.getId()))).build();
 		} catch (URISyntaxException e) {
 			// CANT HAPPEN
 			System.err.println("IMPOSSIBLE ERROR: " + e);
@@ -170,9 +170,15 @@ public class RestService {
 		}
 	}
 	
-	/** Used to download a item BY item ID */
-	@GET @Path("/todo/{userName}/items/{itemId}")
-	public String findTaskById( @PathParam("itemId")long id) {
+	/** Used to download all item for the given user */
+	@GET @Path("/{userName}/items")
+	public String findTasksForUser(@PathParam("userName")String userName) {
+		return null;
+	}
+	
+	/** Used to download an item BY item ID */
+	@GET @Path("/{userName}/items/{itemId}")
+	public String findTaskById(@PathParam("userName")String userName,  @PathParam("itemId")long id) {
 		trace(String.format("GET /todo/item %d", id));
 
 		Task r = entityManager.find(Task.class, id);

@@ -54,7 +54,7 @@ public class RestServiceTest extends DatabaseUsingTest {
 		
 		transaction.commit();
 		
-		String ret = target.findTaskById(item.getId());
+		String ret = target.findTaskById("User123", item.getId());
 		assertNotNull(ret);
 		System.out.println("RestServiceTest.testGetOneItemg() -> " + ret);
 	}
