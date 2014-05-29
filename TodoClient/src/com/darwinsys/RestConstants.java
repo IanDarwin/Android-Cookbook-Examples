@@ -4,7 +4,7 @@ package com.darwinsys;
 
 public class RestConstants {
 	public static final String PROTO = "http"; // Use https in production!
-	public static final String SERVER = "172.17.162.115";
+	public static final String SERVER = "10.0.2.2"; // demo-onetodolist.openshift.com";
 	public static int PORT = 8080;
 	// PATH_PREFIX may be the empty string or a directory name
 	public static final String PATH_PREFIX = "rest";
