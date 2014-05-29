@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -143,15 +144,14 @@ public class RestService {
 	/** Used to upload a ToDo item known as a "Task"
 	 * @throws ParseException on certain invalid inputs
 	 */
-	@POST @Path("/{userName}/task")
+	@POST @Path("/new/tasks")
 	@Produces("text/plain")
 	@Consumes("application/json")
-	public Response SaveTask(
-		@PathParam("userName")String userName) {
+	public Response saveTask(Task task) {
+		
+		String userName = "Default";
 		
 		trace("POST /" + userName + "/task");
-		
-		Task task = new Task();
 		
 		try {
 			entityManager.persist(task);
@@ -160,8 +160,9 @@ public class RestService {
 			return Response.notModified("FAIL-persistence: " + e).build();
 		}
 		
+		// REST theory dictates that "create" should return the URI of the new resource:
 		try {
-			return Response.created(new URI(String.format("/%s/items/%d", userName, task.getId()))).build();
+			return Response.created(new URI(String.format("/%s/tasks/%d", userName, task.getId()))).build();
 		} catch (URISyntaxException e) {
 			// CANT HAPPEN
 			System.err.println("IMPOSSIBLE ERROR: " + e);
@@ -170,16 +171,18 @@ public class RestService {
 		}
 	}
 	
-	/** Used to download all item for the given user */
-	@GET @Path("/{userName}/items")
-	public String findTasksForUser(@PathParam("userName")String userName) {
-		return null;
+	/** Used to download all items for the given user */
+	// XXX FOR ALL USERS ATM
+	@GET @Path("/{userName}/tasks")
+	@Produces("application/json")
+	public List<Task> findTasksForUser(@PathParam("userName")String userName) {
+		return entityManager.createQuery("from Task t").getResultList();
 	}
 	
 	/** Used to download an item BY item ID */
-	@GET @Path("/{userName}/items/{itemId}")
+	@GET @Path("/{userName}/tasks/{itemId}")
 	public String findTaskById(@PathParam("userName")String userName,  @PathParam("itemId")long id) {
-		trace(String.format("GET /todo/item %d", id));
+		trace(String.format("GET tasks/item#%d", id));
 
 		Task r = entityManager.find(Task.class, id);
 		return r.toString();
