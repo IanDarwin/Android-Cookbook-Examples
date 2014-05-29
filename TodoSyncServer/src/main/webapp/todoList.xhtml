@@ -16,7 +16,7 @@
 				<pf:tabView switchType='ajax'>
 					<pf:tab header="All Items">
 						<h:outputText value="No tasks Yet"
-							rendered="#{empty taskList.resultList}" />
+							rendered="#{empty todoList.resultList}" />
 						<pf:dataTable id="ToDoList" rules="all"
 							var="task" value="#{todoList.resultList}"
 							rendered="#{not empty todoList.resultList}">
