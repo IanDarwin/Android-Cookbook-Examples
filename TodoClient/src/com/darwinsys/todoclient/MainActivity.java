@@ -2,20 +2,29 @@ package com.darwinsys.todoclient;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Activity;
+import android.app.ListActivity;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import com.darwinsys.authenticator.AuthConstants;
+import com.darwinsys.todocontent.TodoContentProvider;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor>{
+    
+    SimpleCursorAdapter mAdapter;
 
-	public static final String TAG = "AuthFake";
+	public static final String TAG = MainActivity.class.getSimpleName();
 	
 	private Account mAccount;
 
@@ -35,10 +44,46 @@ public class MainActivity extends Activity {
 			Toast.makeText(this, "Welcome, " + mAccount.name, Toast.LENGTH_LONG).show();
 			break;
 		default:
-			Toast.makeText(this, "What do I do with all these accounts? " + accounts, Toast.LENGTH_LONG).show();
-			break;
+			Toast.makeText(this, "You have too many accounts? " + accounts, Toast.LENGTH_LONG).show();
+			return;
 		}
-	}
+        mAdapter = new SimpleCursorAdapter(this,
+        android.R.layout.simple_list_item_2, null,
+        new String[] { },
+        new int[] { android.R.id.text1, android.R.id.text2 }, 0);
+        setListAdapter(mAdapter);
+
+        // Prepare the loader.  Either re-connect with an existing one,
+        // or start a new one.
+        getLoaderManager().initLoader(0, null, this);
+}
+
+@Override
+public Loader<Cursor> onCreateLoader(int id, Bundle stuff) {
+        Log.d(TAG, "MainActivity.onCreateLoader()");
+        Uri baseUrl = TodoContentProvider.TASKS_URI;
+        
+        // This assumes you want to see all the columns
+        String[] projection = null;
+        
+        // Write code here to build a query to only select for incomplete,
+        // to change the sorting order, etc.
+        String select = null;
+        String[] selectionArgs = null;
+        String order = null;
+        
+        return new CursorLoader(this, baseUrl, projection, select, selectionArgs, order);
+}
+
+@Override
+public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mAdapter.swapCursor(data);
+}
+
+@Override
+public void onLoaderReset(Loader<Cursor> loader) {
+        mAdapter.swapCursor(null);
+}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,6 +104,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void doAccounts(View v) {
+		Log.d(TAG, "MainActivity.doAccounts()");
 		startAccountRegistration();
 	}
 

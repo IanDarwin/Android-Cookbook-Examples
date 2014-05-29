@@ -39,12 +39,12 @@ import com.fasterxml.jackson.jr.ob.JSON.Feature;
 
 /**
  * Android Synch Adapter for Todo List Tasks;
- * write readings to, and read readings from, the REST server.
+ * write items to, and read items from, the REST server.
  * @author Ian Darwin
  */
 public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
-	private final static String TAG = "ReadingSyncAdapter";
+	private final static String TAG = ToDoSyncAdapter.class.getSimpleName();
 	
 	private final static String LAST_SYNC_TSTAMP = "last sync";
 	
@@ -53,7 +53,7 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	public ToDoSyncAdapter(Context appContext, boolean b) {
 		super(appContext, b);
-		Log.d(TAG, "ReadingSyncAdapter.ReadingSyncAdapter()");
+		Log.d(TAG, "ToDoSyncAdapter.ToDoSyncAdapter()");
 		mResolver = appContext.getContentResolver();
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(appContext);
 	}
@@ -76,7 +76,7 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			String authority,
 			ContentProviderClient provider, 
 			SyncResult syncResult) {
-		Log.d(TAG, "ReadingSyncAdapter.onPerformSync()");
+		Log.d(TAG, "ToDoSyncAdapter.onPerformSync()");
 		
 		// Get the username and password, set there by our LoginActivity.
 		final AccountManager accountManager = AccountManager.get(getContext());
@@ -94,8 +94,9 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		
 		// First, get list of items modified on the server
 		try {
-		final URI getUri = new URI(String.format("https://%s:%d/%s/todo/%s/tasks", 
-				Constants.SERVER, Constants.PORT, Constants.CONTEXT, userName));
+		final URI getUri = new URI(String.format("https://%s:%d/%s/%s/tasks", 
+				Constants.SERVER, Constants.PORT, Constants.PATH_PREFIX, userName));
+		Log.d(TAG, "Getting Items From " + getUri);
 		HttpGet httpAccessor = new HttpGet();
 		httpAccessor.setURI(getUri);
 		httpAccessor.addHeader("Content-Type", "application/json");
@@ -107,7 +108,7 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 		// NOW SEND ANY ITEMS WE'VE MODIFIED
 
-		final URI postUri = new URI(String.format("https://%s/todo/%s/task"), Constants.CONTEXT, userName);
+		final URI postUri = new URI(String.format("https://%s/todo/%s/task"), Constants.PATH_PREFIX, userName);
 		String sqlQuery = "modified < ?";
 		Cursor cur = mResolver.query(TodoContentProvider.CONTENT_URI, null, sqlQuery, 
 				new String[]{Long.toString(tStamp)}, null);

@@ -222,7 +222,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 //						    .put("password", mPassword)
 //						    .toString();
 				final String urlString = String.format("https://%s:%d/%s/signup/%s/%s", Constants.SERVER,
-						Constants.PORT, Constants.CONTEXT, mUserName, mPassword);
+						Constants.PORT, Constants.PATH_PREFIX, mUserName, mPassword);
 				HttpClient client = new DefaultHttpClient();
 				
 				HttpGet httpAccessor = new HttpGet();

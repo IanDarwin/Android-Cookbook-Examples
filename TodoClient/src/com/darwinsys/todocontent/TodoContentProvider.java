@@ -19,10 +19,13 @@ public class TodoContentProvider extends ContentProvider {
 	
 	public static final int DB_VERSION = 1;
 	
-	public static final String TODO_TABLE = "tasks";
+	public static final String TASKS_TABLE = "tasks";
 	
 	public static final Uri CONTENT_URI = 
 		Uri.parse("content://" + AUTHORITY);
+	
+	public static final Uri TASKS_URI = 
+			Uri.parse("content://" + AUTHORITY + "/" + TASKS_TABLE);
 	
 	private DatabaseHelper mDatabase;
 	
@@ -36,8 +39,8 @@ public class TodoContentProvider extends ContentProvider {
 	private static final String TAG = null;
 	
 	static {
-		matcher.addURI(AUTHORITY, TODO_TABLE, ITEMS);
-		matcher.addURI(AUTHORITY, TODO_TABLE + "/#", ITEM);
+		matcher.addURI(AUTHORITY, TASKS_TABLE, ITEMS);
+		matcher.addURI(AUTHORITY, TASKS_TABLE + "/#", ITEM);
 	}
 
 	@Override
@@ -65,7 +68,7 @@ public class TodoContentProvider extends ContentProvider {
 		Log.d(TAG, "INSERT " + uri);
 		switch(matcher.match(uri)) {
 			case ITEM:
-				long id = mDatabase.getWritableDatabase().insertOrThrow(TODO_TABLE, null, cv);
+				long id = mDatabase.getWritableDatabase().insertOrThrow(TASKS_TABLE, null, cv);
 				return ContentUris.withAppendedId(uri, id);
 			case ITEMS:
 				/*FALLTHROUGH*/
@@ -84,7 +87,7 @@ public class TodoContentProvider extends ContentProvider {
 			selection = selection + "_ID = " + uri.getLastPathSegment();
 			/*FALLTHROUGH*/
 		case ITEMS:
-			Cursor c = mDatabase.getReadableDatabase().query(TODO_TABLE, columns, selection, selectionArgs, orderBy, null, null);
+			Cursor c = mDatabase.getReadableDatabase().query(TASKS_TABLE, columns, selection, selectionArgs, orderBy, null, null);
 			return c;
 		default:
 			throw new IllegalArgumentException("Can't query on uri " + uri);
@@ -95,13 +98,14 @@ public class TodoContentProvider extends ContentProvider {
 	public int update(Uri uri, ContentValues cv, 
 			String selection, 
 			String[] selectionArgs) {
+		Log.d(TAG, "Update: " + selection);
 		switch(matcher.match(uri)) {
 		case ITEM:
 			selection = selection + "_ID = " + uri.getLastPathSegment();
 			/*FALLTHROUGH*/
 		case ITEMS:
 			int rowCount = mDatabase.getWritableDatabase().update(
-					TODO_TABLE, cv, selection, selectionArgs);
+					TASKS_TABLE, cv, selection, selectionArgs);
 			return rowCount;
 		default:
 			throw new IllegalArgumentException("Can't query on uri " + uri);
@@ -117,16 +121,17 @@ public class TodoContentProvider extends ContentProvider {
 	private class DatabaseHelper extends SQLiteOpenHelper {
 
 		private final String sqlCreateTable = 
-			"create table " + TODO_TABLE + "(" +
+			"create table " + TASKS_TABLE + "(" +
 			"_id integer primary key," + 
+			"modified integer," +	// modified timestamp
 			"priority character(1)," + // 'A'..'Z': how important?
 			"name varchar," +		// what to do
-			"creationDate DATETIME," + // when you realizeed you had to do it
+			"creationDate DATETIME," + // when you realized you had to do it
 			"project varchar," +	// what this task is part of
 			"context varchar," +	// where to do it
 			"dueDate DATETIME," +	// when to do it by
 			"complete BOOLEAN," +	// true if done
-			"completedDate DATETIME," + // When you finally got it done
+			"completedDate DATETIME" + // When you finally got it done
 			")";
 
 		public DatabaseHelper(Context context, String name,

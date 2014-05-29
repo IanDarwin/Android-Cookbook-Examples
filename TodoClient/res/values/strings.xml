@@ -3,10 +3,10 @@
 
     <string name="app_name">Todo Client</string>
     <string name="action_settings">Account</string>
-    <string name="hello_world">This is a test of the Emergency Account Activation System.</string>
     <string name="authenticator_label">Darwins Todo List</string>
     <string name="myPermissionDescription">You should not accept this permission</string>
     <string name="title_todotask_list">Todo Tasks</string>
     <string name="title_todotask_detail">Todo Task Detail</string>
+    <string name="list_is_empty">No Tasks Yet!</string>
 
 </resources>

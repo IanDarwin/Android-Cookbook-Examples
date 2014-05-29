@@ -5,6 +5,6 @@ package com.darwinsys;
 public class Constants {
 	public static final String SERVER = "172.17.162.115";
 	public static int PORT = 8080;
-	// CONTEXT may be the empty string or a directory name ending in "/"
-	public static final String CONTEXT = "todoserver/";
+	// PATH_PREFIX may be the empty string or a directory name ending in "/"
+	public static final String PATH_PREFIX = "rest/";
 }
