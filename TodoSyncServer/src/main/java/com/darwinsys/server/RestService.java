@@ -32,7 +32,7 @@ import com.darwinsys.todo.model.Task;
 @ApplicationScoped
 public class RestService {
 	
-	@PersistenceContext(unitName="todo_hsqldb")
+	@PersistenceContext(unitName="todo")
 	EntityManager entityManager;
 	
 	public void setEntityManager(EntityManager entityManager) {
