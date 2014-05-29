@@ -8,5 +8,7 @@
     <string name="title_todotask_list">Todo Tasks</string>
     <string name="title_todotask_detail">Todo Task Detail</string>
     <string name="list_is_empty">No Tasks Yet!</string>
+    <string name="add">Add Task</string>
+    <string name="refresh">Request Sync</string>
 
 </resources>
