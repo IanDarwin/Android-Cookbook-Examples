@@ -21,10 +21,12 @@ import android.accounts.AccountManager;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SyncResult;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -33,8 +35,10 @@ import com.darwinsys.RestConstants;
 import com.darwinsys.todo.model.Task;
 import com.darwinsys.todocontent.TaskUtils;
 import com.darwinsys.todocontent.TodoContentProvider;
-import com.fasterxml.jackson.jr.ob.JSON;
-import com.fasterxml.jackson.jr.ob.JSON.Feature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 
 /**
  * Android Synch Adapter for Todo List Tasks;
@@ -49,6 +53,8 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	private final ContentResolver mResolver;
 	private SharedPreferences mPrefs;
+	
+	ObjectMapper om = new ObjectMapper();
 	
 	public ToDoSyncAdapter(Context appContext, boolean b) {
 		super(appContext, b);
@@ -100,17 +106,19 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 		httpAccessor.setURI(getUri);
 		httpAccessor.addHeader("Content-Type", "application/json");
 		httpAccessor.addHeader("Accept", "application/json");
-		HttpResponse getResponse = client.execute(httpAccessor);
+		HttpResponse getResponse = client.execute(httpAccessor);	// CONNECT
 		final HttpEntity getResults = getResponse.getEntity();
 		final String tasksStr = EntityUtils.toString(getResults);
-		List<Task> newToDos = JSON.std.listOfFrom(Task.class, tasksStr);
+		Log.d(TAG, "JSON list string is: " + tasksStr);
+		List<?> newToDos = om.readValue(tasksStr, List.class);
 		Log.d(TAG, "Done Getting Items, list size = " + newToDos.size());
 	
-		// NOW SEND ANY ITEMS WE'VE MODIFIED
+		// NOW SEND ANY ITEMS WE'VE CREATED/MODIFIED, going FROM the ContentResolver
+		// TO the remote sync server.
 
-		final URI postUri = new URI(String.format(RestConstants.PROTO + "://%s/todo/%s/task"), RestConstants.PATH_PREFIX, userName);
+		final URI postUri = new URI(String.format(RestConstants.PROTO + "://%s/todo/%s/tasks", RestConstants.PATH_PREFIX, userName));
 		String sqlQuery = "modified < ?";
-		Cursor cur = mResolver.query(TodoContentProvider.CONTENT_URI, null, sqlQuery, 
+		Cursor cur = mResolver.query(TodoContentProvider.TASKS_URI, null, sqlQuery, 
 				new String[]{Long.toString(tStamp)}, null);
 		while (cur.moveToNext()) {
 			Task t = TaskUtils.cursorToTask(cur);
@@ -123,10 +131,12 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			postAccessor.addHeader("Content-Type", "application/json");
 			postAccessor.addHeader("Accept", "application/json");
 			
-			String json = JSON.std
-					.with(Feature.PRETTY_PRINT_OUTPUT)
-					.without(Feature.WRITE_NULL_PROPERTIES)
-					.asString(t);
+			final ObjectWriter w = om.writer();
+			String json = w
+			  .with(SerializationFeature.INDENT_OUTPUT)
+			  .without(SerializationFeature.WRAP_EXCEPTIONS)
+			  .writeValueAsString(t);
+
 			postAccessor.setEntity(new StringEntity(json));
 
 			// INVOKE
@@ -136,24 +146,28 @@ public class ToDoSyncAdapter extends AbstractThreadedSyncAdapter {
 			HttpEntity postResults = response.getEntity();
 			final String resultStr = EntityUtils.toString(postResults);
 
-			// The server just sends it back to us with their ID field filled in.
-			Task t2 = JSON.std.beanFrom(Task.class, resultStr);
+			// it actually sends the URL of the new ID
+			Uri resultUri = Uri.parse(resultStr);
+			long id = ContentUris.parseId(resultUri);
+			t.setId(id);;
 			int n = mResolver.update(TodoContentProvider.CONTENT_URI, 
-					TaskUtils.taskToContentValues(t2),
-					"_id = ", new String[]{Long.toString(t2.getId())});
+					TaskUtils.taskToContentValues(t),
+					"_id = ", new String[]{Long.toString(id)});
 			if (n != 1) {
 				Log.e(TAG, "FAILED TO UPDATE");
 			}
-			Log.d(TAG, "UPDATED " + t2 + ", new _ID = " + t2.getId());
+			Log.d(TAG, "UPDATED " + t + ", new _ID = " + t.getId());
 		}
 		
 		// NOW GET ONES UPDATED ON THE SERVER
 		
 		// Order matters to avoid possibility of bouncing items back to the server that we just got
 
-		for (Task t : newToDos) {
+		for (Object o : newToDos) {
+			System.out.println(o);
+			Task t = om.readValue(o.toString(), Task.class);
 			mResolver.insert(TodoContentProvider.CONTENT_URI, TaskUtils.taskToContentValues(t));
-			Log.d(TAG, "Downloaded this new Task: " + t);
+			Log.d(TAG, "Downloaded and inserted this new Task: " + t);
 		}
 	
 	} catch (Exception e) {
