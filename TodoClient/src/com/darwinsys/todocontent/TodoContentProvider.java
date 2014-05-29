@@ -67,11 +67,9 @@ public class TodoContentProvider extends ContentProvider {
 	public Uri insert(Uri uri, ContentValues cv) {
 		Log.d(TAG, "INSERT " + uri);
 		switch(matcher.match(uri)) {
-			case ITEM:
+			case ITEM: case ITEMS:
 				long id = mDatabase.getWritableDatabase().insertOrThrow(TASKS_TABLE, null, cv);
 				return ContentUris.withAppendedId(uri, id);
-			case ITEMS:
-				/*FALLTHROUGH*/
 			default:
 				throw new IllegalArgumentException("Can't insert on uri " + uri);
 		}
@@ -108,7 +106,7 @@ public class TodoContentProvider extends ContentProvider {
 					TASKS_TABLE, cv, selection, selectionArgs);
 			return rowCount;
 		default:
-			throw new IllegalArgumentException("Can't query on uri " + uri);
+			throw new IllegalArgumentException("Can't update on uri " + uri);
 		}
 	}
 	
