@@ -5,7 +5,7 @@
    
 <persistence-unit name="todo_hsqldb" transaction-type="RESOURCE_LOCAL">
 	<description>
-	    TEST-ONLY version of the JPA modelling configuration.
+	    TEST version of the JPA modelling configuration.
 		To extend this to also run local tests with PostgreSQL, see also
 		http://www.murraywilliams.com/2012/04/maven-and-jpa-programming/ (viewed 2012-08-10).
     </description>
@@ -16,7 +16,7 @@
 	
 	<properties>
 		<!-- Properties for Hibernate -->
-		<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+		<property name="hibernate.hbm2ddl.auto" value="create"/>
 		<property name="hibernate.show_sql" value="true"/>
 		<property name="hibernate.format_sql" value="true"/>
 		<property name="hibernate.archive.autodetection" value="class"/>

@@ -1,20 +1,14 @@
 package com.darwinsys.server;
 
-import javax.inject.Inject;
-
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
+//@RunWith(Arquillian.class)
 public class GreeterTest {
 
-    @Deployment
+    //@Deployment
     public static JavaArchive createDeployment() {
         final JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
             .addClass(Greeter.class)
@@ -26,10 +20,10 @@ public class GreeterTest {
     /** This is the heart of the matter: let's make sure that Arquillian
      * has told Weld to inject our dependencies.
      */
-    @Inject
+    //@Inject
     private Greeter greeter;
 
-    @Test
+    //@Test @Ignore
     public void should_create_greeting() {
         Assert.assertEquals("Hello, Earthling!",
             greeter.createGreeting("Earthling"));

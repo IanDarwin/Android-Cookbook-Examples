@@ -14,16 +14,20 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
+		<url-pattern>*.web</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		   <welcome-file>index.web</welcome-file>
 		   <welcome-file>index.jsp</welcome-file>
-		   <welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/error.jsf</location>
     </error-page>
+    
+    <mime-mapping>
+                <extension>jsp</extension>
+                <mime-type>text/html</mime-type>
+    </mime-mapping> 
 </web-app>

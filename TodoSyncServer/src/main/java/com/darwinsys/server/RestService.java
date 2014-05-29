@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -32,7 +32,7 @@ import com.darwinsys.todo.model.Task;
 @ApplicationScoped
 public class RestService {
 	
-	@Inject
+	@PersistenceContext
 	EntityManager entityManager;
 	
 	public void setEntityManager(EntityManager entityManager) {
@@ -114,10 +114,10 @@ public class RestService {
 			@PathParam("password")String password) {
 		System.out.println("RestService.signin()");
 		if (userName == null || userName.trim().length() <= 3) {
-			return "Missing username";
+			return "Missing or too-short username";
 		}
 		if (password == null || password.trim().length() <= 4) {
-			return "Missing username";
+			return "Missing or too-short password";
 		}
 		users.put(userName, password);
 		return "OK";

@@ -2,13 +2,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:pf="http://primefaces.org/ui"
 	template="template/template.xhtml">
 
 	<ui:define name="title">Site Failure or User Error</ui:define>
 	<ui:define name="body">
 	<h:form>
-		<p:panel>
+		<pf:panel>
 			<f:facet name="header">Error Page</f:facet>
 
 <p>
@@ -19,10 +19,10 @@ The mice inside our server squeak out the problem as follows: "#{errorHandler.ex
 </p>
 
 <p>
-Please <a href="/readingList.jsf">try again.</a>
+Please <a href="/todoList.web">try again.</a>
 </p>
 
-</p:panel>
+</pf:panel>
 </h:form>
 </ui:define>
 </ui:composition>
