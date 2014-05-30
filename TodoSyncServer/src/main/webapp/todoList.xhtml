@@ -24,15 +24,19 @@
 							<h:column>
 								<f:facet name="header">Id</f:facet>
                     			#{task.id}
-                			</h:column>
+                				</h:column>
 							<h:column>
 								<f:facet name="header">Date</f:facet>
                     			#{task.creationDate}
-                			</h:column>
+                				</h:column>
 							<h:column>
 								<f:facet name="header">Detail</f:facet>
                     			#{task.name}
-                			</h:column>
+                				</h:column>
+                				<h:column>
+							<f:facet name="header">Priority</f:facet>
+                    			#{task.priority}
+                				</h:column>
 						</h:dataTable>
 					</pf:tab>
 
@@ -46,7 +50,7 @@
 		</pf:panel>
 
 		<div class="actionButtons">
-			<h:commandButton id="done" value="List" view="/todoList.web" />
+			<h:commandButton value="Add Task" view="/addTask.web" />
 		</div>
 	</h:form>
 	</ui:define>
