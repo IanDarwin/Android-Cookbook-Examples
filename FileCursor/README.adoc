@@ -1,0 +1,8 @@
+== FileCursor
+
+A tiny demo of using some existing data to fake up a Cursor 
+whose rows contain the filename and filetype.
+
+This is in answer to an attendee who asked
+how to make up a Cursor from files when using
+a non-SQL-based ContentProvider.
