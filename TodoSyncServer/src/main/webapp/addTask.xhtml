@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pf="http://primefaces.org/ui"
+	template="template/template.xhtml">
+
+	<ui:define name="title">Add Task</ui:define>
+	<ui:define name="body">
+	<h:form>
+		<pf:panel>
+			<f:facet name="header">Add New Task for user #{remoteUser}</f:facet>
+
+				<pf:panelGrid columns="2">
+
+					<h:outputText value="Task Name"/>
+					<h:inputText value="#{taskHome.task.name}" required="true"/>
+
+					<h:outputText value="Priority"/>
+					<h:selectOneMenu value="#{taskHome.task.priority}">
+						<f:selectItems value="#{taskHome.priorities}"/>
+					</h:selectOneMenu>
+
+				</pf:panelGrid>
+
+				<div class="actionButtons">
+				<h:commandButton id="save" value="Save" action="#{taskHome.addTask}" />
+				</div>
+
+		</pf:panel>
+
+		<div class="actionButtons">
+			<h:commandButton id="done" value="List" view="/todoList.web" />
+		</div>
+	</h:form>
+	</ui:define>
+
+</ui:composition>
+

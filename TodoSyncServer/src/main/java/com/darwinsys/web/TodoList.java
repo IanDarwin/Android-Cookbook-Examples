@@ -2,13 +2,14 @@ package com.darwinsys.web;
 
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.darwinsys.todo.model.Task;
 
-@Named("todoList")
+@Named("todoList")  @RequestScoped
 public class TodoList {
 	@PersistenceContext(unitName="todo")
 	EntityManager entityManager;
