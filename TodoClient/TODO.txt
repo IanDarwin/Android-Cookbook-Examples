@@ -1,0 +1,8 @@
+A Todo list for a Todo list manager - obviously not yet self-hosting!
+
+Not quite working. The server deploys and the web pages work (crudely).
+The client deploys but won't connect.
+
+The Server URL should be a Setting (in the proposed Settings activity).
+
+
