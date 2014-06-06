@@ -22,7 +22,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			// Set the View Layer
 			setContentView(R.layout.activity_main);
 
-			// Get referenc to Email Button
+			// Get reference to Email Button
 			this.emailButton = (Button) this.findViewById(R.id.emailButton);
 
 			// Sets the Event Listener onClick
