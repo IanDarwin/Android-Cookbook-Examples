@@ -1,10 +1,12 @@
 package com.androidcookbook.homeapp;
 
 import android.app.ListActivity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -24,8 +26,11 @@ import android.widget.TextView;
  */
 public class HomeActivity extends ListActivity {
 	
+	private static final String TAG = "HomeScreenDemo";
+	
+	private static MyAppDesc mDemoAppDesc;
 	/** Trust me, you really want to set this false for production versions! */
-	private final boolean DEBUG = true;
+	private final boolean ALLOW_EXIT_BUTTON = true;
 
 	/** Toy data structure to track the allowable apps */
 	class MyAppDesc {
@@ -43,7 +48,8 @@ public class HomeActivity extends ListActivity {
 			new MyAppDesc("Phone", 
 					new Intent(Intent.ACTION_DIAL, null)),
 			new MyAppDesc("Web", 						// XXX Grossly insecure kiosk!
-							new Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"))),
+					new Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"))),
+			mDemoAppDesc = new MyAppDesc("App By Class", null),
 	};
 
 	@Override
@@ -51,8 +57,9 @@ public class HomeActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_activity);
 
+		mDemoAppDesc.intent = getPackageManager().getLaunchIntentForPackage("com.android.browser");
 		setListAdapter(adapter);
-		if (!DEBUG) {
+		if (!ALLOW_EXIT_BUTTON) {
 			View v = findViewById(R.id.exitButton);
 			v.setVisibility(View.GONE);
 		}
@@ -62,6 +69,7 @@ public class HomeActivity extends ListActivity {
 	 * The heart of the home app: run user's chosen other app.
 	 */
 	protected void onListItemClick(final ListView l, final View v, int position, long id) {
+		Log.d(TAG, "Starting activity for " + progs[position].name);
 		startActivity(progs[position].intent);
 	}
 
