@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 		int[] toViewIds = { R.id.list_name, R.id.list_email };
 		emailAdapter = new SimpleCursorAdapter(this, R.layout.email_and_name, getNamesAndEmails(null), fromCols, toViewIds);
 		
-		// Important 1: You have to provide a way of making the chosen choice representable.
+		// Important 1: You have to provide a way of making the chosen choice look presentable.
 		// emailAdapter.setStringConversionColumn(1); // 1=DISPLAY_NAME, 2=Email
 		emailAdapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
 			@Override
