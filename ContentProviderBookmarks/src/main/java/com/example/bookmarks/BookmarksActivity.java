@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class BookmarksActivity extends ListActivity {
 
@@ -37,17 +39,19 @@ public class BookmarksActivity extends ListActivity {
 		Log.d(TAG, "CURSOR rows = " + qr.getCount());
 		CursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.list_item, qr, from, to);
 		setListAdapter(adapter);
-		getListView().setLongClickable(true);
-		getListView().setOnLongClickListener(new AdapterView.OnLongClickListener() {
-			
+		final ListView myListView = getListView();
+		myListView.setLongClickable(true);
+		myListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
-			public boolean onLongClick(View v) {
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
 				Log.d(TAG, "BookmarksActivity.getListView().onLongClick");
-				int ix = getListView().getSelectedItemPosition();
-				final int deleted = getContentResolver().delete(Browser.BOOKMARKS_URI, "_id = ?", new String[]{Integer.toString(ix)});
-				if (deleted == 1) {
-					Toast.makeText(BookmarksActivity.this, "Deleted!", Toast.LENGTH_SHORT).show();
-				}
+				final int deleted = getContentResolver().delete(Browser.BOOKMARKS_URI, "_id = ?", new String[]{Long.toString(id)});
+				
+				Toast.makeText(BookmarksActivity.this, 
+					deleted == 1 ? "Deleted!" : "Failed to delete",
+					Toast.LENGTH_SHORT).show();
+				
 				return false;
 			}
 		});
