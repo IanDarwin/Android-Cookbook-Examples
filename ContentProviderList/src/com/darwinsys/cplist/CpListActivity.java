@@ -16,7 +16,7 @@ import android.widget.ListAdapter;
 
 public class CpListActivity extends ListActivity {
 	
-	private static final String TAG = "Cp24";
+	private static final String TAG = "Cp24"; // Toronto joke
 	
 	List<ProviderInfo> mProviders;
 	
