@@ -61,6 +61,7 @@ public class HomeActivity extends ListActivity {
 	/**
 	 * The heart of the home app: run user's chosen other app.
 	 */
+	@Override
 	protected void onListItemClick(final ListView l, final View v, int position, long id) {
 		startActivity(progs[position].intent);
 	}
