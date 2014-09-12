@@ -4,12 +4,13 @@ import android.app.ListActivity;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -54,16 +55,24 @@ public class Main extends ListActivity {
 						Toast.LENGTH_LONG).show();
 			}
 		});
-        OnLongClickListener longClickListener = new OnLongClickListener() {
+        OnItemLongClickListener longClickListener = new OnItemLongClickListener() {
 			@Override
-			public boolean onLongClick(View view) {
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
 				PopupMenu p = new PopupMenu(Main.this, view);
 				p.getMenuInflater().inflate(R.menu.main_popup_menu, p.getMenu());
 				p.show();
 				return true;
 			}        	
         };
-		myList.setOnLongClickListener(longClickListener);
-		orderZone.setOnLongClickListener(longClickListener);
+		myList.setOnItemLongClickListener(longClickListener);
     }
+    
+   public void doEatIn(MenuItem mi) {
+    		Toast.makeText(this, "Your table will be ready soon", Toast.LENGTH_SHORT).show();
+   }
+   
+   public void doTakeOut(MenuItem mi) {
+    		Toast.makeText(this, "Please pick up at the take-out window", Toast.LENGTH_SHORT).show();
+   }
 }

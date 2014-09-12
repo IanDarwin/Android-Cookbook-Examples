@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/order_takeout"
-		android:title="@string/order_takeout"/>
+		android:title="@string/order_takeout"
+		android:onClick="doTakeOut"/>
 	<item android:id="@+id/order_eat_in"
-		android:title="@string/order_eat_in"/>
+		android:title="@string/order_eat_in"
+		android:onClick="doEatIn"/>
 </menu>
