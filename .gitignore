@@ -7,3 +7,4 @@ gen/*
 *.class
 *.dex
 google-play-services_lib/
+.recommenders/
