@@ -55,7 +55,7 @@ public class Main extends ListActivity {
 						Toast.LENGTH_LONG).show();
 			}
 		});
-        OnItemLongClickListener longClickListener = new OnItemLongClickListener() {
+        myList.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -64,8 +64,7 @@ public class Main extends ListActivity {
 				p.show();
 				return true;
 			}        	
-        };
-		myList.setOnItemLongClickListener(longClickListener);
+        });
     }
     
    public void doEatIn(MenuItem mi) {
