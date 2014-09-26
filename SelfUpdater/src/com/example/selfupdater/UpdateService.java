@@ -1,0 +1,131 @@
+package com.example.selfupdater;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.sql.Date;
+
+import android.app.Service;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.Uri;
+import android.os.IBinder;
+import android.util.Log;
+
+public class UpdateService extends Service {
+	
+	public static final String TAG = UpdateService.class.getSimpleName();
+	
+	public static final boolean DEBUG = false;
+
+	private static final String SERVER_NAME = "YOURWEBSITENAMEHERE.com";
+	
+	// In real life this would be the actual name of your main app's APK; 
+	// SelfUpdater is just a demo name.
+	private static final String PATH_TO_APK = "/PATH_TO_DOWNLOAD/SelfUpdater.apk";
+
+	private boolean done = false;
+	
+	protected long ADAY = DEBUG ? 50000 : (24 * 60 * 60 * 1000);
+	
+	@Override
+	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void onCreate() {
+		new Thread(serviceRunner).start();
+	}
+	
+	Runnable serviceRunner = new Runnable() {
+		@Override
+		public void run() {
+			while (!done) {
+				Log.d(TAG, "ANOTHER DAY, Another 'Sleep then Test'");
+				// Sleep first so we don't bother running right after
+				// the initial install.
+				try {
+					Thread.sleep(ADAY);
+				} catch (InterruptedException ex) {
+					// Can't Happen
+					return;
+				}
+
+				/* Now the simple arithmetic: if web package updated after
+				 * last time app was updated, then it's time
+				 * again to update!
+				 */
+				final long appUpdatedOnDevice = getAppUpdatedOnDevice();
+				final long webPackageUpdated = getWebPackageUpdated();
+				if (appUpdatedOnDevice == -1 || webPackageUpdated == -1) {
+					continue; // FAIL, try another day
+				}
+				if (webPackageUpdated > appUpdatedOnDevice) {
+					triggerUPdate();
+				}
+			}
+		}
+	};
+	
+	public long getAppUpdatedOnDevice() {
+		PackageInfo packageInfo = null;
+		try {
+			packageInfo = getPackageManager()
+				.getPackageInfo(getClass().getPackage().getName(), PackageManager.GET_PERMISSIONS);
+		} catch (NameNotFoundException e) {
+			Log.d(TAG, "CANTHAPPEN: Failed to get package info for own package!");
+			return -1;
+		}
+		return packageInfo.lastUpdateTime;
+	}
+	
+	public static long getWebPackageUpdated() {
+		Socket http = null;
+		try {
+			http = new Socket(SERVER_NAME, 80);
+			PrintStream wout = new PrintStream(http.getOutputStream());
+			wout.print("HEAD " + PATH_TO_APK + " HTTP/1.0\r\n\r\n");
+			wout.flush();
+			BufferedReader win = 
+				new BufferedReader(new InputStreamReader(http.getInputStream()));
+			String line;
+			while ((line = win.readLine()) != null) {
+				if (line.startsWith("404")) {
+					Log.d(TAG, line);
+					return -1;
+				}
+
+				if (line.toLowerCase().startsWith("last-modified:")) {
+					System.out.println("Modified Line: " + line);
+					String aDateTime = line.substring(line.indexOf(' ') + 1);
+					return Date.parse(aDateTime);
+				}
+			}
+		} catch (IOException e) {
+			Log.e(TAG, "Failed to CHECK for update: " + e, e);
+			return -1;
+		} finally {
+			if (http != null)
+				try {
+					http.close();
+				} catch (IOException e) {
+					// Stupid checked exception in close! WGARA?
+				}
+		}
+		Log.d(TAG, "Didn't find modified header");
+		return -1;
+	}
+
+	protected void triggerUPdate() {
+		final Intent intent = new Intent(this, UpdateActivity.class);
+		intent.setData(Uri.parse("http://" + SERVER_NAME + PATH_TO_APK));
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
+	}
+}
