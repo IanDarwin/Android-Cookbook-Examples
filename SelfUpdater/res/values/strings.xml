@@ -9,5 +9,5 @@
     <string name="update_message">We have found a new update to the %s app. If you\'d like to install it, please click the button below.</string>
 	<string name="apply_update">Download update</string>
 	<string name="update_footnote">N.B. After the download completes, you must pull down the Status Bar and click on the downloaded apk to install it.
-	    Thanks for using iCheckIn!</string>
+	</string>
 </resources>
