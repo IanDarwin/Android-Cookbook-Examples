@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.sql.Date;
 
-import android.app.Service;
+import android.app.IntentService;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -16,11 +16,9 @@ import android.net.Uri;
 import android.os.IBinder;
 import android.util.Log;
 
-public class UpdateService extends Service {
+public class UpdateService extends IntentService {
 	
 	public static final String TAG = UpdateService.class.getSimpleName();
-	
-	public static final boolean DEBUG = false;
 
 	private static final String SERVER_NAME = "YOURWEBSITENAMEHERE.com";
 	
@@ -32,47 +30,34 @@ public class UpdateService extends Service {
 	
 	protected long ADAY = DEBUG ? 50000 : (24 * 60 * 60 * 1000);
 	
+	public UpdateService() {
+		super(TAG);
+	}
+	
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	@Override
-	public void onCreate() {
-		new Thread(serviceRunner).start();
-	}
-	
-	Runnable serviceRunner = new Runnable() {
-		@Override
-		public void run() {
-			while (!done) {
-				Log.d(TAG, "ANOTHER DAY, Another 'Sleep then Test'");
-				// Sleep first so we don't bother running right after
-				// the initial install.
-				try {
-					Thread.sleep(ADAY);
-				} catch (InterruptedException ex) {
-					// Can't Happen
-					return;
-				}
+	protected void onHandleIntent(Intent intent) {
 
-				/* Now the simple arithmetic: if web package updated after
-				 * last time app was updated, then it's time
-				 * again to update!
-				 */
-				final long appUpdatedOnDevice = getAppUpdatedOnDevice();
-				final long webPackageUpdated = getWebPackageUpdated();
-				if (appUpdatedOnDevice == -1 || webPackageUpdated == -1) {
-					continue; // FAIL, try another day
-				}
-				if (webPackageUpdated > appUpdatedOnDevice) {
-					triggerUPdate();
-				}
-			}
+		Log.d(TAG, "Starting One-time Service Runner");
+
+		/* Now the simple arithmetic: if web package updated after
+		 * last time app was updated, then it's time
+		 * again to update!
+		 */
+		final long appUpdatedOnDevice = getAppUpdatedOnDevice();
+		final long webPackageUpdated = getWebPackageUpdated();
+		if (appUpdatedOnDevice == -1 || webPackageUpdated == -1) {
+			continue; // FAIL, try another day
 		}
-	};
-	
+		if (webPackageUpdated > appUpdatedOnDevice) {
+			triggerUPdate();
+		}
+	}
+
 	public long getAppUpdatedOnDevice() {
 		PackageInfo packageInfo = null;
 		try {
