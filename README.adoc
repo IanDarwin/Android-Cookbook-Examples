@@ -78,13 +78,13 @@ There are some things I'd love it if people would contribute:
 | ListViewAdvanced | ListView | - |
 | ListViewDemos | ListView | - |
 | ListViewEmpty | ListView with empty list: don't show blank screen! | - |
-| ListViewSectionHeader | - | - |
-| LocalBroadcastDemo | - | - |
+| ListViewSectionHeader | ListView with section headers | - |
+| LocalBroadcastDemo | Local Broadcast Receiver | - |
 | MapDemosV2 | Google Maps V2 API | - |
-| MarketSearch | - | - |
-| MediaPlayerDemo | - | - |
-| MediaRecorderDemo | - | - |
-| MyAccountAndSyncDemo | - | - |
+| MarketSearch | Search the Play Store | - |
+| MediaPlayerDemo | Play media | - |
+| MediaRecorderDemo | Simple sound recorder | - |
+| MyAccountAndSyncDemo | User account on device | - |
 | NdkDemo | Native Development Kit| C Code |
 | NotificationDemo | Notifications | - |
 | NumberPickers | UI for picking numbers | - |
@@ -113,7 +113,7 @@ There are some things I'd love it if people would contribute:
 | TodoModel | Part of TODO List | - |
 | TodoSyncClient | Part of TODO List | - |
 | TodoSyncServer | Part of TODO List | JavaEE-based server |
-| UniqueId | - | - |
+| UniqueId | Find device's unique ID | - |
 | Vibrate | Make the device vibrate | - |
 | ViewPagerDemo | Swipe among views | - |
 | WindowBackgroundDemo | - | - |
