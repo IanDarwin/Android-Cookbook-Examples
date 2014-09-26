@@ -45,22 +45,22 @@ There are some things I'd love it if people would contribute:
 | CheckBoxRadioButton | GUI demo | name says it |
 | ContentProviderBookmarks | List of bookmarks | Browser ContentProvider |
 | ContentProviderList | List of ContentProviders | - |
-| ContentProviderSample | - | - |
-| ContentProviderTest | - | - |
-| CountDownTimerExample | - | - |
-| CurrentMoodWidget | - | - |
-| CustomMenu | - | - |
-| CustomToast | - | - |
-| DialogDemos | - | - |
-| DigitalClock | - | - |
-| DisplayInfo | - | - |
-| DreamsDemo | - | - |
-| EmailTextView | - | - |
-| EmailWithAttachments | - | - |
-| EpochJSCalendar | - | - |
-| FaceFinder | - | - |
+| ContentProviderSample | Implement a ContentProvider | - |
+| ContentProviderTest | Test it | - |
+| CountDownTimerExample | Time-based activity | - |
+| CurrentMoodWidget | Application Widget | - |
+| CustomMenu | Menu | - |
+| CustomToast | Toast | - |
+| DialogDemos | Dialogs | - |
+| DigitalClock | Clock | - |
+| DisplayInfo | Info about the display | - |
+| DreamsDemo | Demo of "Dreams" (4.x screensaver) | - |
+| EmailTextView | Send contents of EditText via email | - |
+| EmailWithAttachments | Attach file to email | - |
+| EpochJSCalendar | Java + JavaScript | - |
+| FaceFinder | Face locator API in photos | - |
 | FacebookSdk | - | - |
-| FontDemo | - | - |
+| FontDemo | Using a custom font | - |
 | GcmClient | Google Cloud Messaging - receiver | - |
 | GcmMockServer | Google Cloud Messaging - sender | - |
 | HelloCommandLine | HelloWorld | SDK |
@@ -68,53 +68,53 @@ There are some things I'd love it if people would contribute:
 | HelloMaven | HelloWorld | Maven, JayWay Plug-in |
 | HelloTestingTarget | ADT Testing - subject| - |
 | HelloTestingTestProject | ADT Testing - Tests | - |
-| HomeAppListView | - | - |
-| HoneycombGallery | - | - |
-| HotContacts | - | - |
-| IconizedListView | - | - |
-| IntentsDemo | - | - |
-| JavascriptDataDemo | - | - |
-| JpsTrack | - | - |
-| ListViewAdvanced | - | - |
-| ListViewDemos | - | - |
-| ListViewEmpty | - | - |
+| HomeAppListView | A Home Application | ListView, running a program |
+| HoneycombGallery | Simple photo gallery | - |
+| HotContacts | Add a contact | ContactsContract, content provider |
+| IconizedListView | List View with Icon | - |
+| IntentsDemo | Intents | - |
+| JavascriptDataDemo | JavaScript from Java | - |
+| JpsTrack | This app has moved to its own rep | - |
+| ListViewAdvanced | ListView | - |
+| ListViewDemos | ListView | - |
+| ListViewEmpty | ListView with empty list: don't show blank screen! | - |
 | ListViewSectionHeader | - | - |
 | LocalBroadcastDemo | - | - |
-| MapDemosV2 | - | - |
+| MapDemosV2 | Google Maps V2 API | - |
 | MarketSearch | - | - |
 | MediaPlayerDemo | - | - |
 | MediaRecorderDemo | - | - |
 | MyAccountAndSyncDemo | - | - |
-| NdkDemo | - | - |
-| NotificationDemo | - | - |
-| NumberPickers | - | - |
-| OpenGlDemo | - | - |
-| OrientationChanges | - | - |
-| PdfShare | - | - |
-| PhoneGapDemo | - | - |
-| PreferencesDemo | - | - |
-| RGraphDemo | - | - |
-| RangeGraphDemo | - | - |
-| Rebooter | - | - |
-| RemoteSystemsTempFiles | - | - |
+| NdkDemo | Native Development Kit| C Code |
+| NotificationDemo | Notifications | - |
+| NumberPickers | UI for picking numbers | - |
+| OpenGlDemo | OpenGL graphics | - |
+| OrientationChanges | Rotation | - |
+| PdfShare | Create and share a PDF | - |
+| PhoneGapDemo | HTML5 app | phonegap/cordova |
+| PreferencesDemo | Preferences | - |
+| RGraphDemo | Using a graphing library | - |
+| RangeGraphDemo | Using a graphing library | - |
+| Rebooter | How to reboot, and why you can't | - |
 | SecondScreen | - | - |
-| SendSMS | - | - |
-| ShareActionProviderDemo | - | - |
+| SendSMS | Sends an SMS | - |
+| SelfUpdater | App that tests for updates and downloads them | App management, IntentService, Socket |
+| ShareActionProviderDemo | ICS "Share" action | - |
 | SimpleCalendar | - | - |
 | SimpleJumper | - | - |
-| SimplePool | - | - |
-| SimpleTorchLight | - | - |
-| SlidingDrawer-Topdown | - | - |
-| SoapDemo | - | - |
-| Speaker | - | - |
-| SplashDialog | - | - |
+| SimplePool | Graphics | - |
+| SimpleTorchLight | Flashlight/torch from camera flash | - |
+| SlidingDrawer-Topdown | The "Sliding Drawer" view | - |
+| SoapDemo | XML SOAP Web Service | - |
+| Speaker | Text To Speech (TTS) | - |
+| SplashDialog | Splash screen | - |
 | TelephonyManager | - | - |
-| Tipster | - | - |
-| TodoModel | - | - |
-| TodoSyncClient | - | - |
-| TodoSyncServer | - | - |
+| Tipster | Full app: compute and show restaurant bill with tip | - |
+| TodoModel | Part of TODO List | - |
+| TodoSyncClient | Part of TODO List | - |
+| TodoSyncServer | Part of TODO List | JavaEE-based server |
 | UniqueId | - | - |
-| Vibrate | - | - |
-| ViewPagerDemo | - | - |
+| Vibrate | Make the device vibrate | - |
+| ViewPagerDemo | Swipe among views | - |
 | WindowBackgroundDemo | - | - |
 |===========
