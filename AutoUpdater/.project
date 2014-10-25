@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SelfUpdater</name>
-	<comment></comment>
+	<name>AutoUpdater</name>
+	<comment>App that updates itself from a web site.</comment>
 	<projects>
 	</projects>
 	<buildSpec>

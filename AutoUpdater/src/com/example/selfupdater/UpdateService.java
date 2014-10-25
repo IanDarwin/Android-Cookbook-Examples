@@ -1,4 +1,4 @@
-package com.example.selfupdater;
+package com.darwinsys.easyreporter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,17 +17,15 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class UpdateService extends IntentService {
-	
+
 	public static final String TAG = UpdateService.class.getSimpleName();
 
-	private static final String SERVER_NAME = "YOURWEBSITENAMEHERE.com";
+	private static final String SERVER_NAME = "darwinsys.com";
 	
-	// In real life this would be the actual name of your main app's APK; 
-	// SelfUpdater is just a demo name.
-	private static final String PATH_TO_APK = "/PATH_TO_DOWNLOAD/SelfUpdater.apk";
+	private static final String PATH_TO_APK = "/icheckin/iCheckIn.apk";
+	
+	public static final boolean DEBUG = false;
 
-	private boolean done = false;
-	
 	protected long ADAY = DEBUG ? 50000 : (24 * 60 * 60 * 1000);
 	
 	public UpdateService() {
@@ -39,7 +37,7 @@ public class UpdateService extends IntentService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	protected void onHandleIntent(Intent intent) {
 
 		Log.d(TAG, "Starting One-time Service Runner");
@@ -51,13 +49,13 @@ public class UpdateService extends IntentService {
 		final long appUpdatedOnDevice = getAppUpdatedOnDevice();
 		final long webPackageUpdated = getWebPackageUpdated();
 		if (appUpdatedOnDevice == -1 || webPackageUpdated == -1) {
-			continue; // FAIL, try another day
+			return; // FAIL, try another day
 		}
 		if (webPackageUpdated > appUpdatedOnDevice) {
-			triggerUPdate();
+			triggerUpdate();
 		}
 	}
-
+	
 	public long getAppUpdatedOnDevice() {
 		PackageInfo packageInfo = null;
 		try {
@@ -87,13 +85,13 @@ public class UpdateService extends IntentService {
 				}
 
 				if (line.toLowerCase().startsWith("last-modified:")) {
-					System.out.println("Modified Line: " + line);
+					Log.d(TAG, "Last-Modified Header: " + line);
 					String aDateTime = line.substring(line.indexOf(' ') + 1);
 					return Date.parse(aDateTime);
 				}
 			}
 		} catch (IOException e) {
-			Log.e(TAG, "Failed to CHECK for update: " + e, e);
+			Log.d(TAG, "Failed to CHECK for update: " + e);
 			return -1;
 		} finally {
 			if (http != null)
@@ -107,7 +105,8 @@ public class UpdateService extends IntentService {
 		return -1;
 	}
 
-	protected void triggerUPdate() {
+	protected void triggerUpdate() {
+		Log.d(TAG, "UpdateService.triggerUpdate()");
 		final Intent intent = new Intent(this, UpdateActivity.class);
 		intent.setData(Uri.parse("http://" + SERVER_NAME + PATH_TO_APK));
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
