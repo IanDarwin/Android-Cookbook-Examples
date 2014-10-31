@@ -1,4 +1,6 @@
-Testing for Android 5.x on a Galaxy 6; tests run by Ian
+Testing for Android - all run by Ian unless noted
+
+Project	Android 4.x testing	Android 5.x testing
 
 AndroidPlot	java.lang.ClassNotFoundException: com.androidplot.xy.XYPlot
 AndroidRss	Class File Format errors on rss.jar
