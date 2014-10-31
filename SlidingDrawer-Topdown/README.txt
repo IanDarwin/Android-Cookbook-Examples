@@ -4,6 +4,3 @@ different project on Wagied's web site, TestSlidingDrawer.
 
 Some of the graphic elements were taken from the http://smart-timetable.googlecode.com/
 "Smart Timetable" googlecode project, and are copyright, and ASL-2 licensed, by Google Inc.
-
-At present it almost compiles, except that Eclipse can't find the attributes for
-the Panel package (although they are being generated correctly).
