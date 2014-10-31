@@ -1,4 +1,4 @@
-Testing for Android 4.1 on a Galaxy Nexus; tests run by Ian
+Testing for Android 5.x on a Galaxy 6; tests run by Ian
 
 AndroidPlot	java.lang.ClassNotFoundException: com.androidplot.xy.XYPlot
 AndroidRss	Class File Format errors on rss.jar
@@ -24,7 +24,6 @@ HoneycombGallery	(incomplete)
 HotContacts	Works (contact appears in Contacts app)
 IconizedListView	Works
 IntentsDemo	Works (tested geo and content://contacts... examples)
-JpsTrack	Not here! App does run on 4.1
 ListViewDemos	Works
 MarketSearch	Works (program name)
 MediaPlayerDemo	Works (missing mp3 though)
