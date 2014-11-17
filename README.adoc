@@ -8,6 +8,8 @@ Each Directory comprises its own Eclipse project, and has a name that is cited a
     "create all projects"
 checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
 
+Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed.
+
 You can download this as a Zip file, but then you won't get updates, and it will be hard to collaborate with the Editor and other contributors. If you're new to Git, see the page on GitHub about how to collaborate. You can either send diff/patch files or, if you forked your own copy, send a pull request.  Remember that GitHub is a free service for public projects!
 
 If you open the repo as an Eclipse Workspace and no projects appear, despair not! Just do File->Import...->General->Existing Projects Into Workspace, browse to the top of the repo (the list of projects should appear), be sure "Import projects into workspace" is NOT checked, and click Finish; wait a bit.
@@ -27,7 +29,7 @@ and you will need to make the following adjustments:
 
 There are some things I'd love it if people would contribute:
 
-	Maven pom files for each project that doesn't already have one.
+	Maven and/or Gradle files for each project that doesn't already have one: always automate dependencies where possible!
 	Readme file for each project, to include a link back to the recipe in the book.
 
 === What's here?
@@ -39,6 +41,7 @@ There are some things I'd love it if people would contribute:
 | AndroidRss | RSS Reader | - |
 | AppDownloader | Installs another app | Downloading, package management |
 | AutocompleteTextViewContacts | Contact picker with autocomplete | - |
+| AutoUpdater | App can update itself | see AppDownloader |
 | BackupManager | - | - |
 | BluetoothDemo | Bluetooth Connection | - |
 | CalAdder | Add appointment to Calendar | Calendar via Content Provider |
@@ -74,7 +77,7 @@ There are some things I'd love it if people would contribute:
 | IconizedListView | List View with Icon | - |
 | IntentsDemo | Intents | - |
 | JavascriptDataDemo | JavaScript from Java | - |
-| JpsTrack | This app has moved to its own rep | - |
+| JpsTrack | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo] | - |
 | ListViewAdvanced | ListView | - |
 | ListViewDemos | ListView | - |
 | ListViewEmpty | ListView with empty list: don't show blank screen! | - |
@@ -108,7 +111,8 @@ There are some things I'd love it if people would contribute:
 | SoapDemo | XML SOAP Web Service | - |
 | Speaker | Text To Speech (TTS) | - |
 | SplashDialog | Splash screen | - |
-| TelephonyManager | - | - |
+| TeleCorder | Telephone call recorder (in progress!) | - |
+| TelephonyManager | Displays phone info | - |
 | Tipster | Full app: compute and show restaurant bill with tip | - |
 | TodoModel | Part of TODO List | - |
 | TodoSyncClient | Part of TODO List | - |
