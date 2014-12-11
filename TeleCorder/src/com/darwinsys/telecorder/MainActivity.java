@@ -28,36 +28,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startTeleService();
-
-//        try {
-//            // Initiate DevicePolicyManager.
-//            mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-//            mAdminName = new ComponentName(this, DeviceAdminDemo.class);
-//
-//            if (!mDPM.isAdminActive(mAdminName)) {
-//                Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-//                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-//                intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Click on Activate button to secure your application.");
-//                startActivityForResult(intent, REQUEST_CODE);
-//            } else {
-//                startTeleService();
-//            }
-//        } catch (Exception e) {
-//        	Log.e(TAG, "Something bad hoppen: " + e, e);
-//        } 
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (REQUEST_CODE == requestCode) {
-                startTeleService();
-        }
     }
 
 	/**
-	 * 
+	 * Start the background service to keep the app alive
 	 */
 	private void startTeleService() {
 		Log.d(TAG, "MainActivity: Starting Service");
