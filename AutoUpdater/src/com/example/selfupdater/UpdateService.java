@@ -1,4 +1,4 @@
-package com.darwinsys.easyreporter;
+package com.example.selfupdater;
 
 import java.io.BufferedReader;
 import java.io.IOException;
