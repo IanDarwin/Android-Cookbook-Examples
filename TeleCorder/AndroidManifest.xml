@@ -7,15 +7,14 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
-    
-  	<uses-permission android:name="android.permission.RECORD_AUDIO" />
-  	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+  	<uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
