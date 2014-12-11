@@ -1,4 +1,4 @@
-package com.darwinsys.easyreporter;
+package com.example.selfupdater;
 
 import android.app.Activity;
 import android.content.Intent;
