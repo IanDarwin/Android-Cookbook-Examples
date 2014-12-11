@@ -32,7 +32,7 @@ public class CallReceiver extends BroadcastReceiver {
 		final String action = intent.getAction();
 		Log.d(TAG, "TeleCorder.CallReceiver.onReceive(): action = " + action);
 		Bundle bundle = intent.getExtras();
-		if (action.equals("android.intent.action.PHONE_STATE")) {		// INCOMING
+		if (action.equals("android.intent.action.PHONE_STATE")) {		// INCOMING (or outgoing hangup)
 			boolean wasRinging = false;
 			if (bundle != null) {
 				String state = bundle.getString(TelephonyManager.EXTRA_STATE);
@@ -49,7 +49,7 @@ public class CallReceiver extends BroadcastReceiver {
 					}
 				} else if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
 					wasRinging = false;
-					Toast.makeText(context, "REJECT || DISCONNECTED", Toast.LENGTH_LONG).show();
+					Toast.makeText(context, "DISCONNECTED", Toast.LENGTH_LONG).show();
 					if (recording) {
 						stopRecording();
 					}
@@ -59,17 +59,15 @@ public class CallReceiver extends BroadcastReceiver {
 			}
 		} else if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {	// OUTGOING
 			Log.d(TAG, "TeleCorder.CallReceiver.onReceive()" + "OUTGOING");
-			if (bundle != null) {
-			String state = bundle.getString(TelephonyManager.EXTRA_STATE);
 			if ((bundle = intent.getExtras()) != null) {
 				String outNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
 				Toast.makeText(context, "OUT : " + outNumber, Toast.LENGTH_LONG).show();
 			}
+			String state = bundle.getString(TelephonyManager.EXTRA_STATE);
 			Toast.makeText(context, "STATE : " + state, Toast.LENGTH_LONG).show();
 			// On certain states, call startRecording
 			// on others, stopRecording
 			startRecording(context);
-			}
 		}
 	}
 
