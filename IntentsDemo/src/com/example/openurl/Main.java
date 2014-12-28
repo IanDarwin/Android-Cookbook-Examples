@@ -11,22 +11,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Main extends Activity {
-	int i;
+	private int i;
+	private EditText textField;
 	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		textField = (EditText)findViewById(R.id.textfield);
 
 		Button b = (Button)findViewById(R.id.go_easy);
 		b.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				EditText textField = (EditText)findViewById(R.id.textfield);
 				String uri = textField.getText().toString();
-
+				Toast.makeText(Main.this, "Starting " + uri, Toast.LENGTH_SHORT).show();
 				try {
 					Intent intent = new Intent(Intent.ACTION_VIEW, 
 							Uri.parse(uri));
@@ -42,13 +43,11 @@ public class Main extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				EditText textField = (EditText)findViewById(R.id.textfield);
-				String data = textField.getText().toString();
-
+				String uri = textField.getText().toString();
+				Toast.makeText(Main.this, "Starting " + uri, Toast.LENGTH_SHORT).show();
 				try {
 					Intent intent = new Intent(Intent.ACTION_VIEW, 
-							Uri.parse(data));
-
+							Uri.parse(uri));
 					startActivityForResult(intent, ++i);
 				} catch (Exception e) {
 					Toast.makeText(Main.this, "Error: " + e, Toast.LENGTH_LONG);

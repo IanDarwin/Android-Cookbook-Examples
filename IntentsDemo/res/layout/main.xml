@@ -10,11 +10,15 @@
     android:layout_height="wrap_content" 
 	android:text="@string/intent_label"
 	/>
-<EditText android:id="@+id/textfield"
-	android:maxLines='1'
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    />
+
+<EditText
+    android:id="@+id/textfield"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:hint="Intent To Start"
+    android:inputType="textUri"
+    android:maxLines="1" />
+
 <Button android:id="@+id/go_easy"
 	android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
