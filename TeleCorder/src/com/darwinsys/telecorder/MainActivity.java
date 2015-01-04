@@ -1,9 +1,6 @@
 package com.darwinsys.telecorder;
 
 import android.app.Activity;
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,15 +9,12 @@ import android.util.Log;
  * This might mutate into a usable call recorder, when:
  * (a) it works, and
  * (b) somebody adds call-started, call-ended broadcast receiver
- * This version was borrowed from "Pratt"'s answer at
+ * This version uses some code from "Pratt"'s answer at
  * http://stackoverflow.com/questions/18887636/how-to-record-phone-calls-in-android/21331756#21331756
  * @author Ian Darwin
  */
 public class MainActivity extends Activity {
 	private final static String TAG = TeleService.class.getSimpleName();
-    private static final int REQUEST_CODE = 0;
-    private DevicePolicyManager mDPM;
-    private ComponentName mAdminName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +32,5 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(MainActivity.this, TeleService.class);
 		startService(intent);
 	}
-
 }
 
