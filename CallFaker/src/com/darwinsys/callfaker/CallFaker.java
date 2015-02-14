@@ -20,10 +20,10 @@ public class CallFaker extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		Intent intent = getIntent();
-		if (intent == null) {
+		Uri callee = intent.getData();
+		if (callee == null) {
 			return;
 		}
-		Uri callee = intent.getData();
 		View callingNumber = findViewById(R.id.number);
 		((TextView) callingNumber).setText(callee.toString());
     }
