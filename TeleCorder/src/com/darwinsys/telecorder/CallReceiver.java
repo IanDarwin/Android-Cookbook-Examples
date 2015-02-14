@@ -42,10 +42,11 @@ public class CallReceiver extends BroadcastReceiver {
 					Toast.makeText(context, "IN : " + inNumber, Toast.LENGTH_LONG).show();
 				} else if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
 					if (wasRinging) {
-
 						Toast.makeText(context, "ANSWERED", Toast.LENGTH_LONG).show();
-
 						startRecording(context);
+					} else {
+						Toast.makeText(context, "UNEXPECTED: OFFHOOK but not RINGING!", 
+							Toast.LENGTH_LONG).show();
 					}
 				} else if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
 					wasRinging = false;
@@ -95,6 +96,7 @@ public class CallReceiver extends BroadcastReceiver {
 		mAudioManager.setSpeakerphoneOn(true);
 		// recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_CALL);
 		recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_COMMUNICATION);
+		recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_CALL);
 		recorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
 		recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 		recorder.setOutputFile(audiofile.getAbsolutePath());
