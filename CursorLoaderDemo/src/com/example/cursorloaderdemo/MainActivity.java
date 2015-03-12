@@ -39,7 +39,7 @@ public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor
                 android.R.layout.simple_list_item_2, null,
                 new String[] { },
                 new int[] { android.R.id.text1, android.R.id.text2 }, 0);
-        setListAdapter(mAdapter);
+		setListAdapter(mAdapter);
 
 		// Prepare the loader.  Either re-connect with an existing one,
 		// or start a new one.
