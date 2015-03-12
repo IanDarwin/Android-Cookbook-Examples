@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".DebugActivity" >
+
+    <TextView
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/debug_lecture" >
+    </TextView>
+
+    <TableRow
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doDateTimeNow"
+        android:text="@string/set_time_now" />
+        
+        <TextView
+            android:id="@+id/dateDisplay"
+            style="?android:attr/actionButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="doSetDate" />
+        
+	    <TextView
+	        android:id="@+id/timeDisplay"
+	        style="?android:attr/actionButtonStyle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:clickable="true"
+	        android:onClick="doSetTime" />
+        
+    </TableRow>
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/rtWeight" />
+
+<EditText android:id="@+id/debugWeightValue"
+    android:text="@string/dummy_weight"
+    android:inputType='numberSigned'
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <requestFocus/>
+
+</EditText>
+
+<Button
+    android:id="@+id/weightOk"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="fakeWeight"
+    android:text="@string/ok" />
+
+</TableRow>
+
+<TableRow android:layout_height="wrap_content" >
+
+<TextView android:text="@string/rtBPAndPulse"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    />
+
+<LinearLayout android:orientation="vertical">
+<EditText android:id="@+id/debugBPsystolicValue"
+    android:text="@string/dummy_systolic"
+    android:inputType='numberSigned'
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+</EditText>
+<EditText android:id="@+id/debugBPdiastolicValue"
+    android:text="@string/dummy_diastolic"
+    android:inputType='numberSigned'
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+</EditText>
+
+<EditText android:id="@+id/debugPulseValue"
+    android:text="@string/dummy_pulse"
+    android:inputType='numberSigned'
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+</EditText>
+</LinearLayout>
+
+<Button android:id="@+id/bpOk"
+    android:text="@string/ok" 
+    android:onClick="fakeBpAndPulse"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"/>
+
+</TableRow>
+
+<TableRow android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle">
+
+    <Button android:text="@string/dump_readings" 
+    		style="?android:attr/buttonBarButtonStyle" 
+    		android:onClick="dumpReadings"/>
+
+    <Button android:text="@string/dump_reading_sets" 
+        style="?android:attr/buttonBarButtonStyle" 
+        android:onClick="dumpReadingSets"/>
+
+	</TableRow>
+
+<TableRow android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:layout_height="wrap_content"
+        android:onClick="debugDone"
+        android:text="@string/done" />
+
+</TableRow>
+
+</TableLayout>

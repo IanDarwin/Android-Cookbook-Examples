@@ -1,0 +1,9 @@
+== CursorLoaderSample
+
+This will be a demo to show using the CursorLoader
+to load from a ContentProvider into a ListView.
+
+=== Status
+
+It is not working ATM due to being imported from
+another project and needing to adapt it a little.
