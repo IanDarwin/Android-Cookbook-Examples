@@ -16,19 +16,13 @@ import android.view.View;
 
 public class MainActivity extends ListActivity implements LoaderCallbacks<Cursor>{
 	
+	private static final String TAG = "CursorLoaderDemo.MainActivity";
+
 	SimpleCursorAdapter mAdapter;
 	
 	String mSearchType;
 	
 	Integer year, month, day;
-
-	/**
-	 * The serialization (saved instance state) Bundle key representing the
-	 * current dropdown position.
-	 */
-	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-
-	private static final String TAG = "CursorLoaderDemo.MainActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
