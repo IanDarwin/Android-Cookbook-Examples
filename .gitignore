@@ -8,3 +8,4 @@ gen/*
 *.dex
 google-play-services_lib/
 .recommenders/
+.DS_Store
