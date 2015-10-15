@@ -13,8 +13,8 @@
 	</Button>
 	
 	<EditText
-		android:id="@+id/text_to_email"
-		android:inputType="text"
+		android:id="@+id/text_to_send"
+		android:inputType="textCapSentences"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:lines="10"

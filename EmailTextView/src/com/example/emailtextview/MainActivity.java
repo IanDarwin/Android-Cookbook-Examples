@@ -7,42 +7,47 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private static final String tag = "Main";
+	private static final String TAG = "EmailTextView.MainActivity";
+
 	private Button emailButton;
+	private EditText emailText;
 
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle savedInstanceState)
-		{
-			super.onCreate(savedInstanceState);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-			// Set the View Layer
-			setContentView(R.layout.activity_main);
+		// Set the View Layer
+		setContentView(R.layout.activity_main);
 
-			// Get reference to Email Button
-			this.emailButton = (Button) this.findViewById(R.id.emailButton);
+		// Get reference to Email Button
+		emailButton = (Button) this.findViewById(R.id.emailButton);
 
-			// Sets the Event Listener onClick
-			this.emailButton.setOnClickListener(this);
+		// Sets the Event Listener onClick
+		emailButton.setOnClickListener(this);
 
-		}
+		emailText = (EditText) findViewById(R.id.text_to_send);
+	}
 
 	@Override
 	public void onClick(View view) {
-			if (view == this.emailButton) {
-					Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-					emailIntent.setType("text/html");
-					emailIntent.putExtra(android.content.Intent.EXTRA_TITLE, "My Title");
-					emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My Subject");
 
-					// Obtain reference to String and pass it to Intent
-					emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.my_text));
-					startActivity(emailIntent);
-				}
-		}
+		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+		emailIntent.setType("text/html");
+		emailIntent.putExtra(android.content.Intent.EXTRA_TITLE, "My Title");
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My Subject");
+
+		// Obtain reference to String and pass it to Intent
+		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, 
+			emailText.getText());
+
+		// Start the user's email client.
+		startActivity(emailIntent);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
