@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
             if (outputFile.delete()) {
                 Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Failed to Delete", Toast.LENGTH_SHORT).show();
             }
         } else{
             Toast.makeText(this, "NO FILE", Toast.LENGTH_SHORT).show();
