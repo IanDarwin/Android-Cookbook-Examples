@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="terms">Terms</string>
+    <string name="eula">
+This is your agreement for using the SoundRec program.
+If you don\'t agree with it, don\'t install or, if it\'s too late,
+uninstall the software.  
+
+The program is free software and is open source. Everyone who has
+a device capable of running it is allowed to run it, to share it,
+without cost.
+
+You agree that the providers of this software are not responsible
+for anything at all that happens while or because of running it,
+including software bugs, corruption of data, traffic accidents
+however caused, or any other incident however caused.
+Do not operate a vehicle while manipulating this program.
+\n
+Copyright © 2008-2015 Ian F. Darwin. All rights reserved.
+\n
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:\n
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.\n
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.\n
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS \`\`AS IS\'\' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+The name "SoundRec" is a trademark and may not be used to refer to
+another application.
+</string>
+</resources>

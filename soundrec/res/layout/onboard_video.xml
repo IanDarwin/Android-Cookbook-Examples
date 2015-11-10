@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <VideoView android:id="@+id/onboard_videoView"
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="0.9"
+    />
+    
+    <Button android:id="@+id/onboard_videoDoneButton"
+        android:text="@string/done_button_label"
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:layout_weight="0.1"
+   		/>
+
+</LinearLayout>

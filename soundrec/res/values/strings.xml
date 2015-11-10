@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Main stuff -->
+    <string name="app_name">SoundRec</string>
+    
+    <string name="accept_eula">I accept the EULA terms.</string>
+    <string name="reject_eula">I do not accept the EULA terms.</string>
+    
+	<!-- Voicenote (Main Activity) -->
+    <string name="voicenote_button_label">Voice Note</string>
+	<string name="voicenote_name">SoundRec</string>
+	<string name="voicenote_discard_button_label">Discard VoiceNote</string>
+	<string name="voicenote_save_button_label">Save VoiceNote</string>
+
+    <!-- Menu -->
+    <string name="settings_label">Settings…</string>
+    <string name="settings_name">Settings</string>
+    <string name="settings_shortname">Settings</string>
+    <string name="settings_accel">s</string>
+    <string name="suggest">Suggest Improvement</string>
+    <string name="suggest_shortname">Suggestion</string>
+    <string name="rerun_intro">Introduction</string>
+    <string name="rerun_intro_shortname">Intro</string>
+    
+    <!-- Onboarding -->
+    <string name="welcome_name">Welcome to SoundRec</string>
+    <string name="welcome_text">Welcome to SoundRec!
+        You can watch a little video about this app, or see a brief web-page introduction,
+        or skip the whole "introduction" thing and go straight into the app. It\'s your choice!
+        </string>
+     <string name="skip_smarty">Skip, let me figure it out</string>
+     <string name="skip_done_that">Skip, I\'ve used this app</string>
+     <string name="watch_page">View Web Intro</string>
+     <string name="watch_video">Watch Intro Video</string>
+     
+    <!-- Preferences -->
+    <string name="local_storage_title">Local storage</string>
+    <string name="dir_summary">Location to save sound files.</string>
+    <string name="dir_title">Data Directory</string>
+    
+    <!--  About box -->
+    <string name="about_name">About SoundRec</string>
+    <string name="about_shortname">About</string>
+    <string name="about_text">SoundRec, the small simple sound recorder. See http://darwinsys.com/soundrec/</string>
+    <string name="about_done_button_label">OK</string>
+    
+    <!-- Misc -->
+    <string name="start_button_label">Start</string>   
+	<string name="done_button_label">Done</string>   
+</resources>
