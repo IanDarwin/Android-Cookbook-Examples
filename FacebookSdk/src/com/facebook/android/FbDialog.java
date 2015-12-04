@@ -52,7 +52,7 @@ public class FbDialog extends Dialog
 
 		private final String mUrl;
 		private final DialogListener mListener;
-		private ProgressDialog mSpinner;
+		private ProgressDialog mProgressDialog;
 		private WebView mWebView;
 		private LinearLayout mContent;
 		private TextView mTitle;
@@ -68,9 +68,9 @@ public class FbDialog extends Dialog
 		protected void onCreate(Bundle savedInstanceState)
 			{
 				super.onCreate(savedInstanceState);
-				mSpinner = new ProgressDialog(getContext());
-				mSpinner.requestWindowFeature(Window.FEATURE_NO_TITLE);
-				mSpinner.setMessage("Loading...");
+				mProgressDialog = new ProgressDialog(getContext());
+				mProgressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				mProgressDialog.setMessage("Loading...");
 
 				mContent = new LinearLayout(getContext());
 				mContent.setOrientation(LinearLayout.VERTICAL);
@@ -167,7 +167,7 @@ public class FbDialog extends Dialog
 					{
 						Log.d("Facebook-WebView", "Webview loading URL: " + url);
 						super.onPageStarted(view, url, favicon);
-						mSpinner.show();
+						mProgressDialog.show();
 					}
 
 				@Override
@@ -179,7 +179,7 @@ public class FbDialog extends Dialog
 							{
 								mTitle.setText(title);
 							}
-						mSpinner.dismiss();
+						mProgressDialog.dismiss();
 					}
 
 			}
