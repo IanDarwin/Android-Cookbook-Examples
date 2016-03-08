@@ -8,9 +8,9 @@ Each Directory comprises its own Eclipse project, and has a name that is cited a
     "create all projects"
 checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
 
-Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed.
+Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, as long as they don't break support for Eclipse and Maven.
 
-You can download this as a Zip file, but then you won't get updates, and it will be hard to collaborate with the Editor and other contributors. If you're new to Git, see the page on GitHub about how to collaborate. You can either send diff/patch files or, if you forked your own copy, send a pull request.  Remember that GitHub is a free service for public projects!
+You can download this as a Zip file, but then you won't get updates, and it will be hard to collaborate with the Editor and other contributors. If you're new to Git, see the page on GitHub about how to collaborate. You can either send diff/patch files or send a pull request.  Remember that GitHub is a free service for public projects!
 
 If you open the repo as an Eclipse Workspace and no projects appear, despair not! Just do File->Import...->General->Existing Projects Into Workspace, browse to the top of the repo (the list of projects should appear), be sure "Import projects into workspace" is NOT checked, and click Finish; wait a bit.
 
@@ -18,12 +18,11 @@ Many of the projects may (depending on your version of Eclipse) give you some no
 
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
 
-=== Changes since the book
+=== Changes since the book's first printing, first edition.
 
 N.B. There have been quite a few projects added since the first published edition of the book, and
 a few renamed, so if you have the printed edition prior to December, 2012 you 
-should rummage around here before re-typing anything that looks like a full example,
-and you will need to make the following adjustments:
+should rummage around here before re-typing anything that looks like a full example.
 
 === Wishlist
 
@@ -72,7 +71,7 @@ There are some things I'd love it if people would contribute:
 | HelloTestingTarget | ADT Testing - subject| - |
 | HelloTestingTestProject | ADT Testing - Tests | - |
 | HomeAppListView | A Home Application | ListView, running a program |
-| HoneycombGallery | Simple photo gallery | - |
+| Gallery | Simple photo gallery | - |
 | HotContacts | Add a contact | ContactsContract, content provider |
 | IconizedListView | List View with Icon | - |
 | IntentsDemo | Intents | - |
