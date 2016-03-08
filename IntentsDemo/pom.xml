@@ -8,7 +8,7 @@
 
 	<properties>
 		<platform.version>2.3.3</platform.version>
-		<android-maven.version>4.0.0</android-maven.version>
+		<android-maven.version>4.3.0</android-maven.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
