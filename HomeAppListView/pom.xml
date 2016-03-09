@@ -6,9 +6,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
 
+	<parent>
+		<groupId>com.androidcookbook.examples</groupId>
+		<artifactId>android-cookbook-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
 	<properties>
 		<platform.version>4.0.1.2</platform.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -29,9 +34,9 @@
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
-				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<groupId>com.simpligility.maven.plugins</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>3.8.2</version>
+				<version>${android.plugin.version}</version>
 				<configuration>
 					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 					<assetsDirectory>${project.basedir}/assets</assetsDirectory>

@@ -6,11 +6,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
 
+	<parent>
+		<groupId>com.androidcookbook.examples</groupId>
+		<artifactId>android-cookbook-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
 	<properties>
 		<platform.version>2.3.3</platform.version>
-		<android-maven.version>4.3.0</android-maven.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -30,7 +33,7 @@
 			<plugin>
 				<groupId>com.simpligility.maven.plugins</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>${android-maven.version}</version>
+				<version>${android.plugin.version}</version>
 				<configuration>
 					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -39,21 +42,8 @@
 					<manifestEntries>
 						<Implementation-Build>$\{buildNumber}</Implementation-Build>
 					</manifestEntries>
-					<sdk>
-						<platform>19</platform>
-					</sdk>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
 				</configuration>
 				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
 			</plugin>
 		</plugins>
 
