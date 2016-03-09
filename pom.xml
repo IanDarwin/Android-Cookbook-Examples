@@ -5,10 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.androidcookbook.examples</groupId>
-	<artifactId>android-cookbook-examples</artifactId>
+	<artifactId>android-cookbook-examples-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <name>AndroidCookbook Parent Project</name>
+
+	<properties>
+		<javase-version>1.7</javase-version>
+		<platform.version>4.1.1.4</platform.version>
+		<android.plugin.version>4.4.1</android.plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 
     <modules>
 		<!-- <module>AndroidPlot</module> -->
@@ -104,4 +112,49 @@
 		<!-- <module>VolleyDemo</module> -->
 		<!-- <module>WindowBackgroundDemo</module> -->
     </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android</artifactId>
+				<version>${platform.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>android-test</artifactId>
+				<version>${platform.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.simpligility.maven.plugins</groupId>
+					<artifactId>android-maven-plugin</artifactId>
+					<version>${android.plugin.version}</version>
+					<configuration>
+						<sdk>
+							<platform>16</platform>
+						</sdk> 
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
 </project>
