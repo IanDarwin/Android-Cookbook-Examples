@@ -2,10 +2,12 @@
 
 This repo contains about seventy source code examples from the recipes published in the O'Reilly Android Cookbook (see http://androidcookbook.com/), a great source of tutorial material for the Android Developer. Not all recipes in the book or online have code accompanying them; this repo features code that was either linked by the contributor, or in a few cases, re-constructed as a New Project by the editor, for your convenience. 
 
-Further note that not all programs used in the book/online appear here; some of the examples in the book/online are only program fragments taken from other programs that can't be included. And of course some projects used as examples in the book/online are routinely hosted elsewhere.
+Further note that not all programs used in the book/online appear here; some
+of the examples in the book/online are only program fragments taken from
+other programs that can't be included. And of course some code is drawn from existing projects
+that are hosted elsewhere.
 
-Each Directory comprises its own Eclipse project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. If you open the repo in Eclipse with eGit, be sure to check the
-    "create all projects"
+Each Directory comprises its own Eclipse project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. If you open the repo in Eclipse with eGit, be sure to check the `Import all projects`
 checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
 
 Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, as long as they don't break support for Eclipse and Maven.
@@ -18,11 +20,15 @@ Many of the projects may (depending on your version of Eclipse) give you some no
 
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
 
-=== Changes since the book's first printing, first edition.
+=== Notes about the First Edition of the book
 
-N.B. There have been quite a few projects added since the first published edition of the book, and
+The current version of this repo is being reorganized in preparation for a new edition of the book.
+There have been quite a few projects added since the first published edition of the book, and
 a few renamed, so if you have the printed edition prior to December, 2012 you 
 should rummage around here before re-typing anything that looks like a full example.
+
+If you want this repo to correspond to the last minor revision of the first edition,
+check out the tag `Book-1.0`.
 
 === Wishlist
 
@@ -35,8 +41,8 @@ There are some things I'd love it if people would contribute:
 
 [options="header"]
 |===========
-| Project		| Function | What it shows |
-| AndroidPlot | Graphing | plotting library |
+| Project		| Function | Notes |
+| AndroidPlot | Graphing | - |
 | AndroidRss | RSS Reader | - |
 | AppDownloader | Installs another app | Downloading, package management |
 | AutocompleteTextViewContacts | Contact picker with autocomplete | - |
@@ -63,6 +69,7 @@ There are some things I'd love it if people would contribute:
 | FaceFinder | Face locator API in photos | - |
 | FacebookSdk | - | - |
 | FontDemo | Using a custom font | - |
+| Gallery | Simple photo gallery | Deprecated |
 | GcmClient | Google Cloud Messaging - receiver | - |
 | GcmMockServer | Google Cloud Messaging - sender | - |
 | HelloCommandLine | HelloWorld | SDK |
@@ -70,13 +77,12 @@ There are some things I'd love it if people would contribute:
 | HelloMaven | HelloWorld | Maven, JayWay Plug-in |
 | HelloTestingTarget | ADT Testing - subject| - |
 | HelloTestingTestProject | ADT Testing - Tests | - |
-| HomeAppListView | A Home Application | ListView, running a program |
-| Gallery | Simple photo gallery | - |
-| HotContacts | Add a contact | ContactsContract, content provider |
+| HomeAppListView | A Home Application | Shows running a program |
+| HotContacts | Add a contact | Shows ContactsContract, content provider |
 | IconizedListView | List View with Icon | - |
 | IntentsDemo | Intents | - |
 | JavascriptDataDemo | JavaScript from Java | - |
-| JpsTrack | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo] | - |
+| JpsTrack | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo] | 
 | ListViewAdvanced | ListView | - |
 | ListViewDemos | ListView | - |
 | ListViewEmpty | ListView with empty list: don't show blank screen! | - |
