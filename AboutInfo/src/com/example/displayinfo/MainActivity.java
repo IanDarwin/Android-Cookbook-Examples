@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -36,11 +35,14 @@ public class MainActivity extends Activity {
 		
 		// Get Android information
 		String manufacturer = Build.MANUFACTURER;
+		String deviceCode = Build.BOARD;
+		String device = Build.DEVICE;
+		String version = Build.DISPLAY;
 		String codename = Build.VERSION.CODENAME;
 		String release = Build.VERSION.RELEASE;
 		int sdk = Build.VERSION.SDK_INT;
-		tView.append("Make: " + manufacturer + "\n");
-		tView.append("Android: " + codename + " " + release + " API " + sdk + "\n");
+		tView.append("Make: " + manufacturer + "; Code " + deviceCode + "; Device " + device + "\n");
+		tView.append("Android: " + codename + " " + release + " API " + sdk + " Load " + version + "\n");
 
 		// Get view information
 		tView.append("\n");
