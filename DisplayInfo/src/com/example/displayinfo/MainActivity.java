@@ -3,6 +3,7 @@ package com.example.displayinfo;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -11,13 +12,13 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	TextView log;
+	TextView tView;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);		
-		log = (TextView) findViewById(R.id.logTextView);
+		tView = (TextView) findViewById(R.id.logTextView);
 		showInfo();	// initial display
 	}
 	
@@ -30,8 +31,20 @@ public class MainActivity extends Activity {
 	
 	/** Compute the current info, and add it to the textarea. */
 	void showInfo() {
+		
+		tView.append("AboutInfo v 0.0" + "\n");
+		
+		// Get Android information
+		String manufacturer = Build.MANUFACTURER;
+		String codename = Build.VERSION.CODENAME;
+		String release = Build.VERSION.RELEASE;
+		int sdk = Build.VERSION.SDK_INT;
+		tView.append("Make: " + manufacturer + "\n");
+		tView.append("Android: " + codename + " " + release + " API " + sdk + "\n");
 
-		// Get information
+		// Get view information
+		tView.append("\n");
+		tView.append("Display info:" + "\n");
 		final Display display = getWindowManager().getDefaultDisplay();
 
 		int width, height;
@@ -57,7 +70,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void dump(String m, int w, int h) {
-		log.append(String.format("Via %s: Width %d, Height %d%n", m, w, h));
+		tView.append(String.format("Via %s: Width %d, Height %d%n", m, w, h));
 	}
 
 }
