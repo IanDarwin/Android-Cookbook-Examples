@@ -98,8 +98,9 @@ There are some things I'd love it if people would contribute:
 | NumberPickers | UI for picking numbers | - |
 | OpenGlDemo | OpenGL graphics | - |
 | OrientationChanges | Rotation | - |
+| OSMIntro | OpenStreetMap API | (free alternative to Google Maps) |
 | PdfShare | Create and share a PDF | - |
-| PhoneGapDemo | HTML5 app | phonegap/cordova |
+| PhoneGapDemo | HTML5 app using phonegap/cordova | - |
 | PreferencesDemo | Preferences | - |
 | RGraphDemo | Using a graphing library | - |
 | RangeGraphDemo | Using a graphing library | - |
