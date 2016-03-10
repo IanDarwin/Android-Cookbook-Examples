@@ -6,38 +6,17 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
 
+	<parent>
+		<groupId>com.androidcookbook.examples</groupId>
+		<artifactId>android-cookbook-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
 	<properties>
 		<platform.version>4.0.1.2</platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-
-	<!-- For getting dependencies -->
-	<repositories>
-		<repository>
-			<id>snapshots-nexus.ehealthinnovation.org</id>
-			<name>Internal Release Snapshots</name>
-			<url>http://nexus.ehealthinnovation.org/content/repositories/snapshots/</url>
-		</repository>
-		<repository>
-			<id>releases-nexus.ehealthinnovation.org</id>
-			<name>Internal Releases</name>
-			<url>http://nexus.ehealthinnovation.org/content/repositories/releases/</url>
-		</repository>
-	</repositories>
-
-	<!-- For giving dependencies -->
-	<distributionManagement>
-		<repository>
-			<id>nexus.ehealthinnovation.org</id>
-			<name>Internal Releases</name>
-			<url>http://nexus.ehealthinnovation.org/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus.ehealthinnovation.org</id>
-			<name>Internal Release Snapshots</name>
-			<url>http://nexus.ehealthinnovation.org/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -51,43 +30,6 @@
 			<artifactId>support-v4</artifactId>
 			<version>r7</version>
 		</dependency>
-		<dependency>
-			<groupId>org.ehealthinnovation</groupId>
-			<artifactId>eHealthContentProvider</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
-			<type>aar</type>
-		</dependency>
 	</dependencies>
 
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
-				<artifactId>android-maven-plugin</artifactId>
-				<version>3.8.2</version>
-				<configuration>
-					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
-					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
-					<resourceDirectory>${project.basedir}/res</resourceDirectory>
-					<nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
-					<sdk>
-						<platform>18</platform>
-					</sdk>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
-				</configuration>
-				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
 </project>
