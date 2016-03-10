@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Simple REST request using Volley library, a quasi-supported Google API for networking
@@ -56,6 +57,11 @@ public class VolleyDemo extends Activity {
 		String host ="https://suggestqueries.google.com/";
 		String baseUrl ="complete/search?output=toolbar&hl=en&q=";
 		String listUrl = mSearchBox.getText().toString();
+		
+		if (listUrl.length() == 0) {
+			Toast.makeText(this, "Input required!", Toast.LENGTH_SHORT).show();
+			return;
+		}
 
 		// Create a String Request to get information from the provided URL.
 		String requestUrl = host + baseUrl + listUrl;
