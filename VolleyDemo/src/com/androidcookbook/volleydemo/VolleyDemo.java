@@ -1,6 +1,7 @@
 package com.androidcookbook.volleydemo;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,10 +35,27 @@ public class VolleyDemo extends Activity {
 		queue = Volley.newRequestQueue(this);
 	}
 	
+	/**
+	 * What we get back from this particular web service is:
+	 * 1) A JSON String containing the query string
+	 * 2) A JSON ARRAY of strings with the results;
+	 */
 	final Response.Listener<JSONArray> successListener = new Response.Listener<JSONArray>() {
 		@Override
 		public void onResponse(JSONArray response) {
-			mTextView.setText("Response is: "+ response);
+			try {
+				String query = response.getString(0);
+				mTextView.append("Original query: " + query + "\n");
+				JSONArray rest = response.getJSONArray(1);
+				mTextView.setText("We got " + rest.length() + " results:\n");
+				for (int i = 0; i < rest.length(); i++) {
+					mTextView.append(rest.getString(i) + "\n");
+				}
+			} catch (JSONException e) {
+				mTextView.append("\n);");
+				mTextView.append("FAIL: " + e);
+				e.printStackTrace();
+			}
 		}
 	};
 	
