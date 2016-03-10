@@ -1,10 +1,11 @@
 package com.androidcookbook.volleydemo;
 
-import com.android.volley.Request;
+import org.json.JSONArray;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import android.app.Activity;
@@ -33,9 +34,9 @@ public class VolleyDemo extends Activity {
 		queue = Volley.newRequestQueue(this);
 	}
 	
-	final Response.Listener<String> successListener = new Response.Listener<String>() {
+	final Response.Listener<JSONArray> successListener = new Response.Listener<JSONArray>() {
 		@Override
-		public void onResponse(String response) {
+		public void onResponse(JSONArray response) {
 			mTextView.setText("Response is: "+ response);
 		}
 	};
@@ -65,10 +66,10 @@ public class VolleyDemo extends Activity {
 
 		// Create a String Request to get information from the provided URL.
 		String requestUrl = host + baseUrl + listUrl;
-		StringRequest stringRequest =
-			new StringRequest(Request.Method.GET, requestUrl, successListener, failListener);
+		JsonArrayRequest request = new JsonArrayRequest(
+		        requestUrl, successListener, failListener);
 
 		// Queue the request to do the sending and receiving
-		queue.add(stringRequest);
+		queue.add(request);
 	}
 }
