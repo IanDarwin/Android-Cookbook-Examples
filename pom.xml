@@ -12,6 +12,10 @@
 
 	<properties>
 		<javase-version>1.7</javase-version>
+		<maven.compiler.source>${javase.version}</maven.compiler.source>
+		<maven.compiler.target>${javase.version}</maven.compiler.target>
+		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
+		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
 		<platform.version>4.1.1.4</platform.version>
 		<android.plugin.version>4.4.1</android.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -109,7 +113,7 @@
 		<!-- <module>UniqueId</module> -->
 		<!-- <module>Vibrate</module> -->
 		<!-- <module>ViewPagerDemo</module> -->
-		<!-- <module>VolleyDemo</module> -->
+		<module>VolleyDemo</module>
 		<!-- <module>WindowBackgroundDemo</module> -->
     </modules>
 
@@ -148,10 +152,6 @@
 							<platform>16</platform>
 						</sdk> 
 					</configuration>
-				</plugin>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.1</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
