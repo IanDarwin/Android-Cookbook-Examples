@@ -1,0 +1,7 @@
+<resources>
+
+	<string name="app_name">Volley Demo</string>
+	<string name="title_activity_main">Volley Demo</string>
+	<string name="go_button_label">Get List</string>
+
+</resources>
