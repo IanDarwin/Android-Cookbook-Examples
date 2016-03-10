@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -17,40 +18,44 @@ import android.widget.TextView;
  */
 public class VolleyDemo extends Activity {
 
-	RequestQueue queue;
-	TextView mTextView;
+	private RequestQueue queue;
+	private TextView mTextView;
+	private EditText mSearchBox;
 
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
 		setContentView(R.layout.main);
+		mSearchBox = (EditText) findViewById(R.id.searchbox);
 		mTextView = (TextView) findViewById(R.id.text);
 
 		// Set up the Volley queue for REST processing
 		queue = Volley.newRequestQueue(this);
 	}
+	
+	final Response.Listener<String> successListener = new Response.Listener<String>() {
+		@Override
+		public void onResponse(String response) {
+			// Display the first 500 characters of the response string.
+			mTextView.setText("Response is: "+ response.substring(0,500));
+		}
+	};
+	
+	final Response.ErrorListener failListener = new Response.ErrorListener() {
+		@Override
+		public void onErrorResponse(VolleyError error) {
+			mTextView.setText("That didn't work!\n" + 
+				"Error: " + error + "\n" +
+				"Detail:" + error.getMessage() + "\n" +
+				"Cause: " + error.getCause());
+			error.printStackTrace();
+		}
+	};
 
 	public void fetchResults(View v) {
 
-		// Create a RequestQueue.
-		RequestQueue queue = Volley.newRequestQueue(this);
-
-		String host ="http://androidcookbook.com/";
-		String baseUrl ="seam/resource/rest/";
-		String listUrl = "chapter/list";
-
-		final Response.Listener<String> successListener = new Response.Listener<String>() {
-			@Override
-			public void onResponse(String response) {
-				// Display the first 500 characters of the response string.
-				mTextView.setText("Response is: "+ response.substring(0,500));
-			}
-		};
-		final Response.ErrorListener failListener = new Response.ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				mTextView.setText("That didn't work!");
-			}
-		};
+		String host ="https://suggestqueries.google.com/";
+		String baseUrl ="complete/search?output=toolbar&hl=en&q=";
+		String listUrl = mSearchBox.getText().toString();
 
 		// Create a String Request to get information from the provided URL.
 		String requestUrl = host + baseUrl + listUrl;
