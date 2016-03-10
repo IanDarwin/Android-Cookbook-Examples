@@ -45,6 +45,6 @@
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
-    </plugins>
-  </build>
+		</plugins>
+	</build>
 </project>
