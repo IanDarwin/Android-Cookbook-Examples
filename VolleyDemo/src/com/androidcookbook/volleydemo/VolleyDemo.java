@@ -36,8 +36,7 @@ public class VolleyDemo extends Activity {
 	final Response.Listener<String> successListener = new Response.Listener<String>() {
 		@Override
 		public void onResponse(String response) {
-			// Display the first 500 characters of the response string.
-			mTextView.setText("Response is: "+ response.substring(0,500));
+			mTextView.setText("Response is: "+ response);
 		}
 	};
 	
@@ -55,7 +54,8 @@ public class VolleyDemo extends Activity {
 	public void fetchResults(View v) {
 
 		String host ="https://suggestqueries.google.com/";
-		String baseUrl ="complete/search?output=toolbar&hl=en&q=";
+		// Amusingly, client=firefox makes the output come back in JSON
+		String baseUrl ="complete/search?output=toolbar&hl=en&client=firefox&q=";
 		String listUrl = mSearchBox.getText().toString();
 		
 		if (listUrl.length() == 0) {
