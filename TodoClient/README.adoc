@@ -1,3 +1,5 @@
 == ToDoSyncClient
 
-Android client for the ToDo examples.
+*DELETED*
+
+Moved to https://github.com/IanDarwin/TodoMore

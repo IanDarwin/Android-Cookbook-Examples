@@ -1,12 +1,5 @@
 ToDo Task Model
-===========
 
-This is a Java/JPA model for the ToDo.txt Task format.
+*DELETED*
 
-What works:
-- parsing simple tasks
-- converting simple tasks to strings
-
-What's not right yet:
-- Must remove Project/Context when parsing input, else you get
-  (A) Call Mom @Home @Home @Home...
+Moved to https://github.com/IanDarwin/TodoMore
