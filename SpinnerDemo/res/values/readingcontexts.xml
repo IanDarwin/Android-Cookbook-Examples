@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="reading_context_choice">When Reading Taken</string>	   
+	<string-array name="reading_context_names">
+		<item>Breakfast</item>
+		<item>Lunch</item>
+		<item>Dinner</item>
+		<item>Snack</item>
+	</string-array>
+</resources>

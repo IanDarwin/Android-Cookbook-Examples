@@ -2,13 +2,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.androidcookbook.examples</groupId>
 	<artifactId>android-cookbook-examples-parent</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
-    <name>AndroidCookbook Parent Project</name>
+	<packaging>pom</packaging>
+	<version>1.0</version>
+	<name>AndroidCookbook Parent Project</name>
 
 	<properties>
 		<javase-version>1.7</javase-version>
@@ -22,7 +22,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-    <modules>
+	<modules>
 		<!-- <module>AndroidPlot</module> -->
 		<!-- <module>AndroidRss</module> -->
 		<!-- <module>AppDownloader</module> -->
@@ -101,6 +101,7 @@
 		<!-- <module>SoapDemo</module> -->
 		<module>SoundRec</module>
 		<!-- <module>Speaker</module> -->
+		<!-- <module>SpinnerDemo</module> -->
 		<!-- <module>SplashDialog</module> -->
 		<!-- <module>StandardDrawables</module> -->
 		<!-- <module>TabSwipeDemo</module> -->
