@@ -2,8 +2,6 @@ public class MyActivity {
 
 	public void onSend(View v) {
 
-		...
-
 		DefaultHttpClient client = new DefaultHttpClient();
 
 		HttpPost req = new HttpPost(requestUri);
@@ -19,4 +17,6 @@ public class MyActivity {
 		
 		RequestHandler<String> handler = new BasicResponseHandler();
 		String result = client.execute(request, handler);
+	}
+}
 
