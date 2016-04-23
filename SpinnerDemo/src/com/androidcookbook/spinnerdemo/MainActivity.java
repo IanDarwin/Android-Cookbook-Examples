@@ -28,6 +28,8 @@ public class MainActivity extends Activity {
         contextChooser2.setOnItemSelectedListener(listener);
 
 		// Spinner 3 gets its labels programmatically from a Java language enum
+        // Relies on enum's toString method; if need to use another method, would
+        // require a loop here to extract displayable names.
 		Spinner contextChooser3 = (Spinner) findViewById(R.id.contextChooser3);
 		ArrayAdapter<ReadingContext> adapter3 = new ArrayAdapter<ReadingContext>(
 			this, android.R.layout.simple_spinner_item, ReadingContext.values());
