@@ -20,7 +20,6 @@ import android.util.Log;
  * @author Ashwini Shahapurkar, http://androidcookbook.com/Recipe.seam?recipeId=1558
  * @author Ian Darwin - fleshed out
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MyContentProvider extends ContentProvider {
 
 	private static final String _ID_EQ_QUESTION = "_id = ?";
@@ -118,7 +117,6 @@ public class MyContentProvider extends ContentProvider {
 				null);
 		resultCursor.setNotificationUri(getContext().getContentResolver(), uri);
 		return resultCursor;
-
 	}
 
 	/** The U of CRUD */
