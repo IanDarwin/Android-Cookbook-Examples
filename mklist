@@ -4,9 +4,6 @@
 
 FNAME_README=README.1line.txt
 FNAME_STATUS=STATUS.1line.txt
-FNAME_OUTPUT=ProjectList.adoc
-
-> ${FNAME_OUTPUT}
 
 for d in *
 do
@@ -18,7 +15,7 @@ do
 			else
 				NOTES="-"
 			fi
-			echo '|' $d '|' $FUNCTION '|' ${NOTES} '|' >> ${FNAME_OUTPUT}
+			echo '|' $d '|' $FUNCTION '|' ${NOTES} '|'
 		else
 			echo "$d has no ${FNAME_README}" >&2
 		fi
