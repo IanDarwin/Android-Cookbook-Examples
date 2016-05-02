@@ -44,8 +44,8 @@ git checkout the tag `Book-1.0`.
 
 There are some things I'd love it if people would contribute:
 
-	Maven and/or Gradle files for each project that doesn't already have one: always automate dependencies where possible!
-	Readme file for each project, to include a link back to the recipe in the book.
+* Maven and/or Gradle files for each project that doesn't already have one: always automate dependencies where possible!
+* Readme file for each project, to include a link back to the recipe in the book.
 
 === What's here?
 
