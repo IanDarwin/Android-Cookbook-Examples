@@ -18,7 +18,7 @@ do
 			fi
 			if [ -f $d/.project ]; then BUILDS_WITH+=E; fi
 			if [ -f $d/pom.xml ]; then BUILDS_WITH+=M; fi
-			if [ -f $d/app/build.gradle ]; then BUILDS_WITH+=SG; fi
+			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=SG; fi
 			echo '|' $d '|' $BUILDS_WITH '|' $FUNCTION '|' ${NOTES}
 		else
 			echo "$d has no ${FNAME_README}" >&2
