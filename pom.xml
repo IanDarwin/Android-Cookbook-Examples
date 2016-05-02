@@ -38,8 +38,8 @@
 		<!-- <module>ContentProviderSample</module> -->
 		<!-- <module>ContentProviderTest</module> -->
 		<!-- <module>CountDownTimerExample</module> -->
-		<!-- <module>CurrentMoodWidget</module> -->
-		<module>CursorLoaderDemo</module>
+		<module>CurrentMoodWidget</module>
+		<!-- FAILS <module>CursorLoaderDemo</module> -->
 		<!-- <module>CustomMenu</module> -->
 		<!-- <module>CustomToast</module> -->
 		<!-- <module>DialogDemos</module> -->
@@ -98,11 +98,13 @@
 		<!-- <module>SimplePool</module> -->
 		<!-- <module>SimpleTorchLight</module> -->
 		<!-- <module>SlidingDrawer-Topdown</module> -->
+		<module>SnackBarDemo</module>
 		<!-- <module>SoapDemo</module> -->
 		<module>SoundRec</module>
 		<!-- <module>Speaker</module> -->
-		<!-- <module>SpinnerDemo</module> -->
+		<module>SpinnerDemo</module>
 		<!-- <module>SplashDialog</module> -->
+		<module>SQLiteDemos</module>
 		<!-- <module>StandardDrawables</module> -->
 		<!-- <module>TabSwipeDemo</module> -->
 		<!-- <module>TeleCorder</module> -->
@@ -142,7 +144,8 @@
 	</dependencyManagement>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/test</testSourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -150,6 +153,8 @@
 					<artifactId>android-maven-plugin</artifactId>
 					<version>${android.plugin.version}</version>
 					<configuration>
+						<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+						<resourceDirectory>${project.basedir}/res</resourceDirectory>
 						<sdk>
 							<platform>16</platform>
 						</sdk> 

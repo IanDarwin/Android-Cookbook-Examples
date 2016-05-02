@@ -17,7 +17,7 @@
 	</parent>
 
 	<properties>
-		<platform.version>2.3.3</platform.version>
+		<platform.version>4.2.2</platform.version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +31,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<!-- Use the Android Plugin -->
