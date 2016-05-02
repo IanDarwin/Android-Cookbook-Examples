@@ -52,105 +52,103 @@ There are some things I'd love it if people would contribute:
 The following list is generated (periodically) from the project folders.
 In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Studio, *G* for Gradle.
 
-Test this link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HotContacts[HotContacts]
-
 [options="header", cols="3,1,3,3"]
 |===========
 | Project | Builds With | Function | Notes 
 // INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
-| AboutInfo | E | Info about device and screen | -
-| AndroidPlot | E | Graphing | -
-| AndroidRss | E | RSS Reader | -
-| AppDownloader | SG | Installs another app | Downloading, package management
-| AutoUpdater | E | App can update itself | see AppDownloader
-| AutocompleteTextViewContacts | E | Contact picker with autocomplete | -
-| BackupManager | E | Backups | -
-| BluetoothDemo | E | Bluetooth Connection | -
-| CalAdder | E | Add appointment to Calendar | Calendar via Content Provider
-| CallFaker | E | Pretend a call happened, for testing | -
-| CheckBoxRadioButton | E | GUI demo | name says it
-| ContentProviderBookmarks | EM | List of bookmarks | Browser ContentProvider
-| ContentProviderList | E | List of ContentProviders | -
-| ContentProviderSample | E | Implement a ContentProvider | -
-| ContentProviderTest | E | Test it | -
-| CountDownTimerExample | E | Time-based activity | -
-| CurrentMoodWidget | | Application Widget | -
-| CursorLoaderDemo | EM | How to load data properly using CursorLoader | -
-| CustomMenu | E | Menu | -
-| CustomToast | E | Toast | -
-| DialogDemos | E | Dialogs | -
-| DreamsDemo | E | Demo of "Dreams" (4.x screensaver) | -
-| EmailTextView | E | Send contents of EditText via email | -
-| EmailWithAttachments | E | Attach file to email | -
-| EpochJSCalendar | E | Java + JavaScript | -
-| FaceFinder | E | Face locator API in photos | -
-| FacebookSdk | E | Access FB API | -
-| FileCursor | E | Fake up a Cursor from a list of files | INCOMPLETE
-| FontDemo | E | Using a custom font | -
-| Gallery | E | Simple photo gallery | Deprecated
-| GcmClient | E | Google Cloud Messaging - receiver | -
-| GcmMockServer | E | Google Cloud Messaging - sender | -
-| HelloCommandLine | E | HelloWorld | SDK
-| HelloEclipse | E | HelloWorld | Eclipse ADT
-| HelloMaven | EM | HelloWorld | Maven, JayWay Plug-in
-| HelloTestingTarget | E | ADT Testing - subject | -
-| HelloTestingTestProject | E | ADT Testing - Tests | -
-| HomeAppListView | EM | A Home Application | Shows running a program
-| HotContacts | E | Add a contact | Shows ContactsContract, content provider
-| IconizedListView | E | List View with Icon | -
-| IntentsDemo | EM | Intents | -
-| JavaTimeDemo | SG | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
-| JavascriptDataDemo | E | JavaScript from Java | -
-| JpsTrack | | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo]
-| ListViewAdvanced | E | ListView | -
-| ListViewDemos | E | ListView | -
-| ListViewEmpty | E | ListView with empty list: don't show blank screen! | -
-| ListViewSectionHeader | E | ListView with section headers | -
-| LocalBroadcastDemo | E | Local Broadcast Receiver | -
-| MapDemosV2 | E | Google Maps V2 API | -
-| MarketSearch | E | Search the Play Store | -
-| MediaPlayerDemo | E | Play media | -
-| MediaRecorderDemo | E | Simple sound recorder | -
-| NdkDemo | E | Native Development Kit | C Code
-| NotificationDemo | E | Notifications | -
-| NumberPickers | E | UI for picking numbers | -
-| OSMIntro | EM | OpenStreetMap API | (free alternative to Google Maps)
-| OpenGlDemo | E | OpenGL graphics | -
-| OrientationChanges | E | Rotation | -
-| PdfShare | E | Create and share a PDF | -
-| PhoneGapDemo | E | HTML5 app using phonegap/cordova | -
-| PreferencesDemo | E | Preferences | -
-| RGraphDemo | E | Using a graphing library | -
-| RangeGraphDemo | E | Using a graphing library | -
-| Rebooter | E | How to reboot, and why you can't | -
-| RestDemo | | RESTful Web Service demo | -
-| SQLiteDemos | EM | SQLite demos | -
-| SecondScreen | | Multi-screen | -
-| SendSMS | E | Sends an SMS | -
-| ShareActionProviderDemo | E | ICS "Share" action | -
-| SimpleAccountAndSyncDemo | E | User account on device | -
-| SimpleCalendar | E | Calendar | -
-| SimpleJumper | | Flixel-based gaming demo | This example still needs to be re-created.
-| SimplePool | E | Graphics | -
-| SimpleTorchLight | E | Flashlight/torch from camera flash | -
-| SlidingDrawer-Topdown | E | The "Sliding Drawer" view | -
-| SnackBarDemo | EM | Snackbar (bottom message text) demo | -
-| SoapDemo | E | XML SOAP Web Service | -
-| SoundRec | EM | Sound Recorder | -
-| Speaker | E | Text To Speech (TTS) | -
-| SpinnerDemo | EM | Drop-down Spinner Demos | -
-| SplashDialog | E | Splash screen | -
-| StandardDrawables | E | Use Existing Drawables | -
-| TabSwipeDemo | E | Tabbable and swipeable layout | -
-| TeleCorder | E | Telephone call recorder (in progress!) | -
-| TelephonyManager | E | Displays phone info | -
-| Tipster | E | Full app: compute and show restaurant bill with tip | -
-| TodoClient | | Todo Sync Client | Moved to https://github.com/IanDarwin/TodoMore[own repo]
-| UniqueId | E | Find device's unique ID | -
-| Vibrate | E | Make the device vibrate | -
-| ViewPagerDemo | E | Swipe among views | -
-| VolleyDemo | EM | Demo of Volley networking library | -
-| WindowBackgroundDemo | E | Graphical window background | -
-| appcompat_v7 | E | Compat library Eclipse Project | -
-| gridlayout_v7 | E | Grid Layout Compat Library for Eclipse | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | E | Info about device and screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | E | Graphing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | E | RSS Reader | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | SG | Installs another app | Downloading, package management
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | E | App can update itself | see AppDownloader
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | E | Contact picker with autocomplete | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BackupManager[BackupManager] | E | Backups | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | E | Bluetooth Connection | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | E | Add appointment to Calendar | Calendar via Content Provider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | E | Pretend a call happened, for testing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | E | GUI demo | name says it
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderBookmarks[ContentProviderBookmarks] | EM | List of bookmarks | Browser ContentProvider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderList[ContentProviderList] | E | List of ContentProviders | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderSample[ContentProviderSample] | E | Implement a ContentProvider | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderTest[ContentProviderTest] | E | Test it | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CountDownTimerExample[CountDownTimerExample] | E | Time-based activity | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | M | Application Widget | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | EM | How to load data properly using CursorLoader | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomMenu[CustomMenu] | E | Menu | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomToast[CustomToast] | E | Toast | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DialogDemos[DialogDemos] | E | Dialogs | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DreamsDemo[DreamsDemo] | E | Demo of "Dreams" (4.x screensaver) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailTextView[EmailTextView] | E | Send contents of EditText via email | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailWithAttachments[EmailWithAttachments] | E | Attach file to email | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EpochJSCalendar[EpochJSCalendar] | E | Java + JavaScript | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FaceFinder[FaceFinder] | E | Face locator API in photos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FacebookSdk[FacebookSdk] | E | Access FB API | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FileCursor[FileCursor] | E | Fake up a Cursor from a list of files | INCOMPLETE
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | E | Using a custom font | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | E | Simple photo gallery | Deprecated
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | E | Google Cloud Messaging - receiver | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | E | Google Cloud Messaging - sender | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | E | HelloWorld | SDK
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | E | HelloWorld | Eclipse ADT
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EM | HelloWorld | Maven, JayWay Plug-in
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | E | ADT Testing - subject | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | E | ADT Testing - Tests | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HomeAppListView[HomeAppListView] | EM | A Home Application | Shows running a program
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HotContacts[HotContacts] | E | Add a contact | Shows ContactsContract, content provider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | E | List View with Icon | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EM | Intents | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | SG | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | E | JavaScript from Java | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JpsTrack[JpsTrack] | | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo]
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | E | ListView | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | E | ListView | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewEmpty[ListViewEmpty] | E | ListView with empty list: don't show blank screen! | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewSectionHeader[ListViewSectionHeader] | E | ListView with section headers | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LocalBroadcastDemo[LocalBroadcastDemo] | E | Local Broadcast Receiver | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MapDemosV2[MapDemosV2] | E | Google Maps V2 API | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MarketSearch[MarketSearch] | E | Search the Play Store | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerDemo[MediaPlayerDemo] | E | Play media | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | E | Simple sound recorder | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | E | Native Development Kit | C Code
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | E | Notifications | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NumberPickers[NumberPickers] | E | UI for picking numbers | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMIntro[OSMIntro] | EM | OpenStreetMap API | (free alternative to Google Maps)
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OpenGlDemo[OpenGlDemo] | E | OpenGL graphics | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OrientationChanges[OrientationChanges] | E | Rotation | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PdfShare[PdfShare] | E | Create and share a PDF | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PhoneGapDemo[PhoneGapDemo] | E | HTML5 app using phonegap/cordova | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | E | Preferences | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | E | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | E | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | E | How to reboot, and why you can't | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RestDemo[RestDemo] | | RESTful Web Service demo | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SQLiteDemos[SQLiteDemos] | EM | SQLite demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | | Multi-screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | E | Sends an SMS | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | E | ICS "Share" action | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | E | User account on device | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | E | Calendar | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | | Flixel-based gaming demo | This example still needs to be re-created.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | E | Graphics | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | E | Flashlight/torch from camera flash | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | E | The "Sliding Drawer" view | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SnackBarDemo[SnackBarDemo] | EM | Snackbar (bottom message text) demo | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoapDemo[SoapDemo] | E | XML SOAP Web Service | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoundRec[SoundRec] | EM | Sound Recorder | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Speaker[Speaker] | E | Text To Speech (TTS) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinnerDemo[SpinnerDemo] | EM | Drop-down Spinner Demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SplashDialog[SplashDialog] | E | Splash screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StandardDrawables[StandardDrawables] | E | Use Existing Drawables | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabSwipeDemo[TabSwipeDemo] | E | Tabbable and swipeable layout | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TeleCorder[TeleCorder] | E | Telephone call recorder (in progress!) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TelephonyManager[TelephonyManager] | E | Displays phone info | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Tipster[Tipster] | E | Full app: compute and show restaurant bill with tip | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TodoClient[TodoClient] | | Todo Sync Client | Moved to https://github.com/IanDarwin/TodoMore[own repo]
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/UniqueId[UniqueId] | E | Find device's unique ID | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Vibrate[Vibrate] | E | Make the device vibrate | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ViewPagerDemo[ViewPagerDemo] | E | Swipe among views | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/VolleyDemo[VolleyDemo] | EM | Demo of Volley networking library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | E | Graphical window background | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/appcompat_v7[appcompat_v7] | E | Compat library Eclipse Project | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/gridlayout_v7[gridlayout_v7] | E | Grid Layout Compat Library for Eclipse | -
 |===========
