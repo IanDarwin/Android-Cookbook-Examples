@@ -10,13 +10,22 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Simple demos of SQLite in action.
+ * Ideally should use a CursorLoader to keep the data
+ * in sycn with the ListView
+ * @author Ian Darwin
+ * @author Rachee Singh
+ */
 public class MainActivity extends ListActivity {
 
-	SQLiteDatabase mDatabase;
-	
+	private SQLiteDatabase mDatabase;
+	private List<Food> mDataList;
+	private ArrayAdapter<Food> mAdapter;
 	private ListView mListView;
 
 	public static final String TABLE_NAME = "tasks";
@@ -33,33 +42,38 @@ public class MainActivity extends ListActivity {
 		mDatabase = helper.getWritableDatabase();
 		
 		mListView = getListView();
-
+		
+	}
+	
+	public void add(View v) {
 		ContentValues values = new ContentValues();
 		values.put(NAME, "Mangoes");
 		long id = (mDatabase.insert(TABLE_NAME, null, values));
-		values.put(NAME, "Pumpernickel bread");
+		final String name = "Pumpernickel bread";
+		values.put(NAME, name);
 		id = (mDatabase.insert(TABLE_NAME, null, values));
-		System.out.println("Max id = " + id);
+		System.out.println("Max ID = " + id);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 		Cursor listCursor = mDatabase.query(TABLE_NAME, new String[] { ID, NAME }, null, null, null, null, NAME);
-		List<Food> dataList = new ArrayList<>();
+		mDataList = new ArrayList<>();
 		while (listCursor.moveToNext()) {
 			long foodId = listCursor.getLong(0);
 			String name = listCursor.getString(1);
 			Food food = new Food(foodId, name);
-			dataList.add(food);
+			mDataList.add(food);
 		}
 		listCursor.close();
-		mListView.setAdapter(new ArrayAdapter<Food>(this,
-                android.R.layout.simple_list_item_1, dataList));
+		mAdapter = new ArrayAdapter<Food>(this,
+                android.R.layout.simple_list_item_1, mDataList);
+		mListView.setAdapter(mAdapter);
 	}
 
 	public class SqlOpenHelper extends SQLiteOpenHelper {
-		public static final String DBNAME = "tasksdb.sqlite";
+		public static final String DBNAME = "foods.sqlite";
 		public static final int VERSION = 1;
 
 		public SqlOpenHelper(Context context) {
