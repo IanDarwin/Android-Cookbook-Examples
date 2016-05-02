@@ -1,5 +1,0 @@
-== ToDoSyncServer
-
-*DELETED*
-
-Moved to https://github.com/IanDarwin/TodoMore

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Generate the included table for the master README file
+
+FNAME_README=README.1line.txt
+FNAME_STATUS=STATUS.1line.txt
+FNAME_OUTPUT=ProjectList.adoc
+
+> ${FNAME_OUTPUT}
+
+for d in *
+do
+	if [ -d $d ]; then
+		if [ -f $d/${FNAME_README} ]; then
+			FUNCTION=$(cat $d/${FNAME_README})
+			if [ -f $d/${FNAME_STATUS} ]; then
+				NOTES=$(cat $d/${FNAME_STATUS})
+			else
+				NOTES="-"
+			fi
+			echo '|' $d '|' $FUNCTION '|' ${NOTES} '|' >> ${FNAME_OUTPUT}
+		else
+			echo "$d has no ${FNAME_README}" >&2
+		fi
+	fi
+done
