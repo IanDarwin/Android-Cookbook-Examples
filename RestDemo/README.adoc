@@ -1,3 +1,0 @@
-= RestDemo
-
-A REST demo showing use of HTTP basic auth.
