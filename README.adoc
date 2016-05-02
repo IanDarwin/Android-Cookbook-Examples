@@ -53,99 +53,99 @@ There are some things I'd love it if people would contribute:
 |===========
 | Project | Function | Notes 
 // INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
-| AboutInfo | Info about device and screen | - |
-| AndroidPlot | Graphing | - |
-| AndroidRss | RSS Reader | - |
-| AppDownloader | Installs another app | Downloading, package management |
-| AutoUpdater | App can update itself | see AppDownloader |
-| AutocompleteTextViewContacts | Contact picker with autocomplete | - |
-| BackupManager | Backups | - |
-| BluetoothDemo | Bluetooth Connection | - |
-| CalAdder | Add appointment to Calendar | Calendar via Content Provider |
-| CallFaker | Pretend a call happened, for testing | - |
-| CheckBoxRadioButton | GUI demo | name says it |
-| ContentProviderBookmarks | List of bookmarks | Browser ContentProvider |
-| ContentProviderList | List of ContentProviders | - |
-| ContentProviderSample | Implement a ContentProvider | - |
-| ContentProviderTest | Test it | - |
-| CountDownTimerExample | Time-based activity | - |
-| CurrentMoodWidget | Application Widget | - |
-| CursorLoaderDemo | How to load data properly using CursorLoader | - |
-| CustomMenu | Menu | - |
-| CustomToast | Toast | - |
-| DialogDemos | Dialogs | - |
-| DreamsDemo | Demo of "Dreams" (4.x screensaver) | - |
-| EmailTextView | Send contents of EditText via email | - |
-| EmailWithAttachments | Attach file to email | - |
-| EpochJSCalendar | Java + JavaScript | - |
-| FaceFinder | Face locator API in photos | - |
-| FacebookSdk | Access FB API | - |
-| FileCursor | Fake up a Cursor from a list of files | INCOMPLETE |
-| FontDemo | Using a custom font | - |
-| Gallery | Simple photo gallery | Deprecated |
-| GcmClient | Google Cloud Messaging - receiver | - |
-| GcmMockServer | Google Cloud Messaging - sender | - |
-| HelloCommandLine | HelloWorld | SDK |
-| HelloEclipse | HelloWorld | Eclipse ADT |
-| HelloMaven | HelloWorld | Maven, JayWay Plug-in |
-| HelloTestingTarget | ADT Testing - subject | - |
-| HelloTestingTestProject | ADT Testing - Tests | - |
-| HomeAppListView | A Home Application | Shows running a program |
-| HotContacts | Add a contact | Shows ContactsContract, content provider |
-| IconizedListView | List View with Icon | - |
-| IntentsDemo | Intents | - |
-| JavaTimeDemo | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package |
-| JavascriptDataDemo | JavaScript from Java | - |
-| JpsTrack | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo] |
-| ListViewAdvanced | ListView | - |
-| ListViewDemos | ListView | - |
-| ListViewEmpty | ListView with empty list: don't show blank screen! | - |
-| ListViewSectionHeader | ListView with section headers | - |
-| LocalBroadcastDemo | Local Broadcast Receiver | - |
-| MapDemosV2 | Google Maps V2 API | - |
-| MarketSearch | Search the Play Store | - |
-| MediaPlayerDemo | Play media | - |
-| MediaRecorderDemo | Simple sound recorder | - |
-| NdkDemo | Native Development Kit | C Code |
-| NotificationDemo | Notifications | - |
-| NumberPickers | UI for picking numbers | - |
-| OSMIntro | OpenStreetMap API | (free alternative to Google Maps) |
-| OpenGlDemo | OpenGL graphics | - |
-| OrientationChanges | Rotation | - |
-| PdfShare | Create and share a PDF | - |
-| PhoneGapDemo | HTML5 app using phonegap/cordova | - |
-| PreferencesDemo | Preferences | - |
-| RGraphDemo | Using a graphing library | - |
-| RangeGraphDemo | Using a graphing library | - |
-| Rebooter | How to reboot, and why you can't | - |
-| RestDemo | RESTful Web Service demo | - |
-| SQLiteDemos | SQLite demos | - |
-| SecondScreen | Multi-screen | - |
-| SendSMS | Sends an SMS | - |
-| ShareActionProviderDemo | ICS "Share" action | - |
-| SimpleAccountAndSyncDemo | User account on device | - |
-| SimpleCalendar | Calendar | - |
-| SimpleJumper | Flixel-based gaming demo | This example still needs to be re-created. |
-| SimplePool | Graphics | - |
-| SimpleTorchLight | Flashlight/torch from camera flash | - |
-| SlidingDrawer-Topdown | The "Sliding Drawer" view | - |
-| SnackBarDemo | Snackbar (bottom message text) demo | - |
-| SoapDemo | XML SOAP Web Service | - |
-| SoundRec | Sound Recorder | - |
-| Speaker | Text To Speech (TTS) | - |
-| SpinnerDemo | Drop-down Spinner Demos | - |
-| SplashDialog | Splash screen | - |
-| StandardDrawables | Use Existing Drawables | - |
-| TabSwipeDemo | Tabbable and swipeable layout | - |
-| TeleCorder | Telephone call recorder (in progress!) | - |
-| TelephonyManager | Displays phone info | - |
-| Tipster | Full app: compute and show restaurant bill with tip | - |
-| TodoClient | Todo Sync Client | Moved to https://github.com/IanDarwin/TodoMore[own repo] |
-| UniqueId | Find device's unique ID | - |
-| Vibrate | Make the device vibrate | - |
-| ViewPagerDemo | Swipe among views | - |
-| VolleyDemo | Demo of Volley networking library | - |
-| WindowBackgroundDemo | Graphical window background | - |
-| appcompat_v7 | Compat library Eclipse Project | - |
-| gridlayout_v7 | Grid Layout Compat Library for Eclipse | - |
+| AboutInfo | Info about device and screen | -
+| AndroidPlot | Graphing | -
+| AndroidRss | RSS Reader | -
+| AppDownloader | Installs another app | Downloading, package management
+| AutoUpdater | App can update itself | see AppDownloader
+| AutocompleteTextViewContacts | Contact picker with autocomplete | -
+| BackupManager | Backups | -
+| BluetoothDemo | Bluetooth Connection | -
+| CalAdder | Add appointment to Calendar | Calendar via Content Provider
+| CallFaker | Pretend a call happened, for testing | -
+| CheckBoxRadioButton | GUI demo | name says it
+| ContentProviderBookmarks | List of bookmarks | Browser ContentProvider
+| ContentProviderList | List of ContentProviders | -
+| ContentProviderSample | Implement a ContentProvider | -
+| ContentProviderTest | Test it | -
+| CountDownTimerExample | Time-based activity | -
+| CurrentMoodWidget | Application Widget | -
+| CursorLoaderDemo | How to load data properly using CursorLoader | -
+| CustomMenu | Menu | -
+| CustomToast | Toast | -
+| DialogDemos | Dialogs | -
+| DreamsDemo | Demo of "Dreams" (4.x screensaver) | -
+| EmailTextView | Send contents of EditText via email | -
+| EmailWithAttachments | Attach file to email | -
+| EpochJSCalendar | Java + JavaScript | -
+| FaceFinder | Face locator API in photos | -
+| FacebookSdk | Access FB API | -
+| FileCursor | Fake up a Cursor from a list of files | INCOMPLETE
+| FontDemo | Using a custom font | -
+| Gallery | Simple photo gallery | Deprecated
+| GcmClient | Google Cloud Messaging - receiver | -
+| GcmMockServer | Google Cloud Messaging - sender | -
+| HelloCommandLine | HelloWorld | SDK
+| HelloEclipse | HelloWorld | Eclipse ADT
+| HelloMaven | HelloWorld | Maven, JayWay Plug-in
+| HelloTestingTarget | ADT Testing - subject | -
+| HelloTestingTestProject | ADT Testing - Tests | -
+| HomeAppListView | A Home Application | Shows running a program
+| HotContacts | Add a contact | Shows ContactsContract, content provider
+| IconizedListView | List View with Icon | -
+| IntentsDemo | Intents | -
+| JavaTimeDemo | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| JavascriptDataDemo | JavaScript from Java | -
+| JpsTrack | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo]
+| ListViewAdvanced | ListView | -
+| ListViewDemos | ListView | -
+| ListViewEmpty | ListView with empty list: don't show blank screen! | -
+| ListViewSectionHeader | ListView with section headers | -
+| LocalBroadcastDemo | Local Broadcast Receiver | -
+| MapDemosV2 | Google Maps V2 API | -
+| MarketSearch | Search the Play Store | -
+| MediaPlayerDemo | Play media | -
+| MediaRecorderDemo | Simple sound recorder | -
+| NdkDemo | Native Development Kit | C Code
+| NotificationDemo | Notifications | -
+| NumberPickers | UI for picking numbers | -
+| OSMIntro | OpenStreetMap API | (free alternative to Google Maps)
+| OpenGlDemo | OpenGL graphics | -
+| OrientationChanges | Rotation | -
+| PdfShare | Create and share a PDF | -
+| PhoneGapDemo | HTML5 app using phonegap/cordova | -
+| PreferencesDemo | Preferences | -
+| RGraphDemo | Using a graphing library | -
+| RangeGraphDemo | Using a graphing library | -
+| Rebooter | How to reboot, and why you can't | -
+| RestDemo | RESTful Web Service demo | -
+| SQLiteDemos | SQLite demos | -
+| SecondScreen | Multi-screen | -
+| SendSMS | Sends an SMS | -
+| ShareActionProviderDemo | ICS "Share" action | -
+| SimpleAccountAndSyncDemo | User account on device | -
+| SimpleCalendar | Calendar | -
+| SimpleJumper | Flixel-based gaming demo | This example still needs to be re-created.
+| SimplePool | Graphics | -
+| SimpleTorchLight | Flashlight/torch from camera flash | -
+| SlidingDrawer-Topdown | The "Sliding Drawer" view | -
+| SnackBarDemo | Snackbar (bottom message text) demo | -
+| SoapDemo | XML SOAP Web Service | -
+| SoundRec | Sound Recorder | -
+| Speaker | Text To Speech (TTS) | -
+| SpinnerDemo | Drop-down Spinner Demos | -
+| SplashDialog | Splash screen | -
+| StandardDrawables | Use Existing Drawables | -
+| TabSwipeDemo | Tabbable and swipeable layout | -
+| TeleCorder | Telephone call recorder (in progress!) | -
+| TelephonyManager | Displays phone info | -
+| Tipster | Full app: compute and show restaurant bill with tip | -
+| TodoClient | Todo Sync Client | Moved to https://github.com/IanDarwin/TodoMore[own repo]
+| UniqueId | Find device's unique ID | -
+| Vibrate | Make the device vibrate | -
+| ViewPagerDemo | Swipe among views | -
+| VolleyDemo | Demo of Volley networking library | -
+| WindowBackgroundDemo | Graphical window background | -
+| appcompat_v7 | Compat library Eclipse Project | -
+| gridlayout_v7 | Grid Layout Compat Library for Eclipse | -
 |===========
