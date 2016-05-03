@@ -9,16 +9,19 @@ that are hosted elsewhere.
 
 Each Directory comprises its own project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. 
 
-*Warning* As of today, there are three styles of projects:
+*Warning* As of today, there are two styles of projects:
 
-. Eclipse projects with the original ADT;
 . Eclipse projects with the newer Eclipse Andmore;
-. Android Studio projects complete with their extraneous "app" subdirectory.
+. Android Studio projects (complete with their extraneous "app" subdirectory).
 
 Furthermore, ATM some of the Eclipse projects have been Mavenized and some have not.
 
+The table at the bottom of this page shows which projects are set up for which build tools.
+
 If you open the entire repo in Eclipse with eGit, be sure to check the `Import all projects`
-checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). The .metadata directory is already in .gitignore.
+checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). 
+This directory is already set up to be an Eclipse workspace if you want it to
+(the __.metadata__ directory exists and is already in __.gitignore__).
 
 Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, _as long as they don't break support for Eclipse and Maven_.
 
