@@ -129,7 +129,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | E | Using a graphing library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | E | How to reboot, and why you can't | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SQLiteDemos[SQLiteDemos] | EM | SQLite demos | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | | Multi-screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | | Trivial example of one Activity (screen) starting another. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | E | Sends an SMS | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | E | ICS "Share" action | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | E | User account on device | -
