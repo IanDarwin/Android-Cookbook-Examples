@@ -24,4 +24,7 @@ do
 			echo "$d has no ${FNAME_README}" >&2
 		fi
 	fi
-done
+done |
+	 grep -v _ | # Strip compat_v7 etc
+		sort -f -t'[' -k2 # sort on link[Name]
+
