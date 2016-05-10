@@ -13,7 +13,7 @@ public class DataToCursor extends AbstractCursor {
 
 	private static final String[] COLUMN_NAMES = {"_id", "filename", "type"};
 
-	private static final String[] DATA = {
+	private static final String[] DATA_ROWS = {
 			"one.mpg",
 			"two.jpg",
 			"tre.dat",
@@ -22,7 +22,7 @@ public class DataToCursor extends AbstractCursor {
 
 	@Override
 	public int getCount() {
-		return DATA.length;
+		return DATA_ROWS.length;
 	}
 	
 	@Override
@@ -32,7 +32,7 @@ public class DataToCursor extends AbstractCursor {
 
 	@Override
 	public String[] getColumnNames() {
-		return new String[]{"_id", "filename", "type"};
+		return COLUMN_NAMES;
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class DataToCursor extends AbstractCursor {
 	}
 
 	/** 
-	 * Return the _id value.
+	 * Return the _id value (the only integer-valued column).
 	 * Conveniently, rows and array indices are both 0-based.
 	 */
 	@Override
@@ -59,13 +59,21 @@ public class DataToCursor extends AbstractCursor {
 		default: throw new IllegalArgumentException(Integer.toString(column));
 		}
 	}
+	
+	/** SQLite _ids are actually long, so make this work as well.
+	 * This direct equivalence is usually not applicable; do not blindly copy.
+	 */
+	@Override
+	public long getLong(int column) {
+		return getInt(column);
+	}
 
 	@Override
 	public String getString(int column) {
 		int row = getPosition();
 		switch(column) {
-		case 1: return DATA[row];
-		case 2: return extension(DATA[row]);
+		case 1: return DATA_ROWS[row];
+		case 2: return extension(DATA_ROWS[row]);
 		default: throw new IllegalArgumentException(Integer.toString(column));
 		}
 	}
@@ -73,11 +81,6 @@ public class DataToCursor extends AbstractCursor {
 	/** Stub version, works for sample filenames like only */
 	private String extension(String path) {
 		return path.substring(4);
-	}
-
-	@Override
-	public long getLong(int column) {
-		return getInt(column);
 	}
 
 	// Remaining get*() methods call this as there are no other column types
