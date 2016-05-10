@@ -30,11 +30,4 @@
 		<nature>org.eclipse.andmore.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>res</name>
-			<type>2</type>
-			<locationURI>$%7BPROJECT_LOC%7D/src/main/res</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
