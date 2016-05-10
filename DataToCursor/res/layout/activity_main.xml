@@ -7,16 +7,15 @@
     tools:context="com.example.filecursor.MainActivity">
 
 <ListView 
-        android:id="@+id/myList"
+        android:id="@android:id/list"
         android:layout_height="450dp" 
         android:layout_width="match_parent" 
-        />`
+        />
 <TextView
         android:id="@id/android:empty"
         android:text="@string/list_is_empty"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_below="@id/textView1"
         android:textSize="25sp"
         android:gravity="center_vertical|center_horizontal"
         />

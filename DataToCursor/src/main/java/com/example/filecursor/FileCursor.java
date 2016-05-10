@@ -75,6 +75,11 @@ public class FileCursor extends AbstractCursor {
 		return path.substring(4);
 	}
 
+	@Override
+	public long getLong(int column) {
+		return getInt(column);
+	}
+
 	// Remaining get*() methods call this as there are no other column types
 	private char dieBadColumn() {
 		throw new IllegalArgumentException("No columns of this type");
@@ -83,11 +88,6 @@ public class FileCursor extends AbstractCursor {
 	@Override
 	public short getShort(int column) {
 		return (short) dieBadColumn();
-	}
-
-	@Override
-	public long getLong(int column) {
-		return dieBadColumn();
 	}
 
 	@Override
