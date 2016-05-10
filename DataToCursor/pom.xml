@@ -17,7 +17,7 @@
 	</parent>
 
 	<properties>
-		<platform.version>2.3.3</platform.version>
+		<platform.version>4.1.1.4</platform.version>
 	</properties>
 
 	<dependencies>
@@ -39,22 +39,13 @@
 				<version>${android.plugin.version}</version>
 				<configuration>
 					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
-					<resourceDirectory>${project.basedir}/src/main/res</resourceDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
 					<sdk>
 						<platform>21</platform>
 					</sdk>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<undeployBeforeDeploy>false</undeployBeforeDeploy>
 				</configuration>
 				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
