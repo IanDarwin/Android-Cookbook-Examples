@@ -42,6 +42,7 @@
 		<!-- FAILS <module>CursorLoaderDemo</module> -->
 		<!-- <module>CustomMenu</module> -->
 		<!-- <module>CustomToast</module> -->
+		<module>DataToCursor</module>
 		<!-- <module>DialogDemos</module> -->
 		<!-- <module>DisplayInfo</module> -->
 		<!-- <module>DreamsDemo</module> -->
@@ -50,7 +51,6 @@
 		<!-- <module>EpochJSCalendar</module> -->
 		<!-- <module>FaceFinder</module> -->
 		<!-- <module>FacebookSdk</module> -->
-		<!-- <module>FileCursor</module> -->
 		<!-- <module>FontDemo</module> -->
 		<!-- <module>Gallery</module> -->
 		<!-- <module>GcmClient</module> -->
