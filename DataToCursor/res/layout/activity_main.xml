@@ -4,7 +4,7 @@
 	android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.filecursor.MainActivity">
+    tools:context="com.example.datatocursor.MainActivity">
 
 <ListView 
         android:id="@android:id/list"

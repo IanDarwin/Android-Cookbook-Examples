@@ -1,4 +1,4 @@
-package com.example.filecursor;
+package com.example.datatocursor;
 
 import android.database.AbstractCursor;
 import android.database.Cursor;
@@ -9,7 +9,7 @@ import android.database.Cursor;
  * column 2 - filename
  * column 3 - file type
  */
-public class FileCursor extends AbstractCursor {
+public class DataToCursor extends AbstractCursor {
 
 	private static final String[] COLUMN_NAMES = {"_id", "filename", "type"};
 

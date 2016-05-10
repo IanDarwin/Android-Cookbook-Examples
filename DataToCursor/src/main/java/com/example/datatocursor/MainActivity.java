@@ -1,4 +1,4 @@
-package com.example.filecursor;
+package com.example.datatocursor;
 
 import android.app.ListActivity;
 import android.database.Cursor;
@@ -20,7 +20,7 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Cursor c = new FileCursor();
+		Cursor c = new DataToCursor();
 		String[] fromColumns = { c.getColumnName(1), c.getColumnName(2) };
 		int[] toViews = { android.R.id.text1, android.R.id.text2 };
 		@SuppressWarnings("deprecation")
