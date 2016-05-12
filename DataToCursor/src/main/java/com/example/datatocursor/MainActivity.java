@@ -9,7 +9,7 @@ import android.widget.SimpleCursorAdapter;
 
 /**
  * A trivial ListActivity with a SimpleCursorAdapter to demonstrate our
- * "data to Cursor" class in action.
+ * "data to Cursor" class in action. This use of
  * SimpleCursorAdapter is deprecated now but will suffice as a proof
  * of concept of our Cursor generator.
  */
