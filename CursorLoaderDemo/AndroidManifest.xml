@@ -8,7 +8,7 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
     
-    <uses-permission android:name="android.Manifest.permission.READ_HISTORY_BOOKMARKS"/>
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
 
     <application
         android:allowBackup="true"
