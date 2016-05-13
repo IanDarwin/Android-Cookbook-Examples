@@ -1,5 +1,6 @@
 package com.example.cursorloaderdemo;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
@@ -31,8 +32,8 @@ public class MainActivity extends ListActivity {
 	    		Browser.BookmarkColumns.URL
 		};
 		int[] toViews = new int[] { android.R.id.text1, android.R.id.text2 };
-		mAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, null, fromFields,
-				toViews, 0);
+		mAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, 
+				null, fromFields, toViews, 0);
 		setListAdapter(mAdapter);
 
 		// Prepare the loader: re-connects an existing one or reuses one.
@@ -42,8 +43,8 @@ public class MainActivity extends ListActivity {
 	class MyCallbacks implements LoaderCallbacks<Cursor> {
 		Context context;
 
-		public MyCallbacks(MainActivity mainActivity) {
-			this.context = mainActivity;
+		public MyCallbacks(Activity context) {
+			this.context = context;
 		}
 
 		@Override
