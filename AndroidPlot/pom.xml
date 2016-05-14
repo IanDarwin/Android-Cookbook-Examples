@@ -28,6 +28,14 @@
 			<version>${platform.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.androidplot</groupId>
+			<artifactId>androidplot-core</artifactId>
+			<version>0.6.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/libs/Androidplot-core-0.4.4-release.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -41,7 +49,7 @@
 					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
 					<resourceDirectory>${project.basedir}/res</resourceDirectory>
-					<nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
+					<nativeLibrariesDirectory>libs</nativeLibrariesDirectory>
 					<sdk>
 						<platform>19</platform>
 					</sdk>
