@@ -116,6 +116,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | EM | Google Cloud Messaging - sender | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EM | HelloWorld | SDK
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EM | HelloWorld | Eclipse ADT
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloGradle[HelloGradle] | G | Hello World with Gradle but NOT Studio. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EM | HelloWorld | Maven, JayWay Plug-in
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EM | ADT Testing - subject | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EM | ADT Testing - Tests | -
