@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 /**
  * Simple REST request using Volley library, a quasi-supported Google API for networking
+ * See http://developer.android.com/training/volley/index.html
  */
 public class VolleyDemo extends Activity {
 
@@ -36,9 +37,9 @@ public class VolleyDemo extends Activity {
 	}
 	
 	/**
-	 * What we get back from this particular web service is:
-	 * 1) A JSON String containing the query string
-	 * 2) A JSON ARRAY of strings with the results;
+	 * What we get back from this particular web service is a JSON array containing:
+	 * 0) A JSON String containing the query string
+	 * 1) A JSON ARRAY of strings with the results;
 	 */
 	final Response.Listener<JSONArray> successListener = new Response.Listener<JSONArray>() {
 		@Override
