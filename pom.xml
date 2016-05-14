@@ -152,7 +152,7 @@
 					<configuration>
 						<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 						<resourceDirectory>${project.basedir}/res</resourceDirectory>
-						<disableConflictingDependenciesWarning/>
+						<disableConflictingDependenciesWarning>true</disableConflictingDependenciesWarning>
 						<sdk>
 							<platform>16</platform>
 						</sdk> 
