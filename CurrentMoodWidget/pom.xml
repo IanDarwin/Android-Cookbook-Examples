@@ -17,13 +17,13 @@
 	</parent>
 
 	<properties>
-		<platform.version>4.2.2</platform.version>
+		<platform.version>6.0_r3</platform.version>
 	</properties>
 
 	<dependencies>
 		<!-- This is an Android project -->
 		<dependency>
-			<groupId>com.google.android</groupId>
+			<groupId>android</groupId>
 			<artifactId>android</artifactId>
 			<version>${platform.version}</version>
 			<scope>provided</scope>
