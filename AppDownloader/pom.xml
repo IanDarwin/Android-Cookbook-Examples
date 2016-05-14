@@ -31,6 +31,8 @@
 	</dependencies>
 
 	<build>
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<!-- Use the Android Plugin -->
@@ -38,10 +40,9 @@
 				<artifactId>android-maven-plugin</artifactId>
 				<version>${android.plugin.version}</version>
 				<configuration>
-					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+					<androidManifestFile>${project.basedir}/src/main/AndroidManifest.xml</androidManifestFile>
 					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
-					<resourceDirectory>${project.basedir}/res</resourceDirectory>
-					<nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
+					<resourceDirectory>${project.basedir}/src/main/res</resourceDirectory>
 					<sdk>
 						<platform>19</platform>
 					</sdk>
