@@ -38,8 +38,8 @@
 		<module>CheckBoxRadioButton</module>
 		<module>ContentProviderBookmarks</module>
 		<module>ContentProviderList</module>
-		<module>ContentProviderSample</module>
-		<module>ContentProviderTest</module>
+		<!-- <module>ContentProviderSample</module> -->
+		<!-- <module>ContentProviderTest</module> -->
 		<module>CountDownTimerExample</module>
 		<module>CurrentMoodWidget</module>
 		<module>CursorLoaderDemo</module>
