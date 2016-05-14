@@ -4,6 +4,8 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<!-- Top-level POM for the Android Cookbook examples. Tries to build them all! -->
+
 	<groupId>com.androidcookbook.examples</groupId>
 	<artifactId>android-cookbook-examples-parent</artifactId>
 	<packaging>pom</packaging>
@@ -23,101 +25,96 @@
 	</properties>
 
 	<modules>
-		<!-- <module>AndroidPlot</module> -->
-		<!-- <module>AndroidRss</module> -->
-		<!-- <module>AppDownloader</module> -->
-		<!-- <module>AutoUpdater</module> -->
-		<!-- <module>AutocompleteTextViewContacts</module> -->
-		<!-- <module>BackupManager</module> -->
-		<!-- <module>BluetoothDemo</module> -->
-		<!-- <module>CalAdder</module> -->
-		<!-- <module>CallFaker</module> -->
-		<!-- <module>CheckBoxRadioButton</module> -->
+		<module>AboutInfo</module>
+		<module>AndroidPlot</module>
+		<module>AndroidRss</module>
+		<module>AppDownloader</module>
+		<module>AutoUpdater</module>
+		<module>AutocompleteTextViewContacts</module>
+		<module>BackupManager</module>
+		<module>BluetoothDemo</module>
+		<module>CalAdder</module>
+		<module>CallFaker</module>
+		<module>CheckBoxRadioButton</module>
 		<module>ContentProviderBookmarks</module>
-		<!-- <module>ContentProviderList</module> -->
-		<!-- <module>ContentProviderSample</module> -->
-		<!-- <module>ContentProviderTest</module> -->
-		<!-- <module>CountDownTimerExample</module> -->
+		<module>ContentProviderList</module>
+		<module>ContentProviderSample</module>
+		<module>ContentProviderTest</module>
+		<module>CountDownTimerExample</module>
 		<module>CurrentMoodWidget</module>
-		<!-- FAILS <module>CursorLoaderDemo</module> -->
-		<!-- <module>CustomMenu</module> -->
-		<!-- <module>CustomToast</module> -->
+		<module>CursorLoaderDemo</module>
+		<module>CustomMenu</module>
+		<module>CustomToast</module>
 		<module>DataToCursor</module>
-		<!-- <module>DialogDemos</module> -->
-		<!-- <module>DisplayInfo</module> -->
-		<!-- <module>DreamsDemo</module> -->
-		<!-- <module>EmailTextView</module> -->
-		<!-- <module>EmailWithAttachments</module> -->
-		<!-- <module>EpochJSCalendar</module> -->
-		<!-- <module>FaceFinder</module> -->
-		<!-- <module>FacebookSdk</module> -->
-		<!-- <module>FontDemo</module> -->
-		<!-- <module>Gallery</module> -->
-		<!-- <module>GcmClient</module> -->
-		<!-- <module>GcmMockServer</module> -->
-		<!-- <module>HelloCommandLine</module> -->
-		<!-- <module>HelloEclipse</module> -->
+		<module>DialogDemos</module>
+		<module>DreamsDemo</module>
+		<module>EmailTextView</module>
+		<module>EmailWithAttachments</module>
+		<module>EpochJSCalendar</module>
+		<module>FaceFinder</module>
+		<module>FacebookSdk</module>
+		<module>FontDemo</module>
+		<module>Gallery</module>
+		<module>GcmClient</module>
+		<module>GcmMockServer</module>
+		<module>HelloCommandLine</module>
+		<module>HelloEclipse</module>
 		<module>HelloMaven</module>
-		<!-- <module>HelloTestingTarget</module> -->
-		<!-- <module>HelloTestingTestProject</module> -->
+		<module>HelloTestingTarget</module>
+		<module>HelloTestingTestProject</module>
 		<module>HomeAppListView</module>
-		<!-- <module>HoneycombGallery</module> -->
-		<!-- <module>HotContacts</module> -->
-		<!-- <module>IconizedListView</module> -->
+		<module>HotContacts</module>
+		<module>IconizedListView</module>
 		<module>IntentsDemo</module>
-		<!-- <module>JavascriptDataDemo</module> -->
-		<!-- <module>ListViewAdvanced</module> -->
-		<!-- <module>ListViewDemos</module> -->
-		<!-- <module>ListViewEmpty</module> -->
-		<!-- <module>ListViewSectionHeader</module> -->
-		<!-- <module>LocalBroadcastDemo</module> -->
-		<!-- <module>MapDemosV2</module> -->
-		<!-- <module>MarketSearch</module> -->
-		<!-- <module>MediaPlayerDemo</module> -->
-		<!-- <module>MediaRecorderDemo</module> -->
-		<!-- <module>NdkDemo</module> -->
-		<!-- <module>NotificationDemo</module> -->
-		<!-- <module>NumberPickers</module> -->
+		<module>JavascriptDataDemo</module>
+		<module>ListViewAdvanced</module>
+		<module>ListViewDemos</module>
+		<module>ListViewEmpty</module>
+		<module>ListViewSectionHeader</module>
+		<module>LocalBroadcastDemo</module>
+		<module>MapDemosV2</module>
+		<module>MarketSearch</module>
+		<module>MediaPlayerDemo</module>
+		<module>MediaRecorderDemo</module>
+		<module>NdkDemo</module>
+		<module>NotificationDemo</module>
+		<module>NumberPickers</module>
 		<module>OSMIntro</module>
-		<!-- <module>OpenGlDemo</module> -->
-		<!-- <module>OrientationChanges</module> -->
-		<!-- <module>PdfShare</module> -->
-		<!-- <module>PhoneGapDemo</module> -->
-		<!-- <module>PreferencesDemo</module> -->
-		<!-- <module>RGraphDemo</module> -->
-		<!-- <module>RangeGraphDemo</module> -->
-		<!-- <module>Rebooter</module> -->
-		<!-- <module>RemoteSystemsTempFiles</module> -->
-		<!-- <module>RestDemo</module> -->
-		<!-- <module>SecondScreen</module> -->
-		<!-- <module>SendSMS</module> -->
-		<!-- <module>ShareActionProviderDemo</module> -->
-		<!-- <module>SimpleAccountAndSyncDemo</module> -->
-		<!-- <module>SimpleCalendar</module> -->
-		<!-- <module>SimpleJumper</module> -->
-		<!-- <module>SimplePool</module> -->
-		<!-- <module>SimpleTorchLight</module> -->
-		<!-- <module>SlidingDrawer-Topdown</module> -->
+		<module>OpenGlDemo</module>
+		<module>OrientationChanges</module>
+		<module>PdfShare</module>
+		<module>PhoneGapDemo</module>
+		<module>PreferencesDemo</module>
+		<module>RGraphDemo</module>
+		<module>RangeGraphDemo</module>
+		<module>Rebooter</module>
+		<module>RemoteSystemsTempFiles</module>
+		<module>SecondScreen</module>
+		<module>SendSMS</module>
+		<module>ShareActionProviderDemo</module>
+		<module>SimpleAccountAndSyncDemo</module>
+		<module>SimpleCalendar</module>
+		<module>SimpleJumper</module>
+		<module>SimplePool</module>
+		<module>SimpleTorchLight</module>
+		<module>SlidingDrawer-Topdown</module>
 		<module>SnackBarDemo</module>
-		<!-- <module>SoapDemo</module> -->
+		<module>SoapDemo</module>
 		<module>SoundRec</module>
-		<!-- <module>Speaker</module> -->
+		<module>Speaker</module>
 		<module>SpinnerDemo</module>
-		<!-- <module>SplashDialog</module> -->
+		<module>SplashDialog</module>
 		<module>SQLiteDemos</module>
-		<!-- <module>StandardDrawables</module> -->
-		<!-- <module>TabSwipeDemo</module> -->
-		<!-- <module>TeleCorder</module> -->
-		<!-- <module>TelephonyManager</module> -->
-		<!-- <module>Tipster</module> -->
-		<!-- <module>TodoClient</module> -->
-		<!-- <module>TodoModel</module> -->
-		<!-- <module>TodoSyncServer</module> -->
-		<!-- <module>UniqueId</module> -->
-		<!-- <module>Vibrate</module> -->
-		<!-- <module>ViewPagerDemo</module> -->
+		<module>StandardDrawables</module>
+		<module>TabSwipeDemo</module>
+		<module>TeleCorder</module>
+		<module>TelephonyManager</module>
+		<module>Tipster</module>
+		<module>UniqueId</module>
+		<module>Vibrate</module>
+		<module>ViewPagerDemo</module>
 		<module>VolleyDemo</module>
-		<!-- <module>WindowBackgroundDemo</module> -->
+		<module>WindowBackgroundDemo</module>
     </modules>
 
 	<dependencyManagement>
@@ -155,6 +152,7 @@
 					<configuration>
 						<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 						<resourceDirectory>${project.basedir}/res</resourceDirectory>
+						<disableConflictingDependenciesWarning/>
 						<sdk>
 							<platform>16</platform>
 						</sdk> 
