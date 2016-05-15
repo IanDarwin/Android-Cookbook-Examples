@@ -53,13 +53,9 @@ public class MainActivity extends Activity {
 			final boolean newFile = new File(tmpDir, "x").createNewFile();
 			println("Created file x");
 		} catch (IOException e) {
-			e.printStackTrace();
-			println("Failed to create file x");
+			println("Failed to create file x due to " + e);
 		}
 		String[] files = fileList();
-		if (!deleteFile("tmp2")) {
-			println("Delete failed");
-		}
 		for (String f : files) {
 			println("Found " + f);
 		}
@@ -91,11 +87,14 @@ public class MainActivity extends Activity {
 			// Get the directory for the user's public pictures directory.
 			// We want to use it for example to create a new music album.
 			File albumDir = new File(externalStoragePublicDirectory, "Jam Session 2017");
-			if (!albumDir.isDirectory() || !albumDir.mkdirs()) {
+			albumDir.mkdirs();
+			if (!albumDir.isDirectory()) {
 				println("Unable to create music album");
 			} else {
 				println("Music album exists as " + albumDir);
 			}
+			// Only set this if you do NOT want the media indexer to find
+			// the files in your new "album" subdirectory
 			boolean hideAlbumFromMediaIndexer = false;
 			if (hideAlbumFromMediaIndexer) {
 				try {
@@ -105,17 +104,38 @@ public class MainActivity extends Activity {
 					println("Failed to create .nomedia file in " + albumDir.getAbsolutePath() + " due to " + e);
 				}
 			}
-			;
+
+			// BTW is it on real or emulated SD? On API 21 or higher we could do:
+			//if (Environment.isExternalStorageEmulated(albumDir)) {
+			//	println("BTW this is on emulated storage");
+			//}
+
 			// Then we could create files in the album using, for example,
-			final File trackfile = new File(albumDir, "Track 1.mp3");
-			try (InputStream is = new FileInputStream(trackfile)) {
+			final File trackFile = new File(albumDir, "Track 1.mp3");
+			try (OutputStream is = new FileOutputStream(trackFile)) {
 				// Write some music data to the file here...
-				println("Assume we wrote some data to the file here");
+				println("Assume we wrote some data to " + trackFile + " here");
 			} catch (IOException e) {
 				println("Failed to create Track file, due to " + e);
 			} finally {
-				if (trackfile.exists()) {
-					trackfile.delete(); // clean up after demo - not in production!
+				// clean up after demo - not in production!
+				if (trackFile.exists()) {
+					println("Cleaning up");
+					trackFile.delete();
+				}
+			}
+
+			// Finally we'll create an "application private" file on /sdcard
+			// Note that these are accessible to all other applications!
+			final File privateDir = getExternalFilesDir(null);
+			File semiPrivateFile = new File(privateDir, "fred.jpg");
+			try (OutputStream is = new FileOutputStream(semiPrivateFile)) {
+				println("Assume we are writing to " + semiPrivateFile);
+			} catch (IOException e) {
+				println("Failed to create " + semiPrivateFile + " due to " + e);
+			} finally {
+				if (semiPrivateFile.exists()) {
+					semiPrivateFile.delete();
 				}
 			}
 		}
