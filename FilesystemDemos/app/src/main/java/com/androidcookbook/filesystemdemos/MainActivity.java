@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -20,19 +21,21 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 		infoBox = (TextView) findViewById(R.id.infobox);
 
+		println("Internal Storage:");
+
 		try (FileOutputStream os = openFileOutput(DATA_FILE_NAME, Context.MODE_PRIVATE)) {
 			os.write(message.getBytes());
-			infoBox.append("Wrote the string " + message + "\n");
+			println("Wrote the string " + message + " to file " + DATA_FILE_NAME);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		File where = getFilesDir(); // Absolute path to directory for our app's internal storage
-		infoBox.append("Our private dir is " + where.getAbsolutePath() + "\n");
+		println("Our private dir is " + where.getAbsolutePath());
 
 		try (BufferedReader is = new BufferedReader(new InputStreamReader(openFileInput(DATA_FILE_NAME)))) {
 			String line = is.readLine();
-			infoBox.append("Read the string " + line + "\n");
+			println("Read the string " + line);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,25 +45,88 @@ public class MainActivity extends Activity {
 		// We'd need to keep our usage here to some reasonable amount by pruning old caches.
 
 		File cacFile = new File(getCacheDir(), "myCache.dat");
-		infoBox.append("A cache file is at " + cacFile.getAbsolutePath() + "\n");
+		println("A cache file is at " + cacFile.getAbsolutePath());
 
 		File tmpDir = getDir("tmp2", 0);	// Creates and/or returns Dir within FilesDir
-		infoBox.append("A sub-folder is at " + tmpDir.getAbsolutePath() + "\n");
+		println("A sub-folder is at " + tmpDir.getAbsolutePath());
 		try {
 			final boolean newFile = new File(tmpDir, "x").createNewFile();
-			infoBox.append("Created file x" + "\n");
+			println("Created file x");
 		} catch (IOException e) {
 			e.printStackTrace();
-			infoBox.append("Failed to create file x" + "\n");
+			println("Failed to create file x");
 		}
 		String[] files = fileList();
 		if (!deleteFile("tmp2")) {
-			infoBox.append("Delete failed" + "\n");
+			println("Delete failed");
 		}
 		for (String f : files) {
-			infoBox.append("Found " + f + "\n");
+			println("Found " + f);
 		}
-		infoBox.append("\n");
-		infoBox.append("All done!");
+		println("");
+
+		println("External Storage:");
+		boolean readOnly = false, mounted = false;
+		String state = Environment.getExternalStorageState();
+		println("External storage state = " + state);
+		if (state.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+			mounted = true;
+			readOnly = true;
+			println("External storage is read-only!!");
+		} else if (state.equals(Environment.MEDIA_MOUNTED)) {
+			mounted = true;
+			readOnly = false;
+			println("External storage is usable");
+		} else {
+			println("External storage NOT USABLE");
+		}
+
+		if (mounted) {
+			// Let's create a sharable file
+			// This needs permission
+			// Get the external storage folder for Music
+			final File externalStoragePublicDirectory =
+					Environment.getExternalStoragePublicDirectory(
+							Environment.DIRECTORY_MUSIC);
+			// Get the directory for the user's public pictures directory.
+			// We want to use it for example to create a new music album.
+			File albumDir = new File(externalStoragePublicDirectory, "Jam Session 2017");
+			if (!albumDir.isDirectory() || !albumDir.mkdirs()) {
+				println("Unable to create music album");
+			} else {
+				println("Music album exists as " + albumDir);
+			}
+			boolean hideAlbumFromMediaIndexer = false;
+			if (hideAlbumFromMediaIndexer) {
+				try {
+					new File(albumDir, ".nomedia").createNewFile();
+					println("Created .nomedia file in " + albumDir.getAbsolutePath());
+				} catch (IOException e) {
+					println("Failed to create .nomedia file in " + albumDir.getAbsolutePath() + " due to " + e);
+				}
+			}
+			;
+			// Then we could create files in the album using, for example,
+			final File trackfile = new File(albumDir, "Track 1.mp3");
+			try (InputStream is = new FileInputStream(trackfile)) {
+				// Write some music data to the file here...
+				println("Assume we wrote some data to the file here");
+			} catch (IOException e) {
+				println("Failed to create Track file, due to " + e);
+			} finally {
+				if (trackfile.exists()) {
+					trackfile.delete(); // clean up after demo - not in production!
+				}
+			}
+		}
+
+		// The End
+		println("");
+		println("All done!");
     }
+
+	private void println(String s) {
+		infoBox.append(s);
+		infoBox.append("\n");
+	}
 }
