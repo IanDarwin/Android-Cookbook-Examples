@@ -38,7 +38,7 @@
 		<module>CheckBoxRadioButton</module>
 		<module>ContentProviderBookmarks</module>
 		<module>ContentProviderList</module>
-		<!-- <module>ContentProviderSample</module> -->
+		<module>ContentProviderSample</module>
 		<!-- <module>ContentProviderTest</module> -->
 		<module>CountDownTimerExample</module>
 		<module>CurrentMoodWidget</module>
@@ -53,7 +53,7 @@
 		<module>EpochJSCalendar</module>
 		<module>FaceFinder</module>
 		<module>FacebookSdk</module>
-		<module>FileSystemDemos</module>
+		<module>FilesystemDemos</module>
 		<module>FontDemo</module>
 		<module>Gallery</module>
 		<module>GcmClient</module>
