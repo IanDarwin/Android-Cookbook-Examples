@@ -13,7 +13,7 @@
 	<name>AndroidCookbook Parent Project</name>
 
 	<properties>
-		<javase-version>1.7</javase-version>
+		<javase.version>1.7</javase.version>
 		<maven.compiler.source>${javase.version}</maven.compiler.source>
 		<maven.compiler.target>${javase.version}</maven.compiler.target>
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
@@ -53,6 +53,7 @@
 		<module>EpochJSCalendar</module>
 		<module>FaceFinder</module>
 		<module>FacebookSdk</module>
+		<module>FileSystemDemos</module>
 		<module>FontDemo</module>
 		<module>Gallery</module>
 		<module>GcmClient</module>
