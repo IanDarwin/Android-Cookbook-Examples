@@ -33,7 +33,7 @@ The table at the bottom of this page shows which projects are set up for which b
 . mvn -fae package android:install android:run
 . Fix up any that didn't work, and send pull requests.
 
-(the android:install and android:run only if you want to run them all; else just do 'package'
+(Include android:install and android:run in the ante-penultimate step only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
 
 === More Details
 
