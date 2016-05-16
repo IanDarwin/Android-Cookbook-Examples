@@ -21,15 +21,32 @@ Most of the Eclipse projects have been Mavenized; a few have not.
 
 The table at the bottom of this page shows which projects are set up for which build tools.
 
+=== TL;DR: Build the whole mess with Apache Maven
+
+. Prerequisites: Java 7 SDK, git, Maven
+. git clone https://github.com/mosabua/maven-android-sdk-deployer
+. cd maven-android-sdk-deployer
+. mvn install -P 6.0 # at least
+. cd ..
+. git clone https://github.com/IanDarwin/Android-Cookbook-Examples
+. cd Android-Cookbook-Examples
+. mvn -fae package android:install android:run
+. Fix up any that didn't work, and send pull requests.
+
+(the android:install and android:run only if you want to run them all; else just do 'package'
+
+=== More Details
+
+Most of these projects were initially developed using Eclipse ADT, and migrated to Maven for automatic building.
+Obviously the Googlezilla has spoken and we will eventually have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, _as long as they don't break support for Eclipse and Maven_.
+
 If you open the entire repo in Eclipse with eGit, be sure to check the `Import all projects`
 checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). 
 This directory is already set up to be an Eclipse workspace if you want it to
 (the __.metadata__ directory exists and is already in __.gitignore__).
 
-Obviously the Googlezilla has spoken and we will have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, _as long as they don't break support for Eclipse and Maven_.
-
-*Note*: As part of this move, Google stopped pushing Android releases to Maven Central; their last version
-was 4.1.1.4, thus Lollipop, Marshmallow, and NNNNNN have been left high-and-dry. 
+*Note*: As part of the move to Gradle, Google stopped pushing Android releases to Maven Central; their last version
+was 4.1.1.4, thus Lollipop, Marshmallow, and "N" have been left high-and-dry. 
 And worse, their SDK license prohibits re-distribution of binaries, so nobody else can step in
 and upload these files to Maven Central. But of course there is a solution.
 To compile these projects with Maven you will need to download the amazing maven-android-sdk-deployer, which repackages
