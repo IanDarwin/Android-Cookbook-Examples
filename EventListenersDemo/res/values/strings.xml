@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, main!</string>
-    <string name="app_name">Coding Listeners</string>
+    <string name="app_name">Event Listeners</string>
 
 </resources>
