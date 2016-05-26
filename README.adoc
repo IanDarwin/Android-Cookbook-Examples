@@ -123,6 +123,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailTextView[EmailTextView] | EM | Send contents of EditText via email | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailWithAttachments[EmailWithAttachments] | EM | Attach file to email | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EpochJSCalendar[EpochJSCalendar] | EM | Java + JavaScript | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EventListenersDemo[EventListenersDemo] | M | 5 Ways to Wire an Event Listener. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FacebookSdk[FacebookSdk] | EM | Access FB API | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FaceFinder[FaceFinder] | EM | Face locator API in photos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FilesystemDemos[FilesystemDemos] | MGS | Internal and external files. | -
@@ -141,7 +142,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | EM | List View with Icon | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EM | Intents | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EM | JavaScript from Java | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | GS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JpsTrack[JpsTrack] | | - | This app has moved to http://github.com/IanDarwin/jpstrack[its own repo]
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | EM | ListView | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | EM | ListView | -
