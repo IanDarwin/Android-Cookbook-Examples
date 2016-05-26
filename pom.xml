@@ -51,6 +51,7 @@
 		<module>EmailTextView</module>
 		<module>EmailWithAttachments</module>
 		<module>EpochJSCalendar</module>
+		<module>EventListenersDemo</module>
 		<module>FaceFinder</module>
 		<module>FacebookSdk</module>
 		<module>FilesystemDemos</module>
