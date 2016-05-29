@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Cherry-picked from "Orange" palette at 
+	     https://www.google.com/design/spec/style/color.html -->
+    <color name="primary">#FF9800</color>			<!-- 500 -->
+    <color name="primary_dark">#F57C00</color>		<!-- 700 -->
+    <color name="accent">#FFCC80</color>			<!-- 200 -->
+    <color name="window_background">#FFE0B2</color> <!-- 100 -->
+</resources>
