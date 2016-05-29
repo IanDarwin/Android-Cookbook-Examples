@@ -2,4 +2,4 @@
 
 # the -fae causes Maven to only Fail At End of entire build.
 
-mvn -fae package
+mvn -fae package $*
