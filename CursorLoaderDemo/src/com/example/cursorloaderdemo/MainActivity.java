@@ -58,6 +58,7 @@ public class MainActivity extends ListActivity {
 		@Override
 		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 			// Load has finished, swap the loaded cursor into the view
+			Log.d(TAG, "MainActivity.onLoadFinished(), count = " + data.getCount());
 			mAdapter.swapCursor(data);
 		}
 
