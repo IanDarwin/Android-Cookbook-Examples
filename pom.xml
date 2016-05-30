@@ -76,6 +76,7 @@
 		<module>LocalBroadcastDemo</module>
 		<module>MapDemosV2</module>
 		<module>MarketSearch</module>
+		<module>MaterialDemos</module>
 		<module>MediaPlayerDemo</module>
 		<module>MediaRecorderDemo</module>
 		<module>NdkDemo</module>
