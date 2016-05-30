@@ -1,4 +1,4 @@
-package com.example.honeycombgallery;
+package com.example.gallery;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		setTitle("Android Honeycomb Photo Gallery Example");
+		setTitle("Android Photo Gallery Example");
 		_gallery = (Gallery) this.findViewById(R.id.gallery1);
 		_imageAdapter = new ImageAdapter(this);
 		_gallery.setAdapter(_imageAdapter);
