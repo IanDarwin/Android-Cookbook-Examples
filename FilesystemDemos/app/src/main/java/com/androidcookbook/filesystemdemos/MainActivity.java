@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 			os.write(message.getBytes());
 			println("Wrote the string " + message + " to file " + DATA_FILE_NAME);
 		} catch (IOException e) {
-			e.printStackTrace();
+			println("Failed to write " + DATA_FILE_NAME + " due to " + e);
 		}
 
 		File where = getFilesDir(); // Absolute path to directory for our app's internal storage
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 			String line = is.readLine();
 			println("Read the string " + line);
 		} catch (IOException e) {
-			e.printStackTrace();
+			println("Failed to read back " + DATA_FILE_NAME + " due to " + e);
 		}
 
 		// Let's save the file in our temporary "cache directory" instead.
