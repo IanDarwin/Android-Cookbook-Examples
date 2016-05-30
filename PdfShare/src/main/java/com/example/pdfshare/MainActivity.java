@@ -7,6 +7,7 @@ import java.io.OutputStream;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.FileProvider;
 import android.graphics.pdf.PdfDocument;
 import android.graphics.pdf.PdfDocument.Page;
 import android.graphics.pdf.PdfDocument.PageInfo;
@@ -16,7 +17,6 @@ import android.print.PrintAttributes;
 import android.print.PrintAttributes.Margins;
 import android.print.PrintAttributes.Resolution;
 import android.print.pdf.PrintedPdfDocument;
-import android.support.v4.content.FileProvider;
 import android.view.Menu;
 import android.view.View;
 
