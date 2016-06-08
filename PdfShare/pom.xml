@@ -17,20 +17,26 @@
 	</parent>
 
 	<properties>
-		<platform.version>4.1.1.4</platform.version>
+		<platform.version>6.0_r3</platform.version>
 	</properties>
 
 	<dependencies>
-		<!-- This is an Android project -->
+		<!-- This is an Android project, using support-v4 -->
 		<dependency>
-			<groupId>com.google.android</groupId>
+			<groupId>android</groupId>
 			<artifactId>android</artifactId>
 			<version>${platform.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>support-v4</artifactId>
+			<version>r7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<!-- Use the Android Plugin -->
@@ -41,7 +47,6 @@
 					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
 					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
 					<resourceDirectory>${project.basedir}/res</resourceDirectory>
-					<nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
 					<sdk>
 						<platform>19</platform>
 					</sdk>
