@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RequestingApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="results_here">To request the shared secret, press OK below. Results will appear here, if granted.</string>
+</resources>
