@@ -37,7 +37,7 @@ public class ProvidingActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // The Layout provides a text field with text like
-        // "If you agree to provide the file, press the button below"
+        // "If you agree to provide the file, press the Agree button"
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -48,10 +48,11 @@ public class ProvidingActivity extends AppCompatActivity {
         });
 
         mRequestFile = new File(getFilesDir(), "secrets/demo.txt");
+
+        // On first run of the application, create the "hidden" file in internal storage
         if (!mRequestFile.exists()) {
             mRequestFile.getParentFile().mkdirs();
-            try (
-                PrintWriter pout = new PrintWriter(mRequestFile)) {
+            try (PrintWriter pout = new PrintWriter(mRequestFile)) {
                 pout.println("This is the revealed text");
                 pout.println("And then some.");
             } catch (IOException e) {
