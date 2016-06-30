@@ -71,6 +71,7 @@
 		<module>IconizedListView</module>
 		<module>IntentsDemo</module>
 		<module>JavascriptDataDemo</module>
+		<module>JavaTimeDemo</module>
 		<module>ListViewAdvanced</module>
 		<module>ListViewDemos</module>
 		<module>ListViewEmpty</module>
