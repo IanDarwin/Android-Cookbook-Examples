@@ -23,17 +23,18 @@ The table at the bottom of this page shows which projects are set up for which b
 
 === TL;DR: Build the whole mess with Apache Maven
 
-. Prerequisites: Java 7 SDK, git, Maven
+Prerequisites: Java 7 SDK, git, Maven
+
 . git clone https://github.com/mosabua/maven-android-sdk-deployer
 . cd maven-android-sdk-deployer
 . mvn install -P 6.0 # at least
+  mvn install -P 7.0 # after it's released!
 . cd ..
 . git clone https://github.com/IanDarwin/Android-Cookbook-Examples
 . cd Android-Cookbook-Examples
-. mvn -fae package android:install android:run
+. $$mvn -fae package android:install android:run$$
+Include $$android:install$$ and $$android:run$$ in the ante-penultimate step only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
 . Fix up any that didn't work, and send pull requests.
-
-(Include android:install and android:run in the ante-penultimate step only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
 
 === More Details
 
@@ -52,13 +53,7 @@ and upload these files to Maven Central. But of course there is a solution.
 To compile these projects with Maven you will need to download the amazing maven-android-sdk-deployer, which repackages
 files from the SDK - after you download it using the Android tools, thus nobody is redistributing it - 
 into your _local_ ++.m2/repository++ so that Maven can find it.
-
-----
-git clone https://github.com/mosabua/maven-android-sdk-deployer.git
-cd maven-android-sdk-deployer
-mvn install -P 6.0
-mvn install -P 7.0 # after it's released!
-----
+This is the function of the first few steps in the numbered list above.
 
 Note that projects using official releases use e.g. com.google.android:android:4.1.1.4 whereas projects deployed
 using the sdk-deployer use e.g android:android:6.0_r3.
@@ -72,13 +67,13 @@ There is neither a Wiki or a Tracker for this project, since bugs and suggestion
 
 === Notes about the First Edition of the book
 
-The current version of this repo is being reorganized in preparation for a new edition of the book.
+The current version of this repo has been reorganized in preparation for the second edition of the book.
 There have been quite a few projects added since the first published edition of the book, and
-a few renamed, so if you have the printed edition prior to December, 2012 you 
+a few renamed, so if you have the printed edition from 2012 you 
 should rummage around here before re-typing anything that looks like a full example.
 
 If you want this repo to correspond to the last minor revision of the first edition,
-git checkout the tag `Book-1.0`.
+use git to checkout the tag `Book-1.0`.
 
 === Wishlist
 
