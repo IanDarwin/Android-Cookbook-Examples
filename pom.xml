@@ -21,7 +21,7 @@
 		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
 		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
 		<platform.version>4.1.1.4</platform.version>
-		<android.plugin.version>4.4.1</android.plugin.version>
+		<android.plugin.version>4.4.2</android.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
