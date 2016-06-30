@@ -9,3 +9,4 @@ gen/*
 google-play-services_lib/
 .recommenders/
 target
+local.properties
