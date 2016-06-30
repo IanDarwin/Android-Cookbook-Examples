@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,24 +28,20 @@ public class RequestingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.darwinsys.fileprovider.requesterdemo.R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(com.darwinsys.fileprovider.requesterdemo.R.id.toolbar);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mRequestFileIntent = new Intent(Intent.ACTION_PICK);
         mRequestFileIntent.setType("text/plain");
 
-        Button button = (Button) findViewById(com.darwinsys.fileprovider.requesterdemo.R.id.button);
+        Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestFileFromProviderApp();
+                startActivityForResult(mRequestFileIntent, ACTION_GET_FILE);
             }
         });
-    }
-
-    protected void requestFileFromProviderApp() {
-        startActivityForResult(mRequestFileIntent, ACTION_GET_FILE);
     }
 
     @Override
@@ -80,7 +75,7 @@ public class RequestingActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(com.darwinsys.fileprovider.requesterdemo.R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -92,7 +87,7 @@ public class RequestingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == com.darwinsys.fileprovider.requesterdemo.R.id.action_settings) {
+        if (id == R.id.action_settings) {
             return true;
         }
 
