@@ -23,18 +23,18 @@ The table at the bottom of this page shows which projects are set up for which b
 
 === TL;DR: Build the whole mess with Apache Maven
 
-Prerequisites: Java 7 SDK, git, Maven
+Prerequisites: Java 7 SDK **including "Google Repository" for compat stuff**, $$git$$, _Maven_
 
 . git clone https://github.com/mosabua/maven-android-sdk-deployer
 . cd maven-android-sdk-deployer
 . mvn install -P 6.0 # at least
-  mvn install -P 7.0 # after it's released!
+. mvn install -P 7.0 # after it's released!
 . cd ..
 . git clone https://github.com/IanDarwin/Android-Cookbook-Examples
 . cd Android-Cookbook-Examples
 . $$mvn -fae package android:install android:run$$
-Include $$android:install$$ and $$android:run$$ in the ante-penultimate step only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
-. Fix up any that didn't work, and send pull requests.
+Include $$android:install$$ and $$android:run$$ only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
+. Fix up any that didn't work, and send pull requests!
 
 === More Details
 
@@ -65,7 +65,7 @@ Many of the projects may (depending on your version of Eclipse) give you some no
 
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
 
-=== Notes about the First Edition of the book
+=== Notes for the First Edition of the book
 
 The current version of this repo has been reorganized in preparation for the second edition of the book.
 There have been quite a few projects added since the first published edition of the book, and
