@@ -6,6 +6,8 @@
 
 	<!-- Top-level POM for the Android Cookbook examples. Tries to build them all! -->
 
+	<!-- MAKE SURE you have set ANDROID_SDK_HOME to your sdk install dir -->
+
 	<groupId>com.androidcookbook.examples</groupId>
 	<artifactId>android-cookbook-examples-parent</artifactId>
 	<packaging>pom</packaging>
@@ -165,5 +167,14 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-</project>
+
+	<!-- Add the Android official "extras" repo, for stuff like compat -->
+	<repositories>
+		<repository>  
+			<id>android-extras-repository</id>  
+			<name>Android official local extras Repository</name>  
+			<url>file://${ANDROID_SDK_HOME}/extras/android/m2repository</url>  
+			<layout>default</layout>  
+		</repository>
+	</repositories>
 </project>
