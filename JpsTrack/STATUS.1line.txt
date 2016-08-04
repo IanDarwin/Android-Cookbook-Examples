@@ -1,1 +1,0 @@
-This app has moved to http://github.com/IanDarwin/jpstrack[its own repo]
