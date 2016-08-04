@@ -5,7 +5,7 @@
 README_1LINE_FILE=README.1line.txt
 FNAME_STATUS=STATUS.1line.txt
 
-for d in *
+for d in [A-Z]*
 do
 	if [ -d $d ]; then
 		BUILDS_WITH=""
