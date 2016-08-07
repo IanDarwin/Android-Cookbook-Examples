@@ -36,7 +36,7 @@ Prerequisites: Java 7 SDK **including "Google Repository" for compat stuff**, $$
 Include $$android:install$$ and $$android:run$$ only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
 . Fix up any that didn't work, and send pull requests!
 
-=== More Details
+=== Maven Build: More Details
 
 Most of these projects were initially developed using Eclipse ADT, and migrated to Maven for automatic building.
 Obviously the Googlezilla has spoken and we will eventually have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, _as long as they don't break support for Eclipse and Maven_.
@@ -64,6 +64,15 @@ https://guides.github.com/activities/hello-world/[the getting started page on Gi
 Many of the projects may (depending on your version of Eclipse) give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. Does not happen with current Eclipse, last I tried.
 
 There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
+
+=== You can't build the whole mess with Gradle
+
+You can't have this pretty thing. Because Gradle. Because Android Studio. Because fail.
+
+Patches welcome if they don't break any existing builds (Maven, Eclipse) AND if you can still open
+each individual project without Studio going ape-**** and opening every other existing project
+as a "module" of the one you're trying to build.
+Watch for my forthcoming paper "Gradle and Android Studio Considered Harmful."
 
 === Notes for the First Edition of the book
 
