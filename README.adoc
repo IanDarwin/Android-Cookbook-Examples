@@ -115,6 +115,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | EM | Bluetooth Connection | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | EM | Add appointment to Calendar | Calendar via Content Provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | EM | Pretend a call happened, for testing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | GS | Demonstation of Card widget. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | EM | GUI demo | name says it
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderBookmarks[ContentProviderBookmarks] | EM | List of bookmarks from Bookmarks Content Provider | Browser ContentProvider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderList[ContentProviderList] | EM | List of ContentProviders | -
@@ -137,6 +138,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FaceFinder[FaceFinder] | EM | Face locator API in photos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FileProviderDemo[FileProviderDemo] | GS | Demo of FileProvider. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FilesystemDemos[FilesystemDemos] | MGS | Internal and external files. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FloatingActionButtonSnackbarDemo[FloatingActionButtonSnackbarDemo] | GS | Demo of 'fab' Floating Abstract Button | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | EM | Using a custom font | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FragmentsDemos[FragmentsDemos] | GS | Simple Fragment and List-Detail Fragments in one project | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EM | Simple photo gallery | Deprecated
