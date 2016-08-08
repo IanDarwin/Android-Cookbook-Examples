@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FloatingButtonBasic.iml" filepath="$PROJECT_DIR$/FloatingButtonBasic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FloatingActionButtonSnackbarDemo.iml" filepath="$PROJECT_DIR$/FloatingActionButtonSnackbarDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
