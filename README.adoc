@@ -129,6 +129,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DatabaseFromFile[DatabaseFromFile] | EM | Create a database from an SQLite .db file in 'assets'. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DataToCursor[DataToCursor] | EM | Fake up a Cursor from a list of files | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DialogDemos[DialogDemos] | EM | Dialogs | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DragDropDemo[DragDropDemo] | E | A simple Drag-and-drop example. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DreamsDemo[DreamsDemo] | EM | Demo of "Dreams" (4.x screensaver) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailTextView[EmailTextView] | EM | Send contents of EditText via email | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailWithAttachments[EmailWithAttachments] | EM | Attach file to email | -
