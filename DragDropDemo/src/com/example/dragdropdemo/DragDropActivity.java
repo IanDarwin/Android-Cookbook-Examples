@@ -17,6 +17,9 @@ import android.widget.Toast;
 public class DragDropActivity extends Activity {
 	private static final String TAG = DragDropActivity.class.getSimpleName();
 	private View target;
+	private final static int TARGET_NORMAL = Color.WHITE,
+			TARGET_DRAGGING = Color.YELLOW,
+			TARGET_ALERT = Color.RED;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class DragDropActivity extends Activity {
 		});
 		
 		target = findViewById(R.id.drop_target);
-		target.setBackgroundColor(Color.WHITE);
+		target.setBackgroundColor(TARGET_NORMAL);
 		target.setOnDragListener(new MyDrag());
 	}
 	
@@ -46,31 +49,30 @@ public class DragDropActivity extends Activity {
 		public boolean onDrag(View v, DragEvent e) {
 			switch (e.getAction()) {
 			case DragEvent.ACTION_DRAG_STARTED:
-				target.setBackgroundColor(Color.CYAN);
+				target.setBackgroundColor(TARGET_DRAGGING);
 				return true;
 			case DragEvent.ACTION_DRAG_ENTERED:
 				Log.d(TAG, "onDrag: ENTERED e=" + e);
-				target.setBackgroundColor(Color.RED);
+				target.setBackgroundColor(TARGET_ALERT);
 				return true;
 			case DragEvent.ACTION_DRAG_LOCATION:
-				// Nothing to do but must consume the event
+				// Nothing to do but MUST consume the event
 				return true;
 			case DragEvent.ACTION_DROP:
 				Log.d(TAG, "onDrag: DROP e=" + e);
 				final ClipData clipItem = e.getClipData();
 				Toast.makeText(DragDropActivity.this, 
-					"DROPPED: " + clipItem.getItemAt(0)
-					.coerceToText(DragDropActivity.this),
+					"DROPPED: " + clipItem.getItemAt(0).getUri(),
 					Toast.LENGTH_LONG).show();
 				return true;
 			case DragEvent.ACTION_DRAG_EXITED:
 				Log.d(TAG, "onDrag: EXITED e=" + e);
-				target.setBackgroundColor(Color.WHITE);
+				target.setBackgroundColor(TARGET_NORMAL);
 				return true;
 			case DragEvent.ACTION_DRAG_ENDED:
-				target.setBackgroundColor(Color.WHITE);
+				target.setBackgroundColor(TARGET_NORMAL);
 				return true;
-			default:
+			default:			// Un-handled event type
 				return false;
 			}
 		}
