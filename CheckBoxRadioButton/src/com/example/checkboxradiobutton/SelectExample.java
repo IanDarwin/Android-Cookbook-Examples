@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class SelectExample extends Activity {
 	private CheckBox checkBox;
 	private TextView txtCheckBox, txtRadio;
-	private RadioButton rb1, rb2, rb3;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -21,10 +20,6 @@ public class SelectExample extends Activity {
 		setContentView(R.layout.activity_select_example);
 		checkBox = (CheckBox) findViewById(R.id.cbxBox1);
 		txtCheckBox = (TextView) findViewById(R.id.txtCheckBox);
-		txtRadio = (TextView) findViewById(R.id.txtRadio);
-		rb1 = (RadioButton) findViewById(R.id.RB1);
-		rb2 = (RadioButton) findViewById(R.id.RB2);
-		rb3 = (RadioButton) findViewById(R.id.RB3);
 		
 		// React to events from the CheckBox
 		checkBox.setOnClickListener(new CheckBox.OnClickListener() {
@@ -37,22 +32,16 @@ public class SelectExample extends Activity {
 			}
 		});
 		
+		final RadioGroup rg = (RadioGroup) findViewById(R.id.rgGroup1);
 		// React to events from the RadioGroup
-		rb1.setOnClickListener(new RadioGroup.OnClickListener() {
-			public void onClick(View v) {
-				txtRadio.setText("Radio: Button 1 picked");
+		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				RadioButton rb = (RadioButton) findViewById(rg.getCheckedRadioButtonId());
+				txtRadio.setText(rb.getText() + " picked");
 			}
 		});
-		rb2.setOnClickListener(new RadioGroup.OnClickListener() {
-			public void onClick(View v) {
-				txtRadio.setText("Radio: Button 2 picked");
-			}
-		});
-		rb3.setOnClickListener(new RadioGroup.OnClickListener() {
-			public void onClick(View v) {
-				txtRadio.setText("Radio: Button 3 picked");
-			}
-		});
+		txtRadio = (TextView) findViewById(R.id.txtRadio);
 	}
 
 	@Override
