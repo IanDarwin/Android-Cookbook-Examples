@@ -33,7 +33,7 @@
         <RadioButton
             android:id="@+id/RB3"
             android:text="Button3" />
-		￼￼￼￼
+
     </RadioGroup>
 
     <TextView
