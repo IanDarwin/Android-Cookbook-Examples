@@ -34,7 +34,6 @@ public class UpdateService extends IntentService {
 	
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
