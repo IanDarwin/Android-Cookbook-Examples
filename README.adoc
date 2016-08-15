@@ -106,6 +106,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | Project | Builds With | Function | Notes 
 // INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EM | Info about device and screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
@@ -198,6 +199,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoundRec[SoundRec] | EM | Sound Recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Speaker[Speaker] | EM | Text To Speech (TTS) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinnerDemo[SpinnerDemo] | EM | Drop-down Spinner Demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinningCubeDemo[SpinningCubeDemo] | E | OpenGL Spinning Cube, from Marco Dinacci | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SplashDialog[SplashDialog] | EM | Splash screen | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SQLiteDemos[SQLiteDemos] | EM | SQLite demos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StandardDrawables[StandardDrawables] | EM | Use Existing Drawables | -
