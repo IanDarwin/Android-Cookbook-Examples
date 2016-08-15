@@ -1,6 +1,6 @@
 package com.marcodinacci.android.commons;
 
-import com.marcodinacci.android.commons.R;
+import com.marcodinacci.book.acb.R;
 
 import android.app.Activity;
 import android.os.Bundle;
