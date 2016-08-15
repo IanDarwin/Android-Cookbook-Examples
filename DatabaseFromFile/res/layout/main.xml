@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView
+	android:id="@+id/PlainTextView"  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/plain"
+    android:textSize="36sp"
+    android:typeface="serif"
+    android:padding="10sp"
+    android:gravity="center"
+    />
+<TextView
+	android:id="@+id/FontViewR"  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/nicer"
+    android:textSize="36sp"
+    android:typeface="normal"
+    android:padding="10sp"
+    android:gravity="center"
+    />
+<TextView
+	android:id="@+id/FontViewBI"  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/nicer"
+    android:textSize="36sp"
+    android:typeface="normal"
+    android:padding="10sp"
+    android:gravity="center"
+    />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Font Demo</string>
+    <string name="plain">Standard Font</string>
+    <string name="nicer">Custom Font</string>
+    <string name="font_fail_title">Font failure</string>
+    <string name="font_fail_text">Font failed to load. Did you install a custom font as per the README file in assets/fonts/?</string>
+</resources>
