@@ -19,9 +19,11 @@ then replace it with AndMore from the Eclipse Marketplace Client.
 
 Most of the Eclipse projects have been Mavenized; a few have not.
 
-The table at the bottom of this page shows which projects are set up for which build tools.
+Most of the Gradle projects will also build with Android Studio; a few will not.
 
-=== TL;DR: Build the whole mess with Apache Maven
+The table <<table>> shows which projects are set up for which build tools.
+
+=== TL;DR: Build Most Projects with Apache Maven
 
 Prerequisites: Java 7 SDK **including "Google Repository" for compat stuff**, $$git$$, _Maven_
 
@@ -84,7 +86,7 @@ should rummage around here before re-typing anything that looks like a full exam
 If you want this repo to correspond to the last minor revision of the first edition,
 use git to checkout the tag `Book-1.0`.
 
-=== DELETIONS
+=== DELETED PROJECTS
 
 JpsTrack and the ToDo applications have graduated to their own github projects, up one level from here on Github.
 
@@ -95,7 +97,8 @@ There are some things I'd love it if people would contribute:
 * Gradle files for each project that doesn't already have one (they almost all have Maven files now.
 * Readme file for each project, to include a link back to the recipe in the online version of the book.
 
-=== What's here?
+[[table]]
+=== List of Projects
 
 The following list is generated (periodically) from the project folders.
 In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Studio, *G* for Gradle.
@@ -216,5 +219,6 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Vibrate[Vibrate] | EM | Make the device vibrate | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ViewPagerDemo[ViewPagerDemo] | EM | Swipe among views | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/VolleyDemo[VolleyDemo] | EM | Demo of Volley networking library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WheelPickerDemo[WheelPickerDemo] | GS | Apple-style Wheel Picker Demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | EM | Graphical window background | -
 |===========
