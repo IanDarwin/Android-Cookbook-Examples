@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".WheelDemoActivity">
+
+    <TableRow android:layout_gravity="center_horizontal">
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/p1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/p2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/p3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow android:layout_gravity="center_horizontal">
+        <EditText
+            android:id="@+id/r1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:id="@+id/r2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:id="@+id/r3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/resultText"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+</TableLayout>
