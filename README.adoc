@@ -113,6 +113,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 |===========
 | Project | Builds With | Function | Notes 
 // INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutBoxDemo[AboutBoxDemo] | GS | A re-usable About dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EM | Info about device and screen | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
