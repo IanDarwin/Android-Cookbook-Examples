@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomSubMenu</string>
+    <string name="submenu">My SubMenu</string>
+</resources>
