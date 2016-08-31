@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-                AboutBox.Show(Main.this);
+                AboutBox.Show(MainActivity.this);
             }
         });
     }
