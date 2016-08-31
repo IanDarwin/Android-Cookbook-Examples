@@ -126,6 +126,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | M | Application Widget | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | EM | How to load data properly using CursorLoader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomMenu[CustomMenu] | EM | Menu | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomSubMenu[CustomSubMenu] | GS | Submenu, created programmatically | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomToast[CustomToast] | EM | Toast | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DatabaseFromFile[DatabaseFromFile] | EM | Create a database from an SQLite .db file in 'assets'. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DataToCursor[DataToCursor] | EM | Fake up a Cursor from a list of files | -
@@ -169,14 +170,17 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MarketSearch[MarketSearch] | EM | Search the Play Store | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MaterialDemos[MaterialDemos] | EM | MaterialDesign demos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerDemo[MediaPlayerDemo] | EM | Play media | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerInteractive[MediaPlayerInteractive] | E | Media Player demo from Marco Dinacci, thanks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | EM | Simple sound recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | EM | Native Development Kit | C Code
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | EM | Notifications | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NumberPickers[NumberPickers] | EM | UI for picking numbers | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OAuth2Demo[OAuth2Demo] | GS | Demo of OAuth2 to Google Tasks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OpenGlDemo[OpenGlDemo] | EM | OpenGL graphics | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OrientationChanges[OrientationChanges] | EM | Rotation | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMIntro[OSMIntro] | EM | OpenStreetMap API | (free alternative to Google Maps)
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PdfShare[PdfShare] | EM | Create and share a PDF | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PermissionRequest[PermissionRequest] | G | Shows asking for permissions at runtime, i.e,. "the new way" | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PhoneGapDemo[PhoneGapDemo] | EM | HTML5 app using phonegap/cordova | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PinchAndZoom[PinchAndZoom] | GS | Pinch-and-zoom graphics demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | EM | Preferences | -
