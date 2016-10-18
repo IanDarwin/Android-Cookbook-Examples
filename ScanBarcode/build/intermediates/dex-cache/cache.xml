@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="5e1dd043d0f1c3f3ea991d15e9f7f4316a120641">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0a93705d29b23717b70d139589d3f2fdba6f936d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.1.1_a16a2972643959743850df392496067ca5895ed7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.1.1_f27a2fd3da41f39d3e1a5965a1e21672bcf1e636/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_7e40c0b58a9f28945efcb021fc0a81ab99f469fa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_daf72cdef05af576d3ec09a246bc54c0a3893f79/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_b95f61bc0a382a8f487eae2441090aab133d6922/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.1.1_70d498214096555334ab0509b81fcadcfaa9d1c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="722c82bb023b69be0393dea1cdff2328d12835de">
+        <dex dex="/Users/ian/git/Android-Cookbook-Examples/ScanBarcode/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dad246f7c4d4225f38f54bb95f515b65d9aa3708/classes.dex" />
+    </item>
+
+</items>
