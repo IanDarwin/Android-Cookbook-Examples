@@ -1,5 +1,6 @@
 package com.androidcookbook.floatingbuttonbasic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Log.d(TAG, "We should do something here");
+                                startActivity(new Intent(MainActivity.this, NextActivity.class));
                             }
                         }).show();
 
