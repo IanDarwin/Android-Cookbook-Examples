@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text3">@string/text1</string>
+    <string name="text4">\@</string>
+    <string name="text5">\@mytwittername</string>
+    <string name="text6">Twitter:@mytwittername</string>
+    <string name="text7">\?</string>
+    <string name="text8">"@"</string>
+    <string name="text9">"?"</string>
+    <string name="text10">""""""""""@"""""""</string>
+    <string name="text11">   "?"  </string>
+    <string name="text12">War &amp; Peace</string>
+    <string name="text13">War and Peace</string>
+    <string name="question">Is 5 &lt; 6?</string>
+    <string name="text14">This\'ll work</string>
+    <string name="text15">"This'll work as well"</string>
+    <string name="quote1">Quote: \"to be, or not to be\"</string>
+    <string name="quote2">Quote: \&quot;to be, or not to be\&quot;</string>
+    <string name="text16">  No spaces before and after  </string>
+    <string name="text17">"  Two spaces before and after  "</string>
+    <string name="text18">Split over\ntwo lines</string>
+    <string name="text19">2 TextViews\n4 Lines</string>
+    <string name="text20">Tab stops\ta\t\tb</string>
+    <string name="text21">\t\t\t\t\t\tc\t\td</string>
+    <string name="text22">Backlash:\\</string>
+    <string name="text23">Slash:/</string>
+    <string name="text24">Hey look: <b>bold</b> and <i>italic</i>.</string>
+    <string name="text25">And look: <u>underline</u> and <b><i><u>bold italic underline</u></i></b>.</string>
+</resources>

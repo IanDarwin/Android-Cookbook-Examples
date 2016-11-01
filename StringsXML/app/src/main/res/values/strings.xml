@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Strings XML</string>
+    <string name="text1">This is text</string>
+    <string name="text2">And so is this</string>
+</resources>
