@@ -116,6 +116,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutBoxDemo[AboutBoxDemo] | GS | A re-usable About dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EM | Info about device and screen | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
@@ -171,6 +172,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EM | JavaScript from Java | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LayoutBorder[LayoutBorder] | G | Layout Border Demo Project Source for Android | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | EM | ListView | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | EM | ListView | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewEmpty[ListViewEmpty] | EM | ListView with empty list: don't show blank screen! | -
@@ -199,6 +201,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | EM | Using a graphing library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RuntimeLog[RuntimeLog] | EM | A simpe runtime log facility | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ScanBarcode[ScanBarcode] | GS | Scan barcode using ZXing app via Intent | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | M | Trivial example of one Activity (screen) starting another. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | EM | Sends an SMS | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | EM | ICS "Share" action | -
@@ -218,6 +221,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SQLiteDemos[SQLiteDemos] | EM | SQLite demos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StandardDrawables[StandardDrawables] | EM | Use Existing Drawables | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StaticFileRead[StaticFileRead] | EM | StaticFileRead - read a file from the application | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StringsXML[StringsXML] | G | Demos for "Nuances of Strings.xml" recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabSwipeDemo[TabSwipeDemo] | EM | Tabbable and swipeable layout | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TeleCorder[TeleCorder] | EM | Telephone call recorder (in progress!) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TelephonyManager[TelephonyManager] | EM | Displays phone info | -
