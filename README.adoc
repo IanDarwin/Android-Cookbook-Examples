@@ -70,7 +70,7 @@ https://guides.github.com/activities/hello-world/[the getting started page on Gi
 
 Many of the projects may (depending on your version of Eclipse) give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. Does not happen with current Eclipse, last I tried.
 
-There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920010241.do; you can also purchase the book there (which helps fund my continued work on this code base).
+There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920038092.do; you can also purchase the book there (which helps fund my continued work on this code base).
 
 === You can't build the whole mess with Gradle
 
