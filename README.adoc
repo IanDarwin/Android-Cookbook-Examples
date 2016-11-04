@@ -30,7 +30,7 @@ The table <<table>> shows which projects are set up for which build tools.
 
 === TL;DR: Build Most Projects with Apache Maven
 
-Prerequisites: Java 7 SDK **including "Google Repository" for compat stuff**, $$git$$, _Maven_
+Prerequisites: Java 7 SDK and Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
 
 . git clone https://github.com/mosabua/maven-android-sdk-deployer
 . cd maven-android-sdk-deployer
