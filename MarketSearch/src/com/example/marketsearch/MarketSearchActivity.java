@@ -20,7 +20,7 @@ import android.widget.Toast;
  */
 public class MarketSearchActivity extends Activity {
 
-	RadioButton publisherOption;    //Option for straight search or details
+	RadioButton publisherOption;    // Option for straight search or details
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,9 @@ public class MarketSearchActivity extends Activity {
 				try {
 					MarketSearchActivity.this.startActivity(intent);
 				} catch (ActivityNotFoundException anfe) {
-					Toast.makeText(MarketSearchActivity.this, "Please install the Android Market App", Toast.LENGTH_SHORT);
+					Toast.makeText(MarketSearchActivity.this,
+						"Please install the Google Play Store App",
+						Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
