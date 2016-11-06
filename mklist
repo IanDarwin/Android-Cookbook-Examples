@@ -10,9 +10,9 @@ do
 	if [ -d $d ]; then
 		BUILDS_WITH=""
 		if [ -f $d/${README_FILE} ]; then
-			FUNCTION=$(cat $d/${README_FILE})
+			FUNCTION=$(sed 1q $d/${README_FILE})
 			if [ -f $d/${FNAME_STATUS} ]; then
-				NOTES=$(cat $d/${FNAME_STATUS} | sed 1q)
+				NOTES=$(sed 1q $d/${FNAME_STATUS})
 			else
 				NOTES="-"
 			fi
