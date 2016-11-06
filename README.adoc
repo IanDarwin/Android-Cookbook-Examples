@@ -24,18 +24,18 @@ then replace it with AndMore from the Eclipse Marketplace Client.
 
 Most of the Eclipse projects have been Mavenized; a few have not.
 
-Most of the Gradle projects will also build with Android Studio; a few will not.
+Most of the Gradle projects will also build with Android Studio; there may be a few that will not.
 
 The table <<table>> shows which projects are set up for which build tools.
 
 === TL;DR: Build Most Projects with Apache Maven
 
-Prerequisites: Java 7 SDK and Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
+Prerequisites: Java 7 or 8 SDK, Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
 
 . git clone https://github.com/mosabua/maven-android-sdk-deployer
 . cd maven-android-sdk-deployer
 . mvn install -P 6.0 # at least
-. mvn install -P 7.0 # after it's released!
+. mvn install -P 7.0 # also needed
 . cd ..
 . git clone https://github.com/IanDarwin/Android-Cookbook-Examples
 . cd Android-Cookbook-Examples
