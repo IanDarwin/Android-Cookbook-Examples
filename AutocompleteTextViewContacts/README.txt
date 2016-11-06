@@ -1,3 +1,5 @@
+Contact picker with autocomplete
+
 This allows you to search for an email address either by name or by email address,
 and feeds that to an AutoCompleteTextView.
 

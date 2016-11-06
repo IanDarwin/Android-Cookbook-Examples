@@ -1,1 +1,0 @@
-Contact picker with autocomplete

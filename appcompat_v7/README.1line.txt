@@ -1,1 +1,0 @@
-Compat library Eclipse Project

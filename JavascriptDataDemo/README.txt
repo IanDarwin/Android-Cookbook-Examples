@@ -1,3 +1,5 @@
+Getting data from Java to JavaScript and back.
+
 This is a simple project that just shows getting an ARRAY of data from Java to JavaScript and vice versa.
 
 It's built out a bit more than the version shown in the Android Cookbook, in that it has two activities,

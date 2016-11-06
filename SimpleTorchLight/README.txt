@@ -1,2 +1,2 @@
-This is the Simple Torchlight/Flashlight example by Saketkumar Srivastav.
+The Simple Torchlight/Flashlight example by Saketkumar Srivastav.
 

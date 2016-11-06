@@ -1,3 +1,5 @@
+Implement a ContentProvider
+
 This is an attempt to build the skeletal ContentProvider info from 
 http://androidcookbook.com/Recipe.seam?recipeId=1558
 into a compilable, complete, working program.

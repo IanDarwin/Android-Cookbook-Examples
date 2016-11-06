@@ -1,3 +1,5 @@
+Full app: compute and show restaurant bill with tip
+
 This version was re-created from the book files rather
 than from the original author's download, because his
 web site went away.
