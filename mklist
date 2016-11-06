@@ -2,28 +2,28 @@
 
 # Generate the included table for the master README file
 
-README_1LINE_FILE=README.1line.txt
+README_FILE=README.txt
 FNAME_STATUS=STATUS.1line.txt
 
 for d in [A-Z]*
 do
 	if [ -d $d ]; then
 		BUILDS_WITH=""
-		if [ -f $d/${README_1LINE_FILE} ]; then
-			FUNCTION=$(cat $d/${README_1LINE_FILE})
+		if [ -f $d/${README_FILE} ]; then
+			FUNCTION=$(cat $d/${README_FILE})
 			if [ -f $d/${FNAME_STATUS} ]; then
-				NOTES=$(cat $d/${FNAME_STATUS})
+				NOTES=$(cat $d/${FNAME_STATUS} | sed 1q)
 			else
 				NOTES="-"
 			fi
 			if [ -f $d/.project ]; then BUILDS_WITH+=E; fi
-			if [ -f $d/pom.xml ]; then BUILDS_WITH+=M; else echo >&2 "$d has no POM"; fi
-			grep -q $d pom.xml || echo >&2 "$d not in master POM"
+			if [ -f $d/pom.xml ]; then BUILDS_WITH+=M; fi
 			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=G; fi
 			if [ -f $d/$d.iml -o -f $d/app/$d.iml ]; then BUILDS_WITH+=S; fi
+			if [ -s "$BUILDS_WITH" ]; then echo "$d has no build files!"; fi
 			echo '|' "link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/$d[$d]" '|' $BUILDS_WITH '|' $FUNCTION '|' ${NOTES}
 		else
-			echo >&2 "$d has no ${README_1LINE_FILE}"
+			echo >&2 "$d has no README file"
 		fi
 	fi
 done |
