@@ -120,6 +120,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | GS | Compilable example of the Application Singleton pattern recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | EM | Contact picker with autocomplete | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | EM | App can update itself | see AppDownloader
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BackupManager[BackupManager] | EM | Use Android Backup scheme. | -
