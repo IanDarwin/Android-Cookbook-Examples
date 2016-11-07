@@ -77,9 +77,8 @@ There is neither a Wiki or a Tracker for this project, since bugs and suggestion
 You can't have this pretty thing. Because Gradle. Because Android Studio. Because fail.
 
 Patches welcome if they don't break any existing builds (Maven, Eclipse) AND if you can still open
-each individual project without Studio going ape-**** and opening every other existing project
-as a "module" of the one you're trying to build.
-Watch for my forthcoming paper "Gradle and Android Studio Considered Harmful."
+each individual project both in Eclipse and in Studio.
+See https://androidcookbook.com/Recipe.seam?recipeId=5203[Building an Android Application both with Eclipse and with Android Studio] for an easy way to do this for Eclipse projects.
 
 === Notes for the First Edition of the book
 
@@ -116,6 +115,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutBoxDemo[AboutBoxDemo] | GS | A re-usable About dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EM | Info about device and screen | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AddContact[AddContact] | EM | Add a contact | Shows ContactsContract, content provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | -
@@ -166,7 +166,6 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EM | ADT Testing - subject | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EM | ADT Testing - Tests | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HomeAppListView[HomeAppListView] | EM | A Home Application | Shows running a program
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HotContacts[HotContacts] | EM | Add a contact | Shows ContactsContract, content provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | EM | List View with Icon | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EM | Intents | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo. | -
@@ -204,8 +203,10 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ScanBarcode[ScanBarcode] | GS | Scan barcode using ZXing app via Intent | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | M | Trivial example of one Activity (screen) starting another. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | EM | Sends an SMS | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorShakeDetection[SensorShakeDetection] | GS | Use Accellerometer to detect if the user has shaken the device. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorUpOrDown[SensorUpOrDown] | GS | Code for r2051, Checking Whether a Device Is Facing Up or Down | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | EM | ICS "Share" action | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShellCommand[ShellCommand] | E | Run a Unix/Linux command via Runtime.exec, capture the output. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | EM | User account on device | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EM | Calendar | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | M | Flixel-based gaming demo | This example still needs to be re-created.
