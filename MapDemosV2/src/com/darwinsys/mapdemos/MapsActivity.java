@@ -53,13 +53,14 @@ public class MapsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		    
-		if (map==null) {
-			// XXX Warn about this to the user!
-			Log.d(TAG, "Map Fragment Not Found or no Map in it!!");
-			return;
-		}
-		
+
+        if (map == null) {
+            String message = "Map Fragment Not Found or no Map in it!";
+            Log.e(TAG, message);
+            Toast.makeText(this, message, Toast.DURATION_LONG).show();
+            return;
+        }
+
 		for (Data d : data) {
 		    LatLng location = new LatLng(d.lat, d.lng);
 			map.addMarker(new MarkerOptions().position(location)
