@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">EmailAndroid</string>
-    <string name="hello">Hello World, EmailAndroidActivity!</string>
+    <string name="app_name">EmailWithAttachments</string>
+    <string name="hello">Hello World, Email With Attachments</string>
     <string name="my_text">
 	    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         Ipsum has been the industry\'s standard dummy text ever since the 1500s, when
@@ -13,5 +13,7 @@
         and more recently with desktop publishing software like Aldus PageMaker
         including versions of Lorem Ipsum.
     </string>
+    <string name="two_attachments">Two attachments</string>
+    <string name="one_attachment">One attachment</string>
 
 </resources>

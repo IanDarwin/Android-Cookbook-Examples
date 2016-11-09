@@ -10,9 +10,17 @@
         android:text="@string/hello" />
 
     <Button
-        android:id="@+id/emailButton"
+        android:id="@+id/emailButton1"
+        android:onClick="oneAttachment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email" />
+        android:text="@string/one_attachment" />
+    
+    <Button
+        android:id="@+id/emailButton2"
+        android:onClick="twoAttachments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/two_attachments" />
 
 </LinearLayout>
