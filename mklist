@@ -18,6 +18,7 @@ do
 			fi
 			if [ -f $d/.project ]; then BUILDS_WITH+=E; fi
 			if [ -f $d/pom.xml ]; then BUILDS_WITH+=M; fi
+			if [ -f $d/build.xml ]; then BUILDS_WITH+=A; fi
 			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=G; fi
 			if [ -f $d/$d.iml -o -f $d/app/$d.iml ]; then BUILDS_WITH+=S; fi
 			if [ -s "$BUILDS_WITH" ]; then echo "$d has no build files!"; fi

@@ -158,14 +158,14 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EM | Simple Photo Gallery example. | Deprecated
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | EM | Google Cloud Messaging - receiver | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | EM | Google Cloud Messaging - sender | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EM | HelloWorld | SDK
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EMA | HelloWorld | SDK
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EM | HelloWorld | Eclipse ADT
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEspressoTesting[HelloEspressoTesting] | GS | HelloWorld of EspressoTesting | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloGradle[HelloGradle] | GS | Hello World with Gradle but NOT Studio. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EM | HelloWorld | Maven, JayWay Plug-in
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloStudioTesting[HelloStudioTesting] | GS | HelloWorld of StudioTesting | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EM | ADT Testing - subject | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EM | ADT Testing - Tests | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EMA | ADT Testing - subject | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EMA | ADT Testing - Tests | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HomeAppListView[HomeAppListView] | EM | A Home Application | Shows running a program
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | EM | List View with Icon | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EM | Intents | -
