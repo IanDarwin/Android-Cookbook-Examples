@@ -91,7 +91,7 @@ public class TouchActivity extends Activity implements OnTouchListener {
                     Log.d(TAG, "newDist=" + newDist);
                     if (newDist > 5f) {
                         matrix.set(savedMatrix);
-                        scale = newDist/oldDist; //thinking I need to play around with this value to limit it**
+                        scale = newDist/oldDist; // XXX may need to play with this value to limit it
                         matrix.postScale(scale, scale, mid.x, mid.y);
                     }
                 }
