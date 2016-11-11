@@ -4,6 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!-- Don't target N or higher until you add permission handling -->
     <uses-sdk android:minSdkVersion="19" 
         android:targetSdkVersion="22"/>
     <uses-permission 
