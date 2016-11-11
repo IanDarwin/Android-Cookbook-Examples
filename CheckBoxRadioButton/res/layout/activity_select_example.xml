@@ -24,14 +24,20 @@
 
         <RadioButton
             android:id="@+id/RB1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
             android:text="Button1" />
 
         <RadioButton
             android:id="@+id/RB2"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
             android:text="Button2" />
 
         <RadioButton
             android:id="@+id/RB3"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
             android:text="Button3" />
 
     </RadioGroup>
