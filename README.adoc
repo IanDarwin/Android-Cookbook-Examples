@@ -135,7 +135,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderSample[ContentProviderSample] | EM | Implement a ContentProvider | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderTest[ContentProviderTest] | EM | Test it | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CountDownTimerExample[CountDownTimerExample] | EM | Time-based activity | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | M | Application Widget | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | EM | Application Widget | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | EM | How to load data properly using CursorLoader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomMenu[CustomMenu] | EM | Menu | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomSubMenu[CustomSubMenu] | GS | Submenu, created programmatically | -
@@ -159,6 +159,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EM | Simple Photo Gallery example. | Deprecated
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | EM | Google Cloud Messaging - receiver | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | EM | Google Cloud Messaging - sender | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HapticFeedback[HapticFeedback] | GS | Haptic Feedback recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EMA | HelloWorld | SDK
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EM | HelloWorld | Eclipse ADT
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEspressoTesting[HelloEspressoTesting] | GS | HelloWorld of EspressoTesting | -
@@ -218,6 +219,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EM | The main code is from the "Sliding Drawer - Top Down" recipe | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SnackBarDemo[SnackBarDemo] | EM | Snackbar (bottom message text) demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoapDemo[SoapDemo] | EM | XML SOAP Web Service | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoftKeyboardEnterNext[SoftKeyboardEnterNext] | GS | Change the Enter key to "Next" on one-line text fields. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoundRec[SoundRec] | EM | Sound Recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Speaker[Speaker] | EM | Text To Speech (TTS) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinnerDemo[SpinnerDemo] | EM | Drop-down Spinner Demos | -
