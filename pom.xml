@@ -31,6 +31,7 @@
 
 	<modules>
 		<module>AboutInfo</module>
+		<module>AddContacts</module>
 		<module>AndroidPlot</module>
 		<module>AndroidRss</module>
 		<module>AppDownloader</module>
@@ -71,7 +72,6 @@
 		<module>HelloTestingTarget</module>
 		<module>HelloTestingTestProject</module>
 		<module>HomeAppListView</module>
-		<module>HotContacts</module>
 		<module>IconizedListView</module>
 		<module>IntentsDemo</module>
 		<module>JavascriptDataDemo</module>
