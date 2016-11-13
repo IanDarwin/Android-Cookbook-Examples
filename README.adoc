@@ -222,6 +222,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoftKeyboardEnterNext[SoftKeyboardEnterNext] | GS | Change the Enter key to "Next" on one-line text fields. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoundRec[SoundRec] | EM | Sound Recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Speaker[Speaker] | EM | Text To Speech (TTS) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpeechRecognizerDemo[SpeechRecognizerDemo] | GS | Speech Recognizer. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinnerDemo[SpinnerDemo] | EM | Drop-down Spinner Demos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinningCubeDemo[SpinningCubeDemo] | E | OpenGL Spinning Cube, from Marco Dinacci | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SplashDialog[SplashDialog] | EM | Splash screen | -
