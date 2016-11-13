@@ -17,7 +17,10 @@ do
 				NOTES="-"
 			fi
 			if [ -f $d/.project ]; then BUILDS_WITH+=E; fi
-			if [ -f $d/pom.xml ]; then BUILDS_WITH+=M; fi
+			if [ -f $d/pom.xml ]; then 
+				BUILDS_WITH+=M;
+				if grep $d pom.xml >/dev/null; then :; else echo "$d has pom.xml but not in master pom">&2; fi
+			fi
 			if [ -f $d/build.xml ]; then BUILDS_WITH+=A; fi
 			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=G; fi
 			if [ -f $d/$d.iml -o -f $d/app/$d.iml ]; then BUILDS_WITH+=S; fi
