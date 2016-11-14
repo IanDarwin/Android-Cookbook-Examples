@@ -1,1 +1,3 @@
-java.lang.ClassNotFoundException: Can't find "java.beans.PropertyDescriptor" on path
+ClassNotFoundException: no "java.beans.PropertyDescriptor" on path,
+because Android's java.beans support is twisted and evil, or at least,
+'orribly broken; many classes and interfaces missing, which is inexcusable.
