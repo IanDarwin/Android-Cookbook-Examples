@@ -174,6 +174,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EM | Getting data from Java to JavaScript and back. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JSONParsing[JSONParsing] | E | Simple example of JSON parsing using built-in JSONObject. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LayoutBorder[LayoutBorder] | G | Layout Border Demo Project Source for Android | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | EM | ListView | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | EM | ListView | -
@@ -186,6 +187,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerDemo[MediaPlayerDemo] | EM | Play media | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerInteractive[MediaPlayerInteractive] | E | Media Player demo from Marco Dinacci, thanks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | EM | Simple sound recorder | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MenuAction[MenuAction] | EM | Menu Action Handling | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | EM | Native Development Kit | C Code
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | EM | Notifications | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NumberPickers[NumberPickers] | EM | UI for picking numbers | -
@@ -198,6 +200,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PhoneGapDemo[PhoneGapDemo] | EM | HTML5 app using phonegap/cordova | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PinchAndZoom[PinchAndZoom] | GS | Pinch-and-zoom graphics demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | EM | Preferences | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ProgressDialogDemo[ProgressDialogDemo] | GS | Demo of a pop-up indefinite progress dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | EM | Using a graphing library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EM | How to reboot, and why you can't | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | E | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
