@@ -24,7 +24,7 @@ do
 			if [ -f $d/build.xml ]; then BUILDS_WITH+=A; fi
 			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=G; fi
 			if [ -f $d/$d.iml -o -f $d/app/$d.iml ]; then BUILDS_WITH+=S; fi
-			if [ -s "$BUILDS_WITH" ]; then echo "$d has no build files!"; fi
+			if [ -z "$BUILDS_WITH" ]; then echo "$d has no build files!"; fi
 			echo '|' "link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/$d[$d]" '|' $BUILDS_WITH '|' $FUNCTION '|' ${NOTES}
 		else
 			echo >&2 "$d has no README file"
