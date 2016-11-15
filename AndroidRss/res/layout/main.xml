@@ -1,52 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-	<TableLayout
-		android:id="@+id/table"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:stretchColumns="0">
-		<TableRow
-			android:id="@+id/top_add_entry_row"
-			android:layout_height="wrap_content"
-			android:layout_width="fill_parent">
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0" >
 
-			<EditText
-				android:id="@+id/rssURL"
-				android:hint="Enter RSS URL"
-				android:singleLine="true"
-				android:maxLines="1"
-				android:maxWidth="220dp"
-				android:inputType="textUri"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</EditText>
-			<Button
-				android:id="@+id/goButton"
-				android:text="Go"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
-			</Button>
-		</TableRow>
-	</TableLayout>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
 
-	<!--  Mid Panel -->
-	<ListView
-		android:id="@+id/ListView"
-		android:layout_weight="1"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</ListView>
+            <EditText
+                android:id="@+id/rssURL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="RSS URL"
+                android:inputType="textUri"
+                android:maxLines="1"
+                android:singleLine="true" >
+            </EditText>
+        </TableRow>
 
-	<Button
-		android:id="@+id/clearButton"
-		android:text="Clear"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</Button>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Go" >
+            </Button>
+            <Button
+                android:id="@+id/goDefaultButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Project Activity" >
+            </Button>
+        </TableRow>
+    </TableLayout>
+
+    <!-- Mid Panel -->
+
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+    </ListView>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear" >
+    </Button>
 
 </LinearLayout>

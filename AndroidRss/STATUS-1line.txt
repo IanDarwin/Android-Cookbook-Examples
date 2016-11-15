@@ -1,3 +1,4 @@
-ClassNotFoundException: no "java.beans.PropertyDescriptor" on path,
-because Android's java.beans support is twisted and evil, or at least,
-'orribly broken; many classes and interfaces missing, which is inexcusable.
+Works under Maven; Eclipse fails w/ Maven Configuration Problem
+
+org.codehaus.plexus.archiver.jar.Manifest.write(java.io.PrintWriter)	
+

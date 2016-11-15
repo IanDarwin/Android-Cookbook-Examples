@@ -1,11 +1,13 @@
 package com.pfizer.android;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
+import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
@@ -30,9 +32,11 @@ import android.widget.Toast;
  * throwing NetworkOnMainThreadException as the original did.
  */
 public class AndroidRss extends Activity {
+	private static final String TAG = AndroidRss.class.getSimpleName();
 	private EditText text;
 	private ListView listView;
 	private Button goButton;
+	private Button goDefaultButton;
 	private Button clearButton;
 	private ArrayAdapter<String> adapter = null;
 
@@ -46,8 +50,14 @@ public class AndroidRss extends Activity {
 		goButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String rss = text.getText().toString().trim();
-				new RssGetter().execute(rss);
+				new RssGetter().execute(text.getText().toString().trim());
+			}
+		});
+		goDefaultButton = (Button) this.findViewById(R.id.goDefaultButton);
+		goDefaultButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new RssGetter().execute(getString(R.string.default_feed));
 			}
 		});
 
@@ -94,15 +104,13 @@ public class AndroidRss extends Activity {
 			}
 
 			SyndFeedInput input = new SyndFeedInput();
-			SyndFeed feed;
 			try {
-				feed = input.build(new XmlReader(feedUrl));
+				SyndFeed feed = input.build(new XmlReader(feedUrl));
 				@SuppressWarnings("unchecked")
 				List<SyndEntry> entries = feed.getEntries();
-				Toast.makeText(AndroidRss.this, "#Feeds retrieved: " + entries.size(),
-						Toast.LENGTH_SHORT).show();
+				Log.d(TAG, "Retrieved " + entries.size() + " entries");
 				return entries;
-			} catch (Exception e) {
+			} catch (FeedException | IOException e) {
 				throw new RuntimeException("Feeding failed: " + e);
 			}
 		}
