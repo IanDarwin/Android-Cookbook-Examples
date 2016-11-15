@@ -12,6 +12,7 @@ import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,7 +51,17 @@ public class AndroidRss extends Activity {
 		goButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new RssGetter().execute(text.getText().toString().trim());
+				String rss = text.getText().toString().trim();
+				if (rss.length() == 0) {
+					return;
+				}
+				try {
+					Uri.parse(rss);
+				} catch (Exception e) {
+					Toast.makeText(AndroidRss.this, "Not a valid URL: " + rss, Toast.LENGTH_LONG).show();
+					return;
+				}
+				new RssGetter().execute(rss);
 			}
 		});
 		goDefaultButton = (Button) this.findViewById(R.id.goDefaultButton);
@@ -91,7 +102,7 @@ public class AndroidRss extends Activity {
 	 * and the UI updating on, well, the UI thread.
 	 */
 	private class RssGetter extends AsyncTask<String, Void, List<SyndEntry>> {
-	
+
 		@Override
 		public List<SyndEntry> doInBackground(String... rss) {
 
