@@ -34,9 +34,9 @@ public class Droid extends FlxSprite {
     public void update() {
         // Smooth slidey walking controls
         acceleration.x = 0;
-        if (FlxInputText.PRESSED == FlxInputText.LEFT)
+        if (FlxG.keys.LEFT)
         	acceleration.x -= drag.x;
-        if (FlxInputText.PRESSED == FlxInputText.RIGHT)
+        if (FlxG.keys.RIGHT)
         	acceleration.x += drag.x;
 
         if (isTouching(FLOOR)) {
