@@ -3,12 +3,17 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
+    targetCompatibility = '1.8'
+    sourceCompatibility = '1.8'
     defaultConfig {
         applicationId "com.androidcookbook.oauth2demo"
         minSdkVersion 23
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -18,6 +23,7 @@ android {
     }
     productFlavors {
     }
+
 }
 
 dependencies {
