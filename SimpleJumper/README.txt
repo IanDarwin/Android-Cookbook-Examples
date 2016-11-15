@@ -1,1 +1,1 @@
-Flixel-based gaming demo
+Java code pieces of Flixel-based gaming demo - incomplete.
