@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="lib" path="libs/rome-1.0.jar"/>
-	<classpathentry kind="lib" path="libs/jdom-1.1.3.jar"/>
 	<classpathentry kind="src" output="bin/classes" path="src">
 		<attributes>
 			<attribute name="optional" value="true"/>
