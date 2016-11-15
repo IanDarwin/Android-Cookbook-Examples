@@ -13,7 +13,6 @@
 
 	<properties>
 		<platform.version>4.2.2</platform.version>
-		<android.plugin.version>4.4.1</android.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
