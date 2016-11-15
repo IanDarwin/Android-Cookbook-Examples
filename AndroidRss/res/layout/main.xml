@@ -23,6 +23,12 @@
                 android:maxLines="1"
                 android:singleLine="true" >
             </EditText>
+            
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Go" />
         </TableRow>
 
         <TableRow
@@ -30,17 +36,10 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/goButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Go" >
-            </Button>
-            <Button
                 android:id="@+id/goDefaultButton"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Project Activity" >
-            </Button>
+                android:text="Project Activity" />
         </TableRow>
     </TableLayout>
 
