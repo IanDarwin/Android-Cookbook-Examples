@@ -214,6 +214,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EM | How to reboot, and why you can't | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | E | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RemoteSystemsTempFiles[RemoteSystemsTempFiles] | EM | This folder is created automatically by Eclipse and can be ignored. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | EM | Using a graphing library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RuntimeLog[RuntimeLog] | EM | A simpe runtime log facility | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ScanBarcode[ScanBarcode] | GS | Scan barcode using ZXing app via Intent | -
@@ -225,7 +226,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShellCommand[ShellCommand] | E | Run a Unix/Linux command via Runtime.exec, capture the output. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | EM | User account on device | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EM | Calendar | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | M | Flixel-based gaming demo | This example still needs to be re-created.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | E | Common code for flixel-gdx-based gaming demo. | Android ver fails at startup, on loadLibrary("gdx"); call down in framework.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EM | Graphics | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EM | The Simple Torchlight/Flashlight example by Saketkumar Srivastav. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EM | The main code is from the "Sliding Drawer - Top Down" recipe | -
