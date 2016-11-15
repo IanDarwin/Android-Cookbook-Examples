@@ -43,6 +43,13 @@ Prerequisites: Java 7 or 8 SDK, Android SDK **including "Google Maven Repository
 Include $$android:install$$ and $$android:run$$ only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
 . Fix up any that didn't work, and send pull requests!
 
+=== Eclipse Issue
+
+If you get Eclipse-Maven projects failing with this message:
+org.codehaus.plexus.archiver.jar.Manifest.write(java.io.PrintWriter)
+
+then you need to update your "M2E Connector for Android" to at least 0.17.2.20060614
+
 === Maven Build: More Details
 
 Most of these projects were initially developed using Eclipse ADT, and migrated to Maven for automatic building.
@@ -127,6 +134,8 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | EM | Bluetooth Connection | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | EM | Add appointment to Calendar | Calendar via Content Provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | EM | Pretend a call happened, for testing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | E | Intercept an incoming phone call. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | E | Intercept outgoing phone calls. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | GS | CameraIntent - get the camera to take a picture, by startActivityForResult() | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | GS | Demonstation of Card widget. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | EM | GUI demo | name says it
@@ -220,6 +229,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EM | Graphics | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EM | The Simple Torchlight/Flashlight example by Saketkumar Srivastav. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EM | The main code is from the "Sliding Drawer - Top Down" recipe | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SMSReceive[SMSReceive] | E | Receive an incoming SMS. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SnackBarDemo[SnackBarDemo] | EM | Snackbar (bottom message text) demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoapDemo[SoapDemo] | EM | XML SOAP Web Service | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoftKeyboardEnterNext[SoftKeyboardEnterNext] | GS | Change the Enter key to "Next" on one-line text fields. | -
