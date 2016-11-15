@@ -1,1 +1,1 @@
-Cannot provide complete project - see https://androidcookbook.com/r/2030
+Android ver fails at startup, on loadLibrary("gdx"); call down in framework.

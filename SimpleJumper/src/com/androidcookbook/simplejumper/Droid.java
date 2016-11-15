@@ -1,15 +1,17 @@
-package com.androidcookbook.flixeldemo;
+package com.androidcookbook.simplejumper;
 
 import org.flixel.FlxG;
 import org.flixel.FlxSound;
 import org.flixel.FlxSprite;
+import org.flixel.FlxState;
+import org.flixel.ui.FlxInputText;
 
 public class Droid extends FlxSprite {
     private final FlxSound sound = new FlxSound();
 
     public Droid(int X, int Y) {
         super(X, Y);
-        loadGraphic(R.drawable.player, true, true);
+        // loadGraphic(R.drawable.player, true, true);
         maxVelocity.x = 100; // walking speed
         acceleration.y = 400; // gravity
         drag.x = maxVelocity.x * 4; // deceleration (sliding to a stop)
@@ -32,14 +34,16 @@ public class Droid extends FlxSprite {
     public void update() {
         // Smooth slidey walking controls
         acceleration.x = 0;
-        if (FlxG.dpad.pressed("LEFT")) acceleration.x -= drag.x;
-        if (FlxG.dpad.pressed("RIGHT")) acceleration.x += drag.x;
+        if (FlxInputText.PRESSED == FlxInputText.LEFT)
+        	acceleration.x -= drag.x;
+        if (FlxInputText.PRESSED == FlxInputText.RIGHT)
+        	acceleration.x += drag.x;
 
-        if (onFloor) {
+        if (isTouching(FLOOR)) {
             // Jump controls
-            if (FlxG.dpad.justTouched("UP")) {
-                sound.loadEmbedded(R.raw.jump);
-                sound.play();
+            if (FlxG.keys.UP) {
+                // sound.loadEmbedded(R.raw.jump);
+                // sound.play();
 
                 velocity.y = -acceleration.y * 0.51f;
                 play("jump");
