@@ -1,9 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>OSMIntro</groupId>
-  <artifactId>OSMIntro</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+	<groupId>OSMIntro</groupId>
+	<artifactId>OSMIntro</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>apk</packaging>
+	<inceptionYear>2012</inceptionYear>
+	<url>http://androidcookbook.com/</url>
 
 	<parent>
 		<groupId>com.androidcookbook.examples</groupId>
@@ -12,22 +17,34 @@
 	</parent>
 
 	<properties>
-		<platform.version>4.2.2</platform.version>
+		<platform.version>4.1.1.4</platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
+		<!-- This is an Android project -->
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>${platform.version}</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.osmdroid</groupId>
 			<artifactId>osmdroid-android</artifactId>
-			<version>4.2</version>
+			<version>5.5</version>
+			<type>aar</type>
 		</dependency>
+		<!-- Seems to be a hidden dependency of OSM -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+</dependency>
 	</dependencies>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<outputDirectory>bin/classes</outputDirectory>
 		<plugins>
 			<!-- Use the Android Plugin -->
 			<plugin>
