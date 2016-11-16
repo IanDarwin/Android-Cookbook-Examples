@@ -6,10 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-public class MainActivity extends FlxAndroidApplication 
-{
-    public MainActivity()
-	{
+public class MainActivity extends FlxAndroidApplication {
+    public MainActivity() {
 		super(new FlixelGame());
 	}
     
