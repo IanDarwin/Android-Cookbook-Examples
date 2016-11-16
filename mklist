@@ -5,6 +5,7 @@
 README_FILE=README.txt
 FNAME_STATUS=STATUS.1line.txt
 
+# All Projects Shalle Have Uppercased-first-letter Names!
 for d in [A-Z]*
 do
 	if [ -d $d ]; then
