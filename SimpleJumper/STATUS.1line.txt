@@ -1,1 +1,2 @@
-Android ver fails at startup, on loadLibrary("gdx"); call down in framework.
+Game starts up but only moves the Sprite downwards.
+Android ver fails at startup on Intel phones; libgdx only in armeabi.
