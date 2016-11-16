@@ -228,7 +228,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EM | Calendar | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | E | Common code for flixel-gdx-based gaming demo. | Game starts, can move left-right only, no scenery. Fails on Intel phone/emulator
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EM | Graphics | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EM | Simple Torchlight/Flashlight example. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EM | Simple Torchlight/Flashlight example. | (Most devices now have a built-in control for this)
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EM | The main code is from the "Sliding Drawer - Top Down" recipe | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SMSReceive[SMSReceive] | E | Receive an incoming SMS. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SnackBarDemo[SnackBarDemo] | EM | Snackbar (bottom message text) demo | -
