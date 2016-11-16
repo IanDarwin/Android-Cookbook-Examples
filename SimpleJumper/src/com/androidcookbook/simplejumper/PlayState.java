@@ -8,6 +8,7 @@ public class PlayState extends FlxState
 	@Override
 	public void create()
 	{
-		add(new FlxText(0, 0, 200, "Hello World"));
+		add(new FlxText(0, 0, 200, "SimpleJumper 0.0"));
+		add(new Droid(50, 50));
 	}
 }
