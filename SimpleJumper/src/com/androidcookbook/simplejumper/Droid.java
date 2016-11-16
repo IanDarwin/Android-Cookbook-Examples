@@ -1,11 +1,8 @@
 package com.androidcookbook.simplejumper;
 
-import org.flixel.FlxG;
-import org.flixel.FlxSound;
 import org.flixel.FlxSprite;
 
 public class Droid extends FlxSprite {
-    private final FlxSound sound = new FlxSound();
 
     public Droid(int X, int Y) {
         super(X, Y);
@@ -27,38 +24,10 @@ public class Droid extends FlxSprite {
         addAnimation("flail", new int[] { 1, 2, 3, 0 }, 18, true);
         addAnimation("jump", new int[] { 4 }, 0, false);
       }
-
+    
     @Override
-	public void update() {
-		// Smooth slidey walking controls
-		acceleration.x = 0;
-		if (FlxG.keys.LEFT)
-			acceleration.x -= drag.x;
-		if (FlxG.keys.RIGHT)
-			acceleration.x += drag.x;
-
-		if (isTouching(FLOOR)) {
-			// Jump controls
-			if (FlxG.keys.UP) {
-				// sound.loadEmbedded(R.raw.jump);
-				// sound.play();
-
-				velocity.y = -acceleration.y * 0.51f;
-				play("jump");
-
-			} // Animations
-			else if (velocity.x > 0) {
-				play("walk");
-			} else if (velocity.x < 0) {
-				play("walk_back");
-			} else
-				play("idle");
-		} else if (velocity.y < 0)
-			play("jump");
-		else
-			play("flail");
-
-        // Default object physics update
-        //super.update();
-      }
+    public void play(String animName) {
+    	// System.err.println("Playing " + animName);
+    	super.play(animName);
+    }
 }
