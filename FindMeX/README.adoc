@@ -1,0 +1,9 @@
+= Find Me X
+
+This Android application takes a query of the form: 
+
+----
+find me <placetype> in <locality>, <city>
+----
+
+and returns a list of places of that type in the specified locality sorted by their distance from you.

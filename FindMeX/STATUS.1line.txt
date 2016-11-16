@@ -1,0 +1,3 @@
+IllegalArgumentException: Incomplete location object, missing timestamp or accuracy, Progress:334
+
+Also needs better error handling, more code modernization.
