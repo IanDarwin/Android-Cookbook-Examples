@@ -1,0 +1,2 @@
+	<classpathentry kind="lib" path="/home/rachee/Downloads/slf4j-android-1.5.8.jar"/>
+	<classpathentry kind="lib" path="/home/rachee/Downloads/osmdroid-android-3.0.5.jar"/>
