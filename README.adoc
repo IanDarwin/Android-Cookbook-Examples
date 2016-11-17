@@ -174,7 +174,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EM | HelloWorld | Eclipse ADT
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEspressoTesting[HelloEspressoTesting] | GS | HelloWorld of EspressoTesting | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloGradle[HelloGradle] | GS | Hello World with Gradle but NOT Studio. | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EM | HelloWorld | Maven, JayWay Plug-in
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EM | HelloWorld using Maven with android-maven-plugin. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloStudioTesting[HelloStudioTesting] | GS | HelloWorld of StudioTesting | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EMA | ADT Testing - subject | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EMA | ADT Testing - Tests | -
