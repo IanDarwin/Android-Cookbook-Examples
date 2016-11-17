@@ -1,1 +1,1 @@
-OpenStreetMap API
+Basic OSM map app demo.
