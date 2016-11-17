@@ -125,7 +125,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AddContact[AddContact] | EM | Add a contact | Shows ContactsContract, content provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EM | Graphing | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EM | RSS Reader | Works under Maven; Eclipse fails w/ Maven Configuration Problem
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | GS | Compilable example of the Application Singleton pattern recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | EM | Contact picker with autocomplete | -
@@ -135,7 +135,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | EM | Add appointment to Calendar | Calendar via Content Provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | EM | Pretend a call happened, for testing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | E | Intercept an incoming phone call. | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | E | Intercept outgoing phone calls. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | E | Intercept outgoing phone calls. | Compiles and runs, but doesn't intercept the call.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | GS | CameraIntent - get the camera to take a picture, by startActivityForResult() | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | GS | Demonstation of Card widget. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | EM | GUI demo | name says it
@@ -162,8 +162,9 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FaceFinder[FaceFinder] | EM | Face locator API in photos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FileProviderDemo[FileProviderDemo] | GS | Demo of FileProvider. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FilesystemDemos[FilesystemDemos] | MGS | Internal and external files. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FindMeX[FindMeX] | E | Find Me X | IllegalArgumentException: Incomplete location object, missing timestamp or accuracy, Progress:334
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FloatingActionButtonSnackbarDemo[FloatingActionButtonSnackbarDemo] | GS | Demo of 'fab' Floating Abstract Button | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | EM | Using a custom font | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | EM | Using a custom font | You need to provide the font file! Example uses Iceberg font...
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FragmentsDemos[FragmentsDemos] | GS | Simple Fragment and List-Detail Fragments in one project | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EM | Simple Photo Gallery example. | Deprecated
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | EM | Google Cloud Messaging - receiver | -
@@ -191,6 +192,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewSectionHeader[ListViewSectionHeader] | EM | ListView with section headers | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LocalBroadcastDemo[LocalBroadcastDemo] | EM | Local Broadcast Receiver | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MapDemosV2[MapDemosV2] | EM | This is the Google API Maps V2 Demo. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MapsV2AddToProject[MapsV2AddToProject] | GS | Adding a Google Maps V2 MapActivity to a project | You must ask for permission from Google (get and provide your own Google API key).
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MarketSearch[MarketSearch] | EM | Search the Play Store | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MaterialDemos[MaterialDemos] | EM | MaterialDesign demos | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerDemo[MediaPlayerDemo] | EM | Play media | -
@@ -203,7 +205,9 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OAuth2Demo[OAuth2Demo] | GS | Demo of OAuth2 to Google Tasks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OpenGlDemo[OpenGlDemo] | EM | OpenGL graphics | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OrientationChanges[OrientationChanges] | EM | Rotation | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMIntro[OSMIntro] | EM | OpenStreetMap API | (free alternative to Google Maps)
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMIntro[OSMIntro] | EM | Basic OSM map app demo. | Builds with Maven, not with Eclipse. Maybe m2e aar support, isn't, yet.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMOverlay[OSMOverlay] | EM | OSM Map with a map marker overlay | Compiles, runs, doesn't load map tiles; needs upgrading to osmdroid-android 5.5
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMTouchEvents[OSMTouchEvents] | EM | OSM Map with touch event handling. | Builds with Maven, not with Eclipse. Maybe m2e aar support, isn't, yet.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PdfShare[PdfShare] | EM | Create and share a PDF | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PermissionRequest[PermissionRequest] | G | Shows asking for permissions at runtime, i.e,. "the new way" | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PhoneGapDemo[PhoneGapDemo] | EM | HTML5 app using phonegap/cordova | -
@@ -227,7 +231,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | EM | User account on device | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EM | Calendar | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | E | Common code for flixel-gdx-based gaming demo. | Game starts, can move left-right only, no scenery. Fails on Intel phone/emulator
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EM | Graphics | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | E | Start of a pool/billiards game using AndEngine. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EM | Simple Torchlight/Flashlight example. | (Most devices now have a built-in control for this)
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EM | The main code is from the "Sliding Drawer - Top Down" recipe | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SMSReceive[SMSReceive] | E | Receive an incoming SMS. | -
