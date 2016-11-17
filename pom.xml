@@ -91,6 +91,8 @@
 		<module>NotificationDemo</module>
 		<module>NumberPickers</module>
 		<module>OSMIntro</module>
+		<module>OSMOverlay</module>
+O		<module>SMTouchEvents</module>
 		<module>OpenGlDemo</module>
 		<module>OrientationChanges</module>
 		<module>PdfShare</module>
