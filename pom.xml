@@ -92,7 +92,7 @@
 		<module>NumberPickers</module>
 		<module>OSMIntro</module>
 		<module>OSMOverlay</module>
-O		<module>SMTouchEvents</module>
+O		<module>OSMTouchEvents</module>
 		<module>OpenGlDemo</module>
 		<module>OrientationChanges</module>
 		<module>PdfShare</module>
