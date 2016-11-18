@@ -1,10 +1,11 @@
 == Android Cookbook Examples
 
-This repo contains over a hundred source code examples from the recipes published in 
+This repo is among the largest collections anywhere of Android code samples; it contains
+almost a hundred and fifty compilable source code examples from 
 http://androidcookbook.com/[the O'Reilly Android Cookbook], a great source 
 of tutorial material for the Android Developer. Not all recipes in the book or online have code
 accompanying them; this repo features code that was either linked by the
-contributor, or in several cases, re-constructed as a New Project by the
+contributor, or in some cases, re-constructed as a New Project by the
 editor for your convenience.
 
 Further note that not all programs used in the book/online appear here; some
