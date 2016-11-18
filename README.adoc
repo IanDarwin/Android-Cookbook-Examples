@@ -15,15 +15,17 @@ that are hosted elsewhere.
 
 Each Directory comprises its own project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. 
 
-*NOTE* As of today, there are two styles of projects:
+*NOTE* There are two styles of projects:
 
 . Eclipse projects with the newer Eclipse Andmore;
-. Android Studio projects (most complete with their extraneous "app" subdirectory).
+. Android Studio projects (most of them complete with their extraneous "app" subdirectory).
 
 If you have used the old Google ADT, you will need to update your Eclipse config by *removing* ADT,
 then replace it with AndMore from the Eclipse Marketplace Client.
 
-Most of the Eclipse projects have been Mavenized; a few have not.
+Most of the Eclipse projects also have configuration files to allow them to be opened in Android Studio.
+
+Many of the Eclipse projects have been Mavenized; a few have not.
 
 Most of the Gradle projects will also build with Android Studio; there may be a few that will not.
 
@@ -53,10 +55,11 @@ then you need to update your "M2E Connector for Android" to at least 0.17.2.2006
 
 === Maven Build: More Details
 
-Most of these projects were initially developed using Eclipse ADT, and migrated to Maven for automatic building.
-Obviously the Googlezilla has spoken and we will eventually have to migrate kicking and screaming to Android Studio and Gradle; pull requests for this would also be welcomed, _as long as they don't break support for Eclipse and Maven_.
+About two thirds of these projects were initially developed using Eclipse ADT, 
+and migrated to Maven for automatic building.
+Obviously Google has spoken and we will eventually have to migrate kicking and screaming to Android Studio and Gradle, but for now, we are keeping those projects in "bilingual" or "either-IDE mode".
 
-If you open the entire repo in Eclipse with eGit, be sure to check the `Import all projects`
+If you import the entire repo in Eclipse with eGit, be sure to check the `Import all projects`
 checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). 
 This directory is already set up to be an Eclipse workspace if you want it to
 (the __.metadata__ directory exists and is already in __.gitignore__).
@@ -78,15 +81,9 @@ https://guides.github.com/activities/hello-world/[the getting started page on Gi
 
 Many of the projects may (depending on your version of Eclipse) give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. Does not happen with current Eclipse, last I tried.
 
-There is neither a Wiki or a Tracker for this project, since bugs and suggestions about the code should be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920038092.do; you can also purchase the book there (which helps fund my continued work on this code base).
-
-=== You can't build the whole mess with Gradle
-
-You can't have this pretty thing. Because Gradle. Because Android Studio. Because fail.
-
-Patches welcome if they don't break any existing builds (Maven, Eclipse) AND if you can still open
-each individual project both in Eclipse and in Studio.
-See https://androidcookbook.com/Recipe.seam?recipeId=5203[Building an Android Application both with Eclipse and with Android Studio] for an easy way to do this for Eclipse projects.
+There is neither a Wiki or a Tracker for this Github repository.
+If a project won't open, or won't build, we'd prefer that you fix it and sent a pull request.
+Bugs and suggestions about code samples can be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920038092.do; you can also purchase the book there (which helps fund my continued work on this code base).
 
 === Notes for the First Edition of the book
 
@@ -101,13 +98,6 @@ use git to checkout the tag `Book-1.0`.
 === DELETED PROJECTS
 
 JpsTrack and the ToDo applications have graduated to their own github projects, up one level from here on Github.
-
-=== Wishlist
-
-There are some things I'd love it if people would contribute:
-
-* Gradle files for each project that doesn't already have one (they almost all have Maven files now.
-* Readme file for each project, to include a link back to the recipe in the online version of the book.
 
 [[table]]
 === List of Projects
