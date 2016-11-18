@@ -4,7 +4,7 @@ do
 		if [ ! -f $d/build.gradle ]; then
 			# likely candidate
 			echo $d 
-			duellingIDEs/add-gradle-to-eclipse $d
+			add-gradle-to-eclipse $d
 		fi
 	fi
 done
