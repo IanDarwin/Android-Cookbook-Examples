@@ -3,3 +3,11 @@ gen
 lint.xml
 dist
 /target/
+.DS_Store
+/build
+/captures
+.gradle
+/.idea/libraries
+/.idea/workspace.xml
+*.iml
+/local.properties

@@ -1,0 +1,44 @@
+// Sample build.gradle used in making ADT/AndMore projects work with Android Studio
+// while making only minimal or no changes to the filesystem hierarchy.
+// See https://androidcookbook.com/r/5203 for caveats and details!
+// See https://developer.android.com/studio/ for more on Android Studio.
+// See https://gradle.org/ for more on Gradle
+
+apply plugin: 'com.android.application'
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:+'
+	}
+}
+
+android {
+	compileSdkVersion 24
+	buildToolsVersion "24"
+
+	defaultConfig {
+		// applicationId "YOUR.PACKAGE.NAME.HERE"
+		minSdkVersion 11
+		targetSdkVersion 23
+		versionCode 1
+		versionName "1.0"
+	}
+
+	sourceSets {
+		main {
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+			manifest.srcFile 'AndroidManifest.xml'
+		}
+
+		androidTest.setRoot('tests')
+	}
+}
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile 'com.android.support:appcompat-v7:+'
+}
