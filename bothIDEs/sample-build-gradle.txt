@@ -7,35 +7,37 @@
 apply plugin: 'com.android.application'
 
 buildscript {
-	 repositories {
-		 mavenCentral()
-	 }
-	 dependencies {
-		 classpath 'com.android.tools.build:gradle:+'
-	 }
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:+'
+	}
 }
 
 android {
-	 compileSdkVersion 24
-	 buildToolsVersion "24"
+	compileSdkVersion 24
+	buildToolsVersion "24"
 
-	 defaultConfig {
-		 applicationId "YOUR.PACKAGE.NAME.HERE"
-		 minSdkVersion 11
-		 targetSdkVersion 23
-		 versionCode 1
-		 versionName "1.0"
-	 }
+	defaultConfig {
+		// applicationId "YOUR.PACKAGE.NAME.HERE"
+		minSdkVersion 11
+		targetSdkVersion 23
+		versionCode 1
+		versionName "1.0"
+	}
 
-	 sourceSets {
-		 main {
-			 manifest.srcFile 'AndroidManifest.xml'
-			 res.srcDirs = ['res']
-			 assets.srcDirs = ['assets']
-		 }
+	sourceSets {
+		main {
+			// Comment OUT following line if your project follows Maven/gradle structure src/main/java
+			java.srcDirs = ['src']
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+			manifest.srcFile 'AndroidManifest.xml'
+		}
 
-		 androidTest.setRoot('tests')
-	 }
+		androidTest.setRoot('tests')
+	}
 }
 
 dependencies {
