@@ -2,7 +2,7 @@
 
 # Add files to an Eclipse project so it can build with Android Studio.
 
-# MUST BE RUN IN THIS DIRECTORY with relative or absolute path to the project
+# MUST BE RUN IN THIS DIRECTORY with relative or absolute path to the project(s).
 
 for PROJ
 do
