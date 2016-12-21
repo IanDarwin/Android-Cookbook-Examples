@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -26,12 +27,15 @@ import android.widget.ListView;
 
 public class MainActivity extends Activity implements OnItemClickListener {
 
+    String url = "https://androidcookbook.com/seam/resource/rest/recipe/list";
+
     protected static final int DIALOG_KEY = 0;
     ListView mListView;
     Button mClear;
     Button mRefresh1;
     Button mRefresh2;
     ProgressDialog mProgressDialog;
+    WebView mWebView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
             @Override
             public void onClick(View v) {
                 LoadRecipesTask1 mLoadRecipesTask = new LoadRecipesTask1();
-                mLoadRecipesTask.execute("http://androidcookbook.com/seam/resource/rest/recipe/list");
+                mLoadRecipesTask.execute(url);
             }
         });
 
@@ -61,7 +65,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
             @Override
             public void onClick(View v) {
                 LoadRecipesTask2 mLoadRecipesTask = new LoadRecipesTask2();
-                String url = "http://androidcookbook.com/seam/resource/rest/recipe/list";
                 showDialog(DIALOG_KEY);                                                     // 1
                 mLoadRecipesTask.execute(url, url, url, url, url);                          // 2
             }
@@ -227,5 +230,4 @@ public class MainActivity extends Activity implements OnItemClickListener {
             mProgressDialog.dismiss();                                                       // 6
         }
     }
-
 }
