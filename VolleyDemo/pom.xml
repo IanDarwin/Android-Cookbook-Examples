@@ -17,6 +17,7 @@
 		<platform.version>4.0.1.2</platform.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<android.sdk.path>C:\android\android-sdk</android.sdk.path>
 	</properties>
 
 	<dependencies>
