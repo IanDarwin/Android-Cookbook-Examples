@@ -35,6 +35,31 @@ public class VolleyDemo extends Activity {
 		// Set up the Volley queue for REST processing
 		queue = Volley.newRequestQueue(this);
 	}
+
+	/**
+	 * The action begins here
+	 * @param v The Interface that launched a thousand queries
+	 */
+	public void fetchResults(View v) {
+
+		String host ="https://suggestqueries.google.com/";
+		// Amusingly, client=firefox makes the output come back in JSON
+		String baseUrl ="complete/search?output=toolbar&hl=en&client=firefox&q=";
+		String listUrl = mSearchBox.getText().toString();
+
+		if (listUrl.length() == 0) {
+			Toast.makeText(this, "Input required!", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		// Create a String Request to get information from the provided URL.
+		String requestUrl = host + baseUrl + listUrl;
+		JsonArrayRequest request = new JsonArrayRequest(
+				requestUrl, successListener, failListener);
+
+		// Queue the request to do the sending and receiving
+		queue.add(request);
+	}
 	
 	/**
 	 * What we get back from this particular web service is a JSON array containing:
@@ -70,25 +95,4 @@ public class VolleyDemo extends Activity {
 			error.printStackTrace();
 		}
 	};
-
-	public void fetchResults(View v) {
-
-		String host ="https://suggestqueries.google.com/";
-		// Amusingly, client=firefox makes the output come back in JSON
-		String baseUrl ="complete/search?output=toolbar&hl=en&client=firefox&q=";
-		String listUrl = mSearchBox.getText().toString();
-		
-		if (listUrl.length() == 0) {
-			Toast.makeText(this, "Input required!", Toast.LENGTH_SHORT).show();
-			return;
-		}
-
-		// Create a String Request to get information from the provided URL.
-		String requestUrl = host + baseUrl + listUrl;
-		JsonArrayRequest request = new JsonArrayRequest(
-		        requestUrl, successListener, failListener);
-
-		// Queue the request to do the sending and receiving
-		queue.add(request);
-	}
 }

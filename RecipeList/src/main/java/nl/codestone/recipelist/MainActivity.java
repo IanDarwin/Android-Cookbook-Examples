@@ -1,6 +1,7 @@
 package nl.codestone.recipelist;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -80,6 +81,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     }
 
+
+
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -100,16 +103,21 @@ public class MainActivity extends Activity implements OnItemClickListener {
         this.startActivity(intent);
     }
 
+    /** Parse an XML input URL */
     public static ArrayList<Datum> parse(String url) throws IOException, XmlPullParserException {
-        final ArrayList<Datum> results = new ArrayList<Datum>();
-
         URL input = new URL(url);
+        final InputStream inputStream = input.openStream();
+        return parse(inputStream);
+    }
+
+    public static ArrayList<Datum> parse(InputStream inputStream) throws IOException, XmlPullParserException {
+        final ArrayList<Datum> results = new ArrayList<Datum>();
 
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
         XmlPullParser xpp = factory.newPullParser();
 
-        xpp.setInput(input.openStream(), null);
+        xpp.setInput(inputStream, null);
         int eventType = xpp.getEventType();
         String currentTag = null;
         Integer id = null;
@@ -169,6 +177,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
         return results;
     }
 
+    /**
+     * Fetch the list of Recipes using an AsyncTask and the deprecated
+     * setProgressBarIndeterminateVisibility method
+     */
     protected class LoadRecipesTask1 extends AsyncTask<String, Void, ArrayList<Datum>> {
 
         @Override
@@ -196,6 +208,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
         }
     }
 
+    /**
+     * Fetch the list of Recipes using an AsyncTask and a ProgressDialog
+     */
     protected class LoadRecipesTask2 extends AsyncTask<String, Integer, ArrayList<Datum>> {
         
         @Override

@@ -101,6 +101,7 @@
 		<module>RGraphDemo</module>
 		<module>RangeGraphDemo</module>
 		<module>Rebooter</module>
+		<module>RecipeList</module>
 		<module>RemoteSystemsTempFiles</module>
 		<module>RuntimeLog</module>
 		<module>SecondScreen</module>

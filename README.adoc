@@ -111,7 +111,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | Project | Builds With | Function | Notes 
 // INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutBoxDemo[AboutBoxDemo] | GS | A re-usable About dialog. | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EMG | Info about device and screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EMGS | Info about device and screen | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AddContact[AddContact] | EMG | Add a contact | Shows ContactsContract, content provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
@@ -125,7 +125,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | EMG | Bluetooth Connection | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | EMG | Add appointment to Calendar | Calendar via Content Provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | EMG | Pretend a call happened, for testing | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | EG | Intercept an incoming phone call. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | EGS | Intercept an incoming phone call. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | EG | Intercept outgoing phone calls. | Compiles and runs, but doesn't intercept the call.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | GS | CameraIntent - get the camera to take a picture, by startActivityForResult() | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | GS | Demonstation of Card widget. | -
@@ -207,7 +207,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ProgressDialogDemo[ProgressDialogDemo] | GS | Demo of a pop-up indefinite progress dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | EMG | Using a graphing library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EMG | How to reboot, and why you can't | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | EG | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | EMGS | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RemoteSystemsTempFiles[RemoteSystemsTempFiles] | EM | This folder is created automatically by Eclipse and can be ignored. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | EMG | Using a graphing library | -
@@ -246,7 +246,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/UniqueId[UniqueId] | EMG | Find device's unique ID | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Vibrate[Vibrate] | EMG | Make the device vibrate | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ViewPagerDemo[ViewPagerDemo] | EMG | Swipe among views | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/VolleyDemo[VolleyDemo] | EMG | Demo of Volley networking library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/VolleyDemo[VolleyDemo] | EMGS | Demo of Volley networking library | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WheelPickerDemo[WheelPickerDemo] | GS | Apple-style Wheel Picker Demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | EMG | Graphical window background | -
 |===========
