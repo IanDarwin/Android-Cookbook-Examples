@@ -1,8 +1,10 @@
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.xmlpull.v1.XmlPullParserException;
 
 import nl.codestone.recipelist.Datum;
 import nl.codestone.recipelist.MainActivity;
@@ -24,6 +26,11 @@ public class ParseTests {
 	}
 
 	@Test
-	public void testParse2() {
+	public void testParse2() throws Exception {
+		List<Datum> actual = MainActivity.parse2(new ByteArrayInputStream(testData.getBytes()));
+		assertEquals(2, actual.size());
+		Datum d = actual.get(0);
+		assertEquals(123, d.getId());
+		assertEquals("New Beginnings", d.getTitle());
 	}
 }

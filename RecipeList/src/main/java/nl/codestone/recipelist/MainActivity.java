@@ -141,17 +141,22 @@ public class MainActivity extends Activity implements OnItemClickListener {
         }
         return results;
     }
-
+    
+    /** Parse an XML input URL */
     public static ArrayList<Datum> parse2(String url) throws IOException, XmlPullParserException {
-        final ArrayList<Datum> results = new ArrayList<Datum>();
-
         URL input = new URL(url);
+        final InputStream inputStream = input.openStream();
+        return parse2(inputStream);
+    }
+
+    public static ArrayList<Datum> parse2(InputStream inputStream) throws IOException, XmlPullParserException {
+        final ArrayList<Datum> results = new ArrayList<Datum>();
 
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
         XmlPullParser xpp = factory.newPullParser();
 
-        xpp.setInput(input.openStream(), null);
+        xpp.setInput(inputStream, null);
         xpp.nextTag();
         xpp.require(XmlPullParser.START_TAG, null, "recipes");
         while (xpp.nextTag() == XmlPullParser.START_TAG) {
