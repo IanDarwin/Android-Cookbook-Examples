@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <!-- Main stuff -->
+    <string name="app_name">MaterialDemos</string>
+    <string name="start_button_label">Start Something!</string>
+    <string name="click_here">Click me!</string>
+    <string name="type_here">Type here</string>
+    <string name="raise_me">Raise/Lower Me</string>
+    <!-- General Errors -->
+    <string name="error">Error</string>
+    <!-- Menu -->
+    <string name="settings_label">Settings…</string>
+    <string name="settings_shortname">Settings</string>
+    <string name="settings_accel">s</string>
+    <!-- Settings -->
+    <string name="settings_name">Settings</string>
+    <!--  About box -->
+    <string name="about_name">About </string>
+    <string name="about_shortname">About</string>
+    <string name="about_text">This is a simple demo to feature some Material Design ideas</string>
+</resources>

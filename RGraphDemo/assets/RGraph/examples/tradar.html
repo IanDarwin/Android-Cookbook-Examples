@@ -1,0 +1,116 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+
+    <title>RGraph: HTML5 canvas graph library - Traditional radar chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example tradar radar chart" />
+    <meta name="description" content="RGraph: Traditional radar chart" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.tradar.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var tradar = new RGraph.Tradar('tradar1', [41,36,32,12,34]);
+            tradar.Set('chart.background.circles', true);
+            tradar.Set('chart.color', 'rgba(255,0,0,0.3)');
+            tradar.Set('chart.circle.fill', 'rgba(200,255,200,0.9)');
+            tradar.Set('chart.labels', ['Safari (3%)', 'Other (3%)', 'MSIE 7 (41%)', 'MSIE 6 (37%)', 'Firefox (16%)']);
+            tradar.Set('chart.title', "Browser share (annotatable, context, zoom)" );
+            tradar.Set('chart.linewidth', 1);
+            tradar.Set('chart.labels.axes', 'n');
+
+            if (!RGraph.isIE8()) {
+                tradar.Set('chart.zoom.vdir', 'up');
+                tradar.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom], ['Clear', function () {RGraph.Clear(tradar.canvas); tradar.Draw()}]]);
+                tradar.Set('chart.annotatable', true);
+            }
+            tradar.Draw();
+
+            var tradar5 = new RGraph.Tradar('tradar5', [43,84,54,64,34,21,21]);
+            tradar5.Set('chart.labels.axes', 'n');
+            tradar5.Set('chart.circle', 50);
+            tradar5.Set('chart.circle.fill', 'rgba(0, 0, 255, 0.3)');
+            tradar5.Set('chart.tooltips', ['Dave (43)', 'John (84)', 'Kiffen (54)', 'Peter (64)', 'Lou (34)', 'Igor (21)', 'John (21)']);
+            tradar5.Set('chart.tooltips.effect', 'fade');
+            tradar5.Set('chart.title', 'The results of the competition (tooltips)');
+            tradar5.Set('chart.labels', ['Dave (43)', 'John (84)', 'Kiffen (54)', 'Peter (64)', 'Lou (34)', 'Igor (21)', 'John (21)']);
+            tradar5.Set('chart.ymax', 85);
+            tradar5.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Traditional radar chart
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - Traditional radar chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <div style="float: right; width: 450px">
+    </div>
+    
+    <p>
+        A traditional radar chart, that is similar to the Rose chart. Each of the data points is
+        arranged equally in terms of angle, whilst the magnitude of each point is shown by the distance from the centre. Thus,
+        data points of a higher magnitude can be seen as they are more distant from the centre.
+    </p>
+    
+    <p>
+        Suitable for many datasets, but not all. If not, then the Rose chart may be more apt.
+    </p>
+    
+    <p>
+        The circle, as can be seen in the second example, could be used to indicate a threshold of sorts. In the example,
+        it could be minimum sales required for a particular month. Months that fall below this threshold can be clearly seen.
+    </p>
+
+    <div>
+        <ul>
+            <li><a href="../docs/tradar.html">Traditional radar chart API documentation</a></li>
+            <li><a href="rose.html">Rose chart example</a></li>
+        </ul>
+    </div>
+
+    <canvas id="tradar1" width="475" height="350">[No canvas support]</canvas>
+    <canvas id="tradar5" width="475" height="350">[No canvas support]</canvas>
+</body>
+</html>

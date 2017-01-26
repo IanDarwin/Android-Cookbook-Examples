@@ -1,0 +1,143 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - pie chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example pie chart" />
+    <meta name="description" content="RGraph: Pie chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.pie.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            /**
+            * These are not angles - these are values. The appropriate angles are calculated
+            */
+            var pie1 = new RGraph.Pie('pie1', [41,37,16,3,3]); // Create the pie object
+            pie1.Set('chart.labels', ['MSIE 7 (41%)', 'MSIE 6 (37%)', 'Firefox (16%)', 'Safari (3%)', 'Other (3%)']);
+            pie1.Set('chart.gutter', 30);
+            pie1.Set('chart.title', "Browsers (tooltips, context, zoom)");
+            pie1.Set('chart.shadow', false);
+
+            if (!RGraph.isIE8()) {
+                pie1.Set('chart.tooltips.effect', 'contract');
+                pie1.Set('chart.tooltips', [
+                                            'Internet Explorer 7 (41%)',
+                                            'Internet Explorer 6 (37%)',
+                                            'Mozilla Firefox (16%)',
+                                            'Apple Safari (3%)',
+                                            'Other (3%)'
+                                           ]
+                                          );
+                pie1.Set('chart.highlight.style', '3d'); // Defaults to 3d anyway; can be 2d or 3d
+                pie1.Set('chart.zoom.hdir', 'center');
+                pie1.Set('chart.zoom.vdir', 'up');
+                pie1.Set('chart.labels.sticks', true);
+                pie1.Set('chart.labels.sticks.color', '#aaa');
+                pie1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom]]);
+            }
+            
+            pie1.Set('chart.linewidth', 5);
+            pie1.Set('chart.strokestyle', 'white');
+            pie1.Draw();
+
+            var pie2 = new RGraph.Pie('pie2', [2,29,45,17,7]); // Create the pie object
+            pie2.Set('chart.gutter', 45);
+            pie2.Set('chart.title', "Some data (context, annotatable)");
+            pie2.Set('chart.linewidth', 1);
+            pie2.Set('chart.strokestyle', '#333');
+            pie2.Set('chart.shadow', true);
+            pie2.Set('chart.shadow.blur', 3);
+            pie2.Set('chart.shadow.offsetx', 3);
+            pie2.Set('chart.shadow.offsety', 3);
+            pie2.Set('chart.shadow.color', 'rgba(0,0,0,0.5)');
+            pie2.Set('chart.colors', ['red', 'pink', '#6f6', 'blue', 'yellow']);
+            pie2.Set('chart.contextmenu', [['Clear', function () {RGraph.Clear(pie2.canvas); pie2.Draw();}]]);
+            pie2.Set('chart.key', ['John (2%)', 'Richard (29%)', 'Fred (45%)', 'Brian (17%)', 'Peter (7%)']);
+            pie2.Set('chart.key.background', 'white');
+            pie2.Set('chart.key.shadow', true);
+            pie2.Set('chart.annotatable', true);
+            pie2.Set('chart.align', 'left');
+            pie2.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Pie chart
+</div>
+
+    <h1>RGraph: HTML5 canvas graph library - Pie chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <div>
+
+        <p>
+            The Pie chart can be used when you need to represent value as part of a whole. It is commonly used to represent percentages,
+            relative magnitudes or relative frequencies. If your intent is to compare a particular value (slice) against the whole of
+            the Pie chart, then it can be quite effective. If however you want to compare two seperate segments, then it can get
+            more difficult. If this is the case, you may want to consider a bar chart for example.
+        </p>
+        
+        <p>
+            The colours can of course be customised, as can the borders (using the same color as the background and a line width of
+            about 5 gives the effect of segment separation. The chart can also have a drop shadow if you want one, but this shouldn't
+            be used in conjunction with segment seperation.
+        </p>
+        
+        <p>
+            The first pie chart has a fade-in effect. This not part of the RGraph library but is very easy to implement.
+        </p>
+    </div>
+
+    <div>
+        <ul>
+            <li><a href="../docs/pie.html">Pie chart API documentation</a></li>
+        </ul>
+    </div>
+    
+    <div style="text-align: center">
+        <canvas id="pie1" width="420" height="300">[No canvas support]</canvas>
+        <canvas id="pie2" width="440" height="300">[No canvas support]</canvas>
+    </div>
+
+</body>
+</html>

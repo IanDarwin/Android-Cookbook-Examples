@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/hello"
+    />
+<Button
+	android:id="@+id/play_button"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/play_music"
+    />
+<Button
+	android:id="@+id/alarm_button"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/play_alarm"
+    />
+</LinearLayout>

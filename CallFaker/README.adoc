@@ -1,0 +1,3 @@
+This is a dummy to catch phone calls for the somewhat bizarre use case
+of testing apps that try to place phone calls but run them on a Tablet
+or an emulator. Don't ask, OK?

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<countries>
+		<country name="Australia" abbreviation="au" region="Asia" />
+		<country name="Austria" abbreviation="at" region="Europe" />
+		<country name="Belgium" abbreviation="be" region="Europe" />
+		<country name="Brazil" abbreviation="br" region="S. America" />
+		<country name="Canada" abbreviation="ca" region="N. America" />
+		<country name="China" abbreviation="cn" region="Asia" />
+		<country name="Denmark" abbreviation="dk" region="Europe" />
+		<country name="France" abbreviation="fr" region="Europe" />
+		<country name="Germany" abbreviation="de" region="Europe" />
+		<country name="Hong Kong" abbreviation="hk" region="Asia" />
+		<country name="India" abbreviation="in" region="Asia" />
+		<country name="Indonesia" abbreviation="id" region="Asia" />
+		<country name="Italy" abbreviation="it" region="Europe" />
+		<country name="Korea" abbreviation="kr" region="Asia" />
+		<country name="Netherlands" abbreviation="nl" region="Europe" />
+		<country name="Norway" abbreviation="no" region="Europe" />
+		<country name="Portugal" abbreviation="pt" region="Europe" />
+		<country name="Singapore" abbreviation="sg" region="Asia" />
+		<country name="Spain" abbreviation="es" region="Europe" />
+		<country name="Sweden" abbreviation="se" region="Europe" />
+		<country name="Switzerland" abbreviation="ch" region="Europe" />
+		<country name="Taiwan" abbreviation="tw" region="Asia" />
+		<country name="United Kingdom" abbreviation="uk" region="Europe" />
+		<country name="United States" abbreviation="us" region="N. America" />
+</countries>

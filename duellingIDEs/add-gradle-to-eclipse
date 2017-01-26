@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Add files to an Eclipse project so it can build with Android Studio.
+
+# MUST BE RUN IN THIS DIRECTORY with relative or absolute path to the project(s).
+
+for PROJ
+do
+	# See if project source follows simple Eclipse structure or standard directory structure
+	if [ ! -d ${PROJ}/src/main/java ]; then
+		CMD=cat
+	else
+		CMD="grep -v java"	# remove 'java.src' line as it's default.
+	fi
+
+	${CMD} sample-build-gradle.txt > ${PROJ}/build.gradle
+	mkdir -p ${PROJ}/gradle/wrapper
+	cp gradle-wrapper.jar gradle-wrapper.properties ${PROJ}/gradle/wrapper/
+	# Hope we are using Eclipse, if not, this will be wasted.
+	cat dot-gitignore >> ${PROJ}/.gitignore
+done

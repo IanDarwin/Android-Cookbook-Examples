@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">AboutInfo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">AboutInfo</string>
+
+</resources>

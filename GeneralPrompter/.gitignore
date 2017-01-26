@@ -1,0 +1,8 @@
+/build
+/bin
+/target
+.gradle
+/.idea/libraries
+/.idea/workspace.xml
+*.iml
+/local.properties

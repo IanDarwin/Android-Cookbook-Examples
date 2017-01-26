@@ -1,0 +1,66 @@
+<rgraph object="led">
+    <property>
+        <name>chart.dark</name>
+        <description>Color of the darkened (ie unlit) lights<br /><i>Default: #eee</i></description>
+    </property>
+    <property>
+        <name>chart.light</name>
+        <description>Color of lit lights<br /><i>Default: #f66</i></description>
+    </property>
+    <property>
+        <name>chart.background</name>
+        <description>The color of the background.<br /><i>Default: white</i></description>
+    </property>
+    <property>
+        <name>chart.resizable</name>
+        <description>Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.mode</name>
+        <description>Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.factor</name>
+        <description>This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.in</name>
+        <description>Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.out</name>
+        <description>Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.hdir</name>
+        <description>The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.vdir</name>
+        <description>The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.delay</name>
+        <description>The delay (in milliseconds) between frames.<br /><i>Default: 50</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.frames</name>
+        <description>The number of frames in the zoom animation.<br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.shadow</name>
+        <description>Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.width</name>
+        <description>When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.height</name>
+        <description>When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.background</name>
+        <description>Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i></description>
+    </property>
+</rgraph>

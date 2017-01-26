@@ -1,0 +1,137 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - funnel chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example funnel chart" />
+    <meta name="description" content="RGraph: Funnel chart examples" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.funnel.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        /**
+        * The onload function creates the graph
+        */
+        window.onload = function ()
+        {
+            var funnel = new RGraph.Funnel('funnel1', [100,45,45,26,21,5]);
+            funnel.Set('chart.gutter', 40);
+            funnel.Set('chart.text.boxed', false);
+            funnel.Set('chart.title', 'Leads to sales (tooltips, context, zoom)');
+            funnel.Set('chart.shadow', true);
+            funnel.Set('chart.shadow.color', 'black');
+            funnel.Set('chart.shadow.blur', 3);
+            funnel.Set('chart.shadow.offsetx', 3);
+            funnel.Set('chart.shadow.offsety', 3);
+            
+            if (!RGraph.isIE8()) {
+                funnel.Set('chart.tooltips', [
+                                              'id:tooltip_contact',
+                                              'id:tooltip_lead',
+                                              'id:tooltip_call',
+                                              'id:tooltip_visit',
+                                              'id:tooltip_sale',
+                                              function (idx) {return '<b>After sales concern</b><br />An after sales concern or query was raised by the Customer.';}
+                                             ]);
+
+                funnel.Set('chart.tooltips.effect', 'fade');
+                funnel.Set('chart.zoom.hdir', 'center');
+                funnel.Set('chart.zoom.vdir', 'up');
+                funnel.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom]]);
+            }
+
+            funnel.Set('chart.labels', ['Initial contact', 'Established lead', 'Telephone contact', 'Site visit', 'Sale', 'After sales']);
+            funnel.Set('chart.text.boxed', true);
+            funnel.Draw();
+
+
+            var funnel3 = new RGraph.Funnel('funnel3', [56,45,12,4,3,2,1]);
+            funnel3.Set('chart.title', 'A funnel (zoom)');
+            
+            if (!RGraph.isIE8()) {
+                funnel3.Set('chart.zoom.mode', 'thumbnail');
+            }
+
+            funnel3.Draw();
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="./index.html">Examples</a>
+        >
+        Funnel chart
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Funnel chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <p>
+        The funnel chart can be used to show stages in a sales or order process, from initial lead/contact through to actual sale.
+        It works well if you have a diminishing process, like that shown below. It can show potential revenue in each stage, or
+        like below, it can show actual numbers. It can also highlight potential problems in an organisations sales and/or order fulfillment
+        processes.
+    </p>
+
+    <div>
+        <div>
+            <ul>
+                <li><a href="../docs/funnel.html">Funnel chart API documentation</a></li>
+            </ul>
+        </div>
+
+        <div style="width: 950px">
+            <div style="width: 450px; float: left">
+                <canvas id="funnel3" width="300" height="400">[No canvas support]</canvas>
+            </div>
+            
+            <div style="width: 450px; float: right">
+                <canvas id="funnel1" width="400" height="400">[No canvas support]</canvas>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none">
+        <div id="tooltip_contact"><b>Initial contact</b><br />All potential cutomers were contacted and<br />interest was established.</div>
+        <div id="tooltip_lead"><b>Established lead</b><br />Customers who were interested had their details<br />recorded and passed to the sales team.</div>
+        <div id="tooltip_call"><b>Sales Call</b><br />Interested Customers were called by the<br />sales team.</div>
+        <div id="tooltip_visit"><b>Site visit</b><br />The Customers site was visited by a representative<br />of the sales core.</div>
+        <div id="tooltip_sale"><b>Sale agreed</b><br />A sale was finalised by the sales core.</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Custom RGraph events</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs custom events" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about the custom RGraph events" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/ModalDialog.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Custom RGraph events
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Custom RGraph events</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li>
+            <a href="#available.events">Available events</a>
+            <ul>
+                <li><a href="#event.ontooltip">ontooltip</a></li>
+                <li><a href="#event.oncontextmenu">oncontextmenu</a></li>
+                <li><a href="#event.onbeforedraw">onbeforedraw</a></li>
+                <li><a href="#event.ondraw">ondraw</a></li>
+                <li><a href="#event.onzoom">onzoom</a></li>
+                <li><a href="#event.onmodaldialog">onmodaldialog</a></li>
+                <li><a href="#event.onresize">onresize</a></li>
+                <li><a href="#event.onadjust">onadjust</a></li>
+                <li><a href="#event.onannotate">onannotate</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <a name="introduction"></a>
+    <h4>Introduction</h4>
+    
+    <p>
+        Custom events allow you to easily interact with and extend RGraph for your own purposes. The list of available events is below,
+        as is an example of how to make use of them with the <i>RGraph.AddCustomEventListener()</i> function. Event handler functions (ie your
+        functions) are passed a single parameter - the graph object. With this you can get references to the canvas and context. There's
+        an example of this below.
+    </p>
+
+<pre class="code">&lt;script&gt;
+    window.onload = function ()
+    {
+        var line = new RGraph.Line('myLine', [45,12,16,18,44,54,23,21,56]);
+        line.Set('chart.tooltips', ['Fred', 'Barney', 'Jay', 'Pete', 'Frank', 'Bob', 'Ted', 'Lou', 'Kev']);
+        line.Set('chart.labels', ['Fred', 'Barney', 'Jay', 'Pete', 'Frank', 'Bob', 'Ted', 'Lou', 'Kev']);
+        line.Set('chart.hmargin', 5);
+        line.Set('chart.tickmarks', 'dot');
+        line.Draw();
+
+        <span style="color: green">/**
+        * This is the call to the RGraph function that registers the event listener
+        * 
+        *      line: The graph object
+        * ontooltip: The name of the event
+        *    myFunc: The function that handles the event
+        */</span>
+        RGraph.AddCustomEventListener(line, 'ontooltip', myFunc);
+    }
+
+    <span style="color: green">/**
+    * The function that is called when the ontooltip event fires. It is  passed a single parameter - the graph object.
+    * With this you can get the ID and references to the canvas and context:
+    *  o obj.id
+    *  o obj.canvas
+    *  o obj.context
+    */</span>
+    function myFunc(obj)
+    {
+        var id      = obj.id;
+        var canvas  = obj.canvas;
+        var context = obj.context;
+
+        alert('This alert was triggered by the custom ontooltip event');
+    }
+&lt;/script&gt;
+</pre>
+    
+    <a name="available.events"></a>
+    <h4>Available events</h4>
+
+    <p>
+        <a name="event.ontooltip"></a>
+        <b>ontooltip</b><br />
+        This event fires immediately after a tooltip has been created. This event allows you to easily show graphs in your tooltips (tooltip
+        effects that involve moving the tooltip, eg. <i>contract</i>, <i>expand</i> &amp; <i>snap</i>, will not function). You
+        can find the tooltip object in the RGraph registry - <i>RGraph.Registry.Get('chart.tooltip')</i>. Note that if you're testing and
+        using a function that pauses execution (eg alert()), this will also pause any timers (for animation effects etc). If you want to
+        avoid this you should use a function that doesn't block execution, eg the Firebug/WebKit function, <i>console.log()</i> (you can use the
+        <i>cl()</i> shortcut in RGraph).
+    </p>
+
+    <p>
+        <a name="event.oncontextmenu"></a>
+        <b>oncontextmenu</b><br />
+        This event fires immediately after the RGraph context menu is shown. If you want it, you can get at the context menu in the
+        RGraph registry: <i>RGraph.Registry.Get('chart.contextmenu')</i> Like the <i>ontooltip</i> event, using <i>alert()</i> can
+        pause the fade in timers, so you should consider using the Firebug/Webkit <i>console.log</i> functions instead.
+    </p>
+
+    <p>
+        <a name="event.onbeforedraw"></a>
+        <b>onbeforedraw</b><br />
+        Much like the ondraw event, however this fires at the start of the .Draw() method, in effect "before" the method.
+    </p>
+
+    <p>
+        <a name="event.ondraw"></a>
+        <b>ondraw</b><br />
+        The ondraw event fires <i>after</i> the .Draw() method has run. Note that the interactive features of RGraph may call the .Draw()
+        method multiple times - the zoom in area mode is a prime example.
+        A graph with tooltips is also an example. In this case it would demonstrate that the .Draw() method is called twice (and
+        hence the ondraw event), whereas the ontooltip event only fires once.
+        
+        <br /><br />
+
+        <b>Note:</b> The <i>ondraw</i> event is not only fired by its own graph,
+        but (if you're using tooltips for example), can also be fired by other graphs on the page.
+    </p>
+
+    <p>
+        <a name="event.onzoom"></a>
+        <b>onzoom</b><br />
+        The onzoom event fires whenever the canvas is zoomed. When the zoom is in <i>area</i> and <i>canvas</i> modes this fires once,
+        but when in <i>thumbnail</i> mode this event is like the onmousemove event in that it fires whenever the mouse is moved.
+    </p>
+
+    <p>
+        <a name="event.onmodaldialog"></a>
+        <b>onmodaldialog</b><br />
+        The onmodaldialog event fires when the ModalDialog is shown. This event is easily replicated yourself, though using this event
+        may help you to keep your code tidy. This event is utilised slightly differently to the other events:
+        
+        <pre class="code">ModalDialog.AddCustomEventListener('onmodaldialog', function () {alert('Hello world!');});</pre>
+    </p>
+
+    <p>
+        <a name="event.onresize"></a>
+        <b>onresize</b><br />
+        The onresize event fires when a canvas is resized. It also fires when the canvas is reset to the original size.
+    </p>
+
+    <p>
+        <a name="event.onadjust"></a>
+        <b>onadjust</b><br />
+        The onadjust event fires whenever one of the supported graph types is adjusted. It usually fires in conjunction with the
+        onmousemove event, and can be blocked by alert(). You therefore may need to use a different function (eg console.log())
+        whilst debugging.
+    </p>
+
+    <p>
+        <a name="event.onannotate"></a>
+        <b>onannotate</b><br />
+        The onannotate event fires when the graph has been annotated. It fires <i>during</i> the annotate process, not just once at
+        the end.
+    </p>
+</body>
+</html>

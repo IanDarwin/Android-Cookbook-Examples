@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TeleCorder2</string>
+    <string name="hello_world">Hello world of Two</string>
+    <string name="action_settings">Settings</string>
+    <string name="device_description">Description</string>
+    <string name="device_admin_label">Admin</string>
+
+</resources>

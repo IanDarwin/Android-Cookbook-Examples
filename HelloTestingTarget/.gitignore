@@ -1,0 +1,14 @@
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.idea/
+gen/
+out/.DS_Store
+/build
+/captures
+.gradle
+/.idea/libraries
+/.idea/workspace.xml
+*.iml
+/local.properties

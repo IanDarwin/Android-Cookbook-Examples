@@ -1,0 +1,1 @@
+Swipe among views

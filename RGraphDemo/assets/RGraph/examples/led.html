@@ -1,0 +1,104 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - LED grid</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example led grid" />
+    <meta name="description" content="RGraph: LED grid example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.led.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var led1 = new RGraph.LED('myCanvas1', 'abcdefgh');
+            led1.Set('chart.zoom.hdir', 'center');
+            led1.Set('chart.zoom.vdir', 'center');
+            led1.Set('chart.contextmenu', [['Zoom in', function (e) {if (!RGraph.isIE8()) {RGraph.Zoom(e);} else {alert('[MSIE] This browser does not support zoom');}}]]);
+            led1.Set('chart.light', 'black');
+            led1.Draw();
+
+            var led2 = new RGraph.LED('myCanvas2', 'ijklmnop');
+            led2.Set('chart.light', '#0f0');
+            led2.Draw();
+
+            var led3 = new RGraph.LED('myCanvas3', 'qrstuvwx');
+            led3.Set('chart.light', '#f00');
+            led3.Draw();
+
+            var led4 = new RGraph.LED('myCanvas4', 'yz012345');
+            led4.Set('chart.light', '#ff0');
+            led4.Draw();
+
+            var led5 = new RGraph.LED('myCanvas5', '6789    ');
+            led5.Set('chart.light', '#0ff');
+            led5.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    LED Grid
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - LED Grid</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <p>
+        An LED grid, that could be used to show a multitude of things. Could be used as a website counter for example.
+        It supports the A-Z, 0-9 and space characters. As you can see the colors are also user-definable. It also
+        supports the context menu, and therefore the zoom. The first LED grid demonstrates this.
+    </p>
+
+    <div>
+        <ul>
+            <li><a href="../docs/led.html">LED Grid API documentation</a></li>
+        </ul>
+    </div>
+
+    <div style="width: 50%; margin-left: 250px; text-align: center">
+        <canvas id="myCanvas1" width="275" height="60">[No canvas support]</canvas>
+        <canvas id="myCanvas2" width="275" height="60">[No canvas support]</canvas>
+        <canvas id="myCanvas3" width="275" height="60">[No canvas support]</canvas>
+        <canvas id="myCanvas4" width="275" height="60">[No canvas support]</canvas>
+        <canvas id="myCanvas5" width="275" height="60">[No canvas support]</canvas>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+</body>
+</html>

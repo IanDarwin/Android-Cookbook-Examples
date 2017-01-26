@@ -1,0 +1,29 @@
+<html>
+<head>
+
+<script> 
+        var showData = function() {
+            var data = android.getData(); data = JSON.parse(data);
+            window.alert("Hello! Data are: " + data + "; first = " + data[0]);
+        }
+        var setData = function() {
+        	android.setData('[10,20,30]');
+        	window.alert("Data have been updated; press 'Display' again to prove it.");
+        }
+</script>
+
+</head>
+
+<body>
+<p>Lorem ipsem dolor et ceteris.</p>
+
+<input type="button" value="Display data" onclick="showData()">
+
+<input type="button" value="Update data" onclick="setData();">
+
+<br/>
+
+<input type="button" value="Done" onclick="android.finish();">
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Context menus</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs context menus" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about context menus" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <!-- Contextmenu CSS classes -->
+    <style>
+        .RGraph_contextmenu {
+        }
+
+        .RGraph_contextmenu_background {
+        }
+
+        .RGraph_contextmenu_item {
+        }
+    </style>
+
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Context menus
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Context menus</h1>
+
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <ul>
+        <li><a href="#what">What are context menus?</a></li>
+        <li><a href="#look">What do they look like?</a></li>
+        <li><a href="#multiple">Can I have multiple levels of menus?</a></li>
+        <li><a href="#define">How do I define context menus?</a></li>
+        <li><a href="#seperators">Can I have "separators"?</a></li>
+        <li><a href="#bypass">How do I bypass them?</a></li>
+        <li><a href="#use">What can I use them for?</a></li>
+        <li><a href="#example">Is there an example file that uses the CSS classes?</a></li>
+        <li><a href="#mac">Context menus, Macs, Safari and Opera</a></li>
+    </ul>
+
+    <a name="what"></a>
+    <h3>What are context menus?</h3>
+
+    <p>
+        Context menus are what you see when you click your right mouse button. With RGraph, you can specify custom menus
+        for your graphs if you wish. This way you can define custom actions to be associated with menu items. Context menus are a
+        very easy way to extend the functionality of your graphs, allowing you to associate presentation style functionality
+        with them.
+    </p>
+    
+    <p>
+        <b>Important:</b> Opera does not allow you to customise the context menu, so with this browser you
+        should use the left mouse button on the graph, instead of the right.
+    </p>
+
+    <a name="look"></a>
+    <h3>What do they look like?</h3>
+
+    <img src="../images/context.png" width="148" height="90" alt="An RGraph context menu" style="float: right; margin-right: 200px; border: 2px dashed gray; margin-right: 280px" />
+
+    <p>
+        Context menus look like the image on the right. You can of course customise their look by using stylesheets. The CSS classes
+        you need to use are <b>RGraph_contextmenu_background</b>, <b>RGraph_contextmenu</b> and <b>RGraph_contextmenu_item</b>. Eg:
+    </p>
+    
+    <br clear="all" />
+
+    <pre class="code">
+&lt;style type="text/css"&gt;
+    .RGraph_contextmenu {
+    }
+
+    .RGraph_contextmenu_item {
+    }
+
+    .RGraph_contextmenu_background {
+    }
+&lt;/style&gt;</pre>
+
+    <p>
+        The "! important" is not necessary if you're not overriding a style that is set by the graph script. If you're having trouble,
+        it's a good idea to use it though.
+    </p>
+
+    <a name="multiple"></a>
+    <h3>Can I have multiple levels of menus?</h3>
+    
+    <p>
+        Yes, as of 24th April 2010 you can have a dual level context menu, which can reduce "option overload" in your user interface.
+        This example defines the same context menu as that of the bar chart on the <a href="../../index.html">front page</a>.
+    </p>
+    
+    <pre class="code">
+bar.Set('chart.contextmenu', [
+                              ['Zoom', RGraph.Zoom],
+                              ['Application', <span style="color: green">[['Login...', function () {ModalDialog.Show('modaldialog_login', 300);}]]</span> ],
+                              null,
+                              ['Cancel', function () {}]
+                             ]);
+</pre>
+    
+    <p>
+        As you can see there are a lot of arrays here, so it may help you during development to structure your code by using
+        indentation.
+    </p>
+
+    <a name="define"></a>
+    <h3>How do I define context menus?</h3>
+    
+    <p>
+        Defining a context menu is quite a simple affair. Eg:
+    </p>
+    
+    <pre class="code">
+myBar.Set('chart.contextmenu', [
+                                ['Menu item 1', Callback1],
+                                ['Menu item 2', Callback2]
+                               ]);</pre>
+
+    <p>
+        As you can see, the value is a two dimension array. The second being an array consisting of a string which is used as the name of the
+        menu item, and a function object (NOT the function name as a string). The function object is the function called when the menu item is selected.
+    </p>
+
+    <a name="seperators"></a>
+    <h3>Can I have "separators"?</h3>
+    
+    <p>
+        Yes. Simply pass null instead of an array as your menu item. Eg:
+    </p>
+
+    <pre class="code">
+myBar.Set('chart.contextmenu', [
+                                ['Menu item 1', Callback1],
+                                null,
+                                ['Menu item 2', Callback2]
+                               ]);</pre>
+
+    <a name="bypass"></a>
+    <h3>How do I bypass them?</h3>
+    
+    <p>
+        If for any reason you wish to access the browsers own context menu, you can hold down your CTRL key on your keyboard when you
+        click, and the canvas context menu will be bypassed. Try it on the graph below by holding your CTRL key whilst right clicking.
+    </p>
+
+    <a name="use"></a>
+    <h3>What can I use them for?</h3>
+    
+    <p>
+        Since the context menu items run Javascript functions when selected, you can use them for pretty much
+        anything you want. For example you could make a presentation system, with the context menu controlling which
+        graph is shown on the canvas. For example:
+    </p>
+    
+    <div style="text-align: center">
+        <canvas id="myCanvas" width="600" height="200">[No canvas support]</canvas>
+    </div>
+
+    <a name="example"></a>
+    <h3>Is there an example file that uses the CSS classes?</h3>
+
+    <p>
+        You can take a look at the bottom of the <a href="../css/website.css" >CSS file for this website</a>.
+    </p>
+
+    <a name="mac"></a>
+    <h3>Context menus, Macs, Safari and Opera</h3>
+    
+    <p>
+        Mac Safari, Mac Firefox and Windows Safari can have trouble displaying the context menu. So for this reason, for these browsers,
+        the context menu is attached to a double click of the left mouse button. Opera doesn't support customising the context menu so
+        this browser also uses a left mouse button double click to trigger the context menu.
+    </p>
+    
+    <script>
+        /**
+        * Shows the bar chart
+        */
+        function ShowGraphOne ()
+        {
+            RGraph.Clear(document.getElementById('myCanvas'));
+
+            var bar = new RGraph.Bar('myCanvas', [[45,15],[16,23],[52,12],[33,64],[34,54],[62,33],[66,23],[12,23],[12,53],[16,45],[26,43],[46,42],[41,41],[32,46]]);
+            bar.Set('chart.colors', ['#66f', '#f66']);
+            bar.Set('chart.gutter', 25);
+            bar.Set('chart.title', 'Data represented on a bar chart (with context menu)');
+            bar.Set('chart.labels', ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th', '14th']);
+            bar.Set('chart.contextmenu', [['Context menu (bar chart):', null], ['&nbsp;&nbsp;Bar chart', ShowGraphOne], ['&nbsp;&nbsp;Line chart', ShowGraphTwo], null, ['Cancel', function () {}]]);
+            bar.Set('chart.grouping', 'grouped');
+            bar.Draw();
+        }
+
+        /**
+        * Show the line chart
+        */
+        function ShowGraphTwo()
+        {
+            RGraph.Clear(document.getElementById('myCanvas'));
+
+            var line = new RGraph.Line('myCanvas', [15,23,12,64,54,33,23,23,53,45,43,42,41,46], [45,16,52,33,34,62,66,12,12,16,26,46,41,32]);
+            line.Set('chart.title', 'Same data, but represented on a line chart (with context menu)');
+            line.Set('chart.colors', ['#f66', '#66f']);
+            line.Set('chart.background.barcolor1', '#fff');
+            line.Set('chart.background.barcolor2', '#fff');
+            line.Set('chart.tickmarks', null);
+            line.Set('chart.linewidth', 3);
+            line.Set('chart.gutter', 25);
+            line.Set('chart.hmargin', 550 / 26);
+            line.Set('chart.labels', ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th', '14th']);
+            line.Set('chart.contextmenu', [['Context menu (line chart):', null], ['&nbsp;&nbsp;Bar chart', ShowGraphOne], ['&nbsp;&nbsp;Line chart', ShowGraphTwo], null, ['Cancel', function () {}]]);
+            line.Draw();
+        }
+        
+        /**
+        * Show the first graph
+        */
+        window.onload = function ()
+        {
+            ShowGraphOne();
+        }
+
+    </script>
+
+</body>
+</html>

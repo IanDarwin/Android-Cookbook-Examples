@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">Torch Light</string>
+    <string name="app_title">Simple Torch Demo</string>
+    <string name="toggleButtonLabel">On/Off</string>
+</resources>

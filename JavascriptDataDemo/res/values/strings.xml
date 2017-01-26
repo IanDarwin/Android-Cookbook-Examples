@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JavascriptDataDemo Starter</string>
+    <string name="action_settings">Settings</string>
+    <string name="showWebView">Show WebView</string>
+    <string name="webview_name">JavascriptDataDemo</string>
+
+</resources>

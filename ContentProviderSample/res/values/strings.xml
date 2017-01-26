@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ContentProviderSample</string>
+    <string name="title_mydataitem_detail">MyDataitem Detail</string>
+
+</resources>

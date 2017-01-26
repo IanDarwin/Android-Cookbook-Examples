@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/about"
+    android:textColor="#fff"
+    android:textSize="13px"/>
+<EditText 
+	android:id="@+id/textArea" 
+	android:text="42"
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content" 
+	android:hint="inputType"></EditText>
+<LinearLayout 
+		android:id="@+id/buttonsLayout" 
+		android:layout_height="wrap_content" 
+		android:layout_width="match_parent">
+    <Button android:id="@+id/cButton" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:text="@string/doInC"></Button>
+    <Button android:id="@+id/jButton" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" 
+    	android:text="@string/doInJava"></Button>
+</LinearLayout>
+<EditText
+	android:id="@+id/resultLog" 
+	android:layout_width="match_parent" 
+	android:layout_height="match_parent"></EditText>
+</LinearLayout>

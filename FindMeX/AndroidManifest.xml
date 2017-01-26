@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.halfclosed.wordpress"
+      android:versionCode="1"
+      android:versionName="1.0">
+    
+    <uses-sdk android:minSdkVersion="7" 
+        android:targetSdkVersion="22"/>
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+
+    <application android:icon="@drawable/icon" 
+        android:label="@string/app_name"
+    	android:theme="@android:style/Theme.NoTitleBar"
+    	android:allowBackup="false">
+    	
+	    <uses-library android:name="com.google.android.maps" />
+	    
+        <activity android:name=".Splash"
+        	android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		<activity android:name=".Search"
+			android:screenOrientation="portrait">
+			<intent-filter>
+				<action android:name="com.halfclosed.wordpress.SEARCH" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".Progress">
+			<intent-filter>
+				<action android:name="com.halfclosed.wordpress.PROGRESS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".Results">
+			<intent-filter>
+				<action android:name="com.halfclosed.wordpress.RESULTS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+    </application>
+</manifest>

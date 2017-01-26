@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TipsterActivity!</string>
+    <string name="app_name">Tipster</string>
+    
+    <string name="textLbl1">Total amount:</string>
+    <string name="textLbl2">No. of people:</string>
+    <string name="textLbl3">Tip percentage:</string>
+    <string name="textLbl4">Tip amount:</string>
+    <string name="textLbl5">Total to pay:</string>
+    <string name="textLbl6">Total per Person:</string>
+    
+    <string name="rdoTxt15">15%</string>
+    <string name="rdoTxt20">20%</string>
+    <string name="rdoTxtOther">Other:</string>
+    
+    <string name="btnReset">Reset</string>
+    <string name="btnCalculate">Compute</string>
+    <string name="btnThree">Reset</string>
+
+</resources>

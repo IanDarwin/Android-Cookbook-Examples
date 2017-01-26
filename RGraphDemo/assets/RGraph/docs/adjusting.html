@@ -1,0 +1,147 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Adjusting your graphs interactively</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph adjusting docs " />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about adjusting your graphs" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.adjusting.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <script src="../libraries/RGraph.hprogress.js" ></script>
+    <script src="../libraries/RGraph.rose.js" ></script>
+    <script src="../libraries/RGraph.tradar.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+</head>
+
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Adjusting your graphs interactively
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Adjusting your graphs interactively</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <canvas id="myc" width="600" height="250" style="float: right">[No canvas support]</canvas>
+    <canvas id="myc2" width="600" height="75" style="float: right">[No canvas support]</canvas>
+    <canvas id="myc3" width="600" height="450" style="float: right">[No canvas support]</canvas>
+    <canvas id="myc4" width="600" height="250" style="float: right">[No canvas support]</canvas>
+    <canvas id="myc5" width="400" height="400" style="float: right">[No canvas support]</canvas>
+
+    <script>
+        window.onload = function (e)
+        {
+            var line = new RGraph.Line('myc', [45,74,84,85,45,35,65,68,87,97,45,34,12], [15,14,12,16,18,19,14,12,74,84,95,65,35]);
+            line.Set('chart.labels', ['Kev','Matt','Rich','Dave','Iggy','Polly','Fiona','Fred','Pete','Lou','Fred','Bob']);
+            line.Set('chart.ylabels.inside', true);
+            line.Set('chart.linewidth', 2);
+            line.Set('chart.hmargin', 10);
+            line.Set('chart.shadow', true);
+            line.Set('chart.adjustable', true);
+            line.Set('chart.title', 'An adjustable line chart (adjustable, context)');
+            line.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom], null, ['Cancel', function () {}]]);
+            line.Set('chart.zoom.hdir', 'left');
+            line.Set('chart.zoom.vdir', 'center');
+            line.Draw();
+            
+            var grad = line.context.createLinearGradient(25, 0, 575, 0);
+            grad.addColorStop(0, 'green');
+            grad.addColorStop(1, 'white');
+
+            var hprogress = new RGraph.HProgress('myc2', 83, 100, 0);
+            hprogress.Set('chart.color', grad);
+            hprogress.Set('chart.adjustable', true);
+            hprogress.Set('chart.margin', 5);
+            hprogress.Set('chart.tickmarks.inner', true);
+            hprogress.Set('chart.label.inner', true);
+            hprogress.Set('chart.units.post', '%');
+            hprogress.Draw();
+
+            var rose = new RGraph.Rose('myc3',[4,3,5,6,2,1,4]);
+            rose.Set('chart.gutter', 25);
+            rose.Set('chart.colors.alpha', 0.5);
+            rose.Set('chart.adjustable', true);
+            rose.Set('chart.labels', ['Olga','Kev','Bob','Charlie','Pete','John','Fred']);
+            rose.Draw();
+
+            var bar = new RGraph.Bar('myc4', [[512,433],[653,477],[512,436],[533,564],[674,741],[266,453],[411,159],[458,741],[496,845]]);
+            bar.Set('chart.colors', ['blue', 'pink']);
+            bar.Set('chart.labels.above', true);
+            bar.Set('chart.shadow', true);
+            bar.Set('chart.shadow.color', '#aaa');
+            bar.Set('chart.strokecolor', 'rgba(0,0,0,0)');
+            bar.Set('chart.gutter', 30);
+            bar.Set('chart.adjustable', true);
+            bar.Set('chart.labels', ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008']);
+            bar.Draw();
+
+            var tradar = new RGraph.Tradar('myc5', [4,3,8,6,8,7,7,4,5]);
+            tradar.Set('chart.adjustable', true);
+            tradar.Set('chart.circle', 5);
+            tradar.Set('chart.circle.fill', 'rgba(255,0,0,0.5)');
+            tradar.Set('chart.color', 'rgba(0,255,0,0.5)');
+            tradar.Set('chart.labels', ['Hoolio', 'Godfrey', 'Albert', 'Jeff', 'Jack', 'Pete', 'Lou', 'Barney', 'Fred']);
+            tradar.Draw();
+        }
+    </script>
+    
+    <p>
+        Since 24th May 2010 you have had the ability to adjust your graphs interactively. Currently the Bar chart, Line chart,
+        Progress Bar, Rose chart and the Tradar have this facility. Some graph types use multiple event handlers and as such
+        are unlikely to work well with other dynamic features. The Line chart is an example of this, and whilst it does work
+        with the context menu (and so the full canvas zoom), it is unlikely to work with other dynamic features.
+    </p>
+
+
+    <p>
+        At the current time this feature on the Bar and Line charts don't work with X axis in the center.
+    </p>
+
+
+    <p>
+        If your intention is to make some sort of interactive console, new HTML5 input types may also be of interest (for example the new <i>range</i> input type
+        which gives you a "slider bar"). Eg (Chrome/Safari/Opera):
+    </p>
+
+    <p style="text-align: center">
+        <input type="range" min="0" max="100" value="76" onchange="document.getElementById('range_result').value = this.value"/>
+        <input type="text" id="range_result" size="3" value="76" />
+    </p>
+
+</body>
+</html>

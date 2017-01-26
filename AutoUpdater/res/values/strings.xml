@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SelfUpdater</string>
+    <string name="fake_mesg">This is to simulate a normal app.
+        Nothing will happen here until the sleep time elapses AND
+        the file update time on the server is changed.</string>
+    <string name="action_settings">Settings</string>
+    <string name="update_message">We have found a new update to the %s app. If you\'d like to install it, please click the button below.</string>
+	<string name="apply_update">Download update</string>
+	<string name="update_footnote">N.B. After the download completes, you must pull down the Status Bar and click on the downloaded apk to install it.
+	</string>
+</resources>

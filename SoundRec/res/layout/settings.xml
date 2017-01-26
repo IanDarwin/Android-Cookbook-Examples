@@ -1,0 +1,11 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/local_storage_title" >
+        <EditTextPreference
+            android:key="dir"
+            android:summary="@string/dir_summary"
+            android:title="@string/dir_title" >
+        </EditTextPreference>
+    </PreferenceCategory>
+    
+</PreferenceScreen>

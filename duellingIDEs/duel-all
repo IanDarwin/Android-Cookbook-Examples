@@ -1,0 +1,10 @@
+for d in ../[A-Z]*/
+do
+	if [ -f $d/.classpath ]; then
+		if [ ! -f $d/build.gradle ]; then
+			# likely candidate
+			echo $d 
+			add-gradle-to-eclipse $d
+		fi
+	fi
+done

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">Time a number of iterations of Newton-Raphson square root computation in Java and in C.</string>
+    <string name="app_name">NDKDemo</string>
+    <string name="doInC">Do in C</string>
+    <string name="doInJava">Do in Java</string>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+   <declare-styleable name="RangeGraph">
+       <!-- Allow optional setting of min and max from the XML layout -->
+       <attr name="minimum" format="integer"/>
+       <attr name="maximum" format="integer"/>
+       <!-- Provide an Orientation parameter as an enum ** Not implemented yet! -->
+       <attr name="orientation" format="enum">
+           <enum name="vertical" value="0"/>
+           <enum name="horizontal" value="1"/>
+       </attr>
+       <!-- Allow to override the default colors for plain, In, and Out of Range -->
+       <attr name="colorNeutral" format="color" />
+       <attr name="colorInRange" format="color" />
+       <attr name="colorOutOfRange" format="color" />
+   </declare-styleable>
+</resources>

@@ -1,0 +1,1 @@
+App can update itself

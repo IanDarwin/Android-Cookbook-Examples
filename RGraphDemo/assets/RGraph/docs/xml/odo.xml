@@ -1,0 +1,178 @@
+<rgraph object="odo">
+    <property>
+        <name>chart.value</name>
+        <description>The indicated value <br /><i>Default: none - must be given - also an argument to the constructor</i></description>
+    </property>
+    <property>
+        <name>chart.value.text</name>
+        <description>Controls whether the value is indicated as a text label in the center of the dial.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.start</name>
+        <description>The start value. <br /><i>Default: none - must be given - also an argument to the constructor</i></description>
+    </property>
+    <property>
+        <name>chart.end</name>
+        <description>The end value. <br /><i>Default: none - must be given - also an argument to the constructor</i></description>
+    </property>
+    <property>
+        <name>chart.border</name>
+        <description>This controls the gray border of the Odometer.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.tickmarks.highlighted</name>
+        <description>This controls whether the tickmarks are highlighted in red/yellow/green.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.zerostart</name>
+        <description>If you want the top value on your chart to be zero instead of the maximum value, set this to true.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.gutter</name>
+        <description>The width of the area outside the odometer. <br /><i>Default: 25</i></description>
+    </property>
+    <property>
+        <name>chart.green.max</name>
+        <description>This is the point at which the green area ends.<br /><i>Default: 75% of the maximum value</i></description>
+    </property>
+    <property>
+        <name>chart.red.min</name>
+        <description>This is the point at which the red area starts. The yellow area is between the green and red areas.<br /> <i>Default: 90% of the maximum value</i></description>
+    </property>
+    <property>
+        <name>chart.labels</name>
+        <description>Instead of using computed numbers, which uses the maximum value, you can specify the Odometer to use textual labels instead, with this option.<br /> <i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.label.area</name>
+        <description>The width of the area that labels are put in. <br /><i>Default: 35</i></description>
+    </property>
+    <property>
+        <name>chart.text.size</name>
+        <description>The size of the text (in points). <br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.text.font</name>
+        <description>The font used to render the text.<br /><i>Default: Verdana</i></description>
+    </property>
+    <property>
+        <name>chart.text.color</name>
+        <description>The color of the labels. <br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.needle.width</name>
+        <description>How thick the needle is. <br /><i>Default: 2</i></description>
+    </property>
+    <property>
+        <name>chart.needle.color</name>
+        <description>The color that is applied to the needle. <br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.needle.head</name>
+        <description>This controls whether the arrow head on the end of the needle is displayed. <br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.needle.type</name>
+        <description>This determines which type of needle is used. It can be <i>pointer</i> or <i>triangle</i>. <br /><i>Default: pointer</i></description>
+    </property>
+    <property>
+        <name>chart.title</name>
+        <description>The title text. <br /><i>Default: no title set</i></description>
+    </property>
+    <property>
+        <name>chart.title.color</name>
+        <description>The color of the title.<br /> <i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.title.hpos</name>
+        <description>This allows you to completely override the horizontal positioning of the title. It should be a number between 0 and 1, and is multiplied with the whole width of the canvas and then used as the horizontal position. <br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.title.vpos</name>
+        <description>This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.inner</name>
+        <description>Whether a drop shadow is applied to the inner circle of the Odometer<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.shadow.outer</name>
+        <description>Whether a drop shadow is applied to the whole Odometer.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.contextmenu</name>
+        <description>An array of context menu items. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i></description>
+    </property>
+    <property>
+        <name>chart.annotatable</name>
+        <description>Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.annotate.color</name>
+        <description>If you do not allow the use of the palette, then this will be the only colour allowed for annotations.<br /><i>Default: black</i></description>
+    </property>
+    <property>
+        <name>chart.resizable</name>
+        <description>Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.mode</name>
+        <description>Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.factor</name>
+        <description>This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.in</name>
+        <description>Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.fade.out</name>
+        <description>Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.hdir</name>
+        <description>The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.vdir</name>
+        <description>The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.delay</name>
+        <description>The delay (in milliseconds) between frames.<br /><i>Default: 50</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.frames</name>
+        <description>The number of frames in the zoom animation.<br /><i>Default: 10</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.shadow</name>
+        <description>Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.width</name>
+        <description>When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.thumbnail.height</name>
+        <description>When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i></description>
+    </property>
+    <property>
+        <name>chart.zoom.background</name>
+        <description>Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i></description>
+    </property>
+    <property>
+        <name>chart.units.pre</name>
+        <description>The units that the value is measured in. This string is displayed BEFORE the actual value, allowing you to specify values such as "$50".<br /><i>Default: none</i></description>
+    </property>
+    <property>
+        <name>chart.units.post</name>
+        <description>The units that the value is measured in. This string is displayed AFTER the actual value, allowing you to specify values such as "50ms".<br /><i>Default: none</i></description>
+    </property>
+    <property>
+        <name>chart.scale.decimals</name>
+        <description>The number of decimal places to display for the labels.<br /><i>Default: 0</i></description>
+    </property>
+</rgraph>

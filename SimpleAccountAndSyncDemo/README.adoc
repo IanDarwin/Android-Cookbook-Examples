@@ -1,0 +1,4 @@
+== SimpleAccountAndSyncDemo
+
+This shows creating account and using them, but there is no sync adapter here.
+For that we refer you to the Game of Todos (a.k.a. Todo*/).

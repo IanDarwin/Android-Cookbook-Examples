@@ -1,0 +1,8 @@
+== TabSwipeDemo
+
+This example shows an ActionBar with multiple Tabs, all embedded in a
+ViewPager so the user can either swipe among the tabs OR (if they're
+old school) tab the tab icons in the ActionBar.
+
+There is also a menu but it doesn't do anything yet; see the
+PreferencesDemo project for the most common use of a Menu.

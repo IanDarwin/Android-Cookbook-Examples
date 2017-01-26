@@ -1,0 +1,49 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rg="http://schemas.android.com/apk/res/com.example.rangegraph" 
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TableRow>  	    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/low_label" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok_label" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/high_label" />
+    </TableRow>  	    
+    
+    <TableRow  android:padding="10dp">  	    
+    <com.example.rangegraph.RangeGraph
+        android:id="@+id/lowGauge"
+        style="@style/RoundedBorderHolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+  	
+    <com.example.rangegraph.RangeGraph
+        android:id="@+id/okGauge"
+        style="@style/RoundedBorderHolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <com.example.rangegraph.RangeGraph
+        android:id="@+id/highGauge"
+        style="@style/RoundedBorderHolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        rg:colorOutOfRange="@android:color/holo_purple"/>
+    </TableRow>
+
+</TableLayout>

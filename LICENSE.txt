@@ -1,0 +1,7 @@
+This code is from the Android Cookbook http://oreilly.com/catalog/9781449388416/
+
+All code contributed to the book was licensed under the Creative
+Commons Attribution cc-by License
+http://creativecommons.org/licenses/by/3.0/; some may have additional
+license terms at the author's discretion. Each project is by one author
+who retains the copyright thereto unless otherwise disclaimed.

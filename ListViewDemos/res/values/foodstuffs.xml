@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foodstuffs">
+ 	<item>Apple</item>
+	<item>Banana</item>
+	<item>Cherry</item>
+	<item>Dog (Hot)</item>
+	<item>Eggplant</item>
+	<item>Fried Rice</item>
+	<item>Golden Apple</item>
+	<item>Hot Potato</item>
+	<item>Ice Cream Sandwich</item>
+	<item>Java Beans</item>
+	<item>Killed Stuff</item>
+	<item>Lima Bean</item>
+	<item>Muscatel</item>
+	<item>New Muscle Mass</item>
+	<item>Obscurity</item>
+	<item>Plums</item>
+	<item>Q</item>
+	<item>Radish</item>
+	<item>Steak</item>
+	<item>Tartar sauce</item>
+	<item>Undercooked</item>
+	<item>Very Sherry</item>
+	<item>Whiskey</item>
+	<item>X</item>
+	<item>Z</item>
+    </string-array>
+</resources>

@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button android:id="@+id/oldWayButton"
+        android:onClick="oldWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/old_way"
+        tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/qdWayButton"
+        android:onClick="qdWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oldWayButton"
+        android:layout_alignBottom="@+id/oldWayButton"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/oldWayButton"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/qd_way"
+        tools:context=".MainActivity" />
+    
+    <Button
+        android:id="@+id/dlgFragButton"
+        android:onClick="dlgFragWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oldWayButton"
+        android:layout_alignBottom="@+id/qdWayButton"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/oldWayButton"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/dlgFragWay"
+        tools:context=".MainActivity" />
+    
+
+</RelativeLayout>

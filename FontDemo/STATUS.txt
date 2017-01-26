@@ -1,0 +1,3 @@
+You need to provide the font file! Example uses Iceberg font...
+
+which you can download from http://www.softmaker.de SoftMaker Software GmbH.

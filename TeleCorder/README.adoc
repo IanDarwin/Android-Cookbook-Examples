@@ -1,0 +1,7 @@
+== TeleCorder
+
+Attempts to record a phone call; this is harder than it seems.
+
+=== Warning
+
+Use in accord with the regulatory jurisdictions at both ends of your call.

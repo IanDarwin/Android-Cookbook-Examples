@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+        android:id="@+id/TableLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Row 1: Text label placed in column zero,
+         text field placed in column two and allowed to
+         span two columns. So a total of 4 columns in this row -->
+        <TableRow>
+        <TextView
+                android:id="@+id/txtLbl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/textLbl1"/>
+        <EditText
+                android:id="@+id/txtAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_column="1"
+                android:layout_span="3"
+                />                     
+        </TableRow>
+        
+    <!-- Row 2: Text label placed in column zero,
+         text field placed in column two and (post-book publication) surrounded
+         by increment and decrement buttons. So a total of 4 columns in this row -->
+        <TableRow>
+        <TextView
+                android:id="@+id/txtLbl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/textLbl2"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:onClick="decrement"/>
+        <EditText
+                android:id="@+id/txtPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numeric="integer"
+                android:text="2"/>                      
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:onClick="increment"/>
+        </TableRow>
+   
+        <TableRow>
+        <TextView
+                android:id="@+id/txtLbl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textLbl3"/>
+        </TableRow>  
+          
+   <!-- Row 4: RadioGroup for RadioButtons placed at column zero
+        with column span of three, thus creating one radio button
+        per cell of the table row. Last cell number 4 has the
+        textfield to enter a custom tip percentage -->
+        <TableRow>     
+        <RadioGroup
+                android:id="@+id/RadioGroupTips"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_span="3"
+                android:checkedButton="@+id/radioFifteen">
+                <RadioButton android:id="@+id/radioFifteen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rdoTxt15"
+                        android:textSize="15sp" />
+                <RadioButton android:id="@+id/radioTwenty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rdoTxt20"
+                        android:textSize="15sp" />
+                <RadioButton android:id="@+id/radioOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rdoTxtOther"
+                        android:textSize="15sp" />
+        </RadioGroup>
+                <EditText
+                        android:id="@+id/txtTipOther"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:numeric="decimal"/>                    
+        </TableRow>
+        
+   <!--  Row for the Calculate and Rest buttons. The Calculate button
+         is placed at column two, and Reset at column three -->         
+        <TableRow>
+        <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"  
+                android:text="@string/btnReset"/>
+        <Button
+                android:id="@+id/btnCalculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="@string/btnCalculate"/>
+        </TableRow>    
+ 
+    <!-- TableLayout allows any other views to be inserted between
+         the TableRow elements. So inserting a blank view to create a
+         line separator. This separator view is used to separate
+         the area below the buttons which will display the
+         calculation results -->
+        <View
+                android:layout_height="2px"
+                android:background="#DDFFDD"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"/>
+ 
+    <!-- Again table row is used to place the result textviews
+         at column zero and the result in textviews at column two -->
+        <TableRow android:paddingBottom="10dip" android:paddingTop="5dip">
+        <TextView
+                android:id="@+id/txtLbl4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/textLbl4"/>
+        <TextView
+                android:id="@+id/txtTipAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_span="2"/>                      
+        </TableRow>
+       
+        <TableRow android:paddingBottom="10dip" android:paddingTop="5dip">
+        <TextView
+                android:id="@+id/txtLbl5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/textLbl5"/>
+        <TextView
+                android:id="@+id/txtTotalToPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_span="2"/>                      
+        </TableRow>
+       
+        <TableRow android:paddingBottom="10dip" android:paddingTop="5dip">
+        <TextView
+                android:id="@+id/txtLbl6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="@string/textLbl6"/>
+        <TextView
+                android:id="@+id/txtTipPerPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_span="2"/>                      
+        </TableRow>
+      
+</TableLayout>

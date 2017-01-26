@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/rssURL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="RSS URL"
+                android:inputType="textUri"
+                android:maxLines="1"
+                android:singleLine="true" >
+            </EditText>
+            
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Go" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/goDefaultButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Project Activity" />
+        </TableRow>
+    </TableLayout>
+
+    <!-- Mid Panel -->
+
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+    </ListView>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear" >
+    </Button>
+
+</LinearLayout>

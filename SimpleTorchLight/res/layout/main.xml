@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dip"
+        android:text="@string/app_title"
+        android:textSize="25sp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dip"
+        android:text="@string/toggleButtonLabel" />
+
+    <SurfaceView
+        android:id="@+id/hiddenSurfaceView"
+        android:layout_width="1dp"
+        android:layout_height="1dp" />
+
+</LinearLayout>

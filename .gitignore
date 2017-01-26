@@ -1,0 +1,13 @@
+.metadata
+bin
+bin/*
+gen
+gen/*
+*.ap?
+*.class
+*.dex
+google-play-services_lib/
+.recommenders/
+target
+local.properties
+TODO.txt

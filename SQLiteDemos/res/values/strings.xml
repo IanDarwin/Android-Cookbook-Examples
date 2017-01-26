@@ -1,0 +1,7 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">SQLite Demos</string>
+    <string name="hello">Hello from an SQLite Demo</string>
+    <string name="noglo">No Food Chosen</string>
+    <string name="add">Add</string>
+</resources>

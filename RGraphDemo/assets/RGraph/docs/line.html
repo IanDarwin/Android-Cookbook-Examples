@@ -1,0 +1,542 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - line chart documentation</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs line chart" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about the Line chart" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Line chart
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Line chart documentation</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+    <p>
+        The line graph, along with the bar chart, is probably the most configurable of all the charts available.
+    </p>
+    
+    <p>
+        The example file is <a href="../examples/line.html">here</a>.
+    </p>
+    
+    <ul>
+        <li><a href="#note.colors">Note about colors</a></li>
+    </ul>
+    
+    <pre class="code">
+&lt;script&gt;
+    window.onload = function ()
+    {
+        var data = [10,4,17,50,25,19,20,25,30,29,30,29];
+    
+        var line = new RGraph.Line("myLine", data);
+        line.Set('chart.background.barcolor1', 'rgba(255,255,255,1)');
+        line.Set('chart.background.barcolor2', 'rgba(255,255,255,1)');
+        line.Set('chart.background.grid.color', 'rgba(238,238,238,1)');
+        line.Set('chart.colors', ['rgba(255,0,0,1)']);
+        line.Set('chart.linewidth', 2);
+        line.Set('chart.filled', true);
+        line.Set('chart.hmargin', 5);
+        line.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+        line.Set('chart.gutter', 40);
+        line.Draw();
+    }
+&lt;/script&gt;
+</pre>
+
+    <h2>Combining the Line and Bar charts</h2>
+    
+    <p>
+        You can combine the Bar and Line charts with a bit of magic. It's actually quite easy to do. <a href="combine.html">Find out more here</a>.
+        In the same vein, you can have Y axes on both the left and right.
+    </p>
+    
+    <!-- CONTENTS --><ul><li><a href="#background">Background</a></li><li><a href="#labels and text">Labels and text</a></li><li><a href="#margins">Margins</a></li><li><a href="#colors">Colors</a></li><li><a href="#shadow">Shadow</a></li><li><a href="#interactive features">Interactive features</a></li><li><a href="#titles">Titles</a></li><li><a href="#key">Key</a></li><li><a href="#scale">Scale</a></li><li><a href="#axis properties">Axis properties</a></li><li><a href="#zoom">Zoom</a></li><li><a href="#miscellaneous">Miscellaneous</a></li></ul><!-- /CONTENTS -->
+
+    <!--
+        <PROPERTIES>
+            heading :: Background
+            chart.background.barcolor1 :: The color of the background bars (1 of 2).<br /><i>Default: rgba(0,0,0,0)</i>
+            chart.background.barcolor2 :: The color of the background bars (2 of 2).<br /><i>Default: rgba(0,0,0,0)</i>
+            chart.background.grid :: Whether to show the background grid or not.<br /><i>Default: true</i>
+            chart.background.grid.color :: The color of the background grid.<br /><i>Default: #eee</i>
+            chart.background.hbars :: An array of information stipulating horizontal colored bars. You can use these to indicate limits. Eg: <i>myLine.Set('hbars', [[75, 10, 'yellow'], [85, 15, 'red']]);</i> This would give you two bars, one red and a lower yellow bar. The units correspond to your scale, and are the starting point and the height.<br /><i>Default: null</i>
+            chart.background.grid.hsize :: The horizontal size of the grid.<br /><i>Default: 25</i> 
+            chart.background.grid.vsize :: The vertical size of the grid.<br /><i>Default: 25</i>
+            chart.background.grid.width :: The width of the background grid.<br /><i>Default: 1</i>
+            chart.background.grid.border :: Determines whether a border line is drawn around the grid.<br /><i>Default: true</i>
+            chart.background.grid.hlines :: Determines whether to draw the horizontal grid lines.<br /><i>Default: true</i>
+            chart.background.grid.vlines :: Determines whether to draw the vertical grid lines.<br /><i>Default: true</i>
+            chart.background.grid.autofit :: Instead of specifying a pixel width/height for the background grid, you can use autofit and specify how many horizontal and vertical lines you want.<br /><i>Default: false</i>
+            chart.background.grid.autofit.numhlines :: When using autofit this allows you to specify how many horizontal grid lines you want. <br /><i>Default: 7</i>
+            chart.background.grid.autofit.numvlines :: When using autofit this allows you to specify how many vertical grid lines you want. <br /><i>Default: 20</i>
+            chart.backdrop :: When enabled this specifies that the line(s) will have a backdrop effect. You can control the transparency with the other backdrop settings).<br /><i>Default: false</i>
+            chart.backdrop.size :: This controls the size/extent of the backdrop effect.<br /><i>Default: 30</i>
+            chart.backdrop.alpha :: This controls how much transparency the backdrop effect has. It can go from 0 - 1.<br /><i>Default: 0.2</i>
+
+            heading :: Labels and text
+            chart.labels :: An array of the X labels for the graph. <br /><i>Default: [] (An empty array)</i>
+            chart.labels.ingraph :: An array of labels for the graph which are drawn "inside" the graph.  If you have 5 data points then this should have a corresponding number of elements, though there is a <a href="misc.html#shorthand.ingraph.labels">shorthand available</a>.<br /><i>Default: null</i>
+            chart.ylabels :: Can be <i>true</i> or <i>false</i> and determines whether the chart has Y axis labels.<br /><i>Default: true</i>
+            chart.ylabels.invert :: Reverses the Y axis so that 0 is at the top, instead of the bottom.<br /><i>Default: false</i>
+            chart.ylabels.count :: A value (<i>1, 3 or 5</i>) that controls how many Y labels there are. <br /><i>Default: 5</i>
+            chart.ylabels.inside :: This controls whether the Y labels are drawn inside the Y axis or not. If your labels are large, this may help.<br /><i>Default: false</i>
+            chart.ylabels.inside.color :: If the Y labels are to be drawn inside the Y axis, this is used as the background color.<br /><i>Default: rgba(255,255,255,0.5)</i>
+            chart.xlabels.inside :: This controls whether the X labels are drawn inside the X axis or not. By using this you can significantly reduce the size of the gutter needed. <br /><i>Default: false</i>
+            chart.xlabels.inside.color :: If the X labels are to be drawn inside the X axis, this is used as the background color.<br /><i>Default: rgba(255,255,255,0.5)</i>
+            chart.text.size :: The size of the text (in points).<br /><i>Default: 10</i>
+            chart.text.angle :: The angle of the horizontal text labels (at the bottom of the graph). Previously this could be 0, 45 or 90, but now (31st July 2010) this can be any angle.<br /><i>Default: 0 (Horizontal)</i>
+            chart.text.font :: The font used to render the text.<br /><i>Default: Verdana</i>
+            chart.text.color :: The color of the labels. <br /><i>Default: black</i>
+
+            heading :: Margins
+            chart.gutter :: The gutter of the graph. This is the bit of the graph that the labels are in.<br /><i>Default: 25</i>
+            chart.hmargin :: The size of the horizontal margin. This is on the inside of the axes.<br /><i>Default: 0</i>
+            
+            heading :: Colors
+            chart.colors :: An array of line colors.<br /><i>Default: ['#f00', '#0f0', '', '#00f', '#f0f', '#ff0', '#0ff'] 9</i>
+            chart.colors.alternate :: Set this to true if you want your line color(s) to be alternated. <a href="#note.colors">See note</a><br /><i>Default: false</i>
+            chart.fillstyle :: A single color or an array of colors that filled line charts will use.<br /><br /><b>Important:</b> This used to be a string, and still can be, but can now also be an array.<br /><i>Default: null</i>
+            chart.filled :: Whether the area under the graph is filled or not. This looks best when there is no horizontal margin.<br /><i>Default: false</i>
+            chart.filled.range :: This is useful for indicating a range. Exactly two datasets are required, with the space between them filled. This is useful for indicating a range.The <a href="../examples/line.html">line chart examples</a> page demonstrates this in action.<br /><i>Default: false</i>
+
+
+            heading :: Shadow
+            chart.shadow :: If true a shadow will be applied to the line.<br /><i>Default: false</i>
+            chart.shadow.color :: The color of the shadow. As well as a single color definition, this can also be an array of colors. This means that if you have multiple lines on your chart, each can have a different shadow color. <br /><i>Default: rgba(0,0,0,0.5)</i>
+            chart.shadow.offsetx :: The X offset in pixels for the shadow.<br /><i>Default: 3</i>
+            chart.shadow.offsety :: The Y offset in pixels for the shadow.<br /><i>Default: 3</i>
+            chart.shadow.blur :: The severity of the shadow blurring effect.<br /><i>Default: 3</i>
+
+            heading :: Interactive features
+            chart.tooltips :: These are tooltips for the line(s). It should be an array of tooltips. If you have multiple lines, simply pass multiple arrays to the Set() method. <br /><i>Default: [] (An empty array)</i>
+            chart.tooltips.effect :: The animated effect used for showing tooltips. Can be either <i>fade</i> or <i>expand</i>.<br /><i>Default: fade</i>
+            chart.tooltips.coords.adjust :: If you translate() before drawing your graph to reduce wasted space, the coords used for tooltips may need adjusting by how much you translate() by. This setting is how to do it. It should be an array of the X/Y adjustments. There's an example of this on the <a href="misc.html#reducing.white.space">misc documentation</a> page.<br /><i>Default: [0,0]</i>
+            chart.tooltips.css.class :: This is the name of the CSS class the graph uses.<br /><i>Default: RGraph_tooltip</i>
+            chart.tooltips.override :: If you wish to handle showing tooltips yourself, this should be a function object which does just that. There's more information on the <a href="tooltips.html">tooltips documentation page</a><br /><i>Default: null</i>
+            chart.crosshairs :: If true, you will get a crosshair centering on the current mouse position.<br /><i>Default: false</i>
+            chart.crosshairs.linewidth :: This controls the linewidth of the crosshairs.<br /><i>Default: 1</i>
+            chart.crosshairs.color :: The color of the crosshairs.<br /><i>Default: #333</i>
+            chart.contextmenu :: An array of context menu items. Unlike the bar chart, you CAN have context menus at the same time as tooltips. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i>
+            chart.annotatable :: Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i>
+            chart.annotate.color :: If you do not allow the use of the palette, then this will be the only color allowed for annotations.<br /><i>Default: black</i>
+            chart.resizable :: Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i>
+            chart.adjustable :: Defaulting to false, this determines whether your graph will be adjustable (click a point and drag it). <br /><i>Default: false</i>
+
+            heading :: Titles
+            chart.title :: The title of the chart.<br /><i>Default: none</i>
+            chart.title.vpos :: This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i>
+            chart.title.color :: The color of the title.<br /> <i>Default: black</i>
+            chart.title.xaxis :: This allows to specify a title for the X axis.<br /><i>Default: none</i>
+            chart.title.yaxis :: This allows to specify a title for the Y axis.<br /><i>Default: none</i>
+            chart.title.xaxis.pos :: This is multiplied with the gutter to give the position of the X axis title.<br /><i>Default: 0.25</i>
+            chart.title.yaxis.pos :: This is multiplied with the gutter to give the position of the Y axis title.<br /><i>Default: 0.25</i>
+
+            heading :: Key
+            chart.key :: An array of key information. <br /><i>Default: [] (An empty array)</i>
+            chart.key.background :: The color of the key background. Typically white, you could set this to something like rgba(255,255,255,0.7) to allow people to see things behind it.<br><i>Default: white</i>
+            chart.key.position :: Determines the position of the key.Either <b>graph</b> (default), or <b>gutter</b>.<br /><i>Default: graph</i>
+            chart.key.shadow :: Whether a small drop shadow is applied to the key.<br /><i>Default: false</i>
+
+            heading :: Scale
+            chart.units.post :: The units (if any) that the Y axis is measured in (gets appended to the number)<br /><i>Default: none</i>
+            chart.units.pre :: The units (if any) that the Y axis is measured in (gets preppended to the number)<br /><i>Default: none</i>
+            chart.scale.decimals :: Determines the precision of the numbers used as the scale.<br /><i>Default: 0</i>
+            chart.ymin :: The optional minimum Y scale value. If not specified then it will be zero.<br /><i>Default: null</i>
+            chart.ymax :: The optional maximum Y scale value. If not specified then it will be calculated.<br /><i>Default: null (It's calculated)</i>
+            
+            heading :: Axis properties
+            chart.xticks :: The number of X tickmarks.<br /><i>Default: null (linked to number of datapoints)</i>
+            chart.ticksize :: The size of the tick marks. This only affects certain styles of tickmarks.<br /><i>Default: 3</i>
+            chart.tickdirection :: Whether the ticks are above or below the axis.<br /><i>Default: -1 (-1 is below, 1 is above)</i>
+            chart.axis.color :: The color of the axes.<br /><i>Default: black</i>
+            chart.xaxispos :: The position of the X axis. It can be either <i>bottom</i> or <i>center</i>.<br /><i>Default: bottom</i>
+            chart.yaxispos :: Specifies the Y axis position. Can be <i>left</i> or <i>right</i>.<br /><i>Default: left</i>
+            chart.axesontop :: A minor option, this sets the axes to be redrawn after the graph has been drawn. This is only useful in a certain set of circumstances - the graph is filled and the line width is small.<br /><i>Default: false</i>
+            chart.noaxes :: Whether the axes are drawn<br /><i>Default: false (the axes ARE drawn)</i>
+
+            heading :: Zoom
+            chart.zoom.mode :: Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i>
+            chart.zoom.factor :: This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i>
+            chart.zoom.fade.in :: Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i>
+            chart.zoom.fade.out :: Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i>
+            chart.zoom.hdir :: The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i>
+            chart.zoom.vdir :: The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i>
+            chart.zoom.delay :: The delay (in milliseconds) between frames.<br /><i>Default: 50</i>
+            chart.zoom.frames :: The number of frames in the zoom animation.<br /><i>Default: 10</i>
+            chart.zoom.shadow :: Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i>
+            chart.zoom.thumbnail.width :: When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i>
+            chart.zoom.thumbnail.height :: When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i>
+            chart.zoom.background :: Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i>
+
+            heading :: Miscellaneous
+            chart.tickmarks :: What kind of tickmarks to use on the graph. This can be:<ul><li>dot</li><li>circle</li><li>filledcircle</li><li>endcircle</li><li>square</li><li>endsquare</li><li>filledsquare</li><li>filledendsquare</li><li>tick</li><li>halftick</li><li>endtick</li><li>cross</li><li>borderedcircle (same as dot)</li><li>arrow</li><li>filledarrow</li></ul><p>Note that "arrow" and "filledarrow" look better with a thinner (1 or 2) linewidth setting. Also note that now (10th August 2010) as well as a string, this can be an array of different tickmark styles.<br /><i>Default: null</i>
+            chart.tickmarks.dot.color :: This is the color of the BORDER around the dot/borderedcircle style tickmarks. <br /><i>Default: #fff</i>
+            chart.stepped :: Draws the line as stepped. Useful for showing stock performance for example.<br /><i>Default: false</i>
+            chart.linewidth :: The width of the line (ie the actual line on the line graph). Note: If your line is stepped and filled, and you don't want a trailing line indicating the last value, you can set this to zero.<br /><i>Default: 1</i>
+            chart.variant :: At present this can only be <i>3d</i>, and gives a small 3D effect.<br /><i>Default: null</i>
+
+        </PROPERTIES>
+    -->
+
+    <h2>Available properties</h2>
+    
+    <p>
+        You can use these properties to control how the bar graph apears. You can set them by using the Set() method. Eg:
+    </p>
+    
+    <p>
+        <b>myLine.Set('name', 'value');</b>
+    </p>
+
+    <!-- DOCS -->
+
+
+<a name="background"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Background</h3>            <a name="chart.background.barcolor1"></a>
+<b>chart.background.barcolor1</b><br />
+            The color of the background bars (1 of 2).<br /><i>Default: rgba(0,0,0,0)</i><br /><br />
+            <a name="chart.background.barcolor2"></a>
+<b>chart.background.barcolor2</b><br />
+            The color of the background bars (2 of 2).<br /><i>Default: rgba(0,0,0,0)</i><br /><br />
+            <a name="chart.background.grid"></a>
+<b>chart.background.grid</b><br />
+            Whether to show the background grid or not.<br /><i>Default: true</i><br /><br />
+            <a name="chart.background.grid.color"></a>
+<b>chart.background.grid.color</b><br />
+            The color of the background grid.<br /><i>Default: #eee</i><br /><br />
+            <a name="chart.background.hbars"></a>
+<b>chart.background.hbars</b><br />
+            An array of information stipulating horizontal colored bars. You can use these to indicate limits. Eg: <i>myLine.Set('hbars', [[75, 10, 'yellow'], [85, 15, 'red']]);</i> This would give you two bars, one red and a lower yellow bar. The units correspond to your scale, and are the starting point and the height.<br /><i>Default: null</i><br /><br />
+            <a name="chart.background.grid.hsize"></a>
+<b>chart.background.grid.hsize</b><br />
+            The horizontal size of the grid.<br /><i>Default: 25</i><br /><br />
+            <a name="chart.background.grid.vsize"></a>
+<b>chart.background.grid.vsize</b><br />
+            The vertical size of the grid.<br /><i>Default: 25</i><br /><br />
+            <a name="chart.background.grid.width"></a>
+<b>chart.background.grid.width</b><br />
+            The width of the background grid.<br /><i>Default: 1</i><br /><br />
+            <a name="chart.background.grid.border"></a>
+<b>chart.background.grid.border</b><br />
+            Determines whether a border line is drawn around the grid.<br /><i>Default: true</i><br /><br />
+            <a name="chart.background.grid.hlines"></a>
+<b>chart.background.grid.hlines</b><br />
+            Determines whether to draw the horizontal grid lines.<br /><i>Default: true</i><br /><br />
+            <a name="chart.background.grid.vlines"></a>
+<b>chart.background.grid.vlines</b><br />
+            Determines whether to draw the vertical grid lines.<br /><i>Default: true</i><br /><br />
+            <a name="chart.background.grid.autofit"></a>
+<b>chart.background.grid.autofit</b><br />
+            Instead of specifying a pixel width/height for the background grid, you can use autofit and specify how many horizontal and vertical lines you want.<br /><i>Default: false</i><br /><br />
+            <a name="chart.background.grid.autofit.numhlines"></a>
+<b>chart.background.grid.autofit.numhlines</b><br />
+            When using autofit this allows you to specify how many horizontal grid lines you want. <br /><i>Default: 7</i><br /><br />
+            <a name="chart.background.grid.autofit.numvlines"></a>
+<b>chart.background.grid.autofit.numvlines</b><br />
+            When using autofit this allows you to specify how many vertical grid lines you want. <br /><i>Default: 20</i><br /><br />
+            <a name="chart.backdrop"></a>
+<b>chart.backdrop</b><br />
+            When enabled this specifies that the line(s) will have a backdrop effect. You can control the transparency with the other backdrop settings).<br /><i>Default: false</i><br /><br />
+            <a name="chart.backdrop.size"></a>
+<b>chart.backdrop.size</b><br />
+            This controls the size/extent of the backdrop effect.<br /><i>Default: 30</i><br /><br />
+            <a name="chart.backdrop.alpha"></a>
+<b>chart.backdrop.alpha</b><br />
+            This controls how much transparency the backdrop effect has. It can go from 0 - 1.<br /><i>Default: 0.2</i><br /><br />
+<a name="labels and text"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Labels and text</h3>            <a name="chart.labels"></a>
+<b>chart.labels</b><br />
+            An array of the X labels for the graph. <br /><i>Default: [] (An empty array)</i><br /><br />
+            <a name="chart.labels.ingraph"></a>
+<b>chart.labels.ingraph</b><br />
+            An array of labels for the graph which are drawn "inside" the graph.  If you have 5 data points then this should have a corresponding number of elements, though there is a <a href="misc.html#shorthand.ingraph.labels">shorthand available</a>.<br /><i>Default: null</i><br /><br />
+            <a name="chart.ylabels"></a>
+<b>chart.ylabels</b><br />
+            Can be <i>true</i> or <i>false</i> and determines whether the chart has Y axis labels.<br /><i>Default: true</i><br /><br />
+            <a name="chart.ylabels.invert"></a>
+<b>chart.ylabels.invert</b><br />
+            Reverses the Y axis so that 0 is at the top, instead of the bottom.<br /><i>Default: false</i><br /><br />
+            <a name="chart.ylabels.count"></a>
+<b>chart.ylabels.count</b><br />
+            A value (<i>1, 3 or 5</i>) that controls how many Y labels there are. <br /><i>Default: 5</i><br /><br />
+            <a name="chart.ylabels.inside"></a>
+<b>chart.ylabels.inside</b><br />
+            This controls whether the Y labels are drawn inside the Y axis or not. If your labels are large, this may help.<br /><i>Default: false</i><br /><br />
+            <a name="chart.ylabels.inside.color"></a>
+<b>chart.ylabels.inside.color</b><br />
+            If the Y labels are to be drawn inside the Y axis, this is used as the background color.<br /><i>Default: rgba(255,255,255,0.5)</i><br /><br />
+            <a name="chart.xlabels.inside"></a>
+<b>chart.xlabels.inside</b><br />
+            This controls whether the X labels are drawn inside the X axis or not. By using this you can significantly reduce the size of the gutter needed. <br /><i>Default: false</i><br /><br />
+            <a name="chart.xlabels.inside.color"></a>
+<b>chart.xlabels.inside.color</b><br />
+            If the X labels are to be drawn inside the X axis, this is used as the background color.<br /><i>Default: rgba(255,255,255,0.5)</i><br /><br />
+            <a name="chart.text.size"></a>
+<b>chart.text.size</b><br />
+            The size of the text (in points).<br /><i>Default: 10</i><br /><br />
+            <a name="chart.text.angle"></a>
+<b>chart.text.angle</b><br />
+            The angle of the horizontal text labels (at the bottom of the graph). Previously this could be 0, 45 or 90, but now (31st July 2010) this can be any angle.<br /><i>Default: 0 (Horizontal)</i><br /><br />
+            <a name="chart.text.font"></a>
+<b>chart.text.font</b><br />
+            The font used to render the text.<br /><i>Default: Verdana</i><br /><br />
+            <a name="chart.text.color"></a>
+<b>chart.text.color</b><br />
+            The color of the labels. <br /><i>Default: black</i><br /><br />
+<a name="margins"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Margins</h3>            <a name="chart.gutter"></a>
+<b>chart.gutter</b><br />
+            The gutter of the graph. This is the bit of the graph that the labels are in.<br /><i>Default: 25</i><br /><br />
+            <a name="chart.hmargin"></a>
+<b>chart.hmargin</b><br />
+            The size of the horizontal margin. This is on the inside of the axes.<br /><i>Default: 0</i><br /><br />
+<a name="colors"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Colors</h3>            <a name="chart.colors"></a>
+<b>chart.colors</b><br />
+            An array of line colors.<br /><i>Default: ['#f00', '#0f0', '', '#00f', '#f0f', '#ff0', '#0ff'] 9</i><br /><br />
+            <a name="chart.colors.alternate"></a>
+<b>chart.colors.alternate</b><br />
+            Set this to true if you want your line color(s) to be alternated. <a href="#note.colors">See note</a><br /><i>Default: false</i><br /><br />
+            <a name="chart.fillstyle"></a>
+<b>chart.fillstyle</b><br />
+            A single color or an array of colors that filled line charts will use.<br /><br /><b>Important:</b> This used to be a string, and still can be, but can now also be an array.<br /><i>Default: null</i><br /><br />
+            <a name="chart.filled"></a>
+<b>chart.filled</b><br />
+            Whether the area under the graph is filled or not. This looks best when there is no horizontal margin.<br /><i>Default: false</i><br /><br />
+            <a name="chart.filled.range"></a>
+<b>chart.filled.range</b><br />
+            This is useful for indicating a range. Exactly two datasets are required, with the space between them filled. This is useful for indicating a range.The <a href="../examples/line.html">line chart examples</a> page demonstrates this in action.<br /><i>Default: false</i><br /><br />
+<a name="shadow"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Shadow</h3>            <a name="chart.shadow"></a>
+<b>chart.shadow</b><br />
+            If true a shadow will be applied to the line.<br /><i>Default: false</i><br /><br />
+            <a name="chart.shadow.color"></a>
+<b>chart.shadow.color</b><br />
+            The color of the shadow. As well as a single color definition, this can also be an array of colors. This means that if you have multiple lines on your chart, each can have a different shadow color. <br /><i>Default: rgba(0,0,0,0.5)</i><br /><br />
+            <a name="chart.shadow.offsetx"></a>
+<b>chart.shadow.offsetx</b><br />
+            The X offset in pixels for the shadow.<br /><i>Default: 3</i><br /><br />
+            <a name="chart.shadow.offsety"></a>
+<b>chart.shadow.offsety</b><br />
+            The Y offset in pixels for the shadow.<br /><i>Default: 3</i><br /><br />
+            <a name="chart.shadow.blur"></a>
+<b>chart.shadow.blur</b><br />
+            The severity of the shadow blurring effect.<br /><i>Default: 3</i><br /><br />
+<a name="interactive features"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Interactive features</h3>            <a name="chart.tooltips"></a>
+<b>chart.tooltips</b><br />
+            These are tooltips for the line(s). It should be an array of tooltips. If you have multiple lines, simply pass multiple arrays to the Set() method. <br /><i>Default: [] (An empty array)</i><br /><br />
+            <a name="chart.tooltips.effect"></a>
+<b>chart.tooltips.effect</b><br />
+            The animated effect used for showing tooltips. Can be either <i>fade</i> or <i>expand</i>.<br /><i>Default: fade</i><br /><br />
+            <a name="chart.tooltips.coords.adjust"></a>
+<b>chart.tooltips.coords.adjust</b><br />
+            If you translate() before drawing your graph to reduce wasted space, the coords used for tooltips may need adjusting by how much you translate() by. This setting is how to do it. It should be an array of the X/Y adjustments. There's an example of this on the <a href="misc.html#reducing.white.space">misc documentation</a> page.<br /><i>Default: [0,0]</i><br /><br />
+            <a name="chart.tooltips.css.class"></a>
+<b>chart.tooltips.css.class</b><br />
+            This is the name of the CSS class the graph uses.<br /><i>Default: RGraph_tooltip</i><br /><br />
+            <a name="chart.tooltips.override"></a>
+<b>chart.tooltips.override</b><br />
+            If you wish to handle showing tooltips yourself, this should be a function object which does just that. There's more information on the <a href="tooltips.html">tooltips documentation page</a><br /><i>Default: null</i><br /><br />
+            <a name="chart.crosshairs"></a>
+<b>chart.crosshairs</b><br />
+            If true, you will get a crosshair centering on the current mouse position.<br /><i>Default: false</i><br /><br />
+            <a name="chart.crosshairs.linewidth"></a>
+<b>chart.crosshairs.linewidth</b><br />
+            This controls the linewidth of the crosshairs.<br /><i>Default: 1</i><br /><br />
+            <a name="chart.crosshairs.color"></a>
+<b>chart.crosshairs.color</b><br />
+            The color of the crosshairs.<br /><i>Default: #333</i><br /><br />
+            <a name="chart.contextmenu"></a>
+<b>chart.contextmenu</b><br />
+            An array of context menu items. Unlike the bar chart, you CAN have context menus at the same time as tooltips. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i><br /><br />
+            <a name="chart.annotatable"></a>
+<b>chart.annotatable</b><br />
+            Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i><br /><br />
+            <a name="chart.annotate.color"></a>
+<b>chart.annotate.color</b><br />
+            If you do not allow the use of the palette, then this will be the only color allowed for annotations.<br /><i>Default: black</i><br /><br />
+            <a name="chart.resizable"></a>
+<b>chart.resizable</b><br />
+            Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i><br /><br />
+            <a name="chart.adjustable"></a>
+<b>chart.adjustable</b><br />
+            Defaulting to false, this determines whether your graph will be adjustable (click a point and drag it). <br /><i>Default: false</i><br /><br />
+<a name="titles"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Titles</h3>            <a name="chart.title"></a>
+<b>chart.title</b><br />
+            The title of the chart.<br /><i>Default: none</i><br /><br />
+            <a name="chart.title.vpos"></a>
+<b>chart.title.vpos</b><br />
+            This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i><br /><br />
+            <a name="chart.title.color"></a>
+<b>chart.title.color</b><br />
+            The color of the title.<br /> <i>Default: black</i><br /><br />
+            <a name="chart.title.xaxis"></a>
+<b>chart.title.xaxis</b><br />
+            This allows to specify a title for the X axis.<br /><i>Default: none</i><br /><br />
+            <a name="chart.title.yaxis"></a>
+<b>chart.title.yaxis</b><br />
+            This allows to specify a title for the Y axis.<br /><i>Default: none</i><br /><br />
+            <a name="chart.title.xaxis.pos"></a>
+<b>chart.title.xaxis.pos</b><br />
+            This is multiplied with the gutter to give the position of the X axis title.<br /><i>Default: 0.25</i><br /><br />
+            <a name="chart.title.yaxis.pos"></a>
+<b>chart.title.yaxis.pos</b><br />
+            This is multiplied with the gutter to give the position of the Y axis title.<br /><i>Default: 0.25</i><br /><br />
+<a name="key"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Key</h3>            <a name="chart.key"></a>
+<b>chart.key</b><br />
+            An array of key information. <br /><i>Default: [] (An empty array)</i><br /><br />
+            <a name="chart.key.background"></a>
+<b>chart.key.background</b><br />
+            The color of the key background. Typically white, you could set this to something like rgba(255,255,255,0.7) to allow people to see things behind it.<br><i>Default: white</i><br /><br />
+            <a name="chart.key.position"></a>
+<b>chart.key.position</b><br />
+            Determines the position of the key.Either <b>graph</b> (default), or <b>gutter</b>.<br /><i>Default: graph</i><br /><br />
+            <a name="chart.key.shadow"></a>
+<b>chart.key.shadow</b><br />
+            Whether a small drop shadow is applied to the key.<br /><i>Default: false</i><br /><br />
+<a name="scale"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Scale</h3>            <a name="chart.units.post"></a>
+<b>chart.units.post</b><br />
+            The units (if any) that the Y axis is measured in (gets appended to the number)<br /><i>Default: none</i><br /><br />
+            <a name="chart.units.pre"></a>
+<b>chart.units.pre</b><br />
+            The units (if any) that the Y axis is measured in (gets preppended to the number)<br /><i>Default: none</i><br /><br />
+            <a name="chart.scale.decimals"></a>
+<b>chart.scale.decimals</b><br />
+            Determines the precision of the numbers used as the scale.<br /><i>Default: 0</i><br /><br />
+            <a name="chart.ymin"></a>
+<b>chart.ymin</b><br />
+            The optional minimum Y scale value. If not specified then it will be zero.<br /><i>Default: null</i><br /><br />
+            <a name="chart.ymax"></a>
+<b>chart.ymax</b><br />
+            The optional maximum Y scale value. If not specified then it will be calculated.<br /><i>Default: null (It's calculated)</i><br /><br />
+<a name="axis properties"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Axis properties</h3>            <a name="chart.xticks"></a>
+<b>chart.xticks</b><br />
+            The number of X tickmarks.<br /><i>Default: null (linked to number of datapoints)</i><br /><br />
+            <a name="chart.ticksize"></a>
+<b>chart.ticksize</b><br />
+            The size of the tick marks. This only affects certain styles of tickmarks.<br /><i>Default: 3</i><br /><br />
+            <a name="chart.tickdirection"></a>
+<b>chart.tickdirection</b><br />
+            Whether the ticks are above or below the axis.<br /><i>Default: -1 (-1 is below, 1 is above)</i><br /><br />
+            <a name="chart.axis.color"></a>
+<b>chart.axis.color</b><br />
+            The color of the axes.<br /><i>Default: black</i><br /><br />
+            <a name="chart.xaxispos"></a>
+<b>chart.xaxispos</b><br />
+            The position of the X axis. It can be either <i>bottom</i> or <i>center</i>.<br /><i>Default: bottom</i><br /><br />
+            <a name="chart.yaxispos"></a>
+<b>chart.yaxispos</b><br />
+            Specifies the Y axis position. Can be <i>left</i> or <i>right</i>.<br /><i>Default: left</i><br /><br />
+            <a name="chart.axesontop"></a>
+<b>chart.axesontop</b><br />
+            A minor option, this sets the axes to be redrawn after the graph has been drawn. This is only useful in a certain set of circumstances - the graph is filled and the line width is small.<br /><i>Default: false</i><br /><br />
+            <a name="chart.noaxes"></a>
+<b>chart.noaxes</b><br />
+            Whether the axes are drawn<br /><i>Default: false (the axes ARE drawn)</i><br /><br />
+<a name="zoom"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Zoom</h3>            <a name="chart.zoom.mode"></a>
+<b>chart.zoom.mode</b><br />
+            Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i><br /><br />
+            <a name="chart.zoom.factor"></a>
+<b>chart.zoom.factor</b><br />
+            This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i><br /><br />
+            <a name="chart.zoom.fade.in"></a>
+<b>chart.zoom.fade.in</b><br />
+            Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.fade.out"></a>
+<b>chart.zoom.fade.out</b><br />
+            Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.hdir"></a>
+<b>chart.zoom.hdir</b><br />
+            The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i><br /><br />
+            <a name="chart.zoom.vdir"></a>
+<b>chart.zoom.vdir</b><br />
+            The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i><br /><br />
+            <a name="chart.zoom.delay"></a>
+<b>chart.zoom.delay</b><br />
+            The delay (in milliseconds) between frames.<br /><i>Default: 50</i><br /><br />
+            <a name="chart.zoom.frames"></a>
+<b>chart.zoom.frames</b><br />
+            The number of frames in the zoom animation.<br /><i>Default: 10</i><br /><br />
+            <a name="chart.zoom.shadow"></a>
+<b>chart.zoom.shadow</b><br />
+            Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.thumbnail.width"></a>
+<b>chart.zoom.thumbnail.width</b><br />
+            When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i><br /><br />
+            <a name="chart.zoom.thumbnail.height"></a>
+<b>chart.zoom.thumbnail.height</b><br />
+            When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i><br /><br />
+            <a name="chart.zoom.background"></a>
+<b>chart.zoom.background</b><br />
+            Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i><br /><br />
+<a name="miscellaneous"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Miscellaneous</h3>            <a name="chart.tickmarks"></a>
+<b>chart.tickmarks</b><br />
+            What kind of tickmarks to use on the graph. This can be:<ul><li>dot</li><li>circle</li><li>filledcircle</li><li>endcircle</li><li>square</li><li>endsquare</li><li>filledsquare</li><li>filledendsquare</li><li>tick</li><li>halftick</li><li>endtick</li><li>cross</li><li>borderedcircle (same as dot)</li><li>arrow</li><li>filledarrow</li></ul><p>Note that "arrow" and "filledarrow" look better with a thinner (1 or 2) linewidth setting. Also note that now (10th August 2010) as well as a string, this can be an array of different tickmark styles.<br /><i>Default: null</i><br /><br />
+            <a name="chart.tickmarks.dot.color"></a>
+<b>chart.tickmarks.dot.color</b><br />
+            This is the color of the BORDER around the dot/borderedcircle style tickmarks. <br /><i>Default: #fff</i><br /><br />
+            <a name="chart.stepped"></a>
+<b>chart.stepped</b><br />
+            Draws the line as stepped. Useful for showing stock performance for example.<br /><i>Default: false</i><br /><br />
+            <a name="chart.linewidth"></a>
+<b>chart.linewidth</b><br />
+            The width of the line (ie the actual line on the line graph). Note: If your line is stepped and filled, and you don't want a trailing line indicating the last value, you can set this to zero.<br /><i>Default: 1</i><br /><br />
+            <a name="chart.variant"></a>
+<b>chart.variant</b><br />
+            At present this can only be <i>3d</i>, and gives a small 3D effect.<br /><i>Default: null</i><br /><br />
+</div><!-- /DOCS --><br /><br />
+
+    <a name="note.colors"></a>
+    <h4>Note about alternating colors</h4>
+    
+    <p>
+        Instead of a string stipulating the color, each element of the colors array can itself be a two element array,
+        stipulating the up color, and the down color. Eg:
+    </p>
+    
+    <pre class="code">
+myLine.Set('chart.colors', ['red', ['blue', 'yellow'], 'green]);
+</pre>
+
+</body>
+</html>

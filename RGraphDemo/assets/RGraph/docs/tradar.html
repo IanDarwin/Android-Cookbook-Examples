@@ -1,0 +1,291 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for personal,    |
+        * | charity and educational purposes it is free to use. You can read the full    |
+        * | license here:                                                                |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Traditional radar chart documentation</title>
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Traditional radar chart
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Traditional radar chart documentation</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox, Chrome or Safari. RGraph also works in Opera though this browser does not yet support the shadow or text APIs.</li></ul></div>');
+        }
+    </script>
+
+    <p>
+        A traditional radar chart.
+    </p>
+    
+    <p>
+        The example file is <a href="../examples/tradar.html">here</a>.
+    </p>
+    
+    <pre class="code">
+&lt;script&gt;
+    window.onload = function ()
+    {
+        var data = [3, 3, 41, 37, 16];
+    
+        var tradar = new RGraph.Tradar('myTradar', data);
+        tradar.Set('chart.background.circles', true);
+        tradar.Set('chart.color', 'rgba(255,0,0,0.5)');
+        tradar.Set('chart.circle', 20);
+        tradar.Set('chart.circle.fill', 'rgba(200,255,200,0.5)');
+        tradar.Set('chart.labels', ['Safari (3%)', 'Other (3%)', 'MSIE 7 (41%)', 'MSIE 6 (37%)', 'Firefox (16%)']);
+        tradar.Set('chart.key', ['Market share', 'A made up figure']);
+        tradar.Draw();
+    }
+&lt;/script&gt;
+</pre>
+
+
+    <h2>Available properties</h2>
+    
+    <p>
+        You can use these properties to control how the chart apears. You can set these properties by using the Set() method. Eg:
+    </p>
+    
+    <p>
+        <b>myTradar.Set('color', 'rgba(255,0,0,0.5)');</b>
+    </p>
+    
+    <!-- CONTENTS --><ul><li><a href="#margins">Margins</a></li><li><a href="#colors">Colors</a></li><li><a href="#title">Title</a></li><li><a href="#labels and text">Labels and text</a></li><li><a href="#scale">Scale</a></li><li><a href="#miscellaneous">Miscellaneous</a></li><li><a href="#key">Key</a></li><li><a href="#interactive features">Interactive features</a></li><li><a href="#zoom">Zoom</a></li></ul><!-- /CONTENTS -->
+    
+    <!--
+        <PROPERTIES>
+            
+            heading :: Margins
+            chart.gutter :: The gutter that the chart uses. This is effectively the margin.<br /><i>Default: 25</i>
+            
+            heading :: Colors
+            chart.color :: The color of the radar chart.<br /><i>Default: rgba(255,0,0,0.5)</i>
+            
+            heading :: Title
+            chart.title :: The title, if any, of the chart.<br /><i>Default: Not set</i>
+            chart.title.color :: The color of the title.<br /> <i>Default: black</i>
+            chart.title.vpos :: This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i>
+            chart.title.hpos :: This allows you to completely override the horizontal positioning of the title. It should be a number between 0 and 1, and is multiplied with the whole width of the canvas and then used as the horizontal position. <br /><i>Default: null</i>
+            
+            heading :: Labels and text
+            chart.labels :: The labels to use for the chart.<br /><i>Default: An empty array</i>
+            chart.labels.axes :: This controls the axes that show the scale labels. Each letter stands for the appropriate axis (North, South, East and West)<br /><i>Default: nsew</i>
+            chart.labels.offsetx :: The X pixel offset for the labels.<br /><i>Default: 10</i>
+            chart.labels.offsety :: The Y pixel offset for the labels.<br /><i>Default: 10</i>
+            chart.text.font :: The font used to render the text.<br /><i>Default: Verdana</i>
+            chart.text.color :: The color of the labels. <br /><i>Default: black</i>
+            chart.text.size :: The size of the text (in points).<br /><i>Default: 10</i>
+
+            heading :: Scale
+            chart.ymax :: The optional maximum Y scale value. If not specified then it will be calculated.<br /><i>Default: null (It's calculated)</i>
+
+            heading :: Miscellaneous
+            chart.background.circles :: Whether to draw the grey background circles.<br /><i>Default: true</i>
+            chart.linewidth :: The width of the outline.<br /><i>Default: 1</i>
+            chart.circle :: What value to draw a circle at. Defaults to zero (off). You could use this to represent a threshold of some sort.<br /><i>Default: 0</i>
+            chart.circle.fill :: What color to fill the circle with.<br /><i>Default: red</i>
+            chart.circle.stroke :: What color to stroke (ie The outline) the circle with.<br /><i>Default: black</i>
+            
+            heading :: Key
+            chart.key :: An array of two descriptions. The actual radar, and the indicated limit circle.<br /><i>Default: Not set</i>
+            chart.key.shadow :: Whether a small drop shadow is applied to the key.<br /><i>Default: false</i>
+            chart.key.position :: Determines the position of the key.Either <b>graph</b> (default), or <b>gutter</b>.<br /><i>Default: graph</i>
+            chart.key.background :: The background color of the key. If the key covers too much, you can use a semi-transparent colour - eg. <b>rgba(255,255,255,0.7)</b>.<br /><i>Default: #fff</i>
+            
+            heading :: Interactive features
+            chart.contextmenu :: An array of context menu items. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i>
+            chart.annotatable :: Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i>
+            chart.annotate.color :: If you do not allow the use of the palette, then this will be the only colour allowed for annotations.<br /><i>Default: black</i>
+            chart.tooltips :: A numerically indexed array of tooltips that are shown when a hotspot is hovered over. These can contain HTML.<br /><i>Default: An empty array</i>
+            chart.tooltips.effect :: The visual effect used when showing tooltips. Can be either <i>fade</i> or <i>expand</i>.<br /><i>Default: fade</i>
+            chart.tooltips.css.class :: This is the name of the CSS class the graph uses.<br /><i>Default: RGraph_tooltip</i>
+            chart.tooltips.override :: If you wish to handle showing tooltips yourself, this should be a function object which does just that. There's more information on the <a href="tooltips.html">tooltips documentation page</a><br /><i>Default: null</i>
+            chart.resizable :: Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i>
+
+            heading :: Zoom
+            chart.zoom.mode :: Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i>
+            chart.zoom.factor :: This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i>
+            chart.zoom.fade.in :: Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i>
+            chart.zoom.fade.out :: Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i>
+            chart.zoom.hdir :: The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i>
+            chart.zoom.vdir :: The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i>
+            chart.zoom.delay :: The delay (in milliseconds) between frames.<br /><i>Default: 50</i>
+            chart.zoom.frames :: The number of frames in the zoom animation.<br /><i>Default: 10</i>
+            chart.zoom.shadow :: Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i>
+            chart.zoom.thumbnail.width :: When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i>
+            chart.zoom.thumbnail.height :: When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i>
+            chart.zoom.background :: Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i>
+
+        </PROPERTIES>
+    -->
+
+    <!-- DOCS -->
+
+
+<a name="margins"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Margins</h3>            <a name="chart.gutter"></a>
+<b>chart.gutter</b><br />
+            The gutter that the chart uses. This is effectively the margin.<br /><i>Default: 25</i><br /><br />
+<a name="colors"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Colors</h3>            <a name="chart.color"></a>
+<b>chart.color</b><br />
+            The color of the radar chart.<br /><i>Default: rgba(255,0,0,0.5)</i><br /><br />
+<a name="title"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Title</h3>            <a name="chart.title"></a>
+<b>chart.title</b><br />
+            The title, if any, of the chart.<br /><i>Default: Not set</i><br /><br />
+            <a name="chart.title.color"></a>
+<b>chart.title.color</b><br />
+            The color of the title.<br /> <i>Default: black</i><br /><br />
+            <a name="chart.title.vpos"></a>
+<b>chart.title.vpos</b><br />
+            This allows you to completely override the vertical positioning of the title. It should be a number between 0 and 1, and is multiplied with the gutter and then used as the vertical position. It can be useful if you need to have a large gutter.<br /><i>Default: null</i><br /><br />
+            <a name="chart.title.hpos"></a>
+<b>chart.title.hpos</b><br />
+            This allows you to completely override the horizontal positioning of the title. It should be a number between 0 and 1, and is multiplied with the whole width of the canvas and then used as the horizontal position. <br /><i>Default: null</i><br /><br />
+<a name="labels and text"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Labels and text</h3>            <a name="chart.labels"></a>
+<b>chart.labels</b><br />
+            The labels to use for the chart.<br /><i>Default: An empty array</i><br /><br />
+            <a name="chart.labels.axes"></a>
+<b>chart.labels.axes</b><br />
+            This controls the axes that show the scale labels. Each letter stands for the appropriate axis (North, South, East and West)<br /><i>Default: nsew</i><br /><br />
+            <a name="chart.labels.offsetx"></a>
+<b>chart.labels.offsetx</b><br />
+            The X pixel offset for the labels.<br /><i>Default: 10</i><br /><br />
+            <a name="chart.labels.offsety"></a>
+<b>chart.labels.offsety</b><br />
+            The Y pixel offset for the labels.<br /><i>Default: 10</i><br /><br />
+            <a name="chart.text.font"></a>
+<b>chart.text.font</b><br />
+            The font used to render the text.<br /><i>Default: Verdana</i><br /><br />
+            <a name="chart.text.color"></a>
+<b>chart.text.color</b><br />
+            The color of the labels. <br /><i>Default: black</i><br /><br />
+            <a name="chart.text.size"></a>
+<b>chart.text.size</b><br />
+            The size of the text (in points).<br /><i>Default: 10</i><br /><br />
+<a name="scale"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Scale</h3>            <a name="chart.ymax"></a>
+<b>chart.ymax</b><br />
+            The optional maximum Y scale value. If not specified then it will be calculated.<br /><i>Default: null (It's calculated)</i><br /><br />
+<a name="miscellaneous"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Miscellaneous</h3>            <a name="chart.background.circles"></a>
+<b>chart.background.circles</b><br />
+            Whether to draw the grey background circles.<br /><i>Default: true</i><br /><br />
+            <a name="chart.linewidth"></a>
+<b>chart.linewidth</b><br />
+            The width of the outline.<br /><i>Default: 1</i><br /><br />
+            <a name="chart.circle"></a>
+<b>chart.circle</b><br />
+            What value to draw a circle at. Defaults to zero (off). You could use this to represent a threshold of some sort.<br /><i>Default: 0</i><br /><br />
+            <a name="chart.circle.fill"></a>
+<b>chart.circle.fill</b><br />
+            What color to fill the circle with.<br /><i>Default: red</i><br /><br />
+            <a name="chart.circle.stroke"></a>
+<b>chart.circle.stroke</b><br />
+            What color to stroke (ie The outline) the circle with.<br /><i>Default: black</i><br /><br />
+<a name="key"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Key</h3>            <a name="chart.key"></a>
+<b>chart.key</b><br />
+            An array of two descriptions. The actual radar, and the indicated limit circle.<br /><i>Default: Not set</i><br /><br />
+            <a name="chart.key.shadow"></a>
+<b>chart.key.shadow</b><br />
+            Whether a small drop shadow is applied to the key.<br /><i>Default: false</i><br /><br />
+            <a name="chart.key.position"></a>
+<b>chart.key.position</b><br />
+            Determines the position of the key.Either <b>graph</b> (default), or <b>gutter</b>.<br /><i>Default: graph</i><br /><br />
+            <a name="chart.key.background"></a>
+<b>chart.key.background</b><br />
+            The background color of the key. If the key covers too much, you can use a semi-transparent colour - eg. <b>rgba(255,255,255,0.7)</b>.<br /><i>Default: #fff</i><br /><br />
+<a name="interactive features"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Interactive features</h3>            <a name="chart.contextmenu"></a>
+<b>chart.contextmenu</b><br />
+            An array of context menu items. More information on context menus is <a href="context.html">here</a>.<br /><i>Default: [] (An empty array)</i><br /><br />
+            <a name="chart.annotatable"></a>
+<b>chart.annotatable</b><br />
+            Whether annotations are enabled for the chart (ie you can draw on the chart interactively.<br /><i>Default: false</i><br /><br />
+            <a name="chart.annotate.color"></a>
+<b>chart.annotate.color</b><br />
+            If you do not allow the use of the palette, then this will be the only colour allowed for annotations.<br /><i>Default: black</i><br /><br />
+            <a name="chart.tooltips"></a>
+<b>chart.tooltips</b><br />
+            A numerically indexed array of tooltips that are shown when a hotspot is hovered over. These can contain HTML.<br /><i>Default: An empty array</i><br /><br />
+            <a name="chart.tooltips.effect"></a>
+<b>chart.tooltips.effect</b><br />
+            The visual effect used when showing tooltips. Can be either <i>fade</i> or <i>expand</i>.<br /><i>Default: fade</i><br /><br />
+            <a name="chart.tooltips.css.class"></a>
+<b>chart.tooltips.css.class</b><br />
+            This is the name of the CSS class the graph uses.<br /><i>Default: RGraph_tooltip</i><br /><br />
+            <a name="chart.tooltips.override"></a>
+<b>chart.tooltips.override</b><br />
+            If you wish to handle showing tooltips yourself, this should be a function object which does just that. There's more information on the <a href="tooltips.html">tooltips documentation page</a><br /><i>Default: null</i><br /><br />
+            <a name="chart.resizable"></a>
+<b>chart.resizable</b><br />
+            Defaulting to false, this determines whether your graph will be resizable. Because of the numerous event handlers this has to install code on, This feature is unlikely to work with other dynamic features (the context menu is fine however).<br /><i>Default: false</i><br /><br />
+<a name="zoom"></a>
+<h3 style="border: 1px solid #aaa; background-color: #eee; font-style: italic; padding: 5px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px">Zoom</h3>            <a name="chart.zoom.mode"></a>
+<b>chart.zoom.mode</b><br />
+            Can be used to control whether the zoom is in thumbnail or canvas mode. Possible values are: <i>thumbnail</i> and <i>canvas</i>.<br /><i>Default: canvas</i><br /><br />
+            <a name="chart.zoom.factor"></a>
+<b>chart.zoom.factor</b><br />
+            This is the factor that the graph will be zoomed by (bigger values means more zoom)<br /><i>Default: 1.5</i><br /><br />
+            <a name="chart.zoom.fade.in"></a>
+<b>chart.zoom.fade.in</b><br />
+            Whether the zoomed canvas fades in or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.fade.out"></a>
+<b>chart.zoom.fade.out</b><br />
+            Whether the zoomed canvas fades out or not. This also can be used to control the fade in for the zoom in thumbnail mode.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.hdir"></a>
+<b>chart.zoom.hdir</b><br />
+            The horizontal direction of the zoom. Possible values are: <i>left</i>, <i>center</i>, <i>right</i><br /><i>Default: right</i><br /><br />
+            <a name="chart.zoom.vdir"></a>
+<b>chart.zoom.vdir</b><br />
+            The vertical direction of the zoom. Possible values are: <i>up</i>, <i>center</i>, <i>down</i><br /><i>Default: down</i><br /><br />
+            <a name="chart.zoom.delay"></a>
+<b>chart.zoom.delay</b><br />
+            The delay (in milliseconds) between frames.<br /><i>Default: 50</i><br /><br />
+            <a name="chart.zoom.frames"></a>
+<b>chart.zoom.frames</b><br />
+            The number of frames in the zoom animation.<br /><i>Default: 10</i><br /><br />
+            <a name="chart.zoom.shadow"></a>
+<b>chart.zoom.shadow</b><br />
+            Whether or not the zoomed canvas has a shadow or not.<br /><i>Default: true</i><br /><br />
+            <a name="chart.zoom.thumbnail.width"></a>
+<b>chart.zoom.thumbnail.width</b><br />
+            When the zoom is in thumbnail mode, this is the width (in pixels) of the thumbnail.<br /><i>Default: 75</i><br /><br />
+            <a name="chart.zoom.thumbnail.height"></a>
+<b>chart.zoom.thumbnail.height</b><br />
+            When the zoom is in thumbnail mode, this is the height (in pixels) of the thumbnail.<br /><i>Default: 75</i><br /><br />
+            <a name="chart.zoom.background"></a>
+<b>chart.zoom.background</b><br />
+            Defaulting to true, this determines whether the zoom has a dark, semi-opaque background that covers the entire web page.<br /><i>Default: true</i><br /><br />
+</div><!-- /DOCS --><br /><br />
+</body>
+</html>

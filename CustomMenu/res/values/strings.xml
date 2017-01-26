@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, CustomMenu!</string>
+    <string name="app_name">CustomMenu</string>
+    <string name="submenu_1">Submenu 1</string>
+</resources>

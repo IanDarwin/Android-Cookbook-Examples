@@ -1,0 +1,6 @@
+= RangeGraph
+
+RangeGraph is a custom View to show, in a simplified bar chart, where a given value fits in a range.
+
+It is both a demo of a few ideas in making custom Views, and a useful component to show
+e.g., medical patients how they are doing in meeting e.g., weight goals.

@@ -1,0 +1,150 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - documentation</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs domcontentloaded" />
+    <meta name="description" content="RGraph: HTML5 canvas graph library - DOMContentLoaded example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <meta name="keywords" content="rgraph graph html5 javascript canvas" />
+    <meta name="description" content="RGraph: The HTML5 graphing library for websites on all platforms" />
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    
+    <script>
+        window.onload = function ()
+        {
+            var duration = (new Date().getTime() - timer.getTime()) / 1000;
+            document.getElementById("waiting").innerHTML = '<span style="color: green">Done! Extra time taken: ' + duration.toFixed(1) + ' seconds</span>';
+            alert('The window.onload event fired, extra time taken: ' + duration.toFixed(1) + ' seconds');
+        }
+        
+        function myFunc ()
+        {
+            var line = new RGraph.Line('cvs', [4,3,2,4,5,6,7,4,8,9]);
+            line.Set('chart.labels', ['Dez', 'Fliss','Geoff','Hoolio','John','Rich','Kev','Charles','Lou','Bob']);
+            line.Set('chart.hmargin', 5);
+            line.Set('chart.title', 'A demonstration of the DOMContentLoaded event');
+            line.Set('chart.tickmarks', 'circle');
+
+            if (navigator.userAgent.indexOf('Chrome/6') == -1) {
+                line.Set('chart.shadow', true);
+                line.Set('chart.shadow.offsetx', 0);
+                line.Set('chart.shadow.offsety', 0);
+                line.Set('chart.shadow.blur', 15);
+            }
+            line.Draw();
+        }
+    
+        /**
+        * Install the function to the appropriate event
+        */
+        if(window.addEventListener) {
+            window.addEventListener('DOMContentLoaded', myFunc, false);
+        } else {
+            document.attachEvent("onDOMContentLoaded", myFunc);
+        }
+        
+        // Create a timer to show the difference
+        timer = new Date();
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="index.html">Documentation</a>
+    >
+    DOMContentLoaded event
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - DOMContentLoaded example</h1>
+
+    <p id="waiting" style="; font-weight: bold; font-size: 16pt"><span style="color: #aa0">Waiting for onload event...</span></p>
+
+
+
+
+    <p style="background-color: #eee; border: 1px dashed gray; padding: 5px; height: 50px;">
+        <span style="display: inline-block; margin-left: 10px; float: right">
+            <script>
+                document.write('<img src="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/whidbey.jpg?' + Math.random() + '" width="50" height="50" />&nbsp;');
+                document.write('<img src="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/window.jpg?' + Math.random() + '" width="50" height="50" />&nbsp;');
+                document.write('<img src="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/whidbey2.jpg?' + Math.random() + '" width="50" height="50" />');
+            </script>
+        </span>
+
+        These images are here to pad the page and slow down loading so that the window.onload event is slowed. This makes the
+        difference far more visible.
+    </p>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <canvas id="cvs" width="600" height="250" style="float: right">[No canvas support]</canvas>
+
+    <p>
+        The DOMContentLoaded event is an extremely useful event and can make a big impact on the performance of your pages, hence this
+        example. The DOMContentLoaded event fires when the pages HTML and scripts have loaded, but not necessarily any images or CSS.
+        This can make a big improvement on the apparent speed of your page(s).
+    </p>
+    
+    <p>
+        You can read more about the <i>DOMContentLoaded</i> event on the Mozilla site, <a href="https://developer.mozilla.org/en/Gecko-Specific_DOM_Events" target="_blank">here</a>,
+        and the Microsoft site <a href="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/Default.html" target="_blank">here</a>.
+    </p>
+
+    <br clear="all" />
+
+    <pre class="code">
+function createGraph(func)
+{
+    if(window.addEventListener) {
+        window.addEventListener('DOMContentLoaded', func, false);
+    } else {
+        document.attachEvent("onDOMContentLoaded", func);
+    }
+}
+</pre>
+
+    <h4>Browser support</h4>
+    
+    <p>
+        The DOMContentLoaded event is supported by the following browsers:
+    </p>
+    
+    <ul>
+        <li>Google Chrome</li>
+        <li><a href="https://developer.mozilla.org/en/Gecko-Specific_DOM_Events" target="_blank">Mozilla Firefox</a></li>
+        <li>Apple Safari</li>
+        <li>Opera ASA. Opera</li>
+        <li><a href="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/Default.html" target="_blank">Microsoft Internet Explorer 9</a></li>
+    </ul>
+
+</body>
+</html>

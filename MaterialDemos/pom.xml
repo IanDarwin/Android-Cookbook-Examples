@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.androidcookbook</groupId>
+	<artifactId>materialdemos</artifactId>
+	<version>1.0.0</version>
+	<packaging>apk</packaging>
+	<inceptionYear>2015</inceptionYear>
+	<name>Material Demo</name>
+
+	<parent>
+		<groupId>com.androidcookbook.examples</groupId>
+		<artifactId>android-cookbook-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<properties>
+		<javase-version>1.7</javase-version>
+		<maven.compiler.source>${javase.version}</maven.compiler.source>
+		<maven.compiler.target>${javase.version}</maven.compiler.target>
+		<maven.compiler.testSource>${javase.version}</maven.compiler.testSource>
+		<maven.compiler.testTarget>${javase.version}</maven.compiler.testTarget>
+		<platform.version>6.0_r3</platform.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+	</properties>
+
+	<dependencies>
+		<!-- This is an Android project -->
+		<dependency>
+			<groupId>android</groupId>
+			<artifactId>android</artifactId>
+			<version>${platform.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>com.simpligility.maven.plugins</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android.plugin.version}</version>
+				<configuration>
+					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<sdk>
+						<platform>23</platform>
+					</sdk>
+					<undeployBeforeDeploy>false</undeployBeforeDeploy>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

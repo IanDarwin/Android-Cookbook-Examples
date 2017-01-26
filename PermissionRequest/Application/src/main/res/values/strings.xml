@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android 6+ Permissions Example</string>
+    <string name="message">Simple example to demonstrate requesting permissions. When you press the button it will ask for READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE before
+        attempting to read and write a file to prove permissions have been granted.</string>
+    <string name="ok">OK</string>
+    <string name="back">Back</string>
+    <string name="permissions_not_granted">Permissions were not granted.</string>
+    <string name="external_storage_rationale">External storage permissions are needed to read and write files</string>
+    <string name="access_files">Try File Access</string>
+    <string name="file_permissions_worked">File Permissions were granted and file access worked</string>
+    <string name="file_permissions_did_not_work">Looks like something failed!</string>
+    <string name="permission_available_external_storage">External storage permissions hav been granted. Files can now be accessed.</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="org.eclipse.andmore.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.LIBRARIES"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/SimpleJumper"/>
+	<classpathentry exported="true" kind="lib" path="/SimpleJumper/libs/gdx.jar" sourcepath="/SimpleJumper/libs/gdx-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/SimpleJumper/libs/gdx-freetype.jar" sourcepath="/SimpleJumper/libs/gdx-freetype-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/gdx-backend-android.jar" sourcepath="libs/gdx-backend-android-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/SimpleJumper/libs/flixel-core.jar" sourcepath="/SimpleJumper/libs/flixel-core-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/flixel-android.jar" sourcepath="libs/flixel-android-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/SimpleJumper/libs/tween-engine-api.jar" sourcepath="/SimpleJumper/libs/tween-engine-api-sources.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.DEPENDENCIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

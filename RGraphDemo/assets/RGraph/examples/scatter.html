@@ -1,0 +1,201 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+
+    <title>RGraph: HTML5 canvas graph library - scatter graph</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example scatter chart" />
+    <meta name="description" content="RGraph: Scatter graph example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.scatter.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var data = [
+                    [1,9, 'red'],     [360,5, 'red'],   [150,16, 'red'],  [132,12, 'red'],
+                    [43,15, 'green'], [12,16, 'green'], [96,11, 'green'], [45,13, 'green'],
+                    [61,9, 'blue'],   [133,7, 'blue'],  [166,1, 'blue'],  [333,18, 'blue'],
+                    [45,16],          [166,4],          [12,3],           [45,15],
+                    [16,16],          [98,9],           [46,8],           [43,4]
+                   ];
+
+            var scatter1 = new RGraph.Scatter('scatter1', data);
+            scatter1.Set('chart.background.barcolor1', 'white');
+            scatter1.Set('chart.background.barcolor2', 'white');
+            scatter1.Set('chart.background.grid.autofit', true);
+            scatter1.Set('chart.background.grid.autofit.numhlines', 10);
+            scatter1.Set('chart.labels', [ 
+                                            ['Q1', 0], 
+                                            ['Q2', 90], 
+                                            ['Q3', 180], 
+                                            ['Q4', 270] 
+                                         ]);
+            scatter1.Set('chart.xmax', 365); // Necessary
+            scatter1.Set('chart.title', 'A scatter graph (zoom)');
+            scatter1.Set('chart.gutter', 40);
+            scatter1.Set('chart.ylabels', true);
+            scatter1.Set('chart.title.xaxis', 'Quarter');
+            scatter1.Set('chart.title.yaxis', 'Total pieces');
+            scatter1.Set('chart.text.angle', 90);
+
+            if (!RGraph.isIE8()) {
+                scatter1.Set('chart.zoom.factor', 3);
+                scatter1.Set('chart.zoom.mode', 'area');
+            }
+            scatter1.Draw();
+
+            var data2 = [
+                     [10,-15,'red'],[13,-16,'red'],[12,-11,'red'],[15,16,'red'],[20,19,'red'],[19,16,'red'],[13,15,'red'],[11,12,'red'],[13,16,'red'],[5,19,'red'],[16,15,'red'],[13,15,'red'],[14,14,'red'],[12,12,'red'],
+                     [5,4,'green'],[6,14,'green'],[19,12,'green'],[3,-5,'green'],[1,16,'green'],[13,5,'green'],[15,15,'green'],[13,5,'green'],[4,9,'green'],[16,6,'green'],[13,18,'green'],[18,12,'green'],[19,18,'green'],[13,16,'green'],[15,14,'green'],
+                     [12,4,'blue'],[4,23,'blue'],[13,-8,'blue'],[12,12,'blue'],[18,4,'blue'],[4,18,'blue'],[11,2,'blue'],[4,3,'blue'],[5,8,'blue'],[1,9,'blue'],[4,6,'blue'],[16,8,'blue'],[17,8,'blue'],[19,9,'blue'],[13,5,'blue'],[16,21,'blue'],
+                     [12,-4],[13,12],[11,16],[4,-19],[4,3],[5,6],[1,9],[4,12],[6,12],[8,8],[16,6],[13,5],[15,13],[23,-23,'red'], [1,-1, 'gray'],
+                     [1,-4,'gray'], [2,-3,'gray'], [1,-6,'gray'], [2,-3,'gray'], [2,-5,'gray'], [3,-7,'gray'], [1,-4,'gray'], [2,-7,'gray']
+                    ];
+
+            // Lose the tooltips if we're in MSIE
+            if (document.all && !RGraph.isIE9()) {
+                for (var i=0; i<data2.length; ++i) {
+                    if (data2[i][3]) {
+                        data2[i][3] = null;
+                    }
+                }
+            }
+
+            var scatter2 = new RGraph.Scatter('scatter2', data2);
+            scatter2.Set('chart.ylabels.count', 3);
+            scatter2.Set('chart.background.barcolor1', 'white');
+            scatter2.Set('chart.background.barcolor2', 'white');
+            scatter2.Set('chart.background.hbars', [[-20,-5, 'rgba(255,0,0,0.3)'], [0,-20,'rgba(255,255,0,0.3)'], [0,25,'rgba(0,255,0,0.3)']]);
+            scatter2.Set('chart.background.grid.autofit', true);
+            scatter2.Set('chart.background.grid.autofit.numhlines', 10);
+            scatter2.Set('chart.labels', ['Wk1', 'Wk2', 'Wk3', 'Wk4']);
+            scatter2.Set('chart.xmax', 28); // Necessary
+            scatter2.Set('chart.defaultcolor', 'black'); // Optional
+            scatter2.Set('chart.title', 'A scatter chart (center X axis, context, crosshairs)');
+            scatter2.Set('chart.gutter', 40);
+            scatter2.Set('chart.tickmarks', 'square');
+            scatter2.Set('chart.ticksize', 4);
+            scatter2.Set('chart.units.pre', '$');
+            scatter2.Set('chart.xaxispos', 'center');
+            scatter2.Set('chart.contextmenu', [['Clear', function () {RGraph.Clear(scatter2.canvas); scatter2.Draw();}]]);
+
+            if (!RGraph.isIE8()) {
+                scatter2.Set('chart.crosshairs', true);
+            }
+
+            scatter2.Draw();
+
+            
+            
+            var scatter8 = new RGraph.Scatter('scatter8', [
+                                                       [10,[21,22,26,31,35, 'red', 'green']],
+                                                       [105,[10,10,15,25,30, 'red', 'green']],
+                                                       [125,[10,15,25,35,45, 'red', 'green']],
+                                                       [325,[10,15,25,35,45, 'yellow', 'green', 30]] // The last value is the width (in pixels)
+                                                      ]);
+            scatter8.Set('chart.title', 'An example of a boxplot (minimum Y value)');
+            scatter8.Set('chart.tickmarks', null);
+            scatter8.Set('chart.labels', ['Q1', 'Q2', 'Q3', 'Q4']);
+            scatter8.Set('chart.xmax', 365);
+            scatter8.Set('chart.ymax', 50);
+            scatter8.Set('chart.ymin', 10);
+            scatter8.Set('chart.boxplot.width', 12); // The default width
+            scatter8.Draw();
+            
+            var scatter9 = new RGraph.Scatter('scatter9',
+                                                          [[50,31, null, '<b>Fred</b><br />Fred is at the start'], [80,49, null, '<b>Juan</b><br />Juan is in the middle'], [280,45, null, '<b>Hoolio</b><br />Hoolio is at the end']],
+                                                          [[25,21], [67,22], [289,35]]
+                                                         );
+            scatter9.Set('chart.title', 'A stepped scatter chart (minimum Y value)');
+            scatter9.Set('chart.labels', ['Q1', 'Q2', 'Q3', 'Q4']);
+            scatter9.Set('chart.xmax', 365);
+            scatter9.Set('chart.ymax', 50);
+            scatter9.Set('chart.ymin', 20);
+            scatter9.Set('chart.line', true);
+            scatter9.Set('chart.line.stepped', [true, false]);
+            scatter9.Set('chart.line.linewidth', [1,5]);
+            scatter9.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Scatter graph
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - Scatter graph</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <p>
+        The Scatter graph uses two variables to plot points and makes it clear where there are congregations. The data points
+        make up the X and Y coordinates. The labels on the X axis are separate from the X units, allowing you to "group" them. For
+        example, like the example, you could set the maxium X value to be 365, but only have four labels. That way you would
+        have a granularity of a day, but the X axis would only have four labels. Like the example.
+    </p>
+
+    <div>
+        <ul>
+            <li><a href="../docs/scatter.html">Scatter graph API documentation</a></li>
+        </ul>
+    </div>
+
+    <canvas id="scatter1" width="450" height="250">[No canvas support]</canvas>
+    <canvas id="scatter2" width="450" height="250">[No canvas support]</canvas>
+
+    <a name="boxplots"></a>
+    <table border="0" style="float: left; width: 450px">
+        <tr>
+            <td><canvas id="scatter8" width="450" height="250">[No canvas support]</canvas></td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div style="background-color: #eee; border: 2px dashed gray;  padding: 3px">
+                    This is an example of a box plot. You can read about them <a href="../docs/scatter.html#boxplots">here</a>.
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <canvas id="scatter9" width="450" height="250">[No canvas support]</canvas>
+    
+    
+</body>
+</html>

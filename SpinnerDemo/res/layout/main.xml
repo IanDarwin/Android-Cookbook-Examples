@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <!--
+    There are THREE Spinners:
+	#1 gets its labels via XML from the XML array reading_context_names
+	#2 gets its labels via code from the same XML array
+	#3 gets its labels from a Java language Enum
+    -->
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ChooserDemo 1" />
+
+        <Spinner
+            android:id="@+id/contextChooser1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/reading_context_names"
+            android:prompt="@string/reading_context_choice" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ChooserDemo 2" />
+
+        <Spinner
+            android:id="@+id/contextChooser2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:prompt="@string/reading_context_choice" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ChooserDemo 3" />
+
+        <Spinner
+            android:id="@+id/contextChooser3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:prompt="@string/reading_context_choice" />
+    </TableRow>
+
+</TableLayout>

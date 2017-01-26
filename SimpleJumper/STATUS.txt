@@ -1,0 +1,2 @@
+Game starts, can move left-right only, no scenery. Fails on Intel phone/emulator
+(libgdx only in armeabi).

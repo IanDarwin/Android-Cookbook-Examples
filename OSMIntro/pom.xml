@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.androidcookbook</groupId>
+	<artifactId>OSMIntro</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>apk</packaging>
+	<inceptionYear>2012</inceptionYear>
+	<url>http://androidcookbook.com/</url>
+
+	<parent>
+		<groupId>com.androidcookbook.examples</groupId>
+		<artifactId>android-cookbook-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<properties>
+		<platform.version>4.1.1.4</platform.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- This is an Android project -->
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>${platform.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osmdroid</groupId>
+			<artifactId>osmdroid-android</artifactId>
+			<version>5.5</version>
+			<type>aar</type>
+		</dependency>
+		<!-- Seems to be a hidden dependency of OSM -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Use the Android Plugin -->
+			<plugin>
+				<groupId>com.simpligility.maven.plugins</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android.plugin.version}</version>
+				<configuration>
+					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
+					<manifestEntries>
+						<Implementation-Build>$\{buildNumber}</Implementation-Build>
+					</manifestEntries>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

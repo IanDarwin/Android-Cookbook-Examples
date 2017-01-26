@@ -1,0 +1,252 @@
+== Android Cookbook Examples
+
+This repo is among the largest collections of Android code samples anywhere; it contains
+around a hundred and fifty compilable source code examples from 
+http://androidcookbook.com/[the O'Reilly Android Cookbook], a great source 
+of tutorial material for the Android Developer. Not all recipes in the book or online have code
+accompanying them; this repo features code that was either linked by the
+contributor, or in some cases, re-constructed as a New Project by the
+editor for your convenience.
+
+Further note that not all programs used in the book/online appear here; some
+of the examples in the book/online are only program fragments taken from
+other programs that can't be included. And of course some code is drawn from existing projects
+that are hosted elsewhere.
+
+Each Directory comprises its own project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. 
+
+*NOTE* There are two styles of projects:
+
+. Eclipse projects with the newer Eclipse Andmore;
+. Android Studio projects (most of them complete with their extraneous "app" subdirectory).
+
+If you have used the old Google ADT, you will need to update your Eclipse config by *removing* ADT,
+then replace it with AndMore from the Eclipse Marketplace Client.
+
+Most of the Eclipse projects also have configuration files to allow them to be opened in Android Studio.
+
+Many of the Eclipse projects have been Mavenized; a few have not.
+
+Most of the Gradle projects will also build with Android Studio; there may be a few that will not.
+
+The table <<table>> shows which projects are set up for which build tools.
+
+=== TL;DR: Build Most Projects with Apache Maven
+
+Prerequisites: Java 7 or 8 SDK, Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
+
+. git clone https://github.com/mosabua/maven-android-sdk-deployer
+. cd maven-android-sdk-deployer
+. mvn install -P 6.0 # at least
+. mvn install -P 7.0 # also needed
+. cd ..
+. git clone https://github.com/IanDarwin/Android-Cookbook-Examples
+. cd Android-Cookbook-Examples
+. $$mvn -fae package android:install android:run$$
+Include $$android:install$$ and $$android:run$$ only if you actually want to run them all, and have a device or emulator with some good free space; else just do 'package')
+. Fix up any that didn't work, and send pull requests!
+
+=== Eclipse Issue
+
+If you get Eclipse-Maven projects failing with this message:
+org.codehaus.plexus.archiver.jar.Manifest.write(java.io.PrintWriter)
+
+then you need to update your "M2E Connector for Android" to at least 0.17.2.20060614
+
+=== Maven Build: More Details
+
+About two thirds of these projects were initially developed using Eclipse ADT, 
+and migrated to Maven for automatic building.
+Obviously Google has spoken and we will eventually have to migrate kicking and screaming to Android Studio and Gradle, but for now, we are keeping those projects in "bilingual" or "either-IDE mode".
+
+If you import the entire repo in Eclipse with eGit, be sure to check the `Import all projects`
+checkbox. If you want to keep these mini-projects separate from your "regular" work, you may want to use the Git repo as an Eclipse workspace (use File->Switch Workspace->Other->Browse). 
+This directory is already set up to be an Eclipse workspace if you want it to
+(the __.metadata__ directory exists and is already in __.gitignore__).
+
+*Note*: As part of the move to Gradle, Google stopped pushing Android releases to Maven Central; their last version
+was 4.1.1.4, thus Lollipop, Marshmallow, and "N" have been left high-and-dry. 
+And worse, their SDK license prohibits re-distribution of binaries, so nobody else can step in
+and upload these files to Maven Central. But of course there is a solution.
+To compile these projects with Maven you will need to download the amazing maven-android-sdk-deployer, which repackages
+files from the SDK - after you download it using the Android tools, thus nobody is redistributing it - 
+into your _local_ ++.m2/repository++ so that Maven can find it.
+This is the function of the first few steps in the numbered list above.
+
+Note that projects using official releases use e.g. com.google.android:android:4.1.1.4 whereas projects deployed
+using the sdk-deployer use e.g android:android:6.0_r3.
+
+You can download AndroidCookbookExamples as a Zip file from GitHub, but then you won't get updates, and it will be hard to collaborate with the other contributors. If you're not familiar with Git and Github, see 
+https://guides.github.com/activities/hello-world/[the getting started page on GitHub] and read up on how to collaborate. You can either send diff/patch files or send a pull request.  Remember that GitHub is a free service for public projects!
+
+Many of the projects may (depending on your version of Eclipse) give you some noise when you first open them due to bin and/or gen being missing. The Eclipse plug-in will usually create them but not notify that it's done so, meaning you just have to do Refresh (F5), failing that, close and re-open the project. Does not happen with current Eclipse, last I tried.
+
+There is neither a Wiki or a Tracker for this Github repository.
+If a project won't open, or won't build, we'd prefer that you fix it and sent a pull request.
+Bugs and suggestions about code samples can be made on the Android Cookbook web site (http://androidcookbook.com/). Bugs or suggesions on the published edition of the book should go to http://shop.oreilly.com/product/0636920038092.do; you can also purchase the book there (which helps fund my continued work on this code base).
+
+=== Notes for the First Edition of the book
+
+The current version of this repo has been reorganized in preparation for the second edition of the book.
+There have been quite a few projects added since the first published edition of the book, and
+a few renamed, so if you have the printed edition from 2012 you 
+should rummage around here before re-typing anything that looks like a full example.
+
+If you want this repo to correspond to the last minor revision of the first edition,
+use git to checkout the tag `Book-1.0`.
+
+=== DELETED PROJECTS
+
+JpsTrack and the ToDo applications have graduated to their own github projects, up one level from here on Github.
+
+[[table]]
+=== List of Projects
+
+The following list is generated (periodically) from the project folders.
+In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Studio, *G* for Gradle.
+
+.List of projects with description and build tools
+[options="header", cols="3,1,3,3"]
+|===========
+| Project | Builds With | Function | Notes 
+// INSERT TABLE AFTER HERE - github do not allow include:: in files for obv. sec. reasons
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutBoxDemo[AboutBoxDemo] | GS | A re-usable About dialog. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AboutInfo[AboutInfo] | EMGS | Info about device and screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AddContact[AddContact] | EMG | Add a contact | Shows ContactsContract, content provider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EMG | Graphing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EMG | RSS Reader | Works under Maven; Eclipse fails w/ Maven Configuration Problem
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | GS | Compilable example of the Application Singleton pattern recipe. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | EMG | Contact picker with autocomplete | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | EMG | App can update itself | see AppDownloader
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BackupManager[BackupManager] | EMG | Use Android Backup scheme. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | EMG | Bluetooth Connection | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | EMG | Add appointment to Calendar | Calendar via Content Provider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | EMG | Pretend a call happened, for testing | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | EGS | Intercept an incoming phone call. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | EG | Intercept outgoing phone calls. | Compiles and runs, but doesn't intercept the call.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | GS | CameraIntent - get the camera to take a picture, by startActivityForResult() | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | GS | Demonstation of Card widget. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | EMG | GUI demo | name says it
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderBookmarks[ContentProviderBookmarks] | EMG | List of bookmarks from Bookmarks Content Provider | Browser ContentProvider
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderList[ContentProviderList] | EMG | List of ContentProviders | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderSample[ContentProviderSample] | EMG | Implement a ContentProvider | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderTest[ContentProviderTest] | EMG | Test it | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CountDownTimerExample[CountDownTimerExample] | EMG | Time-based activity | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | EMG | Application Widget | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | EMG | How to load data properly using CursorLoader | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomMenu[CustomMenu] | EMG | Menu | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomSubMenu[CustomSubMenu] | GS | Submenu, created programmatically | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomToast[CustomToast] | EMG | Toast | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DatabaseFromFile[DatabaseFromFile] | EMG | Create a database from an SQLite .db file in 'assets'. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DataToCursor[DataToCursor] | EMG | Fake up a Cursor from a list of files | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DialogDemos[DialogDemos] | EMG | Dialogs | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DragDropDemo[DragDropDemo] | EG | A simple Drag-and-drop example. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DreamsDemo[DreamsDemo] | EMG | Demo of "Dreams" (4.x screensaver) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailTextView[EmailTextView] | EMG | Send contents of EditText via email | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EmailWithAttachments[EmailWithAttachments] | EMG | Attach file to email | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EpochJSCalendar[EpochJSCalendar] | EMG | Java + JavaScript Epoch Calendar | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/EventListenersDemo[EventListenersDemo] | M | 5 Ways to Wire an Event Listener. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FacebookSdk[FacebookSdk] | EMG | Access FB API | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FaceFinder[FaceFinder] | EMG | Face locator API in photos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FileProviderDemo[FileProviderDemo] | GS | Demo of FileProvider. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FilesystemDemos[FilesystemDemos] | MGS | Internal and external files. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FindMeX[FindMeX] | EG | Find Me X | IllegalArgumentException: Incomplete location object, missing timestamp or accuracy, Progress:334
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FloatingActionButtonSnackbarDemo[FloatingActionButtonSnackbarDemo] | GS | Demo of 'fab' Floating Abstract Button | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | EMG | Using a custom font | You need to provide the font file! Example uses Iceberg font...
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FragmentsDemos[FragmentsDemos] | GS | Simple Fragment and List-Detail Fragments in one project | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EMG | Simple Photo Gallery example. | Deprecated
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | EMG | Google Cloud Messaging - receiver | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | EMG | Google Cloud Messaging - sender | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HapticFeedback[HapticFeedback] | GS | Haptic Feedback recipe. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EMAG | HelloWorld | SDK
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EMG | HelloWorld | Eclipse ADT
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEspressoTesting[HelloEspressoTesting] | GS | HelloWorld of EspressoTesting | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloGradle[HelloGradle] | GS | Hello World with Gradle but NOT Studio. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | EMG | HelloWorld using Maven with android-maven-plugin. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloStudioTesting[HelloStudioTesting] | GS | HelloWorld of StudioTesting | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTarget[HelloTestingTarget] | EMAG | ADT Testing - subject | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloTestingTestProject[HelloTestingTestProject] | EMAG | ADT Testing - Tests | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HomeAppListView[HomeAppListView] | EMG | A Home Application | Shows running a program
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | EMG | List View with Icon | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EMG | Intents | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EMG | Getting data from Java to JavaScript and back. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JSONParsing[JSONParsing] | EG | Simple example of JSON parsing using built-in JSONObject. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LayoutBorder[LayoutBorder] | G | Layout Border Demo Project Source for Android | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | EMG | ListView | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | EMGS | ListView | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewEmpty[ListViewEmpty] | EMGS | ListView with empty list: don't show blank screen! | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewSectionHeader[ListViewSectionHeader] | EMG | ListView with section headers | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LocalBroadcastDemo[LocalBroadcastDemo] | EMG | Local Broadcast Receiver | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MapDemosV2[MapDemosV2] | EMG | This is the Google API Maps V2 Demo. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MapsV2AddToProject[MapsV2AddToProject] | GS | Adding a Google Maps V2 MapActivity to a project | You must ask for permission from Google (get and provide your own Google API key).
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MarketSearch[MarketSearch] | EMG | Search the Play Store | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MaterialDemos[MaterialDemos] | EMG | MaterialDesign demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerDemo[MediaPlayerDemo] | EMG | Play media | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerInteractive[MediaPlayerInteractive] | EG | Media Player demo from Marco Dinacci, thanks. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | EMG | Simple sound recorder | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MenuAction[MenuAction] | EMG | Menu Action Handling | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | EMG | Native Development Kit | C Code
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | EMG | Notifications | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NumberPickers[NumberPickers] | EMG | UI for picking numbers | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OAuth2Demo[OAuth2Demo] | GS | Demo of OAuth2 to Google Tasks. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OpenGlDemo[OpenGlDemo] | EMG | OpenGL graphics | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OrientationChanges[OrientationChanges] | EMG | Rotation | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMIntro[OSMIntro] | EMG | Basic OSM map app demo. | Builds with Maven, not with Eclipse. Maybe m2e aar support, isn't, yet.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMOverlay[OSMOverlay] | EMG | OSM Map with a map marker overlay | Compiles, runs, doesn't load map tiles; needs upgrading to osmdroid-android 5.5
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/OSMTouchEvents[OSMTouchEvents] | EMG | OSM Map with touch event handling. | Builds with Maven, not with Eclipse. Maybe m2e aar support, isn't, yet.
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PdfShare[PdfShare] | EMG | Create and share a PDF | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PermissionRequest[PermissionRequest] | G | Shows asking for permissions at runtime, i.e,. "the new way" | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PhoneGapDemo[PhoneGapDemo] | EMG | HTML5 app using phonegap/cordova | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PinchAndZoom[PinchAndZoom] | GS | Pinch-and-zoom graphics demo | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | EMG | Preferences | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ProgressDialogDemo[ProgressDialogDemo] | GS | Demo of a pop-up indefinite progress dialog. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | EMG | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EMG | How to reboot, and why you can't | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | EMGS | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RemoteSystemsTempFiles[RemoteSystemsTempFiles] | EM | This folder is created automatically by Eclipse and can be ignored. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | EMG | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RuntimeLog[RuntimeLog] | EMG | A simpe runtime log facility | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ScanBarcode[ScanBarcode] | GS | Scan barcode using ZXing app via Intent | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | M | Trivial example of one Activity (screen) starting another. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | EMG | Sends an SMS | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorShakeDetection[SensorShakeDetection] | GS | Use Accellerometer to detect if the user has shaken the device. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorUpOrDown[SensorUpOrDown] | GS | Code for r2051, Checking Whether a Device Is Facing Up or Down | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | EMG | ICS "Share" action | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShellCommand[ShellCommand] | EG | Run a Unix/Linux command via Runtime.exec, capture the output. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | EMG | User account on device | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EMG | Calendar | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | EG | Common code for flixel-gdx-based gaming demo. | Game starts, can move left-right only, no scenery. Fails on Intel phone/emulator
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EG | Start of a pool/billiards game using AndEngine. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EMG | Simple Torchlight/Flashlight example. | (Most devices now have a built-in control for this)
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SlidingDrawer-Topdown[SlidingDrawer-Topdown] | EMG | The main code is from the "Sliding Drawer - Top Down" recipe | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SMSReceive[SMSReceive] | EG | Receive an incoming SMS. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SnackBarDemo[SnackBarDemo] | EMG | Snackbar (bottom message text) demo | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoapDemo[SoapDemo] | EMG | XML SOAP Web Service | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoftKeyboardEnterNext[SoftKeyboardEnterNext] | GS | Change the Enter key to "Next" on one-line text fields. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SoundRec[SoundRec] | EMG | Sound Recorder | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Speaker[Speaker] | EMG | Text To Speech (TTS) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpeechRecognizerDemo[SpeechRecognizerDemo] | GS | Speech Recognizer. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinnerDemo[SpinnerDemo] | EMG | Drop-down Spinner Demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SpinningCubeDemo[SpinningCubeDemo] | EG | OpenGL Spinning Cube, from Marco Dinacci | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SplashDialog[SplashDialog] | EMG | Splash screen | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SQLiteDemos[SQLiteDemos] | EMG | SQLite demos | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StandardDrawables[StandardDrawables] | EMG | Use Existing Drawables | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StaticFileRead[StaticFileRead] | EMG | StaticFileRead - read a file from the application | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StringsXML[StringsXML] | G | Demos for "Nuances of Strings.xml" recipe. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabSwipeDemo[TabSwipeDemo] | EMG | Tabbable and swipeable layout | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TeleCorder[TeleCorder] | EMG | Telephone call recorder (in progress!) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TelephonyManager[TelephonyManager] | EMG | Displays phone info | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Tipster[Tipster] | EMGS | Full app: compute and show restaurant bill with tip | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/UniqueId[UniqueId] | EMG | Find device's unique ID | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Vibrate[Vibrate] | EMG | Make the device vibrate | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ViewPagerDemo[ViewPagerDemo] | EMG | Swipe among views | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/VolleyDemo[VolleyDemo] | EMGS | Demo of Volley networking library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WheelPickerDemo[WheelPickerDemo] | GS | Apple-style Wheel Picker Demo | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | EMG | Graphical window background | -
+|===========

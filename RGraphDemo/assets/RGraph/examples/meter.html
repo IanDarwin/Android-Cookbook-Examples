@@ -1,0 +1,137 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - meter</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example meter chart" />
+    <meta name="description" content="RGraph: Meter chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.meter.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var meter1 = new RGraph.Meter('meter1', 50, 100, 58);
+            
+            var grad1 = meter1.context.createRadialGradient(meter1.canvas.width / 2,meter1.canvas.height - 25,0,meter1.canvas.width / 2,meter1.canvas.height - 25,200);
+            grad1.addColorStop(0, 'green');
+            grad1.addColorStop(1, 'white');
+            
+            var grad2 = meter1.context.createRadialGradient(meter1.canvas.width / 2, meter1.canvas.height - 25,0,meter1.canvas.width / 2, meter1.canvas.height - 25,200);
+            grad2.addColorStop(0, 'yellow');
+            grad2.addColorStop(1, 'white');
+            
+            var grad3 = meter1.context.createRadialGradient(meter1.canvas.width / 2, meter1.canvas.height - 25,0,meter1.canvas.width / 2, meter1.canvas.height - 25,200);
+            grad3.addColorStop(0, 'red');
+            grad3.addColorStop(1, 'white');
+            
+            //meter1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom], ['Show palette', RGraph.Showpalette], ['Clear annotations', function () {RGraph.Clear(meter1.canvas); meter1.Draw();}], null, ['Cancel', function () {}]]);
+            meter1.Set('chart.annotatable', true);
+            meter1.Set('chart.labels.position', 'inside');
+            meter1.Set('chart.title', 'A sample measurement (annotatable)');
+            meter1.Set('chart.title.vpos', 0.5);
+            meter1.Set('chart.title.color', 'black');
+            meter1.Set('chart.green.color', grad1);
+            meter1.Set('chart.yellow.color', grad2);
+            meter1.Set('chart.red.color', grad3);
+            meter1.Set('chart.shadow', true);
+            meter1.Set('chart.shadow.color', 'gray');
+            meter1.Set('chart.shadow.offsetx', 0);
+            meter1.Set('chart.shadow.offsety', 0);
+            meter1.Set('chart.shadow.blur', 15);
+            meter1.Set('chart.zoom.hdir', 'center');
+            meter1.Set('chart.zoom.vdir', 'center');
+            meter1.Set('chart.contextmenu', [['Clear', function () {RGraph.Clear(meter1.canvas); meter1.Draw();}]]);
+            meter1.Draw();
+
+            var meter2 = new RGraph.Meter('meter2', 0, 10, 5);
+            meter2.Set('chart.units.post', 'k');
+            meter2.Set('chart.red.start', 0);
+            meter2.Set('chart.red.end', 3);
+            meter2.Set('chart.yellow.start', 3);
+            meter2.Set('chart.yellow.end', 6);
+            meter2.Set('chart.green.start', 6);
+            meter2.Set('chart.green.end', 10);
+            meter2.Set('chart.resizable', true);
+            meter2.Draw();
+
+            var meter3 = new RGraph.Meter('meter3', 0, 50, 21);
+            meter3.Set('chart.units.post', 'pt');
+            meter3.Set('chart.red.start', 0);
+            meter3.Set('chart.red.end', 10);
+            meter3.Set('chart.yellow.start', 10);
+            meter3.Set('chart.yellow.end', 20);
+            meter3.Set('chart.green.start', 20);
+            meter3.Set('chart.green.end', 50);
+            meter3.Draw();
+        }
+    </script>
+</head>
+<body>
+
+<h1>RGraph: HTML5 canvas graph library - Meter</h1>
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="./index.html">Examples</a>
+        >
+        Meter
+    </div>
+    
+    <div>
+        <p>
+            The Meter is similar to the Odometer albeit only a semi-circle and not a full circle. It can be better when trying illustrate
+            a particular level, but only have a limited amount of space. It could also be quite effective as part of a control panel.
+        </p>
+        
+        <p></p>
+    </div>
+
+    <div>
+        <ul>
+            <li><a href="../docs/meter.html">Meter API documentation</a></li>
+        </ul>
+    </div>
+    
+    <div style="text-align: center">
+        <canvas id="meter1" width="600" height="300"><div class="canvasfallback">[No canvas support]</div></canvas>
+        <canvas id="meter2" width="600" height="300"><div class="canvasfallback">[No canvas support]</div></canvas>
+        <canvas id="meter3" width="600" height="300"><div class="canvasfallback">[No canvas support]</div></canvas>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - line chart</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example line chart" />
+    <meta name="description" content="RGraph: Line chart example" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.common.context.js" ></script>
+    <script src="../libraries/RGraph.common.annotate.js" ></script>
+    <script src="../libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../libraries/RGraph.common.zoom.js" ></script>
+    <script src="../libraries/RGraph.common.resizing.js" ></script>
+    <script src="../libraries/RGraph.line.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            var line1 = new RGraph.Line('line1', [20,25,13,14,16,18,21,32,12,15], [23,25,26,28,29,21,22,25,26,28]);
+            line1.Set('chart.title', 'A line chart (tooltips, labels, context, no axes, zoom)');
+            line1.Set('chart.colors', ['red', 'green']);
+            line1.Set('chart.tickmarks', ['circle', 'square']);
+            line1.Set('chart.linewidth', 1);
+            line1.Set('chart.background.barcolor1', 'white');
+            line1.Set('chart.background.barcolor2', 'white');
+            line1.Set('chart.background.grid.autofit', true);
+            line1.Set('chart.filled', 'true');
+            line1.Set('chart.fillstyle', ['#fcc', '#cfc']);
+
+            if (!RGraph.isIE8()) {
+                line1.Set('chart.tooltips', ['id:tooltip_china',      'id:tooltip_la',         'id:tooltip_plymouth',
+                                             'id:tooltip_meadowhall', 'id:tooltip_sydney',     'id:tooltip_toronto',
+                                             'id:tooltip_france',     'id:tooltip_norway',     'id:tooltip_sweden',
+                                             'id:tooltip_spain',      'id:tooltip_deli',       'id:tooltip_congo',
+                                             'id:tooltip_brazil',     'id:tooltip_california', 'id:tooltip_newyork',
+                                             'id:tooltip_paris',      'id:tooltip_uk',         'id:tooltip_antartica',
+                                             'id:tooltip_sahara', 'id:tooltip_zagreb']);
+                line1.Set('chart.tooltips.effect', 'contract');
+                line1.Set('chart.contextmenu', [['Zoom in', RGraph.Zoom], ['Cancel', function () {}]]);
+                line1.Set('chart.zoom.delay', 10);
+                line1.Set('chart.zoom.frames', 25);
+                line1.Set('chart.zoom.vdir', 'center');
+            }
+
+            line1.Set('chart.text.angle', 45);
+            line1.Set('chart.gutter', 45);
+            line1.Set('chart.units.post', '%');
+            line1.Set('chart.labels.ingraph', [,,,'Meadowhall (48)']);
+            line1.Set('chart.noaxes', true);
+            line1.Set('chart.background.grid', true);
+            line1.Set('chart.yaxispos', 'right');
+            line1.Set('chart.ymax', 100);
+            line1.Set('chart.title.xaxis', 'Location');
+            line1.Set('chart.title.yaxis', 'Percentage');
+            line1.Set('chart.title.xaxis.pos', 0.5);
+            line1.Set('chart.title.yaxis.pos', 0.5);
+            line1.Draw();
+
+            var line4 = new RGraph.Line('line4', [0,300,500,600,100,200,400,500,700,800,400,100],
+                                      [500,400,500,700,300,300,500,600,700,800,600,300],
+                                      [400,200,400,500,300,300,400,500,400,100,400,300]);
+            line4.Set('chart.key', ['2008', '2007', '2006']);
+            line4.Set('chart.key.background', '#fff');
+            line4.Set('chart.key.shadow', true);
+            line4.Set('chart.gutter', 45);
+
+            if (!RGraph.isIE8()) {
+                line4.Set('chart.zoom.mode', 'thumbnail');
+            }
+
+            line4.Set('chart.filled', true);
+            line4.Set('chart.tickmarks', null);
+            line4.Set('chart.background.barcolor1', 'white');
+            line4.Set('chart.background.barcolor2', 'white');
+            line4.Set('chart.title', 'A line chart (zoom, Y axis on the right)');
+            line4.Set('chart.colors', ['rgba(169, 222, 244, 0.7)', 'red', '#ff0']);
+            line4.Set('chart.fillstyle', ['#daf1fa', '#faa', '#ffa']);
+            line4.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+            line4.Set('chart.yaxispos', 'right');
+            line4.Set('chart.linewidth', 5);
+            line4.Draw();
+            
+            /**
+            * Create the 9th graphs data
+            */
+            var data1 = [];
+            var data2 = [];
+            var data3 = [];
+
+
+            var line9 = new RGraph.Line('line9', [56,45,43,52,56,65,21,23,34,15,21,-12,-13,-31,-25]);
+            line9.Set('chart.background.barcolor1', 'white');
+            line9.Set('chart.background.barcolor2', 'white');
+            line9.Set('chart.background.grid', true);
+            line9.Set('chart.linewidth', 5);
+            line9.Set('chart.gutter', 35);
+            line9.Set('chart.hmargin', 5);
+            line9.Set('chart.shadow', true);
+            line9.Set('chart.tickmarks', null);
+            line9.Set('chart.units.post', 'k');
+            line9.Set('chart.xticks', 8);
+            line9.Set('chart.colors', ['red', 'green', 'blue']);
+            line9.Set('chart.key', ['Sales (not good)']);
+            line9.Set('chart.key.shadow', true);
+            line9.Set('chart.xaxispos', 'center');
+            line9.Set('chart.background.grid.autofit', true);
+            line9.Set('chart.background.grid.autofit.numhlines', 16);
+
+            // Define a context menu that allows you to toggle the background grid. The two options simply:
+            //  1. Set the appropriate setting on the object
+            //  2. Clear the canvas
+            //  3. Draw the graph again
+            line9.Draw();
+            
+            var line13 = new RGraph.Line('line13', [6,5,4,5,6,4,1,2,3], [7,8,9,9,8,7,8,7,6]);
+            line13.Set('chart.labels', ['13th','14th','15th','16th','15th','16th','17th','18th','19th']);
+            line13.Set('chart.title', 'A range chart');
+            line13.Set('chart.gutter', 25);
+            line13.Set('chart.background.barcolor1', 'white');
+            line13.Set('chart.background.barcolor2', 'white');
+            line13.Set('chart.filled', true);
+            line13.Set('chart.filled.range', true);
+            line13.Set('chart.fillstyle', 'rgba(128,255,128,0.5)');
+            line13.Set('chart.linewidth', 2);
+            line13.Set('chart.colors', ['green']);
+            line13.Set('chart.hmargin', 5);
+            line13.Draw();
+            
+            var line14 = new RGraph.Line('line13', [1,1.5,1.8,1.1,1.2,1.3,1.5,1,0.7], [3.4,3.1,3,4.1,3.9,3.3,4.1,2.9,3]);
+            line14.Set('chart.background.grid', false);
+            line14.Set('chart.filled', true);
+            line14.Set('chart.filled.range', true);
+            line14.Set('chart.background.barcolor1', 'rgba(0,0,0,0)');
+            line14.Set('chart.background.barcolor2', 'rgba(0,0,0,0)');
+            line14.Set('chart.noaxes', true);
+            line14.Set('chart.ylabels', false);
+            line14.Set('chart.ymax', 10);
+            line14.Set('chart.colors', ['red']);
+            line14.Set('chart.fillstyle', 'rgba(255,0,0,0.5)');
+            line14.Set('chart.linewidth', 2);
+            line14.Set('chart.hmargin', 5);
+            line14.Draw();
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    <a href="./index.html">Examples</a>
+    >
+    Line chart
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - Line chart</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <div>
+        <p>
+            Like the Bar chart, this is one of the most versatile chart types. It is similar, but can indicate chronological
+            data better. It's good if, for example, you want to illustrate sales figures over a year (or any period of time).
+            You'll then be able to easily see whether sales are going up, down or are stagnant. It will also become apparent
+            which months are busier than others. By using multiple lines you can add multiple sets of data (eg two or more years
+            of figures) to your chart.
+            You can customise this chart by stipulating it as being filled, having drop shadows, keys, having the X axis in the centre,
+            different colours, different tickmark styles and tooltips etc.
+        </p>
+        
+        <p>
+            The first graph uses external DIVs for the tooltip contents. The DIVs are at the bottom of this page (they're set not to
+            be visible). Using external DIVs for tooltips can make maintenance easier.
+        </p>
+    
+        <div>
+            <ul>
+                <li><a href="../docs/line.html">Line chart API documentation</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <canvas id="line1" width="475" height="250">[Please wait...]</canvas>
+            <canvas id="line4" width="475" height="250">[Please wait...]</canvas>
+            <canvas id="line9" width="475" height="350">[Please wait...]</canvas>
+            <canvas id="line13" width="475" height="350">[Please wait...]</canvas>
+        </div>
+    </div>
+
+    <!-- These are the tooltips for the first graph. -->
+    <div style="display: none">
+        <div id="tooltip_china"><b>China</b><br /><a href="http://english.china.com">A populous country</a></div>
+        <div id="tooltip_la"><b>Los Angeles</b><br />Home of sexy time!</div>
+        <div id="tooltip_plymouth"><b>Plymouth</b><br />Plenty of surfers dude</div>
+        <div id="tooltip_meadowhall"><b>Meadowhall</b><br />Shopping heaven (or hell...) here</div>
+        <div id="tooltip_sydney"><b>Sydney</b><br />Home of kangeroos</div>
+        <div id="tooltip_toronto"><b>Toronto</b><br />Brrrr, chilly</div>
+        <div id="tooltip_france"><b>France</b><br />Ever had frogs legs?</div>
+        <div id="tooltip_norway"><b>Norway</b><br />Skiing here</div>
+        <div id="tooltip_sweden"><b>Sweden</b><br />Skiing here too</div>
+        <div id="tooltip_spain"><b>Spain</b><br />Hola!</div>
+        <div id="tooltip_deli"><b>Deli</b><br />Hot and humid here</div>
+        <div id="tooltip_congo"><b>Congo</b><br />Not exactly a holiday resort</div>
+        <div id="tooltip_plymouth"><b>Plymouth</b><br />Plenty of surfers here</div>
+        <div id="tooltip_brazil"><b>Brazil</b><br />Fooseball</div>
+        <div id="tooltip_california"><b>Califonia</b><br />"I'll be back..." And he was</div>
+        <div id="tooltip_newyork"><b>New York</b><br />Home of the Friends comedy show</div>
+        <div id="tooltip_paris"><b>Paris</b><br />Ever eaten frogs legs?</div>
+        <div id="tooltip_uk"><b>UK</b><br />Not a place for getting sun-tans</div>
+        <div id="tooltip_antartica"><b>Antartica</b><br />Surprisingly, incorporates the driest place in the world</div>
+        <div id="tooltip_sahara"><b>Sahara</b><br />A questionable film, and a rather hot place</div>
+        <div id="tooltip_zagreb"><b>Zagreb</b><br />Anyone know where this is...?</div>
+    </div>
+
+</body>
+</html>

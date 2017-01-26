@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <style name="labelStyleRight">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:textSize">15dip</item>
+                <item name="android:textStyle">bold</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:gravity">center_vertical|right</item>
+        </style>
+       
+        <style name="labelStyleLeft">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:textSize">15dip</item>
+                <item name="android:textStyle">bold</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:gravity">center_vertical|left</item>
+        </style>
+       
+        <style name="textStyle">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:textSize">15dip</item>
+                <item name="android:textStyle">bold</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:gravity">center_vertical|left</item>
+        </style>
+       
+        <style name="textSmallStyle">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">fill_parent</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:textSize">10dip</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:gravity">center_vertical|left</item>
+        </style>
+       
+        <style name="progressStyle">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:indeterminateOnly">false</item>
+                <item name="android:minHeight">20dip</item>
+                <item name="android:maxHeight">20dip</item>
+                <item name="android:progress">15</item>
+                <item name="android:max">100</item>
+                <item name="android:gravity">center_vertical|left</item>
+                <item name="android:progressDrawable">@android:drawable/progress_horizontal</item>
+                <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        </style>
+       
+        <style name="imageStyle">
+                <item name="android:layout_width">fill_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:layout_weight">0.5</item>
+                <item name="android:src">@drawable/ic_launcher</item>
+                <item name="android:scaleType">fitStart</item>
+                <item name="android:layout_margin">10dip</item>
+                <item name="android:gravity">center_vertical|left</item>
+        </style>
+</resources>

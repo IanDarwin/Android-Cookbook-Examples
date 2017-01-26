@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FindMe&lt;x&gt;</string>
+    <string name="search_hint">What?</string>
+    <string name="locality_hint">Locality?</string>
+    <string name="city_hint">City?</string>
+    <string name="searchbutton_hint">Search For &lt;x&gt;</string>
+    
+    <string-array name="cities">
+    	<item>Goa</item>
+    	<item>Bangalore</item>
+    	<item>Noida</item>
+    	<item>Gurgaon</item>
+    </string-array>
+</resources>

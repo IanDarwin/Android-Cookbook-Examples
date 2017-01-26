@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="nl.codestone.cookbook.outgoingcallinterceptor"
+	android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="3" />
+	
+	<application android:icon="@drawable/icon" android:label="Outgoing Call Interceptor">
+	
+		<receiver android:name="OutgoingCallInterceptor">
+			<intent-filter android:priority="1">
+				<action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>
+			</intent-filter>
+		</receiver>
+		
+	</application>
+	
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
+	
+</manifest>

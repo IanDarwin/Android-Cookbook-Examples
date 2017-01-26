@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">SendSMS</string>
+    <string name="hello">Hello World, SendSMSActivity!</string>
+    <string name="send">Send SMS</string>
+
+</resources>

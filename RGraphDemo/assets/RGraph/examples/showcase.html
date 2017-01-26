@@ -1,0 +1,68 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - shwowcase page</title>
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="./index.html">Examples</a>
+        >
+        Showcase
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Showcase page</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+    
+    <p>
+        Since the showcase page was becoming too slow and heavy and producing an awful lot of graphs, each graph type now has its
+        own example page.
+    </p>
+    
+    <ul>
+        <li><a href="bar.html">Bar chart</a></li>
+        <li><a href="bipolar.html">Bi-polar chart</a></li>
+        <li><a href="donut.html">Donut chart</a></li>
+        <li><a href="funnel.html">Funnel chart</a></li>
+        <li><a href="gantt.html">Gantt chart</a></li>
+        <li><a href="led.html">LED grid</a></li>
+        <li><a href="line.html">Line chart</a></li>
+        <li><a href="odo.html">Odometer</a></li>
+        <li><a href="pie.html">Pie chart</a></li>
+        <li><a href="progress.html">Progress bar</a></li>
+        <li><a href="radar.html">Radar chart</a></li>
+        <li><a href="scatter.html">Scatter graph</a></li>
+        <li><a href="tradar.html">Traditional radar chart</a></li>
+    </ul>
+    
+    <ul>
+        <li><a href="basic.html">A basic example (for implementation help)</a></li>
+    </ul>
+
+</body>
+</html>

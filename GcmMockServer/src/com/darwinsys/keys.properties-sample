@@ -1,0 +1,3 @@
+# This must be a valid GCM SERVER API key, AND 
+# you must have white-listed the machine we're on.
+GCM_API_KEY=Abcdefghijklmnopqrstuvwyxz-abcde-fghijklmn

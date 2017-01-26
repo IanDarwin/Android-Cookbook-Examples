@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">FacebookSdkDemo</string>
+	<string name="Loading">Loading...</string>
+	<string name="recipes_window_title">Cocktails/Shooters Browse</string>
+	<string name="current_event_home_window_title">Current Event Home</string>
+	<string name="djbooth_home_window_title">DJ Booth</string>
+	<string name="music_mixes_window_title">Music Mixes</string>
+	<string name="contest_win_window_title">Win!</string>
+	<string name="browse_event_photos_window_title">Browse Event Photos</string>
+	<string name="past_event_list_window_title">Past Event List</string>
+	<string name="photos_window_title">Photos</string>
+	<string name="contest_window_title">Contest</string>
+	<string name="artist_meetandgreet_window_title">Artist Meet &amp; Greet</string>
+	<string name="SERVICE_OUT_OF_SERVICE">Out of Service</string>
+	<string name="SERVICE_AVAILABLE">Available</string>
+	<string name="SERVICE_TEMPORARILY_UNAVAILABLE">Temporarily Unavailable</string>
+	<string name="LOCATION_PROVIDER_DISABLED">Location Provider disabled!</string>
+	<string name="LOCATION_PROVIDER_ENABLED">Location Provider enabled!</string>
+	<string name="LOCATION_CHANGED">Location changed: </string>
+	<string name="LOCATION_STATUS_CHANGED">Location status changed: </string>
+	<string name="REDIRECTING_VIEW">Re-directing view to...</string>
+	<string name="CREATING_VIEW">Creating view... </string>
+	<string name="DESTROYING_VIEW">Destroying view... </string>
+	<string name="EXECUTING_INTENT">Executing Intent... </string>
+	<string name="VIEW_CLICKED">View clicked... </string>
+	<string name="REQUEST_PARAMETERS">Requesting Parameters.... </string>
+	<string name="FACEBOOK_ID_TEST">221558034526334</string>
+	<string name="REQUEST">Request!</string>
+	<string name="FACEBOOK_UPLOAD">Upload photo</string>
+	<string name="FACEBOOK_DELETE_POST">Delete Post</string>
+	<string name="hello">Hello</string>
+	<string name="FACEBOOK_WALL_POST">Post</string>
+</resources>

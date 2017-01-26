@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Main!</string>
+    <string name="app_name">MyAndroid</string>
+    <string name="screen2Title">Screen 2</string>
+    <string name="hello2">Hello! Again.</string>
+    <string name="next">Next</string>
+</resources>

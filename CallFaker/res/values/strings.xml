@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CallFaker</string>
+    <string name="message">If this window appears, you have probably tried 
+        to call the number below on a device with no phone hardware.
+    </string>
+</resources>

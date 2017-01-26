@@ -1,0 +1,1 @@
+Graphical window background

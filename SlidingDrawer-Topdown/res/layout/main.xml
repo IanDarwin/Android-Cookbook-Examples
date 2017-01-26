@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:panel="http://schemas.android.com/apk/src/org.panel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <org.panel.Panel
+            android:id="@+id/topPanel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <!-- 
+            panel:animationDuration="1000"
+            panel:closedHandle="@drawable/top_switcher_collapsed_background"
+            panel:linearFlying="true"
+            panel:openedHandle="@drawable/top_switcher_expanded_background"
+            android:paddingBottom="20dip"
+            panel:position="top" >
+             -->
+
+            <Button
+                android:id="@+id/panelHandle"
+                android:layout_width="fill_parent"
+                android:layout_height="33dip" />
+
+            <LinearLayout
+                android:id="@+id/panelContent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="4dip"
+                    android:text="From the Top -> Down"
+                    android:textSize="16dip"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon" />
+            </LinearLayout>
+        </org.panel.Panel>
+</LinearLayout>

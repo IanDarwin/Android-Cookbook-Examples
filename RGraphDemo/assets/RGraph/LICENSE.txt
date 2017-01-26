@@ -1,0 +1,93 @@
+THE RGRAPH LICENSE VERSION 1.5.4
+
+Everyone is permitted to copy and distribute this license document. 
+
+This license applies to any software originating from the www.rgraph.net website.
+Such software is herein referred to as the Software. This license covers
+modification and distribution of the Software, use of third-party application
+programs based on the Software, and development of software which uses the
+Software. Note that ExCanvas is covered by the Apache license.
+
+
+SUMMARY
+
+
+A summary of the license is that non-commercial use of the Software is free,
+whilst for commercial use there is a one-time fee of £49 (GBP).
+
+
+
+GRANTED RIGHTS
+
+
+1. You are granted the non-exclusive rights set forth in this license
+   provided you agree to and comply with any and all conditions in
+   this license. Whole or partial distribution of the Software,
+   signifies acceptance of this license.
+
+
+2. You may copy and distribute the Software in unmodified form
+   provided that the entire package, including - but not restricted to
+   - copyright, trademark notices and disclaimers, as released by the
+   initial developer of the Software, is distributed. See clause (3)
+   regarding the inclusion of this license document with your software.
+
+
+3. You may develop application programs, reusable components and other
+   software items that use the original or modified versions of the
+   Software. You may distribute these programs or components as long
+   as this license is distributed along with the Software. If you have
+   purchased an RGraph license you do not need to include this license
+   document with your software.
+
+
+4. For commercial use you are required to buy a license from the copyright
+   holder. A commercial license permits you to use any code you wish that
+   originated from the RGraph website (www.rgraph.net) and also the
+   PHPGuru website (www.phpguru.org). This license is £49 (UK pounds).
+   Commercial use incorporates applications, websites (regardless of
+   whether they sell products or services or simply promote them),
+   intranets and use in offline materials.
+   
+   
+5. Non-commercial use (eg personal, charity and educational) is permitted.
+   Please link back to the RGraph website. Example code as follows:
+
+   <a href="http://www.rgraph.net" target="_blank">
+        RGraph: HTML5 canvas graph library
+   </a>
+   
+   Alternatively, if you don't wish to link to the RGraph website, you can
+   buy an RGraph license and you won't need to.
+
+
+LIMITATIONS OF LIABILITY
+
+In no event shall the initial developers or copyright holders be
+liable for any damages whatsoever, including - but not restricted to
+- lost revenue or profits or other direct, indirect, special,
+incidental or consequential damages, even if they have been advised
+of the possibility of such damages, except to the extent invariable
+law, if any, provides otherwise.
+
+
+NO WARRANTY
+
+The Software and this license document are provided AS IS with NO
+WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN,
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+
+CHOICE OF LAW
+
+This license is governed by the Laws of England. Disputes shall be
+settled by Chelmsford town court.
+
+
+QUESTIONS
+
+Any questions or queries about this license or its extent should
+be directed to licensing@rgraph.net
+
+
+

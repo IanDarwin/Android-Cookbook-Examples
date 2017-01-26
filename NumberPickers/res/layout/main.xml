@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/doneInXml" />
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+    		android:layout_height="wrap_content">
+    		
+        <!-- Build an invisible strut to divide the thing in half vertically;
+         *** credit to "olefevre" at http://stackoverflow.com/questions/4961355/ -->
+        <View android:id="@+id/strut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"/>
+    		
+        <!-- Left side - just the number -->
+        <EditText
+            android:inputType="numberSigned"
+            android:id="@+id/number"
+            android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:layout_alignRight="@id/strut"
+        		android:gravity="center"
+        		android:padding="10dip"
+        		android:text="1"
+       		android:textSize="36pt"/>
+        
+        <!--  Right Side - two buttons -->
+        <Button
+            android:id="@+id/plus"
+            android:layout_alignLeft="@id/strut"
+            android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:onClick="increment"
+        		android:text="+" />
+        
+        <Button
+            android:id="@+id/minus"
+            android:layout_alignLeft="@id/strut"
+            android:layout_alignBottom="@id/number"
+            android:layout_below="@id/plus"
+            android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:onClick="decrement"
+        		android:text="-" />
+        
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/doneInJava" />
+    
+    <!-- Invoke our custom Java-based ViewGroup
+    **** Could alternately use <view class="com.ex..."
+    **** (view must begin lower case, or else!).
+     -->
+    <com.example.numberpicker.NumberPickerJava
+        android:id="@+id/ncj"
+        android:layout_width="fill_parent"
+    		android:layout_height="48pt"/>
+
+</LinearLayout>

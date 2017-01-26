@@ -1,0 +1,1 @@
+Builds with Maven, not with Eclipse. Maybe m2e aar support, isn't, yet.

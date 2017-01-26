@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Your Media Player</string>
+    <string name="app_name">Media Player Demo</string>
+	<string name="play_music">Play Music</string>
+	<string name="stop_music">Stop Music</string>
+	<string name="play_alarm">Simulate Alarm</string>
+</resources>

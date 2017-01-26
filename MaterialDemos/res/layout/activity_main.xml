@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    
+    <LinearLayout
+    android:id="@+id/layout_firstRow"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
+    
+    <Button 
+    	android:id="@+id/start_button"
+    	android:text="@string/start_button_label"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:elevation="5sp"
+    	/>
+    	
+    <CheckBox
+    	android:text="@string/click_here"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:checked="true"
+    	/>
+    	
+    <EditText
+    	android:hint="@string/type_here"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	/>
+    
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/elevator"
+        android:text="@string/raise_me"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        />
+    
+    <SeekBar
+        android:id="@+id/elevatorControl"
+        android:text="@string/click_here"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:max="42"
+		android:paddingTop="10dp"
+    	/>
+
+</LinearLayout>

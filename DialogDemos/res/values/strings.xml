@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">DialogDemos</string>
+    <string name="title_activity_main">DialogDemos</string>
+    
+    <string name="menu_settings">Settings</string>
+    <string name="old_way">Old way</string>
+    <string name="qd_way">Q&amp;D way</string>
+    <string name="unsaved_changes_title">Unsaved</string>
+    <string name="unsaved_changes_message">You have unsaved changes!</string>
+    <string name="save_changes">Save</string>
+    <string name="discard_changes">Discard</string>
+    <string name="cancel_dialog">Cancel</string>
+    <string name="dlgFragWay">DialogFragment</string>
+
+</resources>

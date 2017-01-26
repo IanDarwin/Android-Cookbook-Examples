@@ -1,0 +1,3 @@
+RGraphDemo/assets/RGraph/libraries/* linguist-vendored
+RGraphDemo/assets/RGraph/docs/*.html linguist-vendored
+PhoneGapDemo/assets/www/* linguist-vendored

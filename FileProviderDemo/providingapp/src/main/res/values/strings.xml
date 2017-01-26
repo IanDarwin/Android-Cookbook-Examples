@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProvidingApp</string>
+    <string name="title_activity_providing">ProvidingActivity</string>
+    <string name="request">If you agree to provide the secret message, click the Agree button.</string>
+</resources>

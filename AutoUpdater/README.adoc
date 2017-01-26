@@ -1,0 +1,8 @@
+== Self Updating App
+
+This is a slightly-cheesy mechanism for "private" apps (served
+from a web site instead of from the Play Store or any other
+fancy market) to receive updates when a new version is installed
+on the web site.
+
+Use with care!

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<Button
+		android:id="@+id/emailButton"
+		android:text="Email Text!"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</Button>
+	
+	<EditText
+		android:id="@+id/text_to_send"
+		android:inputType="textCapSentences"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:lines="10"
+		android:text="@string/my_text" />
+
+</LinearLayout>

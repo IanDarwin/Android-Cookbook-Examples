@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/icon1"
+        android:title="One"
+        android:icon="@drawable/first" />
+    <item android:id="@+id/icon2"
+        android:title="Two"
+        android:icon="@drawable/second" />
+    <item android:id="@+id/icon3"
+        android:title="Three"
+        android:icon="@drawable/three" />
+    <item android:id="@+id/icon4"
+        android:title="Four"
+        android:icon="@drawable/four" />
+</menu>

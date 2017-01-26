@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/cbxBox1"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:checked="false" />
+
+    <TextView
+        android:id="@+id/txtCheckBox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox: Not checked" />
+
+    <RadioGroup
+        android:id="@+id/rgGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/RB1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            android:text="Button1" />
+
+        <RadioButton
+            android:id="@+id/RB2"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            android:text="Button2" />
+
+        <RadioButton
+            android:id="@+id/RB3"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            android:text="Button3" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtRadio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="RadioGroup: Nothing picked" />
+
+</LinearLayout>

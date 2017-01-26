@@ -1,0 +1,657 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - documentation</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs" />
+    <meta name="description" content="RGraph: HTML5 canvas graph library - Documentation index" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <meta name="keywords" content="rgraph graph html5 javascript canvas" />
+    <meta name="description" content="RGraph: The HTML5 graphing library for websites on all platforms" />
+</head>
+<body>
+
+<div id="breadcrumb">
+    <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+    >
+    Documentation
+</div>
+
+<h1>RGraph: HTML5 canvas graph library - Documentation</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul></div>');
+        }
+    </script>
+
+<p>
+    The following documentation is available:
+</p>
+
+<table border="0">
+    <tr>
+        <td>
+            <ul>
+                <li><a href="bar.html">Bar chart</a></li>
+                <li><a href="bipolar.html">Bi-polar chart</a></li>
+                <li><a href="donut.html">Donut chart</a></li>
+                <li><a href="funnel.html">Funnel chart</a></li>
+                <li><a href="gantt.html">Gantt chart</a></li>
+                <li><a href="hbar.html">Horizontal bar chart</a></li>
+                <li><a href="hprogress.html">Horizontal progress bar</a></li>
+                <li><a href="led.html">LED Grid</a></li>
+                <li><a href="line.html">Line chart</a></li>
+                <li><a href="meter.html">Meter</a></li>
+                <li><a href="odo.html">Odometer</a></li>
+                <li><a href="pie.html">Pie chart</a></li>
+                <li><a href="rose.html">Rose chart</a></li>
+                <li><a href="rscatter.html">Radial scatter chart</a></li>
+                <li><a href="scatter.html">Scatter graph</a></li>
+                <li><a href="tradar.html">Traditional radar chart</a></li>
+                <li><a href="vprogress.html">Vertical progress bar</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="domcontentloaded.html">DOMContentLoaded example</a></li>
+                <li><a href="events.html">Custom RGraph events</a></li>
+                <li><a href="adjusting.html">Adjusting your graphs interactively</a></li>
+                <li><a href="tooltips.html">Using tooltips</a></li>
+                <li><a href="resizing.html">Resizing your graphs</a></li>
+                <li><a href="msie.html">Microsoft Internet Explorer support</a></li>
+                <li><a href="async.html">Asynchronous processing</a></li>
+                <li><a href="zoom.html">Zooming your graphs</a></li>
+                <li><a href="annotating.html">Annotating your graphs</a></li>
+                <li><a href="combine.html">Combining charts</a></li>
+                <li><a href="external.html">Integrating RGraph with external libraries (ModalDialog)</a></li>
+                <li><a href="animation.html">Animating your graphs</a></li>
+                <li><a href="css.html">Available CSS classes</a></li>
+                <li><a href="color.html">About canvas color definitions</a></li>
+                <li><a href="context.html">Context menus</a></li>
+                <li><a href="misc.html">Miscellaneous documentation</a></li>
+                <li><a href="issues.html">Common issues</a></li>
+                <li><a href="api.html">API Documentation</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="licensing.html"><b>Licensing FAQs</b></a></li>
+                <li><a href=".CHANGELOG.txt">The changelog</a></li>
+                <li><a href=".BC.txt">Backwards compatibility breaks</a></li>
+            </ul>
+
+            <h4>On this page:</h4>
+
+            <ul>
+                <li><a href="#benefits" title="Benefits of HTML5 canvas graphs">Benefits of HTML5 canvas graphs</a></li>
+                <li><a href="#browser" title="Information about browser support">Browser support</a></li>
+                <li><a href="#performance" title="Things you may want to look at concerning performance">Improving the performance of your graphs</a></li>
+                <li><a href="#implementation" title="Implementing RGraph on your website">Implementing RGraph</a></li>
+                <li><a href="#structure" title="Suggested structure for RGraph">Suggested structure for RGraph</a></li>
+                <li><a href="#integration" title="Information on integrating RGraph with server side scripting">Integration with server side scripting</a></li>
+                <li><a href="#support" title="Need support? Get it here">Support forum</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+
+<!------------------------------------------------------------------------------------------------------------------------>
+
+
+
+    <hr />
+
+
+
+    <a name="benefits"></a>
+    <h2>Benefits of HTML5 canvas graphs</h2>
+    
+    <p>
+        HTML5 introduces a new HTML element - the CANVAS tag. This tag allows for two dimensional drawing easily using Javascript.
+        This makes it perfect for producing graphs. Because Javascript runs on your users computer, none of the stress on your server
+        normally associated with producing graphs (as is currently the norm) is incurred. Not only that but because
+        of the greater processing power that is typically available on users' computers, they will be much faster. And,
+        because the code can be both compressed (for example if you're using Apache, mod_gzip will do this automatically for you) and
+        cached, bandwidth usage can be massively reduced. This makes it economically attractive to employ, (ie <b>it can save you
+        money...</b>).
+    </p>
+
+    <p>
+        Imagine, you are creating 100,000 graphs a day and the data is such that the resulting graphs cannot be cached. With the RGraph
+        library you can reduce that figure to zero. All the processing and graph creation is done by each individual client, much like
+        rendering the HTML you send to them. So you don't have to send any images, you simply send the Javascript libraries once.
+        So, much lower bandwidth bills and far less strain on your webserver.
+    </p>
+    
+    <p>
+        And if that wasn't enough, because the graphs are created using Javascript, they will work offline if you view a .html page
+        on your own PC. Download the archive and see! Useful if you need to do a presentation for example and want to use the same
+        graph(s) as your website.
+    </p>
+    
+    <div>
+        <div style="width: 45%; background-color: #fff; display: inline; display: inline-block">
+            <ul>
+                <li>Cross browser support.</li>
+                <li>17 Different base graph types (<a href="../examples/index.html">Examples</a>).</li>
+                <li>Graphs work on and off-line.</li>
+                <li>Interactive features.</li>
+            </ul>
+        </div>
+
+        <div style="width: 45%; display: inline; display: inline-block">
+            <ul>
+                <li>Graphs are created on the client - no server overhead.</li>
+                <li>Very easy setup (see <a href="#implementation">Implementing RGraph</a>).</li>
+                <li>Fully documented.</a></li>
+                <li>Very easy to learn.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <a name="browser"></a>
+    <h2>Browser support</h2>
+    
+    <p>
+        Since the graphs are produced using HTML5 features (the new <b>canvas</b> tag), client support is currently:
+    </p>
+    
+    <ul>
+        <li>Mozilla Firefox 3.0+</li>
+        <li>Google Chrome 1+</li>
+        <li>Apple Safari 3+</li>
+        <li>Opera 9.5+</li>
+        <li>Microsoft Internet Explorer 8+ (see note)</li>
+    </ul>
+    
+    <p>
+        The HTML5 canvas tag is part of the <a href="http://www.w3.org/html/wg/html5/" target="_blank">HTML5 specification</a>,
+        and all of the above browsers have some sort of support for it.
+    </p>
+    
+    <p>
+        <b>Canvas &amp; Microsoft Internet Explorer (MSIE)</b><br />
+        Microsoft Internet Explorer 8 doesn't natively support the HTML5 &lt;canvas&gt; tag. To support
+        MSIE 8 you will need to use either
+        <a href="http://code.google.com/chrome/chromeframe/" target="_blank">Google Chrome Frame</a> or
+        <a href="http://code.google.com/p/explorercanvas/" target="_blank">ExCanvas from Google</a>
+        (which is included in the RGraph archive). Read more about Internet Explorer compatibility
+        <a href="msie.html">here</a>.
+        
+        <p />
+        
+        <span style="color: #090">
+            Starting with preview 3 <b style="color: black">Microsoft Internet Explorer 9</b> has full support for &lt;canvas&gt;. You can view some screenshots
+            <a href="http://groups.google.com/group/rgraph/browse_thread/thread/3cce2cd655918b0c#" target="_blank">here</a>.
+            MSIE 6 and 7 are not supported.
+        </span>
+    </p>
+
+    <p>
+        <b>RGraph and older browsers</b><br />
+        Older browsers (eg Chrome 1, Firefox 3, Safari 3, Opera 9.5) are supported, however if they don't support the canvas shadow or
+        text APIs, these will naturally be unavailable. Earlier versions of these browsers may work, but are untested.
+    </p>
+
+    <a name="performance"></a>
+    <h2>Improving the performance of your graphs</h2>
+    
+    <p>
+        Although performance is excellent, (traditionally your webserver has been
+        producing all of your graphs, and now the client produces them, and typically only one at a time), you may still want to tune
+        RGraph further. The biggest thing you can do is use compression, which reduces the initial download time of the libraries, but
+        there are a number of things you can do:
+    </p>
+    
+    <ul>
+        <li>
+            <b>Compression</b><br />HTTP compression can dramatically reduce your bandwidth bills and increase the speed
+            of your website. The RGraph.common.core.js file for example used to be over 100k, but with compression this was reduced
+            to around 17k. Less than a fifth of the original size! <span style="color: red">If you do only one thing to aid performance,
+            then it should be this.</span>
+            
+            <p>
+                To achieve this with Apache you have a few options:
+            </p>
+            
+            <ul style="list-style-type: disc">
+                <li>You can use the Apache module mod_gzip which compresses the libraries on the fly.</li>
+                <li>
+                    You can compress the libraries manually using the gzip command, rename them to remove the .gz suffix
+                    and add the header using an Apache directive
+                    (eg <span style="background-color: #C5FFC5; padding: 1px">AddEncoding gzip .js</span>). If you have some sort of
+                    release process/script, it would make sense to add this to it to automate the procedure.
+                </li>
+            </ul>
+            <p>
+        </li>
+
+        <li>
+            <b>Minification</b><br />
+            Minification reduces the size of the library before compression takes effect, removing unnecessary spaces and comments etc.
+            A combination of minification and compression will give superb results. For example, before being split up into seperate files,
+            minification combined with compression reduced the common library from over 100k to roughly 10k (!). There is a PHP shell
+            script that you can use to minify the libraries in the scripts directory.
+
+            <p>
+                You can get pre-minified versions of the libraries <a href="http://www.rgraph.net/RGraph.minified.zip">here</a>.
+            </p>
+        </li>
+        
+        <p>
+
+        <li>
+            <b>Pre-emptive caching</b><br />
+            Slightly different to caching itself, is pre-emptive caching. This involves downloading the libraries before the page that requires
+            them is shown. This way, they're already in the users browser cache and the graph will subsequently appear to be much much
+            quicker. An example of this would be having the library included at the bottom of your index page of your website (optionally
+            with the <b>defer="defer"</b> attribute). The script can be downloaded at will because the page doesn't actually use it, but
+            for subsequent pages it will already be in the users browser cache.
+            
+            <p>
+        </li>
+
+        <li>
+            <b>Caching</b><br />
+            Since the libraries you're using won't change that often, you can set distant Expires: headers on them, or appropriate
+            Cache-Control: headers, and the client will not even have to contact your server for it. When you want to make sure
+            the library is re-downloaded (eg. you update the library), then simply change the filename.
+            
+            <p>
+        </li>
+
+        <li>
+            <b>Script tag placement</b><br />
+            According to <a href="http://developer.yahoo.com/performance/" target="_blank">Yahoo! guidelines</a> placing the &lt;SCRIPT&gt;
+            tag at the bottom of the page can increase the percieved load time. If you do this, then your graphs should be
+            created in the window.onload event, otherwise the browser may try to create them without the library
+            having been loaded, and will therefore subsequently fail.
+
+            <p>
+
+            You should also consider the effect that this has when your page is rather weighty. If the page is weighty there
+            will be a small delay before the onload event fires, and therefore creates the graph. This might not be so bad if the
+            graph is not immediately visible, however if it is then you should carefully consider using the onload event. You
+            may wish to load the library in the page header, define the canvas tag and then immediately define the javascript that creates the graph. This way
+            the graph will be created and shown, and then the rest of the page loads. The end result is that your graph
+            appears to be faster.
+            
+            <p />
+            
+            Between the onload event, asychronous Javascript and careful tag placement, you will need to experiment to get the right result
+            for you.
+        </li>
+        
+        <li>
+            <b>Document structure</b><br />
+            The structure of your document can have a significant impact on how fast your graphs are displayed. If, for example, you use
+            tables for layout, this can delay the display of elements that are affected by the size of the table. Where possible, you
+            should consider trying to convert your layout to DIVs. An example of this is the front page of this website. The graphs
+            were right aligned using a table as a container. This caused a visible delay when showing them. In this case it was a
+            simple matter to convert the page to use DIVs, and the page subsequently displays much faster.
+            <p />
+        </li>
+        
+        <li>
+            <b>Creating your graphs asynchronously</b><br />
+            Where possible, you may wish to create your graphs asynchronously. This allows the browser to continue rendering the page
+            immediately after getting to the code that creates the graph. This might not be perceptible if you don't have a lot of
+            graphs, or your page is small. You can read a little more about this and see example code <a href="async.html">here</a>.
+
+            <p />
+            
+            Note that recent releases of Google Chrome (from a dev release of version 4) have had an issue with creating graphs
+            asynchronously, which presents itself by not drawing text sometimes (it's not consistent). Simply not using
+            asynchronous graph production in this case resolves the issue.
+        </li>
+        
+        <li>
+            <b>DOMContentLoaded event</b><br />
+            Using this event can speed up the display of your graphs signifcantly compared to the more well known <i>onload</i> event.
+            It is supported by Chrome, Gecko based browsers (ie Firefox), Safari, Opera and Internet Explorer 9. This event fires when
+            the structure of the page is loaded, but not necessarily the images or CSS. This means that if your page is laden with
+            images, this event will fire before the onload event, thus creating your graphs quicker. The effect can be very noticeable.
+            
+            <pre class="code">
+function addListener(func)
+{
+    if(window.addEventListener) {
+        window.addEventListener('DOMContentLoaded', func, false);
+    } else {
+        document.attachEvent("onDOMContentLoaded", func);
+    }
+}
+</pre>
+            You can read more about the <i>DOMContentLoaded</i> event on the Mozilla site, <a href="https://developer.mozilla.org/en/Gecko-Specific_DOM_Events" target="_blank">here</a>,
+            and the Microsoft site <a href="http://ie.microsoft.com/testdrive/HTML5/87DOMContent-Loaded/Default.html" target="_blank">here</a>.
+            There's an example <a href="domcontentloaded.html">here</a>.
+            <p />
+        </li>
+        
+        <li>
+            <b>AJAX requests</b><br />
+            If you can take advantage of AJAX, you can use this method to retrieve data from your server. If, for example, you have a graph that
+            shows ongoing information, instead of simply refreshing the entire page, you could use an AJAX request to just retrieve the
+            data that you want and update the graph that way. This reduces the amount of data needed to be transferred, thus reducing the
+            bandwidth used, and will be quicker than a full page refresh, particularly if your page is weighty. There's a simple AJAX
+            function that you can use <a href="#ajax">below</a>.
+            <p />
+        </li>
+        
+        <li>
+            <b>Combining libraries</b><br />
+            If your performance requirements are extreme, then you may wish to consider combining the libraries into a single file.
+            This won't save on the size of the individual libraries, but will save on the headers that are sent as part of the response.
+            If a typical response sends 500 bytes worth of headers, and you send four graph libraries, then combining the libraries
+            would save 1500 bytes. Multiple factors need to be considered though, including things like caching, which can circumvent
+            the unneccessary repeated downloading of the libraries.
+            
+            <p>
+                Another effect of combining libraries is reducing the amount of HTTP connections needed to retrieve them. Most browsers
+                have a limit on how many connections they can create simultaneously, so if they're not being used to retrieve your
+                graph libraries, they can be used for something else. Reducing the number of HTTP connections also eliminates the time
+                spent setting up those connections.
+            </p>
+        </li>
+    </ul>
+    
+    <b>A reasonable performance strategy</b>
+    
+    <p>
+        Although there's a lot you can do in regards to performance, a few of the points here will suffice for most
+        websites:
+        
+        <ul>
+            <li>Compression</li>
+            <li>Minification</li>
+            <li>Pre-emptive caching</li>
+            <li>Caching</li>
+        </ul>
+        
+        The number one thing you should do is compress your libraries. This has multiple benefits and provides by far the most gain,
+        effectively for free. Secondly, use the minified libraries. Since you can download them <a href="../RGraph.minified.zip">here</a>,
+        you might as well use them. Then we have pre-emptive caching. Since most websites won't show graphs on the front page or will
+        have a login page that is shown before any graphs, this effectively eliminates the graph library download. And lastly caching
+        should be done as a matter of course. There's no reason to keep downloading the same library so even caching for only 30 minutes
+        (or the duration of an average visit to your website) will produce results.
+    </p>
+    
+    <p>
+        
+    </p>
+    
+    <a name="implementation"></a>
+    <h2>Implementing RGraph</h2>
+    
+    <p>
+        Getting RGraph up and running is very easy and consists of three steps. If you're having trouble I suggest you get hold of a copy of
+        <a href="http://www.mozilla.com" target="_blank">Firefox</a> along with <a href="http://www.getfirebug.com" target="_blank">Firebug</a> - its
+        Javascript error console will make debugging your issue much easier. Many problems are down to a library not having been included or
+        not using the onload event when you need to. You might also benefit from using the <a href="https://addons.mozilla.org/en-US/firefox/addon/60" target="_blank">Web Developer toolbar</a>
+        for Firefox. This allows you to easily disable caching, thus eliminating any problems that that causes. You could equally use
+        the Chrome developer tools, which also provide a good quality Javascript console.
+    </p>
+
+    <ol>
+        <li>
+            Include the libraries (put this in your documents &lt;HEAD&gt;):
+<pre class="code">
+&lt;script src="RGraph.common.core.js"&gt;&lt;/script&gt;
+
+&lt;script src="RGraph.common.adjusting.js"&gt;&lt;/script&gt; &lt;!-- Just needed for adjusting --&gt;
+&lt;script src="RGraph.common.annotate.js"&gt;&lt;/script&gt;  &lt;!-- Just needed for annotating --&gt;
+&lt;script src="RGraph.common.context.js"&gt;&lt;/script&gt;   &lt;!-- Just needed for context menus --&gt;
+&lt;script src="RGraph.common.resizing.js"&gt;&lt;/script&gt;  &lt;!-- Just needed for resizing --&gt;
+&lt;script src="RGraph.common.tooltips.js"&gt;&lt;/script&gt;  &lt;!-- Just needed for tooltips --&gt;
+&lt;script src="RGraph.common.zoom.js"&gt;&lt;/script&gt;      &lt;!-- Just needed for zoom --&gt;
+
+&lt;script src="RGraph.bar.js"&gt;&lt;/script&gt;              &lt;!-- Just needed for bar graphs --&gt;
+&lt;script src="RGraph.bipolar.js"&gt;&lt;/script&gt;          &lt;!-- Just needed for bi-polar graphs --&gt;
+&lt;script src="RGraph.funnel.js"&gt;&lt;/script&gt;           &lt;!-- Just needed for funnel charts --&gt;
+&lt;script src="RGraph.gantt.js"&gt;&lt;/script&gt;            &lt;!-- Just needed for gantt charts --&gt;
+&lt;script src="RGraph.hbar.js"&gt;&lt;/script&gt;             &lt;!-- Just needed for horizontal bar charts --&gt;
+&lt;script src="RGraph.led.js"&gt;&lt;/script&gt;              &lt;!-- Just needed for LED charts --&gt;
+&lt;script src="RGraph.line.js"&gt;&lt;/script&gt;             &lt;!-- Just needed for line graphs --&gt;
+&lt;script src="RGraph.meter.js"&gt;&lt;/script&gt;            &lt;!-- Just needed for meter charts --&gt;
+&lt;script src="RGraph.odo.js"&gt;&lt;/script&gt;              &lt;!-- Just needed for odometers --&gt;
+&lt;script src="RGraph.pie.js"&gt;&lt;/script&gt;              &lt;!-- Just needed for pie charts --&gt;
+&lt;script src="RGraph.progress.js"&gt;&lt;/script&gt;         &lt;!-- Just needed for progress bars --&gt;
+&lt;script src="RGraph.rose.js"&gt;&lt;/script&gt;             &lt;!-- Just needed for rose charts --&gt;
+&lt;script src="RGraph.scatter.js"&gt;&lt;/script&gt;          &lt;!-- Just needed for scatter graphs --&gt;
+&lt;script src="RGraph.tradar.js"&gt;&lt;/script&gt;           &lt;!-- Just needed for traditional radar charts --&gt;
+</pre>
+        </li>
+
+        <li>
+            Add the canvas tag (put it where you want the graph to appear):
+<pre class="code">
+&lt;canvas id="myCanvas" width="600" height="250"&gt;[No canvas support]&lt;/canvas&gt;
+</pre>
+        </li>
+
+        <li>
+            Create the graph (since it is using the onload event, you can put this anywhere):
+            
+<pre class="code">
+&lt;script&gt;
+    window.onload = function ()
+    {
+        var data = [280, 45, 133, 166, 84, 259, 266, 960, 219, 311, 67, 89];
+
+        var bar = new RGraph.Bar('myCanvas', data);
+        bar.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+        bar.Set('chart.gutter', 35);
+        bar.Draw();
+    }
+&lt;/script&gt;
+</pre>
+        </li>
+    </ol>
+
+    <p>
+        There's also a very <a href="../examples/basic.html">basic example</a> of using RGraph, that does very little. It can be helpful to
+        illustrate how you can get RGraph up and running.
+    </p>
+    
+    <h4>Common library split (17th April 2010)</h4>
+    <p>
+        The common library has now been split into separate files. This was because the single common library had become far too large.
+        If you don't use any of the dynamic features, then you still need to change your code, as <i>RGraph.common.js</i> is now
+        called <i>RGraph.common.core.js</i>.
+    </p>
+    
+    <a name="structure"></a>
+    <h2>Suggested structure for RGraph</h2>
+    
+    <img src="../images/structure.png" width="175" height="205" alt="Suggested structure for RGraph" style="float: right" />
+    
+    <p>
+        The suggested layout structure for the RGraph libraries is shown on the right. The <b>www.example.com</b> folder represents
+        the root/top level of your website with the <b>javascript</b> directory beneath that. The <b>css</b> and <b>images</b>
+        folders are shown for
+        illustrative purposes only. If you follow this layout then your URLs to the RGraph libraries would be:
+    </p>
+    
+    <p>
+        <b>/javascript/rgraph/RGraph.common.core.js</b><br />
+        <b>/javascript/rgraph/RGraph.bar.js</b><br />
+        etc
+    </p>
+    
+    <p>
+        By using this structure you make RGraph easy to update should you need to, and also keep all the RGraph libraries in
+        one, easy to find, place.
+    </p>
+
+    <br clear="all" />
+
+    <a name="integration"></a>
+    <h2>Integration with server side scripting</h2>
+    
+    <p>
+        This is a very easy process, as easy as sending content to the browser. All you need to do is make the <i>data</i> variable contain
+        the data you want to be displayed. Eg:
+    </p>
+
+    <pre class="code">
+&lt;script src="RGraph.common.core.js"&gt;&lt;/script&gt;
+&lt;script src="RGraph.line.js"&gt;&lt;/script&gt;
+
+&lt;canvas id="myCanvasTag" width="600" height="200"&gt;[No canvas support]&lt;/canvas&gt;
+
+&lt;script&gt;
+    var data = [78,16,26,23,25,51,34,64,84,84];
+    var line = new RGraph.Line("myCanvasTag", data);
+    line.Set("chart.labels", ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"]);
+    line.Draw();
+&lt;/script&gt;
+</pre>
+    
+    <p>
+        To get the above using PHP you could do this:
+    </p>
+    
+    <pre class="code">&lt;?php
+    // This simply makes a string out of the array of data
+    $myData = join(',', array(78,16,26,23,25,51,34,64,84,84));
+
+    // This prints out the required HTML markup
+    print('&lt;script src="RGraph.common.core.js"&gt;&lt;/script&gt;' . "\n");
+    print('&lt;script src="RGraph.line.js"&gt;&lt;/script&gt;' . "\n\n");
+    print('&lt;canvas id="myCanvasTag" width="600" height="200"&gt;[No canvas support]&lt;/canvas&gt;' . "\n\n");
+    print('&lt;script&gt;' . "\n");
+    print('    var data = [' . $myData . '];' . "\n");
+    print('    var line = new RGraph.Line("myCanvasTag", data);' . "\n");
+    print('    line.Set("chart.labels", ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"]);' . "\n");
+    print('    line.Draw();' . "\n");
+    print('&lt;/script&gt;');
+?&gt;
+</pre>
+
+    <p>
+        Strictly speaking the <span style="font-family: Monospace">var</span> isn't necessary, however if you put the code inside a function (like window.onload), it's probably best to
+        as using <span style="font-family: Monospace">var</span> will make the variable local, and not global. So doing so will help prevent naming clashes.
+    </p>
+
+    <a name="ajax"></a>
+    <h4>Making AJAX requests</h4>
+
+    <p>
+        If you want to get data from your server using AJAX, here is a simple function that you could use to get the data:
+    </p>
+
+    <pre class="code">
+&lt;script&gt;
+    /**
+    * Makes an AJAX call. It calls the given callback (a function) when ready
+    * 
+    * @param string   url      The URL to retrieve
+    * @param function callback A function object that is called when the response is ready, there's an example below
+    *                          called "myCallback".
+    */
+    function AjaxCall (url, callback)
+    {
+        // Mozilla, Safari, ...
+        if (window.XMLHttpRequest) {
+            var httpRequest = new XMLHttpRequest();
+        
+        // MSIE
+        } else if (window.ActiveXObject) {
+            var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        httpRequest.onreadystatechange = callback;
+        
+        httpRequest.open('GET', url, true);
+        httpRequest.send();
+    }
+
+
+    /**
+    * The callback function is called when the data is ready (readyState=4)
+    */
+    function myCallback ()
+    {
+        if (this.readyState == 4 && this.status == 200) {
+            // Everything is good, the response is received
+            alert(this.responseText);
+        }
+    }
+&lt;/script&gt;
+</pre>
+
+
+    <a name="support"></a>
+    <h2>Support forum</h2>
+
+    <!-- Google Groups code -->
+        <table border="0" style="float: right; background-color: #eee; border: 2px dashed gray; padding: 5px" cellspacing=0>
+            <tr>
+                <td>
+                    <img src="../images/googlegroups.png" height="26" width="132" alt="Google Groups" />
+                </td>
+            </tr>
+  
+            <tr>
+                <td style="padding-left: 5px">
+                    <b>Subscribe to RGraph support</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding-left: 5px;">
+                    <form action="http://groups.google.com/group/rgraph/boxsubscribe" method="get">
+                        Email: <input type=text name=email>
+                        <input type=submit name="sub" value="Subscribe">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    <a href="http://groups.google.com/group/rgraph/topics?gvc=2" target="_blank">Visit this group</a>
+                </td>
+            </tr>
+        </table>
+    <!-- End of Google Groups code -->
+    
+    <p>
+        Support is available via a Google Groups forum. If you think that the issue you have is common, try the <a href="issues.html">issues</a>
+        page first, and then try searching the forum in case your question has been answered previously. If that all yields nothing,
+        post a question to the forum.
+    </p>
+    
+    <p>
+        If you want to keep up-to-date on RGraph, then subscribe to the group, as I post update notifications here. You can also follow me on
+        <a href="http://twitter.com/_rgraph"><b>Twitter</b></a>. I post update notifications here along with HTML5 related news.
+    </p>
+
+    <br />
+    <br />
+
+</body>
+</html>

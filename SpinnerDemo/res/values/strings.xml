@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Spinner Demo</string>
+    <string name="hello">Hello, world.</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">SpinnerDemo</string>
+
+</resources>

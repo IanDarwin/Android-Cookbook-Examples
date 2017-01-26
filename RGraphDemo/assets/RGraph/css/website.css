@@ -1,0 +1,251 @@
+    /**
+    * o------------------------------------------------------------------------------o
+    * | This file is part of the RGraph package - you can learn more at:             |
+    * |                                                                              |
+    * |                          http://www.rgraph.net                               |
+    * |                                                                              |
+    * | This package is licensed under the RGraph license. For all kinds of business |
+    * | purposes there is a small one-time licensing fee to pay and for non          |
+    * | commercial  purposes it is free to use. You can read the full license here:  |
+    * |                                                                              |
+    * |                      http://www.rgraph.net/LICENSE.txt                       |
+    * o------------------------------------------------------------------------------o
+    */
+
+
+body {
+    padding-top: 10px;
+    font-family: Georgia, Arial, Sans-Serif;
+}
+
+pre#code,
+code {
+    display: block;
+    border: 1px solid #aaa;
+    padding: 5px;
+    background-color: #ddd;
+}
+
+#breadcrumb,
+#logo {
+    border: 2px black solid;
+    background-color: #eee;
+    padding: 3px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin: 2px;
+    opacity: 0.8;
+}
+#breadcrumb a,
+#logo a {
+    text-decoration: none;
+}
+
+th {
+    text-align: left;
+    border: 1px solid gray;
+    background-color: #ddd;
+    padding: 3px;
+    vertical-align: top;
+}
+
+td {
+    vertical-align: top;
+}
+
+ol li {
+    margin-top: 20px;
+}
+
+ol#implementation li code {
+    margin-top: 5px;
+}
+
+td.description {
+    background-color: #eee;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+td.chart {
+    text-align: center;
+}
+
+.example_boxout {
+    background-color: #eee;
+    padding: 3px;
+    border: 1px solid #aaa;
+}
+
+.code {
+    padding: 5px;
+    background-color: #eee;
+    border: 2px dashed gray
+}
+
+/**
+* This is semi-transparent box in the top left corner
+*/
+div#devtag {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: #999 3px 3px 3px;
+    -moz-box-shadow: #999 3px 3px 3px;
+    box-shadow: #999 3px 3px 3px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=135);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 145px;
+    border: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial;
+    background-color: #fdd;
+}
+
+div#devtag a {
+    font-size: 10px;
+    text-decoration: none;
+    color: blue;
+    opacity: 1;
+}
+
+/**
+* This overrides something defined earlier
+*/
+ol#colors li {
+    margin: 0;
+}
+
+/**
+* styles lists
+*/
+div.list-item {
+    width: 220px;
+    display: inline-block;
+}
+
+div.list-item.label {
+    width: 170px;
+}
+
+legend {
+    background-color: #efefef;
+    border: 1px solid #75736e;
+}
+
+body#licensing span {
+    font-size: 120%;
+}
+
+/**
+* The yellow warning box on the front page
+*/
+div.warning {
+    border: 1px solid black;
+    text-align: center;
+    background-color: #ffa;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -webkit-box-shadow: #aaa 1px 1px 15px;
+    -moz-box-shadow: #aaa 1px 1px 15px;
+    box-shadow: #aaa 1px 1px 15px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=135);
+}
+
+div.canvasfallback {
+    border: 2px dashed red;
+    background-color: #fee;
+    width: 475px;
+    height: 150px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/**
+* The title "bar"
+*/
+div#title {
+}
+
+div#title div#image {
+    float: left;
+    margin-right: 15px;
+}
+
+div#title div#text {
+    padding-top: 5px;
+    margin-left: 70px;
+}
+
+
+div.warning p {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+        
+div.description {
+    border: 1px dashed gray;
+    background-color: #eee;
+    font-size: 75%;
+    padding: 3px;
+}
+
+div#social {
+    display: inline;
+    display: inline-block;
+}
+
+
+/*******************************************************************/
+
+
+/**
+* RGraph CSS classes. These allow you to customise how tooltips and
+* context menus will appear. To override the CSS defined in the graph scripts, you may
+* need to use  " ! important" like so:
+* 
+* font-weight: bold ! important
+* 
+* You don't always need to use this, only if you're trying to override something which
+* the script sets.
+*/
+
+
+/*******************************************************************/
+
+.RGraph_tooltip {
+}
+
+.RGraph_contextmenu {
+}
+
+.RGraph_contextmenu_background {
+}
+
+.RGraph_contextmenu_item {
+}
+
+.RGraph_zoom_window {
+}
+
+.RGraph_zoomed_canvas {
+}
+
+.ModalDialog_background {
+}
+
+.ModalDialog_dialog {
+}
+
+.ModalDialog_topbar {
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RangeGraphDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="low_label">Low</string>
+    <string name="ok_label">In Range</string>
+    <string name="high_label">High</string>
+
+</resources>

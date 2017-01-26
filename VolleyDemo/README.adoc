@@ -1,0 +1,10 @@
+== Volley
+
+_Volley_ is a new networking library from Google to make HTTP networking easy!
+
+Basically you just create a RequestQueue, and create and submit Requests.
+Volley handles the threading, and calls the response listeners on the UI thread
+so they can display the results directly.
+
+Read more about it http://developer.android.com/training/volley/simple.html[here]
+and http://code.tutsplus.com/tutorials/an-introduction-to-volley--cms-23800[here].

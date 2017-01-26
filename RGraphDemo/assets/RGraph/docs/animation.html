@@ -1,0 +1,126 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+    <title>RGraph: HTML5 canvas graph library - Animating your graphs</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas graph docs animation" />
+    <meta name="description" content="RGraph: HTML5 canvas graph software - Documentation about animating your charts" />
+
+    <link rel="stylesheet" href="../css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <script src="../libraries/RGraph.common.core.js" ></script>
+    <script src="../libraries/RGraph.bar.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.compressed.js"></script><![endif]-->
+    
+    <script>
+        /**
+        * The total number of frames, delay and current frame number
+        */
+        delay    = 35;
+        curframe = 1;
+        numframe = 20;
+
+        window.onload = function ()
+        {
+            /**
+            * Clear all of the canvases
+            */
+            RGraph.Clear(document.getElementById("myBar"));
+
+            /**
+            * Draw the bar chart
+            */
+            var multiplier = curframe / numframe;
+            var bar = new RGraph.Bar('myBar', [45 * multiplier, 12 * multiplier,
+                                           16 * multiplier, 18 * multiplier,
+                                           44 * multiplier, 54 * multiplier,
+                                           23 * multiplier, 21 * multiplier,
+                                           56 * multiplier, 58 * multiplier,
+                                           33 * multiplier, 47 * multiplier] );
+            bar.Set('chart.labels', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+            bar.Set('chart.ymax', 60); // This stops the scale from changing frame to frame
+            bar.Set('chart.hmargin', 5);
+            bar.Set('chart.title', 'An animated bar chart');
+            
+            // Gradient
+            var grad = bar.context.createLinearGradient(0,0,0,200);
+            grad.addColorStop(0, 'red');
+            grad.addColorStop(1, 'white');
+
+            bar.Set('chart.colors', [grad]);
+            bar.Set('chart.strokecolor', null);
+            bar.Draw();
+
+            /**
+            * If the animation frame is less than number of the total number of frames, redraw the canvas
+            */
+            if (curframe < numframe) {
+                curframe++;
+                setTimeout(window.onload, delay);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="breadcrumb">
+        <a href="../index.html">RGraph: HTML5 canvas graph library</a>
+        >
+        <a href="index.html">Documentation</a>
+        >
+        Animating your graphs
+    </div>
+
+    <h1>RGraph: HTML5 canvas graph library - Animating your graphs</h1>
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag yet, so if you want to see the graphs, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox, Chrome or Safari. RGraph also works in Opera though this browser does not yet support the shadow or text APIs.</li></ul></div>');
+        }
+    </script>
+
+    <div style="float: right">
+        <canvas id="myBar" width="400" height="200">[No canvas support]</canvas>
+    </div>
+
+    <p>
+        Animating your graphs is a relatively easy affair, whilst not being supported natively as it would only serve to
+        over-complicate the RGraph libraries. The way to do it is to use
+        the function <i>RGraph.Clear(canvas)</i>, passing it your canvas object that is returned by
+        <i>document.getElementById()</i>. By default this will cover the canvas in white. You can change this by
+        passing it the color you want it to use as the second (optional) argument. You could even use a gradient if
+        you wanted. Then you can simply redraw the entire graph.
+    </p>
+    
+    <p>
+        One thing you should note, is that you may have to specify the scale manually, to prevent it from changing
+        from frame to frame. This can be done by using the <i>chart.ymax</i> property.
+    </p>
+    
+    <p>
+        You can review the source of this page if you need further help. Two global variables are set - the number of frames
+        and the current frame number (which starts at one). The graphs are then drawn with appropriate data
+        (ie the data multiplied by the frame number over the total number of frames). If the frame number is less than
+        the total number of frames, the frame number is incremented and the function (window.onload) is called again
+        after a small delay.
+    </p>
+
+</body>
+</html>

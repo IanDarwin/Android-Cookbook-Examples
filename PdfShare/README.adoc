@@ -1,0 +1,4 @@
+PDFShare
+--------
+
+Generate and share a PDF document. Totally requires KitKat (API Level 19).

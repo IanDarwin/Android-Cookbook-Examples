@@ -1,0 +1,9 @@
+== CursorLoaderSample
+
+This demo shows using the CursorLoader
+to load from a ContentProvider into a ListView.
+
+=== Status
+
+It works on the emulator, and will "work" on a real
+device but the list may be empty.

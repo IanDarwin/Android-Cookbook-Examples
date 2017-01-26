@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ContentProviderLister</string>
+    <string name="title_activity_cp_detail">CpDetailActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="update">Update</string>
+    
+    <string name="pi_name">Provider Name</string>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Common -->
+    <string name="app_name">CursorLoaderDemo</string>
+    <string name="action_settings">Settings</string>
+	<string name="list_is_empty">No bookmarks!</string>
+
+</resources>
