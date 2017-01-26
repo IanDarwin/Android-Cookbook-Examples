@@ -160,6 +160,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | EMG | Simple Photo Gallery example. | Deprecated
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmClient[GcmClient] | EMG | Google Cloud Messaging - receiver | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GcmMockServer[GcmMockServer] | EMG | Google Cloud Messaging - sender | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/GeneralPrompter[GeneralPrompter] | EG | A program that shows the Storage Facility to prompt for all files. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HapticFeedback[HapticFeedback] | GS | Haptic Feedback recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | EMAG | HelloWorld | SDK
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | EMG | HelloWorld | Eclipse ADT
@@ -172,7 +173,8 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HomeAppListView[HomeAppListView] | EMG | A Home Application | Shows running a program
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IconizedListView[IconizedListView] | EMG | List View with Icon | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IntentsDemo[IntentsDemo] | EMG | Intents | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IPCDemo[IPCDemo] | GS | IPC - Inter-Process Communication, simplified demo (2 versions, alas). | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/IpcServiceDemo[IpcServiceDemo] | GS | IPC - Inter-Process Communication, simplified demo (2 versions, alas). | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EMG | Getting data from Java to JavaScript and back. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JSONParsing[JSONParsing] | EG | Simple example of JSON parsing using built-in JSONObject. | -
@@ -206,6 +208,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | EMG | Preferences | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ProgressDialogDemo[ProgressDialogDemo] | GS | Demo of a pop-up indefinite progress dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | EMG | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RatingBarDemo[RatingBarDemo] | EG | Show use of 5-star RatingBar as used in rankings, surveys, &c. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EMG | How to reboot, and why you can't | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | EMGS | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
