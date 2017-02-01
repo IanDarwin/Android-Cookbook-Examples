@@ -142,6 +142,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomToast[CustomToast] | EMG | Toast | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DatabaseFromFile[DatabaseFromFile] | EMG | Create a database from an SQLite .db file in 'assets'. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DataToCursor[DataToCursor] | EMG | Fake up a Cursor from a list of files | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DateFormatDemo[DateFormatDemo] | GS | Example of various DateFormat usages. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DialogDemos[DialogDemos] | EMG | Dialogs | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DragDropDemo[DragDropDemo] | EG | A simple Drag-and-drop example. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DreamsDemo[DreamsDemo] | EMG | Demo of "Dreams" (4.x screensaver) | -
@@ -208,7 +209,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/PreferencesDemo[PreferencesDemo] | EMG | Preferences | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ProgressDialogDemo[ProgressDialogDemo] | GS | Demo of a pop-up indefinite progress dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RangeGraphDemo[RangeGraphDemo] | EMG | Using a graphing library | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RatingBarDemo[RatingBarDemo] | EG | Show use of 5-star RatingBar as used in rankings, surveys, &c. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RatingBarDemo[RatingBarDemo] | EGS | Show use of 5-star RatingBar as used in rankings, surveys, &c. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Rebooter[Rebooter] | EMG | How to reboot, and why you can't | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecipeList[RecipeList] | EMGS | = RecipeList - use an AsyncTask to download data over the 'net via HTTP. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
