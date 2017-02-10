@@ -9,7 +9,6 @@ apply plugin: 'com.android.application'
 buildscript {
 	repositories {
 		jcenter()
-		mavenCentral()
 	}
 	dependencies {
 		classpath 'com.android.tools.build:gradle:+'
@@ -39,6 +38,11 @@ android {
 
 		androidTest.setRoot('tests')
 	}
+}
+
+repositories {
+	jcenter()
+	mavenCentral()
 }
 
 dependencies {
