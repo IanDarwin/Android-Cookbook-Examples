@@ -122,6 +122,7 @@
 		<module>SQLiteDemos</module>
 		<module>StandardDrawables</module>
 		<module>StaticFileRead</module>
+		<module>TabHostDemo</module>
 		<module>TabSwipeDemo</module>
 		<module>TeleCorder</module>
 		<module>TelephonyManager</module>

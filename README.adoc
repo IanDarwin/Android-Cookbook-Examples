@@ -243,6 +243,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StandardDrawables[StandardDrawables] | EMG | Use Existing Drawables | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StaticFileRead[StaticFileRead] | EMG | StaticFileRead - read a file from the application | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/StringsXML[StringsXML] | G | Demos for "Nuances of Strings.xml" recipe. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabHostDemo[TabHostDemo] | EMGS | TabHost Demo: Demo of the TabHost widget, in a Dialog. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabSwipeDemo[TabSwipeDemo] | EMG | Tabbable and swipeable layout | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TeleCorder[TeleCorder] | EMG | Telephone call recorder (in progress!) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TelephonyManager[TelephonyManager] | EMG | Displays phone info | -
