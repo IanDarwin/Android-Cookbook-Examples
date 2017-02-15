@@ -1,0 +1,46 @@
+// build.gradle file for TabHostDemo, originally an Eclipse project.
+// See https://androidcookbook.com/r/5203 for caveats and details!
+
+apply plugin: 'com.android.application'
+
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:+'
+	}
+}
+
+android {
+	compileSdkVersion 25
+	buildToolsVersion "25"
+
+	defaultConfig {
+		// applicationId "YOUR.PACKAGE.NAME.HERE"
+		minSdkVersion 15
+		targetSdkVersion 25
+		versionCode 1
+		versionName "1.0"
+	}
+
+	sourceSets {
+		main {
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+			manifest.srcFile 'AndroidManifest.xml'
+		}
+
+		androidTest.setRoot('tests')
+	}
+}
+
+repositories {
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile 'com.android.support:appcompat-v7:+'
+}

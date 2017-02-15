@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tab Host Demo</string>
+	<string name="hello">Hello</string>
+	<string name="lorem_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="lorem_2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="press_me">Press Me</string>
+</resources>

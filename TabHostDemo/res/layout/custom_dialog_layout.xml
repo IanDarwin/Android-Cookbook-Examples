@@ -1,0 +1,60 @@
+<TabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TabHost01"
+    android:layout_width="fill_parent"
+    android:layout_height="500dip">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5sp">
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <ScrollView
+                android:id="@+id/ScrollView01"
+                android:layout_width="wrap_content"
+                android:layout_height="300sp">
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:text="@string/lorem_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dip"
+                    android:paddingTop="15dip"
+                    android:paddingRight="20dip"
+                    android:paddingBottom="15dip"/>
+
+            </ScrollView>
+
+            <ScrollView android:id="@+id/ScrollView02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="300sp">
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:text="@string/lorem_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dip"
+                    android:paddingTop="15dip"
+                    android:paddingRight="20dip"
+                    android:paddingBottom="15dip"/>
+
+            </ScrollView>
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>
