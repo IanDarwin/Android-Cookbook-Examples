@@ -52,7 +52,7 @@ public class VolleyDemo extends Activity {
 			return;
 		}
 
-		// Create a String Request to get information from the provided URL.
+		// Create a Request to get information from the provided URL.
 		String requestUrl = host + baseUrl + listUrl;
 		JsonArrayRequest request = new JsonArrayRequest(
 				requestUrl, successListener, failListener);
