@@ -32,5 +32,7 @@ public class MainActivity extends Activity {
 					"Action Event", "Button Clicked").build());
 			}
 		});
+
+		// Rest of the Activity initialization here...
 	}
 }
