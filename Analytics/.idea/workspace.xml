@@ -7,6 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51241f07-0977-47f7-8f4f-efbf6b8bf652" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/analytics/GADemoApp.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/analytics/GADemoApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/analytics/MainActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/analytics/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pom.xml" afterPath="$PROJECT_DIR$/../pom.xml" />
     </list>
     <ignored path="analytics.iws" />
@@ -46,12 +48,10 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/analytics/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+            <state relative-caret-position="401">
+              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#764#1014#0" expanded="true" />
-                <element signature="e#1013#1014#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,8 +86,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/analytics/GADemoApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="48" />
-              <folding />
+              <caret line="7" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1537,8 +1539,6 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#764#1014#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1557,8 +1557,6 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#764#1014#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1583,8 +1581,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/analytics/GADemoApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="48" />
-          <folding />
+          <caret line="7" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1601,14 +1601,20 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/android-sdk-macosx/sources/android-25/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="22618" column="13" selection-start-line="22618" selection-start-column="13" selection-end-line="22618" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/analytics/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+        <state relative-caret-position="401">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#764#1014#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
           </folding>
         </state>
       </provider>
