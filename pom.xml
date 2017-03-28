@@ -32,6 +32,7 @@
 	<modules>
 		<module>AboutInfo</module>
 		<module>AddContact</module>
+		<module>Analytics</module>
 		<module>AndroidPlot</module>
 		<module>AndroidRss</module>
 		<module>AppDownloader</module>
@@ -175,13 +176,23 @@
 		</pluginManagement>
 	</build>
 
-	<!-- Add the Android official "extras" repo, for stuff like compat -->
 	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>bintray-android-android-tools</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/android/android-tools</url>
+		</repository>
+		<!-- Add the Android official "extras" repo, for stuff like compat -->
+		<!--
 		<repository>  
 			<id>android-extras-repository</id>  
 			<name>Android official local extras Repository</name>  
 			<url>file://${ANDROID_SDK_HOME}/extras/android/m2repository</url>  
 			<layout>default</layout>  
 		</repository>
+		-->
 	</repositories>
 </project>
