@@ -1,0 +1,5 @@
+
+    <resources>
+        <string name="hello">Dialing your number...</string>
+        <string name="app_name">SimpleDialer</string>
+    </resources>
