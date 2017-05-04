@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+ <ToggleButton
+        android:id="@+id/button"
+        android:background="@drawable/android_button"
+        android:layout_height="200px"
+		android:layout_width="200px" 
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="20px"
+		android:textOn="" android:textOff=""
+		/>
+		
+<Button
+        android:id="@+id/settings"
+        android:background="@drawable/android_button2"
+        android:layout_height="100px"
+		android:layout_width="100px" 
+		android:layout_centerHorizontal="true"
+		android:layout_below="@id/button"
+		
+		/>
+</RelativeLayout>
