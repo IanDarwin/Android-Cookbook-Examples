@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shortcut for the Main Activity -->
+    <shortcut
+        android:enabled="true"
+        android:shortcutDisabledMessage="@string/shortcut1_disabled_message"
+        android:shortcutId="first_activity"
+        android:shortcutLongLabel="@string/shortcut1_long_label"
+        android:shortcutShortLabel="@string/shortcut1_short_label">
+        <!-- Any Intent listed here must have an Action, which isn't used. -->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.androidcookbook.appshortcutsdemo.MainActivity"
+            android:targetPackage="com.androidcookbook.appshortcutsdemo"/>
+    </shortcut>
+
+    <!-- Shortcut for the Second Activity -->
+    <shortcut
+        android:enabled="true"
+        android:shortcutDisabledMessage="@string/shortcut2_disabled_message"
+        android:shortcutId="second_activity"
+        android:shortcutLongLabel="@string/shortcut2_long_label"
+        android:shortcutShortLabel="@string/shortcut2_short_label">
+        <!-- If you put additional intents here, they will go on the back stack,
+         and the last one will get run immediately.
+         -->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.androidcookbook.appshortcutsdemo.SecondActivity"
+            android:targetPackage="com.androidcookbook.appshortcutsdemo"/>
+    </shortcut>
+</shortcuts>

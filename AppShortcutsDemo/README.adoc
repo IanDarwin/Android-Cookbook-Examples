@@ -1,0 +1,6 @@
+= AppShortcutsDemo
+
+App Shortcuts appear when you long-press on an application's launcher icon,
+and let you jump directly to a given activity within the app, instead of
+having to start the main activity and tap a button or menu item.
+Hence the name shortcuts!

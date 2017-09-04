@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="MainActivityName">Main Activity</string>
+    <string name="SecondActivityName">Second Activity</string>
+
+    <string name="shortcut1_long_label">Main Activity</string>
+    <string name="shortcut1_short_label">Main</string>
+    <string name="shortcut1_disabled_message">Shortcut for Activity 1 Disabled</string>
+
+    <string name="shortcut2_long_label">Second Activity</string>
+    <string name="shortcut2_short_label">Second</string>
+    <string name="shortcut2_disabled_message">Shortcut for Activity 2 Disabled</string>
+</resources>
