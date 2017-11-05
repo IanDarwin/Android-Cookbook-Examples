@@ -255,3 +255,15 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WheelPickerDemo[WheelPickerDemo] | GS | Apple-style Wheel Picker Demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | EMG | Graphical window background | -
 |===========
+
+== Contributions
+
+We welcome contributions of code, and encourage you to accompany them
+with a new recipe on the https://androidcookbook.com[Android Cookbook site].
+
+The editor's decision is final on accepting or rejecting 
+pull requests, though :-)
+
+We follow the CCCC, the
+https://www.contributor-covenant.org/version/1/4/code-of-conduct.html[
+Contributor Covenant Code of Conduct].
