@@ -20,16 +20,22 @@ Each Directory comprises its own project, and has a name that is cited at the en
 . Eclipse projects with the newer Eclipse Andmore;
 . Android Studio projects (most of them complete with their extraneous "app" subdirectory).
 
-If you have used the old Google ADT, you will need to update your Eclipse config by *removing* ADT,
-then replace it with AndMore from the Eclipse Marketplace Client.
 
 Most of the Eclipse projects also have configuration files to allow them to be opened in Android Studio.
+
+If you have used the old Google ADT, you will need to update your Eclipse config by *removing* ADT,
+then replace it with AndMore from the Eclipse Marketplace Client.
 
 Many of the Eclipse projects have been Mavenized; a few have not.
 
 Most of the Gradle projects will also build with Android Studio; there may be a few that will not.
 
 The table <<table>> shows which projects are set up for which build tools.
+
+*Note that, since Gradle and the Gradle Android Plugin need to be updated 
+just about every time your run Android Studio, there is no attempt made
+to keep things up-to-date here; just let Studio do its upgrade thing for you
+and all will be well. They promise.
 
 === TL;DR: Build Most Projects with Apache Maven
 
