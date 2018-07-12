@@ -1,0 +1,15 @@
+= RoomDemo
+
+_Room_ is Google's "new" Object-Relational Mapping (ORM) for Android,
+which introduces what Android Database Handling should have been 10-15 years ago.
+Well, it's finally here. It has the capabilities of JPA/Hibernate + DeltaSpike Data (and Spring
+Persistence?).
+
+You just annotate your entity classes, write your DAO as an annotated _interface_, run the
+Annotation Processor in your Gradle build, and use the DAO! The DAO impl class is generated
+by the APT, transparently.
+
+== Status
+
+This version of this project compiles and runs but doesn't appear to save
+the data. Work In Progress! But important enought to get out here now.
