@@ -9,7 +9,4 @@ You just annotate your entity classes, write your DAO as an annotated _interface
 Annotation Processor in your Gradle build, and use the DAO! The DAO impl class is generated
 by the APT, transparently.
 
-== Status
-
-This version of this project compiles and runs but doesn't appear to save
-the data. Work In Progress! But important enought to get out here now.
+This demo has a hard-coded Expense item, but could easily grow to have a proper entry activity.
