@@ -13,7 +13,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">          
-                        <TextView android:text="Serivice State" 
+                        <TextView android:text="Service State" 
 style="@style/labelStyleRight"/>
                         <TextView android:id="@+id/serviceState_info" 
 style="@style/textStyle"/>
