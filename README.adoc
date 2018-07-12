@@ -121,9 +121,11 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ActionBarCompat[ActionBarCompat] | GS | Simple ActionBar demo(s) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AddContact[AddContact] | EMG | Add a contact | Shows ContactsContract, content provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AdMobDemo[AdMobDemo] | GS | Using AdMob with interstitial (inter-Activity) ads. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Analytics[Analytics] | EMGS | Ashwini's Google Analytics for Androi Demo, slightly updated. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidPlot[AndroidPlot] | EMG | Graphing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AndroidRss[AndroidRss] | EMG | RSS Reader | Works under Maven; Eclipse fails w/ Maven Configuration Problem
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | MGS | Installs another app | Downloading, package management
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppShortcutsDemo[AppShortcutsDemo] | GS | Shows App Shortcuts, which appear with long-press on app's launcher icon. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | GS | Compilable example of the Application Singleton pattern recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | EMG | Contact picker with autocomplete | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | EMG | App can update itself | see AppDownloader
@@ -185,6 +187,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavascriptDataDemo[JavascriptDataDemo] | EMG | Getting data from Java to JavaScript and back. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JavaTimeDemo[JavaTimeDemo] | MGS | Demos of java.time date/time API | Actually JSR-310 API; almost same but different package
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/JSONParsing[JSONParsing] | EG | Simple example of JSON parsing using built-in JSONObject. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/KotlinVolleyDemo[KotlinVolleyDemo] | GS | Kotlin version of Volley demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/LayoutBorder[LayoutBorder] | G | Layout Border Demo Project Source for Android | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewAdvanced[ListViewAdvanced] | EMG | ListView | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ListViewDemos[ListViewDemos] | EMGS | ListView | -
@@ -221,6 +224,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RecyclerViewDemo[RecyclerViewDemo] | GS | Demo of RecyclerView, the faster ListView. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RemoteSystemsTempFiles[RemoteSystemsTempFiles] | EM | This folder is created automatically by Eclipse and can be ignored. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RGraphDemo[RGraphDemo] | EMG | Using a graphing library | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RoomDemo[RoomDemo] | GS | Demo of Room, the official Android ORM. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/RuntimeLog[RuntimeLog] | EMG | A simpe runtime log facility | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ScanBarcode[ScanBarcode] | GS | Scan barcode using ZXing app via Intent | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SecondScreen[SecondScreen] | M | Trivial example of one Activity (screen) starting another. | -
@@ -231,6 +235,7 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShellCommand[ShellCommand] | EG | Run a Unix/Linux command via Runtime.exec, capture the output. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | EMG | User account on device | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleCalendar[SimpleCalendar] | EMG | Calendar | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleDialer[SimpleDialer] | EMGS | Trivial Dialer - launches Dialer app via Intent | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleJumper[SimpleJumper] | EG | Common code for flixel-gdx-based gaming demo. | Game starts, can move left-right only, no scenery. Fails on Intel phone/emulator
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimplePool[SimplePool] | EG | Start of a pool/billiards game using AndEngine. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleTorchLight[SimpleTorchLight] | EMG | Simple Torchlight/Flashlight example. | (Most devices now have a built-in control for this)
@@ -261,15 +266,3 @@ In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Stu
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WheelPickerDemo[WheelPickerDemo] | GS | Apple-style Wheel Picker Demo | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/WindowBackgroundDemo[WindowBackgroundDemo] | EMG | Graphical window background | -
 |===========
-
-== Contributions
-
-We welcome contributions of code, and encourage you to accompany them
-with a new recipe on the https://androidcookbook.com[Android Cookbook site].
-
-The editor's decision is final on accepting or rejecting 
-pull requests, though :-)
-
-We follow the CCCC, the
-https://www.contributor-covenant.org/version/1/4/code-of-conduct.html[
-Contributor Covenant Code of Conduct].
