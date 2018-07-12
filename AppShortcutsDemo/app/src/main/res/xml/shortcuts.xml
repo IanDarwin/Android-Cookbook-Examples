@@ -23,8 +23,12 @@
         android:shortcutLongLabel="@string/shortcut2_long_label"
         android:shortcutShortLabel="@string/shortcut2_short_label">
         <!-- If you put additional intents here, they will go on the back stack,
-         and the last one will get run immediately.
+         and the last one will get run initially.
          -->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.androidcookbook.appshortcutsdemo.MainActivity"
+            android:targetPackage="com.androidcookbook.appshortcutsdemo"/>
         <intent
             android:action="android.intent.action.VIEW"
             android:targetClass="com.androidcookbook.appshortcutsdemo.SecondActivity"
