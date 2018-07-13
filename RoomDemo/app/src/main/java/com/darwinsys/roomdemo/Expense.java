@@ -66,6 +66,10 @@ public class Expense {
         this.date = date;
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date.toString();
+    }
+
     public String getDescription() {
         return description;
     }
