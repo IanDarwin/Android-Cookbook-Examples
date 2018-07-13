@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Read " + expenses.size() + " expenses");
             mList.addAll(expenses);
             // Update the UI
-            mAdapter.notifyDataSetChanged(); // Allowed in background?
+            mAdapter.notifyDataSetChanged();
         });
     }
 

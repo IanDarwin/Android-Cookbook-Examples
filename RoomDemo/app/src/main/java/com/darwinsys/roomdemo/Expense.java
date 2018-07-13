@@ -46,7 +46,7 @@ public class Expense {
     }
 
     public String toString() {
-        return String.format("%s %22s %f", date, description, amount);
+        return String.format("%s %22s %.2f", date, description, amount);
     }
 
     public long getId() {
