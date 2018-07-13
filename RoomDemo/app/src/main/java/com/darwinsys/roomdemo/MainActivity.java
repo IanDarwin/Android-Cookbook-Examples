@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    final Expense expense = new Expense("Dinner among the Stars", 123.45);
+                    final Expense expense = new Expense("Dinner among the Stars", Math.random() * 255);
                     new AsyncTask<Expense, Void, Expense>() {
 
                         @Override
