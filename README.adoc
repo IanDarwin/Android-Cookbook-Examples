@@ -20,15 +20,13 @@ Each Directory comprises its own project, and has a name that is cited at the en
 . Eclipse projects with the newer Eclipse Andmore;
 . Android Studio projects (most of them complete with their extraneous "app" subdirectory).
 
+The started-in-Eclipse projects also have configuration files to allow them to be opened in Android Studio.
 
-Most of the Eclipse projects also have configuration files to allow them to be opened in Android Studio.
-
-If you have used the old Google ADT, you will need to update your Eclipse config by *removing* ADT,
-then replace it with AndMore from the Eclipse Marketplace Client.
-
-Many of the Eclipse projects have been Mavenized; a few have not.
-
-Most of the Gradle projects will also build with Android Studio; there may be a few that will not.
+During the runup to the second edition of the book, AndMore appeared to be a viable project
+to maintain Android Eclipse development.
+However, over time, it has become clear that AndMore has not attracted enough developer talent
+to remain viable.
+Accordingly, the newest projects here are Android-Studio-Only.
 
 The table <<table>> shows which projects are set up for which build tools.
 
@@ -37,9 +35,9 @@ just about every time your run Android Studio, there is no attempt made
 to keep things up-to-date here; just let Studio do its upgrade thing for you
 and all will be well. They promise.
 
-=== TL;DR: Build Most Projects with Apache Maven
+=== TL;DR: Build Many Projects with Apache Maven
 
-Prerequisites: Java 7 or 8 SDK, Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
+Prerequisites: Java 8+ SDK, Android SDK **including "Google Maven Repository" for compat stuff**, $$git$$, _Maven_
 
 . git clone https://github.com/mosabua/maven-android-sdk-deployer
 . cd maven-android-sdk-deployer
