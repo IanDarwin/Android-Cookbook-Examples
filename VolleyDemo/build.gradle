@@ -8,16 +8,18 @@ apply plugin: 'com.android.application'
 
 buildscript {
 	repositories {
+		google()
+		jcenter()
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:+'
+		classpath 'com.android.tools.build:gradle:3.1.2'
 	}
 }
 
 android {
 	compileSdkVersion 24
-	buildToolsVersion "24"
+	buildToolsVersion '27.0.3'
 
 	defaultConfig {
 		// applicationId "YOUR.PACKAGE.NAME.HERE"
@@ -41,7 +43,7 @@ android {
 }
 
 dependencies {
-	compile fileTree(include: ['*.jar'], dir: 'libs')
-	compile 'com.android.support:appcompat-v7:+'
-	compile 'com.android.volley:volley:1.0.0'
+	implementation fileTree(include: ['*.jar'], dir: 'libs')
+	implementation 'com.android.support:appcompat-v7:+'
+	implementation 'com.android.volley:volley:1.1.0'
 }
