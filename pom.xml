@@ -110,6 +110,7 @@
 		<module>ShareActionProviderDemo</module>
 		<module>SimpleAccountAndSyncDemo</module>
 		<module>SimpleCalendar</module>
+		<module>SimpleDialer</module>
 		<module>SimpleJumper</module>
 		<module>SimplePool</module>
 		<module>SimpleTorchLight</module>
