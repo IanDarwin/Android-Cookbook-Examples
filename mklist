@@ -3,6 +3,7 @@
 # Generate the included table for the master README file
 
 README_FILE=README.txt
+AUTHOR_FILE=AUTHOR.txt
 FNAME_STATUS=STATUS.txt
 
 # All Projects Shalle Have Uppercased-first-letter Names!
@@ -17,6 +18,11 @@ do
 			else
 				NOTES="-"
 			fi
+			if [ -f $d/${AUTHOR_FILE} ]; then
+				AUTHOR=$(sed 1q $d/${AUTHOR_FILE})
+			else
+				AUTHOR="Ian Darwin"
+			fi
 			if [ -f $d/.project ]; then BUILDS_WITH+=E; fi
 			if [ -f $d/pom.xml ]; then 
 				BUILDS_WITH+=M;
@@ -26,7 +32,7 @@ do
 			if [ -f $d/build.gradle -o -f $d/app/build.gradle ]; then BUILDS_WITH+=G; fi
 			if [ -f $d/$d.iml -o -f $d/app/$d.iml ]; then BUILDS_WITH+=S; fi
 			if [ -z "$BUILDS_WITH" ]; then echo "$d has no build files!"; fi
-			echo '|' "link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/$d[$d]" '|' $BUILDS_WITH '|' $FUNCTION '|' ${NOTES}
+			echo '|' "link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/$d[$d]" '|' ${AUTHOR} \| $BUILDS_WITH '|' $FUNCTION '|' ${NOTES}
 		else
 			echo >&2 "$d has no README file"
 		fi
