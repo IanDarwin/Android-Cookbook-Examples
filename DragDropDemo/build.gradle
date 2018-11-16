@@ -16,12 +16,12 @@ buildscript {
 }
 
 android {
-	compileSdkVersion 24
-	buildToolsVersion "24"
+	compileSdkVersion 27
+	buildToolsVersion "25"
 
 	defaultConfig {
 		// applicationId "YOUR.PACKAGE.NAME.HERE"
-		minSdkVersion 11
+		minSdkVersion 14
 		targetSdkVersion 23
 		versionCode 1
 		versionName "1.0"
