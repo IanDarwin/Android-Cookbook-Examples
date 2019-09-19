@@ -6,3 +6,6 @@ But it's such an iconic demonstration of the ContentProvider interface that I ju
 couldn't resist building my own crude reimplementation of it.
 People are welcome to add more columns, some unit tests, and more bells and whistles,
 but the fact is, as it stands, it just works.
+
+For small domain of "work", that is. The ContentProvider is read-only, and all queries
+return the full list. Such is the nature of simple demos.
