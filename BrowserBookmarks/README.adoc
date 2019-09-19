@@ -1,0 +1,8 @@
+= BrowserBookmarks
+
+The real BrowserBookmarks was deprecated in API23 and removed a few releases later.
+
+But it's such an iconic demonstration of the ContentProvider interface that I just
+couldn't resist building my own crude reimplementation of it.
+People are welcome to add more columns, some unit tests, and more bells and whistles,
+but the fact is, as it stands, it just works.
