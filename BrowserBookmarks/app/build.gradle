@@ -16,11 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:22.0.0'
+    implementation 'com.android.support:appcompat-v7:22.2.1'
     testImplementation 'junit:junit:4.12'
 
 }

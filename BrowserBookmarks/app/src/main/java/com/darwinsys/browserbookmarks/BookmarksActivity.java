@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.darwinsys.bookmarkscp.Browser;
 
@@ -53,18 +54,19 @@ public class BookmarksActivity extends Activity {
                 fromCols,
                 toViews));
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        mListView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
                 Log.d(TAG, "Position = " + position);
                 // We still have the Cursor, so re-use it.
+                if (c == null) {
+                    Toast.makeText(this, "ERROR: cursor got nullified", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 c.moveToPosition(position);
                 String url = c.getString(2);
                 Log.d(TAG, "Opening URL " + url);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
-            }
         });
     }
 }
