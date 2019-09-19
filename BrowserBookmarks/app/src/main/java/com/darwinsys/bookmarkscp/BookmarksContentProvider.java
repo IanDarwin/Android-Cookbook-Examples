@@ -19,7 +19,7 @@ public class BookmarksContentProvider extends ContentProvider {
         String title;
         String URL;
 
-        public Bookmark(int _id, String title, String URL) {
+        Bookmark(int _id, String title, String URL) {
             this._id = _id;
             this.title = title;
             this.URL = URL;
@@ -30,7 +30,7 @@ public class BookmarksContentProvider extends ContentProvider {
             new Bookmark(1, "DarwinSys-Java", "https://darwinsys.com/java"),
             new Bookmark(2, "Facebook", "https://facebook.com"),
             new Bookmark(3, "Google Search", "https://google.com/"),
-            new Bookmark(4, "Google Maps", "httpd://google.com/maps"),
+            new Bookmark(4, "Google Maps", "https://google.com/maps"),
             new Bookmark(5, "Instagram", "https://instagram.com"),
             new Bookmark(6, "Tesla", "https://ts.la/ian40191"),
             new Bookmark(7, "Twitter", "https://twitter.com"),
