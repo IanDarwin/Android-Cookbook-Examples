@@ -1,4 +1,4 @@
-// Sample build.gradle used in making ADT/AndMore projects work with Android Studio
+// build.gradle used in making ADT/AndMore projects work with Android Studio
 // while making only minimal or no changes to the filesystem hierarchy.
 // See https://androidcookbook.com/r/5203 for caveats and details!
 // See https://developer.android.com/studio/ for more on Android Studio.
@@ -20,7 +20,6 @@ android {
 	buildToolsVersion '28.0.3'
 
 	defaultConfig {
-		// applicationId "YOUR.PACKAGE.NAME.HERE"
 		minSdkVersion 14
 		targetSdkVersion 23
 		versionCode 1
