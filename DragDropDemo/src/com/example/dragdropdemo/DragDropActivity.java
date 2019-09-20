@@ -32,7 +32,7 @@ public class DragDropActivity extends Activity {
 			
 			@Override
 			public boolean onLongClick(View v) {
-				Uri contentUri = Uri.parse("http://oracle.com/java/");
+				Uri contentUri = Uri.parse("http://darwinsys.com/java/");
 				ClipData cd = ClipData.newUri(getContentResolver(), "Dragging", contentUri); 
 				v.startDrag(cd, new DragShadowBuilder(v), null, 0);
 				return true;
@@ -62,7 +62,7 @@ public class DragDropActivity extends Activity {
 				Log.d(TAG, "onDrag: DROP e=" + e);
 				final ClipData clipItem = e.getClipData();
 				Toast.makeText(DragDropActivity.this, 
-					"DROPPED: " + clipItem.getItemAt(0).getUri(),
+					"DROPPED: URL=" + clipItem.getItemAt(0).getUri(),
 					Toast.LENGTH_LONG).show();
 				return true;
 			case DragEvent.ACTION_DRAG_EXITED:
