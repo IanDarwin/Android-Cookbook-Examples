@@ -1,1 +1,1 @@
-Simple Cordova cross-platform (web-based) toolkit demo.
+Simple Cordova (nee PhoneGap) cross-platform (web-based) toolkit demo.
