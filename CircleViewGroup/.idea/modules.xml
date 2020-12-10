@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CircleViewGroup.iml" filepath="$PROJECT_DIR$/CircleViewGroup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circlelayout/circlelayout.iml" filepath="$PROJECT_DIR$/circlelayout/circlelayout.iml" />
+    </modules>
+  </component>
+</project>
