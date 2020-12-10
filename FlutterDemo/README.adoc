@@ -1,0 +1,20 @@
+= flutter_demo
+
+A trivial demo Flutter application, that opens in Adroid Studio
+and can be built for Android, iOS, macOS, Windows, and the web.
+Unlike a traditional Android app where the source is in _app/src/main/java/pkg_name_,
+a Flutter app's main source is in the _lib/_ folder.
+Neither of these naming conventions is ideal, but at least Flutter's is short.
+
+Flutter apps are written in the Dart language, but you can add code
+in Java or Kotlin for Android, and in Objective C or Swift for iOS.
+
+== Information Resources
+
+The home page for Flutter is https://flutter.io[]/
+
+For help getting started with Flutter, view the
+https://flutter.dev/docs[online documentation], which offers tutorials,
+samples, guidance on mobile development,
+migration tutorials _from_ Android, iOS, Web, React Native, Xamarin., etc.
+Oh, and a full API reference.
