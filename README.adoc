@@ -23,7 +23,7 @@ to remain viable.
 Accordingly, the newest projects here are Android-Studio-Only.
 Issue #1 calls for moving the existing mass of projects to Studio-only format.
 
-The table <<table>> shows which projects are set up for which build tools.
+The table <<table>> shows lists each project, its author, and a short summary.
 
 *Note that, since Gradle and the Gradle Android Plugin need to be updated 
 just about every time your run Android Studio, there is no attempt made
