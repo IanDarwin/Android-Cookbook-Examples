@@ -19,5 +19,5 @@
 		               android:resource="@xml/widgetproviderinfo" />
 		</receiver>
     </application>
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="14" />
 </manifest> 

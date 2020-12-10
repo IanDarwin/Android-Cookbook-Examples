@@ -36,9 +36,11 @@ public class Expense {
     @Ignore
     public Expense(String date, String description, double amount) {
         this.date = date;
+        LocalDate nDate;
         this.description = description;
         this.amount = amount;
     }
+
 
     @Ignore
     public Expense(String description, double amount) {
