@@ -21,7 +21,52 @@ to maintain Android Eclipse development.
 However, over time, it has become clear that AndMore has not attracted enough developer talent
 to remain viable.
 Accordingly, the newest projects here are Android-Studio-Only.
-Issue #1 calls for moving the existing mass of projects to Studio-only format.
+And _Issue #1 calls for moving the existing mass of projects to Studio-only format_.
+For reference, a "canonical" project would look something like this:
+
+	README.txt
+	app/
+	├── app.iml
+	├── build/
+	├── build.gradle
+	├── libs
+	├── proguard-rules.pro
+	└── src
+	    ├── androidTest
+	    │   └── java
+	    │       └── com
+	    │           └── darwinsys
+	    │               └── circleviewgroup
+	    │                   └── ExampleInstrumentedTest.java
+	    ├── main
+	    │   ├── AndroidManifest.xml
+	    │   ├── java
+	    │   │   └── com
+	    │   │       └── androidcookbook
+	    │   │           └── some_project_name
+	    │   │               └── MainActivity.java
+	    │   └── res
+	    │       ├── drawable
+	    │       ├── layout
+	    │       │   └── activity_main.xml
+	    │       ├── mipmap-hdpi
+	    │       │   ├── ic_launcher.png
+	    │       │   └── ic_launcher_round.png
+	    │       ├── mipmap-*
+	    │       └── values
+	    │           ├── colors.xml
+	    │           ├── strings.xml
+	    │           └── styles.xml
+	    └── test
+	        └── java
+	            └── com
+	                └── darwinsys
+	                    └── circleviewgroup
+	                        └── ExampleUnitTest.java
+	build.gradle
+	gradlew, gradlew.bat
+	local.properties
+	settings.gradle
 
 The table <<table>> shows lists each project, its author, and a short summary.
 
@@ -32,7 +77,8 @@ and all will be well. They promise.
 
 === DELETED PROJECTS
 
-JpsTrack and the ToDo applications have graduated to their own github projects, up one level from here on Github.
+JpsTrack and the ToDo applications have graduated to their own github projects, under
+https://github.com/IanDarwin[].
 
 [[table]]
 === List of Projects
