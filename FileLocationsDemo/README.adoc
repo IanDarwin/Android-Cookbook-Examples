@@ -1,0 +1,7 @@
+= FileLocationsDemo
+
+Just creates one of everything to show the file locations of some things in the
+Device File Explorer:
+    a preferences
+    a data file
+    a database
