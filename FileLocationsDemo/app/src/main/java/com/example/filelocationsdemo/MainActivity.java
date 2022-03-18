@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
@@ -46,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        String externalStorageState = Environment.getExternalStorageState();
+        if (externalStorageState.equals(Environment.MEDIA_MOUNTED)) {
+            File downloadCacheDirectory = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+            Log.d(TAG, "External Files Download dir = " + downloadCacheDirectory);
+        }
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
