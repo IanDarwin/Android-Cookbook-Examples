@@ -48,10 +48,10 @@ public class MainActivity extends ListActivity {
 	public void add(View v) {
 		ContentValues values = new ContentValues();
 		values.put(NAME, "Mangoes");
-		long id = (mDatabase.insert(TABLE_NAME, null, values));
+		long id = mDatabase.insert(TABLE_NAME, null, values);
 		final String name = "Pumpernickel bread";
 		values.put(NAME, name);
-		id = (mDatabase.insert(TABLE_NAME, null, values));
+		id = mDatabase.insert(TABLE_NAME, null, values);
 		System.out.println("Max ID = " + id);
 	}
 
