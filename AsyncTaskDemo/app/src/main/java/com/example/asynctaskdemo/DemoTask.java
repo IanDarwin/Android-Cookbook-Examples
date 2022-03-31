@@ -26,7 +26,9 @@ public class DemoTask extends AsyncTask<String, Integer, String> {
         super.onPreExecute();
     }
 
-    /** Called in the background thread
+    /** Called in the background thread to do the main work.
+     * When this returns, the AsyncTask is done and cannot be re-used
+     * (but theyre cheap and cheerful, so just make another one!).
      * @param strings The inputs, from execute(). Only [0] is used.
      */
     @Override

@@ -28,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button b = findViewById(R.id.startButton);
         b.setOnClickListener(e -> {
+            b.setEnabled(false);
             DemoTask d = new DemoTask(MainActivity.this);
-            d.execute("Hello");
+            String ret = d.execute("Hello");
+            Log.d(TAG, "Background service returned " + ret);
+            b.setEnabled(true);
         });
     }
 
