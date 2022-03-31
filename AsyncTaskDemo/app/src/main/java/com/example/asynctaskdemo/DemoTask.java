@@ -50,7 +50,7 @@ public class DemoTask extends AsyncTask<String, Integer, String> {
     @Override
     protected void onProgressUpdate(Integer... values) {
         Log.d(TAG, "onProgressUpdate");
-        super.onProgressUpdate(values);
+        main.label.setText(Integer.toString(values[0]));
     }
 
     @Override
