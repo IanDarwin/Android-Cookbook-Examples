@@ -18,8 +18,7 @@ Each Directory comprises its own project, and has a name that is cited at the en
 Some older started-in-Eclipse projects also have configuration files to allow them to be opened in Android Studio.
 During the runup to the second edition of the book, AndMore appeared to be a viable project
 to maintain Android Eclipse development.
-However, over time, it has become clear that AndMore has not attracted enough developer talent
-to remain viable.
+However, it has become clear that AndMore has not attracted enough developer talent to remain viable.
 Accordingly, the newest projects here are Android-Studio-Only.
 And _Issue #1 calls for moving the existing mass of projects to Studio-only format_.
 For reference, a "canonical" project would look something like this:
@@ -68,7 +67,7 @@ For reference, a "canonical" project would look something like this:
 	local.properties
 	settings.gradle
 
-The table <<table>> shows lists each project, its author, and a short summary.
+The table <<table>> lists each project, its author, and a short summary.
 
 *Note that, since Gradle and the Gradle Android Plugin need to be updated 
 just about every time your run Android Studio, there is no attempt made
@@ -79,6 +78,8 @@ and all will be well. They promise.
 
 JpsTrack and the ToDo applications have graduated to their own github projects, under
 https://github.com/IanDarwin[].
+
+DuellingIDEs has been removed since the duel is over. Just use Android Studio.
 
 [[table]]
 === List of Projects
