@@ -36,40 +36,20 @@ public class MainActivity extends Activity {
             imageIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                     Uri.fromFile(pictureFile));
             // And away we go!
-            startActivityForResult(imageIntent, ACTION_TAKE_PICTURE);
+            // startActivityForResult(imageIntent, ACTION_TAKE_PICTURE);
+			ActivityResultLauncher<String> mGetContent = registerForActivityResult(new GetContent(),
+				uri -> {
+					// Handle the returned Uri
+					final String message = getString(R.string.picture_saved) + " " + uri;
+					Log.d(TAG, message);
+					Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+				}
+			);
+			mGetContent.launch();
         } catch (Exception e) {
             Toast.makeText(this,
                     getString(R.string.cant_start_activity) + ": " + e,
                     Toast.LENGTH_LONG).show();
-        }
-    }
-
-    /** Called when an Activity we started for Result is complete */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case ACTION_TAKE_PICTURE:
-                switch (resultCode) {
-                    case Activity.RESULT_OK:
-                        if (pictureFile.exists()) {
-                            final String message = getString(R.string.picture_saved) + " " + pictureFile.getAbsoluteFile();
-                            Log.d(TAG, message);
-                            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-                        } else {
-                            final String message = getString(R.string.picture_created_but_missing);
-                            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-                        }
-                        break;
-                    case Activity.RESULT_CANCELED:
-                        Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
-                        break;
-                    default:
-                        Toast.makeText(this, "Unexpected resultCode: " + resultCode, Toast.LENGTH_LONG).show();
-                        break;
-                }
-                break;
-            default:
-                Toast.makeText(this, "Unexpected requestCode: " + requestCode, Toast.LENGTH_LONG).show();
         }
     }
 }
