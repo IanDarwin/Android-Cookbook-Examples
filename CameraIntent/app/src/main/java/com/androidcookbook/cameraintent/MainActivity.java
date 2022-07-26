@@ -1,6 +1,5 @@
 package com.androidcookbook.cameraintent;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +7,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -22,15 +22,16 @@ import java.io.File;
  */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "CameraLaunchingActivity";
-    private final static int ACTION_TAKE_PICTURE = 123;
 
     private File pictureFile;
-    private Uri uri;
+    private Uri imageUri;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageView = findViewById(R.id.imageView);
     }
 
     // Must register this before the Activity is started, so just make it a field.
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     final String message = getString(R.string.picture_saved) + " " + pictureFile.length();
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                     Log.d(TAG, message);
+                    imageView.setImageURI(imageUri);
                 } else {
                     Log.d(TAG, "Picture taking failed");
                 }
@@ -56,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
             // Set up file to save image into.
             File baseDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
             pictureFile = new File(baseDir, "picture1234.jpg");
-            uri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", pictureFile);
+            imageUri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", pictureFile);
             // And away we go!
-			mGetContent.launch(uri);
+			mGetContent.launch(imageUri);
 
         } catch (Exception e) {
             final String mesg = getString(R.string.cant_start_activity) + ": " + e;

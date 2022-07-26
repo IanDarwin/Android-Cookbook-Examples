@@ -11,22 +11,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.androidcookbook.cameraintent.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView"/>
 
     <Button
+        android:id="@+id/button"
         android:text="@string/snappit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="23dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="81dp"
-        android:id="@+id/button"
         android:onClick="takePicture"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="640px"
+        android:layout_height="480px"
+        android:layout_below="@+id/button"
+        />
 </RelativeLayout>
