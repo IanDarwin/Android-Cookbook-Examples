@@ -18,7 +18,7 @@
         android:id="@+id/textView"/>
 
     <Button
-        android:text="Button"
+        android:text="@string/snappit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
@@ -28,6 +28,5 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="81dp"
         android:id="@+id/button"
-        tools:text="Take a picture!"
         android:onClick="takePicture"/>
 </RelativeLayout>
