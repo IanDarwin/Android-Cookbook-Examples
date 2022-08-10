@@ -3,6 +3,7 @@ package com.darwinsys.servicedemos;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -17,6 +18,7 @@ public class IntentServiceDemo extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+        Toast.makeText(this, "IntentService invoked, see logcat", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "Categories: " + intent.getCategories());
         Log.d(TAG, "Data: " + intent.getData());
         Log.d(TAG, "Message: " + intent.getStringExtra("message"));

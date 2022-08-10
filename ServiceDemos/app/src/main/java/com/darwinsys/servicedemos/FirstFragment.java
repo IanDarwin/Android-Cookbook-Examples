@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,7 +22,6 @@ public class FirstFragment extends Fragment {
 
     private static final String TAG = "ServiceDemos";
     private FragmentFirstBinding binding;
-    private boolean boundServiceBound = false;
     private BoundServiceDemo.MyBinder binder;
     private BoundServiceDemo boundService;
 
@@ -31,7 +31,6 @@ public class FirstFragment extends Fragment {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -42,53 +41,54 @@ public class FirstFragment extends Fragment {
             intent.putExtra("message", "Hello Intentionally");
             intent.setData(Uri.parse("tel:555-1212"));
             getContext().startService(intent);
+            Toast.makeText(getActivity(),  "Intent Service Started", Toast.LENGTH_SHORT).show();
         });
 
         ServiceConnection sc = new ServiceConnection() {
 
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                Log.d(TAG, "Bound Service Connected");
+                Toast.makeText(getActivity(),  "Bound Service Connected", Toast.LENGTH_SHORT).show();
                 binder = (BoundServiceDemo.MyBinder)iBinder;
                 boundService = binder.getService();
-                boundServiceBound = true;
             }
 
             @Override
             public void onServiceDisconnected(ComponentName componentName) {
-                Log.d(TAG, "Bound Service Disconnected");
+                Toast.makeText(getActivity(), "Bound Service Disconnected", Toast.LENGTH_SHORT).show();
                 boundService = null;
-                boundServiceBound = false;
             }
         };
 
         binding.buttonBindBoundService.setOnClickListener(v -> {
-            Log.d(TAG, "buttonBoundService CLICKED");
-            if (boundServiceBound) {
+            if (boundService!= null) {
+                Toast.makeText(getActivity(), "BoundService already bound!", Toast.LENGTH_SHORT).show();
                 return;
             }
             var intent = new Intent(getContext(), BoundServiceDemo.class);
             intent.putExtra("message", "Hello Intentionally");
             intent.setData(Uri.parse("tel:555-1212"));
-            Log.d(TAG, "Binding to service: " + intent);
             var ret = getContext().bindService(intent, sc, Context.BIND_AUTO_CREATE);
-            Log.d(TAG, ret ? "Service bound" : "Service NOT bound");
+            Toast.makeText(getActivity(), ret ? "Service bound" : "Service NOT bound", Toast.LENGTH_SHORT).show();
         });
 
         binding.buttonUseBoundService.setOnClickListener(v -> {
-            Log.d(TAG, "buttonUseBoundService clicked");
-            String message = "Service not bound!";
-            if (boundServiceBound) {
-                message = boundService.getMessage();
+            if (boundService != null) {
+                var message = boundService.getMessage();
+                Toast.makeText(getActivity(), "BoundService returned " + message, Toast.LENGTH_SHORT).show();
+                return;
             }
-            Log.d(TAG, message);
+            Toast.makeText(getActivity(), "Not bound, can't invoke", Toast.LENGTH_SHORT).show();
         });
 
         binding.buttonUnbindBoundService.setOnClickListener(v -> {
-            if (boundServiceBound) {
+            if (boundService!= null) {
                 getContext().unbindService(sc);
+                boundService = null;
+                Toast.makeText(getActivity(), "BoundService unbound ", Toast.LENGTH_SHORT).show();
+                return;
             }
-            Log.d(TAG, "Unbound");
+            Toast.makeText(getActivity(), "Not bound, can't unbind", Toast.LENGTH_SHORT).show();
         });
     }
 
