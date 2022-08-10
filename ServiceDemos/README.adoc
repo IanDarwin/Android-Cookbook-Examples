@@ -1,0 +1,9 @@
+= ServiceDemos - Intent Service, Bound Service
+
+This contains two demos, and IntentService and a Bound Service.
+
+The services are just placeholders.
+
+If you hack them to do real work, remember the Bound one has to be threaded.
+
+XXX Should merge FirstFragment into MainActivity, doesn't need to be a Fragment.
