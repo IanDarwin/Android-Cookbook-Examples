@@ -2,6 +2,7 @@ package com.example.cryptodemos;
 
 import android.content.Context;
 import android.security.keystore.KeyGenParameterSpec;
+import android.util.Log;
 
 import androidx.security.crypto.EncryptedFile;
 import androidx.security.crypto.MasterKeys;
@@ -16,12 +17,13 @@ import java.security.GeneralSecurityException;
 
 public class EncryptedReadWriteDemo {
 
-    void writeReadFile(Context context, String dirName, String fileName, String message) throws GeneralSecurityException, IOException {
+    public void writeReadFile(Context context, String dirName, String fileName, String message) throws GeneralSecurityException, IOException {
 
         // Although you can define your own key generation parameter specification,
         // Google recommends using the value specified here.
         KeyGenParameterSpec keyGenParameterSpec = MasterKeys.AES256_GCM_SPEC;
         String mainKeyAlias = MasterKeys.getOrCreate(keyGenParameterSpec);
+        final File file = new File(dirName, fileName);
 
         // WRITE THE FILE
 
@@ -29,7 +31,7 @@ public class EncryptedReadWriteDemo {
         // that has the same name. Note that you cannot append to an existing file,
         // and the file name cannot contain path separators.
         EncryptedFile encryptedFileOut = new EncryptedFile.Builder(
-                new File(dirName, fileName),
+                file,
                 context,
                 mainKeyAlias,
                 EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
@@ -43,7 +45,7 @@ public class EncryptedReadWriteDemo {
 
         // READ THE FILE BACK
         EncryptedFile encryptedFile = new EncryptedFile.Builder(
-                new File(dirName, fileName),
+                file,
                 context,
                 mainKeyAlias,
                 EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
@@ -59,8 +61,11 @@ public class EncryptedReadWriteDemo {
 
         byte[] plaintext = byteArrayOutputStream.toByteArray();
 
+        file.delete();
+
         if (!message.equals(new String(plaintext))) {
             throw new IllegalStateException("Input not read back successfully");
         }
+        Log.d(MainActivity.TAG, "Read/Write demo done");
     }
 }

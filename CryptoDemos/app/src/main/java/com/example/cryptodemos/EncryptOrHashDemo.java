@@ -15,10 +15,8 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
 public class EncryptOrHashDemo {
-    private static final String TAG = "EncryptOrHashDemo";
-    String message = "Rule Brittania!";
 
-    void encryptMessageDemo() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    void encryptMessageDemo(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         byte[] plaintext = message.getBytes(StandardCharsets.UTF_8);
         KeyGenerator keygen = KeyGenerator.getInstance("AES");
         keygen.init(256);
@@ -27,13 +25,13 @@ public class EncryptOrHashDemo {
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] ciphertext = cipher.doFinal(plaintext);
         byte[] iv = cipher.getIV();
-        Log.d(TAG, "Encrypted message is " + ciphertext);
+        Log.d(MainActivity.TAG, "Encrypted message is " + ciphertext);
     }
 
-    void hashMessageDemo() throws NoSuchAlgorithmException {
+    void hashMessageDemo(String message) throws NoSuchAlgorithmException {
         byte[] messageBytes = message.getBytes(StandardCharsets.UTF_8);
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] digestBytes = digest.digest(messageBytes);
-        Log.d(TAG, "Message signature is " + digestBytes);
+        Log.d(MainActivity.TAG, "Message signature is " + digestBytes);
     }
 }

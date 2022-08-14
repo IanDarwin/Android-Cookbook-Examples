@@ -2,6 +2,7 @@ package com.example.cryptodemos;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.security.crypto.EncryptedSharedPreferences;
 
@@ -10,8 +11,10 @@ import java.security.GeneralSecurityException;
 
 public class EncryptedSharedPrefsDemo {
     void encryptedSharedPrefsDemo(Context context) throws GeneralSecurityException, IOException {
-        String sharedPrefsFile = context.getFilesDir() + "/tempfile5678.dat"; // in private storage, see I/O discussion
+        String sharedPrefsFile = context.getFilesDir() + "/tempfile5678"; // in private storage, see I/O discussion
+        sharedPrefsFile ="tempfile5678";
         String mainKeyAlias = "dancing_dufflepuds";
+
         SharedPreferences preferences = EncryptedSharedPreferences.create(
                 sharedPrefsFile,
                 mainKeyAlias,
@@ -28,5 +31,6 @@ public class EncryptedSharedPrefsDemo {
         if (!returned.equals(secretDecoder)) {
             throw new AssertionError("Did not return correct string!");
         }
+        Log.d(MainActivity.TAG, "Shared Prefs demo done");
     }
 }
