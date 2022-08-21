@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             Log.d(TAG, "Starting MyLooperThread.run");
             Looper.prepare();
-            mHandler = new Handler() {
+            mHandler = new Handler(Looper.myLooper()) {
                 public void handleMessage(Message message) {
                     Log.d(TAG, "Message Received, code = " + message.what);
                     if (message.what == DO_LONG_TASK_1) {
