@@ -1,0 +1,9 @@
+= MessageDemo
+
+A simple message-handling demo showing the UI thread onClickListener() sending a Message
+to the background thread, telling it what operation to perform.
+
+The Message API is deprecated in favor of just using a standard Java threadpool.
+
+For more details, see Chapter 4 of the book Efficient Android Threading
+by Anders Goransson, O'Reilly.
