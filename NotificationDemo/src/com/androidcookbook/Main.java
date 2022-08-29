@@ -24,9 +24,10 @@ public class Main extends Activity {
 		
 		Intent notIntent = new Intent(this, NotificationTarget.class);
 		PendingIntent wrappedIntent = 
-		PendingIntent.getActivity(this, 0, notIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+			PendingIntent.getActivity(this, 0, notIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
 
-		n.setLatestEventInfo(getApplicationContext(), getString(R.string.title), getString(R.string.message), wrappedIntent);
+		n.setLatestEventInfo(getApplicationContext(), getString(R.string.title),
+			getString(R.string.message), wrappedIntent);
 		n.flags |= Notification.FLAG_AUTO_CANCEL;
 		n.flags |= Notification.DEFAULT_SOUND;
 		n.flags |= Notification.DEFAULT_VIBRATE;
