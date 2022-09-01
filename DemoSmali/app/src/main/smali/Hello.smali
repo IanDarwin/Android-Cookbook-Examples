@@ -1,6 +1,6 @@
 .class public LHello;
 
-# Ye olde hello world application
+# A canonical hello world application
 
 .super Ljava/lang/Object;
 
