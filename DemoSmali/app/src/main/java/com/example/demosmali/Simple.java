@@ -25,5 +25,18 @@ public class Simple {
     int nextCount() {
         return ++counter;
     }
-    
+
+    public void ifTest(int i) {
+        int val = 42;
+        if (i > val) {
+            System.out.println("High");
+        }
+    }
+
+    public void  createAndCall() {
+        var sb = new
+                StringBuilder("Hello");
+        System.out.println(
+                sb.length());
+    }
 }
