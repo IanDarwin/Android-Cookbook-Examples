@@ -1,0 +1,3 @@
+= DemoSmali
+
+Container for the example code in Ian Darwin's "A Little Smali"
