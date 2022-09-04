@@ -72,7 +72,10 @@ The table <<table>> lists each project, its author, and a short summary.
 *Note that, since Gradle and the Gradle Android Plugin need to be updated 
 just about every time your run Android Studio, there is no attempt made
 to keep things up-to-date here; just let Studio do its upgrade thing for you
-and all will be well. They promise.
+and all will be well. They promise. Except for really old projects, where
+you'd have to upgrade 6 or 8 times. For these, copying newer build.gradle
+files from ../AndroidTemplate might be a better bet. Or see
+https://darwinsys.com/blog/2022-07-26-modernize-android/[].
 
 === DELETED PROJECTS
 
