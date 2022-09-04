@@ -13,7 +13,8 @@ of the examples in the book/online are only program fragments taken from
 other programs that can't be included. And of course some code is drawn from existing projects
 that are hosted elsewhere.
 
-Each Directory comprises its own project, and has a name that is cited at the end of the corresponding Recipe, under the "Source Code Download" section. 
+Each directory contains one project, and (if it's used in the book) has a name that is cited 
+at the end of the corresponding Recipe, under the "Source Code Download" section. 
 
 Some older started-in-Eclipse projects also have configuration files to allow them to be opened in Android Studio.
 During the runup to the second edition of the book, AndMore appeared to be a viable project
