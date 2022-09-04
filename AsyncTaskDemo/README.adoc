@@ -1,6 +1,4 @@
 = AsyncTaskDemo
 
-This project
-presents
-a working example of using the AsyncTask to run some work
+This project presents a working example of using the AsyncTask to run some work
 in the background.
