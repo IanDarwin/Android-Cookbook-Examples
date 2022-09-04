@@ -108,15 +108,18 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | Ian Darwin | Installs another app | Downloading, package management
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppShortcutsDemo[AppShortcutsDemo] | Ian Darwin | Shows App Shortcuts, which appear with long-press on app's launcher icon. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | Ian Darwin | Compilable example of the Application Singleton pattern recipe. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AsyncTaskDemo[AsyncTaskDemo] | Ian Darwin | Demo of AsyncTask (which is deprecated in API 30 but still widely used) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | Ian Darwin | Contact picker with autocomplete | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | Ian Darwin | App can update itself | see AppDownloader
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BackupManager[BackupManager] | Ian Darwin | Use Android Backup scheme. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothConnectToDevice[BluetoothConnectToDevice] | Ian Darwin | Using BlueTooth to connect | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BluetoothDemo[BluetoothDemo] | Ian Darwin | Bluetooth Connection | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BrowserBookmarks[BrowserBookmarks] | Ian Darwin | Use the now-defunct Browser Bookmarks content provider | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CalAdder[CalAdder] | Ian Darwin | Add appointment to Calendar | Calendar via Content Provider
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallFaker[CallFaker] | Ian Darwin | Pretend a call happened, for testing | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorIncoming[CallInterceptorIncoming] | Johan Pelgrim | Intercept an incoming phone call. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CallInterceptorOutgoing[CallInterceptorOutgoing] | Johan Pelgrim | Intercept outgoing phone calls. | Compiles and runs, but doesn't intercept the call.
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | Ian Darwin | CameraIntent - get the camera to take a picture, by startActivityForResult() | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CameraIntent[CameraIntent] | Ian Darwin | CameraIntent - get the camera to take a picture, using androidx API | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CardDemo[CardDemo] | Ian Darwin | Demonstation of Card widget. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CheckBoxRadioButton[CheckBoxRadioButton] | Ian Darwin | GUI demo | name says it
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CircleViewGroup[CircleViewGroup] | Ian Darwin | Attempt at a custom layout manager. | -
@@ -124,7 +127,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderList[ContentProviderList] | Ian Darwin | List of ContentProviders | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderSample[ContentProviderSample] | Ashwini Shahapurkar | Implement a ContentProvider | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderTest[ContentProviderTest] | Ian Darwin | Test it | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CordovaDemo[CordovaDemo] | Ian Darwin | Simple Cordova cross-platform (web-based) toolkit demo. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CordovaDemo[CordovaDemo] | Ian Darwin | Simple Cordova (nee PhoneGap) cross-platform (web-based) toolkit demo. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CountDownTimerExample[CountDownTimerExample] | Wagied Davids | Time-based activity | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | Ian Darwin | Application Widgets have a live display on the home page, like the standard Clock program. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | Ian Darwin | How to load data properly using CursorLoader | -
@@ -134,6 +137,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DatabaseFromFile[DatabaseFromFile] | Ian Darwin | Create a database from an SQLite .db file in 'assets'. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DataToCursor[DataToCursor] | Ian Darwin | Fake up a Cursor from a list of files | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DateFormatDemo[DateFormatDemo] | Ian Darwin | Example of various DateFormat usages (the Android one, not java.text nor java.time). | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DemoSmali[DemoSmali] | Ian Darwin | A pedagogic project that can be used to show off Smali for short functions. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DialogDemos[DialogDemos] | Ian Darwin | Dialogs | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DragDropDemo[DragDropDemo] | Ian Darwin | A simple Drag-and-drop example. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/DreamsDemo[DreamsDemo] | Ian Darwin | Demo of "Dreams" (4.x screensaver) | -
@@ -147,6 +151,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FilesystemDemos[FilesystemDemos] | Ian Darwin | Internal and external files. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FindMeX[FindMeX] | Ian Darwin | Find Me X | IllegalArgumentException: Incomplete location object, missing timestamp or accuracy, Progress:334
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FloatingActionButtonSnackbarDemo[FloatingActionButtonSnackbarDemo] | Ian Darwin | Demo of 'fab' Floating Abstract Button | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FlutterDemo[FlutterDemo] | Ian Darwin | Flutter is a new SDK for cross-platform development | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FontDemo[FontDemo] | Ian Darwin | Using a custom font | You need to provide the font file! Example uses Iceberg font...
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/FragmentsDemos[FragmentsDemos] | Ian Darwin | Simple Fragment and List-Detail Fragments in one project | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Gallery[Gallery] | Ian Darwin | Simple Photo Gallery example. | Deprecated
@@ -186,6 +191,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerInteractive[MediaPlayerInteractive] | Ian Darwin | Media Player demo from Marco Dinacci, thanks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | Marco Dinacci | Simple sound recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MenuAction[MenuAction] | Ian Darwin | Menu Action Handling | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MessageDemo[MessageDemo] | Ian Darwin | Demo the Message API for threading. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NativeFunctFromJS[NativeFunctFromJS] | Ian Darwin | Try to invoke native code from JavaScript. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | Ian Darwin | Native Development Kit | C Code
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | Ian Darwin | Notifications | -
@@ -216,6 +222,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SendSMS[SendSMS] | Colin Wilcox | Sends an SMS | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorShakeDetection[SensorShakeDetection] | Thomas Manthey | Use Accellerometer to detect if the user has shaken the device. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SensorUpOrDown[SensorUpOrDown] | Rachee Singh | Code for r2051, Checking Whether a Device Is Facing Up or Down | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ServiceDemos[ServiceDemos] | Ian Darwin | Demo a couple of kinds of Service. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShareActionProviderDemo[ShareActionProviderDemo] | Ian Darwin | ICS "Share" action | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ShellCommand[ShellCommand] | Ian Darwin | Run a Unix/Linux command via Runtime.exec, capture the output. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/SimpleAccountAndSyncDemo[SimpleAccountAndSyncDemo] | Ian Darwin | User account on device | -
