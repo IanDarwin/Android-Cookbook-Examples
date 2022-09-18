@@ -27,10 +27,7 @@ public class MyRemoteService extends Service {
         super.onCreate();
         Log.d(TAG, "onCreate()");
     }
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
-        Log.d(TAG, "onStart() [deprecated]");
-    }
+
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy()");

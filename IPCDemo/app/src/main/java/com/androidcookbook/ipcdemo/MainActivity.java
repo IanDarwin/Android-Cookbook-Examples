@@ -7,20 +7,19 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
-    private String TAG = MainActivity.class.getSimpleName();
+    private final String TAG = MainActivity.class.getSimpleName();
 
-    private boolean started = false;
+    private boolean started = false, bound = false;
     private IMyRemoteService remoteService;
     private ServiceConnection conn;
 
@@ -28,12 +27,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
     private void updateServiceStatus() {
-        // placeholder
+        Log.d(TAG, String.format("Status: started = %b;\n" +
+                "    bound: %b\n" +
+                "    remoteService: %s\n" +
+                "    ServiceConnection %s\n", started, bound, remoteService, conn));
     }
 
     public void startService(View v){
@@ -52,8 +52,14 @@ public class MainActivity extends AppCompatActivity {
     public void bindService(View v) {
         if (conn == null) {
             conn = new RemoteServiceConnection();
-            Intent i = new Intent(this, MyRemoteService.class);
-            bindService(i, conn, Context.BIND_AUTO_CREATE);
+            Intent intent = new Intent(this, MyRemoteService.class);
+            intent.setPackage(getClass().getPackage().getName());
+            bound = bindService(intent, conn, Context.BIND_AUTO_CREATE);
+            if (!bound) {
+                Toast.makeText(this, "bindService FAILED", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Failing intent was: " + intent);
+                return;
+            }
             updateServiceStatus();
             Log.d(TAG, "bindService()" );
         } else {
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
         try {
             String message = remoteService.getMessage();
-            TextView t = (TextView) findViewById(R.id.output);
+            TextView t = findViewById(R.id.output);
             t.setText("Message: " + message);
             Log.d(TAG, "invokeService()");
         } catch (RemoteException re) {
@@ -109,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     class RemoteServiceConnection implements ServiceConnection {
         public void onServiceConnected(ComponentName className,
                                        IBinder boundService) {
-            remoteService = IMyRemoteService.Stub.asInterface((IBinder) boundService);
+            remoteService = IMyRemoteService.Stub.asInterface(boundService);
             Log.d(getClass().getSimpleName(), "onServiceConnected()");
         }
 
