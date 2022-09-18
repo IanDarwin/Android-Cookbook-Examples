@@ -3,8 +3,11 @@ package com.androidcookbook.ipcdemo;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
+
+import java.time.LocalDateTime;
 
 public class MyRemoteService extends Service {
 
@@ -12,7 +15,9 @@ public class MyRemoteService extends Service {
 
     private IMyRemoteService.Stub myRemoteServiceStub = new IMyRemoteService.Stub() {
         public String getMessage() throws RemoteException {
-            return "Hello World!";
+            return String.format("Hello from %d at %s!",
+                    Process.myPid(),
+                    LocalDateTime.now());
         }
     };
 

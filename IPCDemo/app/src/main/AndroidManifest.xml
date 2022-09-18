@@ -22,6 +22,7 @@
 
         <service
             android:name=".MyRemoteService"
+            android:process=":remote"
             android:exported="false"/>
     </application>
 

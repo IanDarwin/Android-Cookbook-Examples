@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Process;
 import android.os.RemoteException;
 
 import android.util.Log;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "My PID is " + Process.myPid());
     }
 
     private void updateServiceStatus() {
@@ -78,11 +80,10 @@ public class MainActivity extends AppCompatActivity {
             String message = remoteService.getMessage();
             TextView t = findViewById(R.id.output);
             t.setText("Message: " + message);
-            Log.d(TAG, "invokeService()");
+            Log.d(TAG, "Service::getMessage() returned: " + message);
         } catch (RemoteException re) {
             Log.e(TAG, "RemoteException: " + re);
         }
-
     }
 
     public void releaseService(View v) {
@@ -94,14 +95,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this,
                     "Cannot unbind - service not bound",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
         }
     }
 
     public void stopService(View v) {
         if (!started) {
             Toast.makeText(this, "Service not yet started",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
         } else {
             Intent i = new Intent(this, MyRemoteService.class);
             stopService(i);
