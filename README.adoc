@@ -2,7 +2,7 @@
 
 This repo is among the largest collections of Android code samples anywhere; it contains
 around a hundred and fifty compilable source code examples from 
-http://androidcookbook.com/[the O'Reilly Android Cookbook], a great source 
+http://androidcookbook.com/[the O'Reilly Android Cookbook], which was at its publication a great source 
 of tutorial material for the Android Developer. Not all recipes in the book or online have code
 accompanying them; this repo features code that was either linked by the
 contributor, or in some cases, re-constructed as a New Project by the
@@ -75,15 +75,17 @@ just about every time your run Android Studio, there is no attempt made
 to keep things up-to-date here; just let Studio do its upgrade thing for you
 and all will be well. They promise. Except for really old projects, where
 you'd have to upgrade 6 or 8 times. For these, copying newer build.gradle
-files from ../AndroidTemplate might be a better bet. Or see
+files from ../AndroidTemplate might be a better bet. Better yet, see
 https://darwinsys.com/blog/2022-07-26-modernize-android/[].
 
-=== DELETED PROJECTS
+=== DELETED/RENAMED PROJECTS
 
-JpsTrack and the ToDo applications have graduated to their own github projects, under
+`JpsTrack` and the `ToDo*` applications have graduated to their own github projects, under
 https://github.com/IanDarwin[].
 
-DuellingIDEs has been removed since the duel is over. Just use Android Studio.
+The `Hello*Test` projects are moving to names starting with `Testing`...
+
+`DuellingIDEs` has been removed since the duel is over. Just use Android Studio.
 
 [[table]]
 === List of Projects
@@ -109,7 +111,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppDownloader[AppDownloader] | Ian Darwin | Installs another app | Downloading, package management
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppShortcutsDemo[AppShortcutsDemo] | Ian Darwin | Shows App Shortcuts, which appear with long-press on app's launcher icon. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AppSingleton[AppSingleton] | Ian Darwin | Compilable example of the Application Singleton pattern recipe. | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AsyncTaskDemo[AsyncTaskDemo] | Ian Darwin | Demo of AsyncTask (which is deprecated in API 30 but still widely used) | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AsyncTaskDemo[AsyncTaskDemo] | Ian Darwin | Demo of AsyncTask | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutocompleteTextViewContacts[AutocompleteTextViewContacts] | Ian Darwin | Contact picker with autocomplete | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/AutoUpdater[AutoUpdater] | Ian Darwin | App can update itself | see AppDownloader
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/BackupManager[BackupManager] | Ian Darwin | Use Android Backup scheme. | -
@@ -130,6 +132,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/ContentProviderTest[ContentProviderTest] | Ian Darwin | Test it | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CordovaDemo[CordovaDemo] | Ian Darwin | Simple Cordova (nee PhoneGap) cross-platform (web-based) toolkit demo. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CountDownTimerExample[CountDownTimerExample] | Wagied Davids | Time-based activity | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CryptoDemos[CryptoDemos] | Ian Darwin | Cryptography anyone? | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CurrentMoodWidget[CurrentMoodWidget] | Ian Darwin | Application Widgets have a live display on the home page, like the standard Clock program. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CursorLoaderDemo[CursorLoaderDemo] | Ian Darwin | How to load data properly using CursorLoader | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/CustomMenu[CustomMenu] | Ian Darwin | Menu | -
@@ -162,7 +165,6 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HapticFeedback[HapticFeedback] | Ian Darwin | Haptic Feedback recipe. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloCommandLine[HelloCommandLine] | Ian Darwin | HelloWorld | SDK
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEclipse[HelloEclipse] | Ian Darwin | HelloWorld | Eclipse ADT
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloEspressoTesting[HelloEspressoTesting] | Ian Darwin | HelloWorld of EspressoTesting | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloGradle[HelloGradle] | Ian Darwin | Hello World with Gradle but NOT Studio. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloMaven[HelloMaven] | Ian Darwin | HelloWorld using Maven with android-maven-plugin. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/HelloStudioTesting[HelloStudioTesting] | Ian Darwin | HelloWorld of StudioTesting | -
@@ -192,7 +194,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaPlayerInteractive[MediaPlayerInteractive] | Ian Darwin | Media Player demo from Marco Dinacci, thanks. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MediaRecorderDemo[MediaRecorderDemo] | Marco Dinacci | Simple sound recorder | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MenuAction[MenuAction] | Ian Darwin | Menu Action Handling | -
-| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MessageDemo[MessageDemo] | Ian Darwin | Demo the Message API for threading. | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/MessengerDemo[MessengerDemo] | Ian Darwin | Using a Messenger to send requests to a Service | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NativeFunctFromJS[NativeFunctFromJS] | Ian Darwin | Try to invoke native code from JavaScript. | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NdkDemo[NdkDemo] | Ian Darwin | Native Development Kit | C Code
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/NotificationDemo[NotificationDemo] | Ian Darwin | Notifications | -
@@ -251,6 +253,7 @@ let me know and I will happily correct them. You (and I) know who you are.
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TabSwipeDemo[TabSwipeDemo] | Ian Darwin | Tabbable and swipeable layout | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TeleCorder[TeleCorder] | Ian Darwin | Telephone call recorder (in progress!) | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TelephonyManager[TelephonyManager] | Pratik Rupwal | Displays phone info | -
+| link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/TestingWithEspresso[TestingWithEspresso] | Ian Darwin | HelloWorld of EspressoTesting | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Tipster[Tipster] | Sunit Katkar | Full app: compute and show restaurant bill with tip | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/UniqueId[UniqueId] | Ian Darwin | Find device's unique ID | -
 | link:https://github.com/IanDarwin/Android-Cookbook-Examples/tree/master/Vibrate[Vibrate] | Rachee Singh | Make the device vibrate | -
