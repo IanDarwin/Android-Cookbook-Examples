@@ -1,6 +1,6 @@
 = AIDLDemo
 
-This project creates two APKs, the client and server, which are to be run
+This project creates two APKs, the client and server, which run
 with different UIDs to demonstrate AIDL-based inter-*process* communication.
 
 The AIDL itself is in the `lib` module, which both client and server modules depend on.
@@ -29,7 +29,6 @@ The AIDL itself is in the `lib` module, which both client and server modules dep
 
 == STATUS
 
-Client sends an Expense to Server. Server activity displays the list, (but only
-after you rotate the device - some synchony failure).
+Working.
 
 

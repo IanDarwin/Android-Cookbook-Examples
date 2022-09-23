@@ -1,6 +1,7 @@
 package com.darwinsys.aidldemo.server;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,7 +31,7 @@ public class ServiceActivity extends AppCompatActivity {
         listViewAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, expenseListModel.getExpenses());
         listView.setAdapter(listViewAdapter);
 
-        registerReceiver(updater, new IntentFilter(ExpenseListModel.ACTION_EXPENSE_ADDED));
+        LocalBroadcastManager.getInstance(this).registerReceiver(updater, new IntentFilter(ExpenseListModel.ACTION_EXPENSE_ADDED));
         Log.d(TAG, "Registered Receiver " + updater);
     }
 
@@ -40,9 +41,6 @@ public class ServiceActivity extends AppCompatActivity {
             int id = intent.getIntExtra("id", -1);
             Log.d(TAG, "BroadcastReceiver got new expense item " + id);
             listViewAdapter.notifyDataSetChanged();
-            listView.setSelection(id);
-            listView.postInvalidate();
-            listView.requestLayout();
         }
     };
 
