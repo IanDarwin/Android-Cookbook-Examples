@@ -5,6 +5,28 @@ with different UIDs to demonstrate AIDL-based inter-*process* communication.
 
 The AIDL itself is in the `lib` module, which both client and server modules depend on.
 
+== Operation
+
+
+	ClientActivity       ExpenseService
+	+----------+         +------------+
+	+          +         +            +
+	+          +  AIDL   +            +
+	+ submit() + ------> +         --------> ExpenseListModel
+	+          + getPid  +            +            |
+	+          + submit- +            +            |
+	+          + Expense +            +            | LocalBroadcast
+	+----------+         +------------+            |
+	                                               V
+	                                           ServiceActivity
+	                                           +----------+
+	                                           +          +
+	                                           +          +
+	                                           + updates  +
+	                                           + ListView +
+	                                           +          +
+	                                           +----------+
+
 == STATUS
 
 Client sends an Expense to Server. Server activity displays the list, (but only
