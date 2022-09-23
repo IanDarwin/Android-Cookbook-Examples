@@ -87,6 +87,8 @@ public class ClientActivity extends AppCompatActivity {
         if (!bound) {
             Toast.makeText(this,"bindService call failed! ",
                     Toast.LENGTH_LONG).show();
+        } else {
+            Log.d(TAG, "Bound to remote ExpenseService");
         }
     }
 
