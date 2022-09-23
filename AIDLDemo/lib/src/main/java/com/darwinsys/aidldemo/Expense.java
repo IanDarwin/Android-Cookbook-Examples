@@ -12,8 +12,16 @@ import android.os.Parcelable;
  */
 public class Expense implements Parcelable {
     public int id;
+    /** A one-line description of the expense event */
     public String description;
+    /** The date string is in standard (ISO) order, yyyy-mm-dd, as from
+     * LocalDate.now().toString();
+     */
     public String date;
+    /** The currencies we use */
+    enum Currency { USD, UKP, CAD, INR, YEN }
+    public Currency currency = Currency.CAD;
+    /** The amount, in the stated currency */
     public double amount;
 
     public static final Parcelable.Creator<Expense> CREATOR = new Parcelable.Creator<>() {
@@ -56,11 +64,6 @@ public class Expense implements Parcelable {
 
     @Override
     public String toString() {
-        return "Expense{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
-                ", amount=" + amount +
-                '}';
+        return String.format("Expense{id %d '%s' on %s for %s %f", id, description, date, currency, amount);
     }
 }
