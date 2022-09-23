@@ -3,7 +3,9 @@
 This project creates two APKs, the client and server, which run
 with different UIDs to demonstrate AIDL-based inter-*process* communication.
 
-The AIDL itself is in the `lib` module, which both client and server modules depend on.
+The `lib` module is depended on by both client and server.
+It exports the AIDL itself (and its generated artifacts),
+and also the common data classes (e.g., Expense).
 
 == Operation
 

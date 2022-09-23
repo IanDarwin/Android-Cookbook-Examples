@@ -62,6 +62,6 @@ public class Expense implements Parcelable {
 
     @Override
     public String toString() {
-        return String.format("Expense{id %d '%s' on %s for %s %f", id, description, date, currency, amount);
+        return String.format("Expense{id %d '%s' on %s for %s %.2f", id, description, date, currency, amount);
     }
 }

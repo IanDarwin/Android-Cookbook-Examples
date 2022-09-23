@@ -59,29 +59,6 @@ public class ClientActivity extends AppCompatActivity {
         });
     }
 
-    void submitExpense() throws RemoteException {
-
-        if (!bound) {
-            Toast.makeText(this,"bindService not bound, cannot submit!",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        Expense exp = new Expense();
-        exp.date = LocalDate.now().toString();
-        exp.description = descTF.getText().toString();
-        exp.amount = Double.parseDouble(amountTF.getText().toString());
-
-        int serverPid = remote.getPid();
-        int newId = remote.submitExpense(exp);
-        Toast.makeText(this,
-                "Sent Expense item to process " + serverPid + " as item# " + newId,
-                Toast.LENGTH_LONG).show();
-
-        descTF.setText("");
-        amountTF.setText("");
-    }
-
     @Override
     protected void onResume() {
         Log.d(TAG, "onResume");
@@ -94,6 +71,42 @@ public class ClientActivity extends AppCompatActivity {
         Log.d(TAG, "onStop");
         super.onStop();
         unbindFromRemoteService();
+    }
+
+    void submitExpense() throws RemoteException {
+
+        if (!bound) {
+            Toast.makeText(this,"bindService not bound, cannot submit!",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Expense exp = new Expense();
+        exp.date = LocalDate.now().toString();
+        if (exp.date == null || exp.date.isEmpty()) {
+            Toast.makeText(this, "Date is required", Toast.LENGTH_LONG).show();
+            return;
+        }
+        exp.description = descTF.getText().toString();
+        if (exp.description == null || exp.description.isEmpty()) {
+            Toast.makeText(this, "Description is required", Toast.LENGTH_LONG).show();
+            return;
+        }
+        String s = amountTF.getText().toString();
+        if (s == null || s.isEmpty()) {
+            Toast.makeText(this, "Amount is required", Toast.LENGTH_LONG).show();
+            return;
+        }
+        exp.amount = Double.parseDouble(s);
+
+        int serverPid = remote.getPid();
+        int newId = remote.submitExpense(exp);
+        Toast.makeText(this,
+                "Sent Expense item to process " + serverPid + " as item# " + newId,
+                Toast.LENGTH_LONG).show();
+
+        descTF.setText("");
+        amountTF.setText("");
     }
 
     private void bindToRemoteService() {
