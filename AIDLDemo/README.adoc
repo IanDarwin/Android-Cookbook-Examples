@@ -7,6 +7,7 @@ The AIDL itself is in the `lib` module, which both client and server modules dep
 
 == STATUS
 
-Client sends an Expense to Server. Need to expand server activity to display a list, say.
+Client sends an Expense to Server. Server activity displays the list, (but only
+after you rotate the device - some synchony failure).
 
 

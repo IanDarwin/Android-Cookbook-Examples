@@ -18,6 +18,8 @@ import com.darwinsys.aidldemo.Expense;
 
 import java.time.LocalDate;
 
+import javax.net.ssl.SSLEngineResult;
+
 public class ClientActivity extends AppCompatActivity {
     private final static String TAG = ClientActivity.class.getSimpleName();
 
@@ -33,7 +35,6 @@ public class ClientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button b = findViewById(R.id.submit_button);
         b.setOnClickListener((v) -> {
-            Log.d(TAG, "Trying to submit");
             try {
                 submitExpense();
             } catch (RemoteException ex) {
@@ -52,12 +53,14 @@ public class ClientActivity extends AppCompatActivity {
         exp.amount = 123_456_789.01;
         exp.date = LocalDate.now().toString();
 
-         if (!bound) {
+        if (!bound) {
             Toast.makeText(this,"bindService not bound, cannot submit!",
                     Toast.LENGTH_LONG).show();
             return;
         }
-        remote.submitExpense(exp);
+        int serverPid = remote.getPid();
+        int newId = remote.submitExpense(exp);
+        Log.d(TAG, "Sent Expense item to process " + serverPid + " as item# " + newId);
     }
 
     @Override

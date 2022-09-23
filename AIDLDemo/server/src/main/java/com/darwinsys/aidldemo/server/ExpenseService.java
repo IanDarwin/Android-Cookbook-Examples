@@ -9,8 +9,6 @@ import android.util.Log;
 import com.darwinsys.aidldemo.AIDLDemo;
 import com.darwinsys.aidldemo.Expense;
 
-import java.time.LocalDate;
-
 public class ExpenseService extends Service {
 
     private static final String TAG = ExpenseService.class.getSimpleName();
@@ -38,13 +36,13 @@ public class ExpenseService extends Service {
 
         @Override
         public int submitExpense(Expense expense) {
-            Log.d(TAG, "Received Expense item " + expense);
-            return ExpenseListModel.addExpense(expense);
+            Log.d(TAG, "Received Expense item from client app: " + expense);
+            return ExpenseListModel.INSTANCE.addExpense(ExpenseService.this, expense);
         }
 
         @Override
         public Expense getExpense(int id) {
-            return ExpenseListModel.getExpense(id);
+            return ExpenseListModel.INSTANCE.getExpense(id);
         }
     };
 
