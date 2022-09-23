@@ -37,8 +37,11 @@ public class ServiceActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             int id = intent.getIntExtra("id", -1);
-            Log.d(TAG, "Received new expense item " + id);
+            Log.d(TAG, "BroadcastReceiver got new expense item " + id);
             listViewAdapter.notifyDataSetChanged();
+            listView.setSelection(id);
+            listView.postInvalidate();
+            listView.requestLayout();
         }
     };
 

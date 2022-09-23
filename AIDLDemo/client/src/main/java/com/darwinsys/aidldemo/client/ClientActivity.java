@@ -103,7 +103,7 @@ public class ClientActivity extends AppCompatActivity {
 
         // Called when the connection with the service disconnects unexpectedly
         public void onServiceDisconnected(ComponentName className) {
-            Log.e(TAG, "Service unexpectedly disconnected");
+            Log.e(TAG, "Service disconnected");
             remote = null;
         }
     };

@@ -22,26 +22,22 @@ public enum ExpenseListModel {
     private final static String TAG = ExpenseListModel.class.getSimpleName();
     public final static String ACTION_EXPENSE_ADDED = ExpenseListModel.class.getName();
 
-    private List<Expense>  expenses = new ArrayList<>();
+    private final List<Expense>  expenses = new ArrayList<>();
 
     public List<Expense> getExpenses() {
         return expenses;
     }
 
-    ExpenseListModel getInstance() {
-        return INSTANCE;
-    }
-
-    int addExpense(Context context, Expense newb) {
+    int addExpense(Context context, Expense nexExpense) {
         int id = expenses.size();
-        expenses.add(newb);
+        expenses.add(nexExpense);
         Log.d(TAG, String.format("There are now %d items", expenses.size()));
         // Send notification from service thread to UI thread
         Intent intent = new Intent(ACTION_EXPENSE_ADDED);
-        intent.putExtra("id", newb.id);
+        intent.putExtra("id", nexExpense.id);
         // LocalBroadcast - goes to ServiceActivity only
         if (LocalBroadcastManager.getInstance(context).sendBroadcast(intent)) {
-            Log.d(TAG, "Well, we sent it.");
+            Log.d(TAG, "Well, we notified the Client App.");
         } else {
             Log.d(TAG, "Sending notification failed - no receivers?");
         }
