@@ -31,6 +31,7 @@ public class ServiceActivity extends AppCompatActivity {
         listView.setAdapter(listViewAdapter);
 
         registerReceiver(updater, new IntentFilter(ExpenseListModel.ACTION_EXPENSE_ADDED));
+        Log.d(TAG, "Registered Receiver " + updater);
     }
 
     private BroadcastReceiver updater = new BroadcastReceiver() {

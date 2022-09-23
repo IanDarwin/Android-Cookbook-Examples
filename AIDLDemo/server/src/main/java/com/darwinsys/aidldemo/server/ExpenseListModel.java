@@ -39,7 +39,7 @@ public enum ExpenseListModel {
         if (LocalBroadcastManager.getInstance(context).sendBroadcast(intent)) {
             Log.d(TAG, "Well, we notified the Client App.");
         } else {
-            Log.d(TAG, "Sending notification failed - no receivers?");
+            Log.d(TAG, "Sending from ListModel to Activity failed - no receivers?");
         }
         return id;
     }
