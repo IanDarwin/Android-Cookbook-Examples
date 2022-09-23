@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AIDLDemo Client</string>
-    <string name="submit_button_label">Submit sample expense</string>
+    <string name="submit_button_label">Submit expense</string>
 </resources>

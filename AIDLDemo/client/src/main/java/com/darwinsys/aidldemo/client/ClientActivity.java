@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,10 +30,23 @@ public class ClientActivity extends AppCompatActivity {
     /** True if the service is bound */
     boolean bound = false;
 
+    /** Date Textfield */
+    EditText dateTF;
+    /** Description textfield */
+    EditText descTF;
+    /** Amount textField */
+    EditText amountTF;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dateTF = findViewById(R.id.dateTF);
+        dateTF.setText(LocalDate.now().toString());
+        descTF = findViewById(R.id.descTF);
+        amountTF = findViewById(R.id.amountTF);
+
         Button b = findViewById(R.id.submit_button);
         b.setOnClickListener((v) -> {
             try {
@@ -47,20 +61,25 @@ public class ClientActivity extends AppCompatActivity {
 
     void submitExpense() throws RemoteException {
 
-        Expense exp = new Expense();
-        exp.id = 42;
-        exp.description = "Bridging the Dnieper";
-        exp.amount = 123_456_789.01;
-        exp.date = LocalDate.now().toString();
-
         if (!bound) {
             Toast.makeText(this,"bindService not bound, cannot submit!",
                     Toast.LENGTH_LONG).show();
             return;
         }
+
+        Expense exp = new Expense();
+        exp.date = LocalDate.now().toString();
+        exp.description = descTF.getText().toString();
+        exp.amount = Double.parseDouble(amountTF.getText().toString());
+
         int serverPid = remote.getPid();
         int newId = remote.submitExpense(exp);
-        Log.d(TAG, "Sent Expense item to process " + serverPid + " as item# " + newId);
+        Toast.makeText(this,
+                "Sent Expense item to process " + serverPid + " as item# " + newId,
+                Toast.LENGTH_LONG).show();
+
+        descTF.setText("");
+        amountTF.setText("");
     }
 
     @Override

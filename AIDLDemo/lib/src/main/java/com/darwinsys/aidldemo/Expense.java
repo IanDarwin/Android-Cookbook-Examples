@@ -14,11 +14,9 @@ public class Expense implements Parcelable {
     public int id;
     /** A one-line description of the expense event */
     public String description;
-    /** The date string is in standard (ISO) order, yyyy-mm-dd, as from
-     * LocalDate.now().toString();
-     */
+    /** The date is in standard (ISO) order, yyyy-mm-dd, i.e., LocalDate.now().toString(); */
     public String date;
-    /** The currencies we use */
+    /** The currencies we can use */
     enum Currency { USD, UKP, CAD, INR, YEN }
     public Currency currency = Currency.CAD;
     /** The amount, in the stated currency */

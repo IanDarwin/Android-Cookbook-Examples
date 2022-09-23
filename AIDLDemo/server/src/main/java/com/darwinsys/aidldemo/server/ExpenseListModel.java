@@ -28,14 +28,14 @@ public enum ExpenseListModel {
         return expenses;
     }
 
-    int addExpense(Context context, Expense nexExpense) {
+    int addExpense(Context context, Expense newExpense) {
         int id = expenses.size();
-        expenses.add(nexExpense);
+        newExpense.id = id;
+        expenses.add(newExpense);
         Log.d(TAG, String.format("There are now %d items", expenses.size()));
         // Send notification from service thread to UI thread
         Intent intent = new Intent(ACTION_EXPENSE_ADDED);
-        intent.putExtra("id", nexExpense.id);
-        // LocalBroadcast - goes to ServiceActivity only
+        intent.putExtra("id", newExpense.id);
         if (LocalBroadcastManager.getInstance(context).sendBroadcast(intent)) {
             Log.d(TAG, "Well, we notified the Client App.");
         } else {
