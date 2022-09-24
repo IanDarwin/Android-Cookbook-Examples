@@ -28,7 +28,9 @@ public class ServiceActivity extends AppCompatActivity {
         ExpenseListModel expenseListModel = ExpenseListModel.INSTANCE;
 
         listView = findViewById(R.id.myList);
-        listViewAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, expenseListModel.getExpenses());
+        listViewAdapter =
+                new ArrayAdapter<Expense>(this,
+                        android.R.layout.simple_list_item_1, expenseListModel.getExpenses());
         listView.setAdapter(listViewAdapter);
 
         LocalBroadcastManager.getInstance(this).registerReceiver(updater, new IntentFilter(ExpenseListModel.ACTION_EXPENSE_ADDED));
