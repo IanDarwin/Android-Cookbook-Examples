@@ -7,27 +7,28 @@ The `lib` module is depended on by both client and server.
 It exports the AIDL itself (and its generated artifacts),
 and also the common data classes (e.g., Expense).
 
-== Operation
+== Communicaiion
 
-
-	ClientActivity       ExpenseService
-	+----------+         +------------+
-	+          +         +            +
-	+          +  AIDL   +            +
-	+ submit() + ------> +         --------> ExpenseListModel
-	+          + getPid  +            +            |
-	+          + submit- +            +            |
-	+          + Expense +            +            | LocalBroadcast
-	+----------+         +------------+            |
-	                                               V
-	                                           ServiceActivity
-	                                           +----------+
-	                                           +          +
-	                                           +          +
-	                                           + updates  +
-	                                           + ListView +
-	                                           +          +
-	                                           +----------+
+                         + Process Boundary
+			 |
+	ClientActivity   |       ExpenseService
+	+----------+     |       +------------+
+	+          +     |       +            +
+	+          +   AIDL      +            +
+	+ submit() + ----------> +         --------> ExpenseListModel
+	+          +  getPid     +            +            |
+	+          +  submit-    +            +            |
+	+          +  Expense    +            +            | LocalBroadcast
+	+----------+     |       +------------+            |
+	                 |                                 V
+	                 |                             ServiceActivity
+	                 |                             +----------+
+	                 + Process Boundary            +          +
+	                                               + updates  +
+	                                               + ListView +
+	                                               +          +
+	                                               +          +
+	                                               +----------+
 
 == STATUS
 
