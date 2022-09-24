@@ -10,7 +10,7 @@ and also the common data classes (e.g., Expense).
 == Communicaiion
 
                          + Process Boundary
-			 |
+	                 |
 	ClientActivity   |       ExpenseService
 	+----------+     |       +------------+
 	+          +     |       +            +
