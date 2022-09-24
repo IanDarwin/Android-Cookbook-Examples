@@ -3,11 +3,14 @@
 This project creates two APKs, the client and server, which run
 with different UIDs to demonstrate AIDL-based inter-*process* communication.
 
+There is no rational reason for having the expenses created in one app and
+displayed in another, except that it makes a good demonstration of AIDL.
+
 The `lib` module is depended on by both client and server.
 It exports the AIDL itself (and its generated artifacts),
-and also the common data classes (e.g., Expense).
+and also the common data class (e.g., Expense).
 
-== Communicaiion
+== Communication
 
 	                 + Process Boundary
 	                 |
@@ -15,10 +18,10 @@ and also the common data classes (e.g., Expense).
 	+----------+     |       +------------+
 	+          +     |       +            +
 	+          +   AIDL      +            +
-	+ submit() + ----------> +         --------> ExpenseListModel
-	+          +  getPid     +            +            |
+	+ submit() + ----------> +         --------> ExpenseListModel.addExpense()
+	+          +  getPid()   +            +            |
 	+          +  submit-    +            +            |
-	+          +  Expense    +            +            | LocalBroadcast
+	+          +  Expense()  +            +            | LocalBroadcast
 	+----------+     |       +------------+            |
 	                 |                                 V
 	                 |                             ServiceActivity
