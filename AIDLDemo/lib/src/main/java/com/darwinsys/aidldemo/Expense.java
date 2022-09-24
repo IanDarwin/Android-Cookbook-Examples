@@ -3,6 +3,8 @@ package com.darwinsys.aidldemo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Locale;
+
 /** The official Android docco at
  * https://developer.android.com/guide/components/aidl#PassingObjects
  * claims you can create this just by putting the fields into
@@ -45,6 +47,7 @@ public class Expense implements Parcelable {
         out.writeInt(id);
         out.writeString(description);
         out.writeString(date);
+        out.writeInt(currency.ordinal());
         out.writeDouble(amount);
     }
 
@@ -52,16 +55,48 @@ public class Expense implements Parcelable {
         id = in.readInt();
         description = in.readString();
         date = in.readString();
+        currency = Currency.values()[in.readInt()];
         amount = in.readDouble();
     }
 
-    // Not an FD so just return 0
+    // An Expense is not a file descriptor so we just return 0
     public int describeContents() {
         return 0;
     }
 
     @Override
+    // Hand-rolled toString()
     public String toString() {
-        return String.format("Expense{id %d '%s' on %s for %s %.2f", id, description, date, currency, amount);
+        return String.format(Locale.getDefault(),
+                "Expense{id %d '%s' on %s for %s %.2f", id, description, date, currency, amount);
+    }
+
+    @Override
+    // Generated equals()
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Expense expense = (Expense) o;
+
+        if (id != expense.id) return false;
+        if (Double.compare(expense.amount, amount) != 0) return false;
+        if (!description.equals(expense.description)) return false;
+        if (!date.equals(expense.date)) return false;
+        return currency == expense.currency;
+    }
+
+    @Override
+    // Generated hashCode()
+    public int hashCode() {
+        int result;
+        long temp;
+        result = id;
+        result = 31 * result + description.hashCode();
+        result = 31 * result + date.hashCode();
+        result = 31 * result + currency.hashCode();
+        temp = Double.doubleToLongBits(amount);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }

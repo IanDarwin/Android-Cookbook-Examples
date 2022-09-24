@@ -80,20 +80,19 @@ public class ClientActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             return;
         }
-
         Expense exp = new Expense();
         exp.date = LocalDate.now().toString();
-        if (exp.date == null || exp.date.isEmpty()) {
+        if (exp.date.isEmpty()) {
             Toast.makeText(this, "Date is required", Toast.LENGTH_LONG).show();
             return;
         }
         exp.description = descTF.getText().toString();
-        if (exp.description == null || exp.description.isEmpty()) {
+        if (exp.description.isEmpty()) {
             Toast.makeText(this, "Description is required", Toast.LENGTH_LONG).show();
             return;
         }
         String s = amountTF.getText().toString();
-        if (s == null || s.isEmpty()) {
+        if (s.isEmpty()) {
             Toast.makeText(this, "Amount is required", Toast.LENGTH_LONG).show();
             return;
         }
@@ -105,6 +104,8 @@ public class ClientActivity extends AppCompatActivity {
                 "Sent Expense item to process " + serverPid + " as item# " + newId,
                 Toast.LENGTH_LONG).show();
 
+        // Reset the main fields for re-use, now that it's been submitted.
+        dateTF.setText(LocalDate.now().toString()); // Apps can live for days.
         descTF.setText("");
         amountTF.setText("");
     }

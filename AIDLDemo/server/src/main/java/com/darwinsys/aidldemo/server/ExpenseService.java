@@ -17,6 +17,11 @@ public class ExpenseService extends Service {
         Log.d(TAG, "ExpenseService::Init");
     }
 
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
+
     private final AIDLDemo.Stub mBinder = new AIDLDemo.Stub() {
 
         @Override
@@ -45,9 +50,4 @@ public class ExpenseService extends Service {
             return ExpenseListModel.INSTANCE.getExpense(id);
         }
     };
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
 }
