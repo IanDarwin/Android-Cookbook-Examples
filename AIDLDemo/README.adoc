@@ -1,4 +1,4 @@
-= AIDLDemo
+= AIDLDemo: A Remote Bound Android Service with two apps, bindService, and local broadcast
 
 This project creates two APKs, the client and server, which run
 with different UIDs to demonstrate AIDL-based inter-*process* communication.
