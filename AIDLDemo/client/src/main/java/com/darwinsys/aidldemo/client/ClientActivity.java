@@ -126,7 +126,7 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     private void unbindFromRemoteService() {
-        // XXX
+        unbindService(mConnection);
     }
 
     private final ServiceConnection mConnection = new ServiceConnection() {
