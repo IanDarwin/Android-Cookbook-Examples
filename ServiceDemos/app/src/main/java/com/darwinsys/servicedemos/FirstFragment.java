@@ -7,7 +7,6 @@ import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,6 +89,13 @@ public class FirstFragment extends Fragment {
             }
             Toast.makeText(getActivity(), "Not bound, can't unbind", Toast.LENGTH_SHORT).show();
         });
+
+        binding.buttonStartExternalService.setOnClickListener(v -> {
+            int pid = android.os.Process.myPid();
+            Toast.makeText(requireActivity(), "Main process PID = " + pid, Toast.LENGTH_LONG).show();
+            Intent serviceIntent = new Intent(getActivity(), RemoteService.class);
+            getActivity().startService(serviceIntent);
+        });
     }
 
     @Override
@@ -97,5 +103,4 @@ public class FirstFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

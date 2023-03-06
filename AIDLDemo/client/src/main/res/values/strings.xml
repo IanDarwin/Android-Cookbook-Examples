@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AIDL Client</string>
+    <string name="submit_button_label">Submit expense</string>
+</resources>

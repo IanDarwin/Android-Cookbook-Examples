@@ -13,10 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.FileDescriptor;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
+/**
+ * Simplest implementation of bound service: in same app,
+ * onBind() returns IBinder instance.
+ */
 public class BoundServiceDemo extends Service {
 
     private final static String TAG = "BoundServiceDemo";
+
+    private Executor threadPool = Executors.newFixedThreadPool(5);
 
     private final IBinder binder = new MyBinder();
     class MyBinder extends Binder {

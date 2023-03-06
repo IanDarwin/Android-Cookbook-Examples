@@ -1,0 +1,40 @@
+= AIDLDemo: A Remote Bound Android Service with two apps, bindService, and local broadcast
+
+This project creates two APKs, the client and server, which run
+with different UIDs to demonstrate AIDL-based inter-*process* communication.
+
+There is no rational reason for having the expenses created in one app and
+displayed in another, except that it makes a good demonstration of AIDL.
+
+The `lib` module is depended on by both client and server.
+It exports the AIDL itself (and its generated artifacts),
+and also the common data class (e.g., Expense).
+
+== Communication
+
+	  Client Process + Server Process
+	                 |
+	ClientActivity   |       ExpenseService
+	+----------+     |       +------------+
+	+          +     |       +            +
+	+          +   AIDL      +            +
+	+ submit() + ----------> +         --------> ExpenseListModel.addExpense()
+	+          +  getPid()   +            +            |
+	+          +  submit-    +            +            |
+	+          +  Expense()  +            +            | LocalBroadcast
+	+----------+     |       +------------+            |
+	                 |                                 V
+	                 |                             ServiceActivity
+	                 |                             +----------+
+	                 +                             +          +
+	                                               + updates  +
+	                                               + ListView +
+	                                               +          +
+	                                               +          +
+	                                               +----------+
+
+== STATUS
+
+Working.
+
+

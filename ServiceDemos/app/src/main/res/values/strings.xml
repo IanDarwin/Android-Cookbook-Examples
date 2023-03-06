@@ -6,10 +6,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Intent and Bound Service Demos</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="start_intentService">Start IntentService</string>
+    <string name="hello_first_fragment">Various Service Demos</string>
+     <string name="start_intentService">Start IntentService</string>
     <string name="start_boundService">Bind Bound Service</string>
     <string name="use_boundService">Invoke Bound Service</string>
     <string name="unbind_boundService">Unbind Bound Service</string>
+    <string name="use_external_Service">Invoke Remote Service</string>
 </resources>

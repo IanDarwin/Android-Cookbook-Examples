@@ -1,9 +1,0 @@
-= MessageDemo
-
-A simple message-handling demo showing the UI thread onClickListener() sending a Message
-to the background thread, telling it what operation to perform.
-
-For more details, see Chapter 4 of the book Efficient Android Threading
-by Anders Goransson, O'Reilly.
-
-Some uses of Handler() are now deprecated in favor of just using a standard Java threadpool.

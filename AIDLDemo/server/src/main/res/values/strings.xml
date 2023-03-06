@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AIDL Server</string>
+    <string name="list_is_empty">No Expenses here yet - Send one!</string>
+</resources>
