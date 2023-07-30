@@ -91,7 +91,6 @@ The `Hello*Test` projects are moving to names starting with `Testing`...
 === List of Projects
 
 The following list is generated (periodically) from the project folders.
-In the _Builds With_ column, *E* for Eclipse, *M* for Maven, *S* for Android Studio, *G* for Gradle.
 The Author names have recently been added; if I have missed or mis-attributed any, please
 let me know and I will happily correct them. You (and I) know who you are.
 
