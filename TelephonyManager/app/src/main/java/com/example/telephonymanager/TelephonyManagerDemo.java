@@ -2,7 +2,9 @@ package com.example.telephonymanager;
 
 import java.util.List;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.CellLocation;
 import android.telephony.NeighboringCellInfo;
@@ -15,7 +17,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class PhoneStateSampleActivity extends Activity {
+import androidx.core.app.ActivityCompat;
+
+public class TelephonyManagerDemo extends Activity {
 
 	private static final String APP_NAME = "SignalLevelSample";
 	private static final int EXCELLENT_LEVEL = 75;
@@ -32,10 +36,10 @@ public class PhoneStateSampleActivity extends Activity {
 	private static final int INFO_DATA_DIRECTION_INDEX = 6;
 	private static final int INFO_DEVICE_INFO_INDEX = 7;
 
-	private static final int[] info_ids = { R.id.serviceState_info,
+	private static final int[] info_ids = {R.id.serviceState_info,
 			R.id.cellLocation_info, R.id.callState_info,
 			R.id.connectionState_info, R.id.signalLevel, R.id.signalLevelInfo,
-			R.id.dataDirection, R.id.device_info };
+			R.id.dataDirection, R.id.device_info};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,21 +106,21 @@ public class PhoneStateSampleActivity extends Activity {
 		int resid = R.drawable.data_none;
 
 		switch (direction) {
-		case TelephonyManager.DATA_ACTIVITY_IN:
-			resid = R.drawable.data_in;
-			break;
-		case TelephonyManager.DATA_ACTIVITY_OUT:
-			resid = R.drawable.data_out;
-			break;
-		case TelephonyManager.DATA_ACTIVITY_INOUT:
-			resid = R.drawable.data_both;
-			break;
-		case TelephonyManager.DATA_ACTIVITY_NONE:
-			resid = R.drawable.data_none;
-			break;
-		default:
-			resid = R.drawable.data_none;
-			break;
+			case TelephonyManager.DATA_ACTIVITY_IN:
+				resid = R.drawable.data_in;
+				break;
+			case TelephonyManager.DATA_ACTIVITY_OUT:
+				resid = R.drawable.data_out;
+				break;
+			case TelephonyManager.DATA_ACTIVITY_INOUT:
+				resid = R.drawable.data_both;
+				break;
+			case TelephonyManager.DATA_ACTIVITY_NONE:
+				resid = R.drawable.data_none;
+				break;
+			default:
+				resid = R.drawable.data_none;
+				break;
 		}
 		return resid;
 	}
@@ -136,6 +140,16 @@ public class PhoneStateSampleActivity extends Activity {
 
 	private void displayTelephonyInfo() {
 		TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			// TODO: Consider calling
+			//    ActivityCompat#requestPermissions
+			// here to request the missing permissions, and then overriding
+			//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+			//                                          int[] grantResults)
+			// to handle the case where the user grants the permission. See the documentation
+			// for ActivityCompat#requestPermissions for more details.
+			return;
+		}
 		GsmCellLocation loc = (GsmCellLocation) tm.getCellLocation();
 		// Reorganize it to do one getSomeData, logString it in pairs, with code guards
 		if (loc == null) {
@@ -143,15 +157,15 @@ public class PhoneStateSampleActivity extends Activity {
 		}
 		int cellid = loc.getCid();
 		int lac = loc.getLac();
-		String deviceid = tm.getDeviceId();
-		String phonenumber = tm.getLine1Number();
-		String softwareversion = tm.getDeviceSoftwareVersion();
+		String deviceid = null; // tm.getDeviceId();
+		String phonenumber = null; //tm.getLine1Number();
+		String softwareversion = null; //tm.getDeviceSoftwareVersion();
 		String operatorname = tm.getNetworkOperatorName();
 		String simcountrycode = tm.getSimCountryIso();
 		String simoperator = tm.getSimOperatorName();
-		String simserialno = tm.getSimSerialNumber();
-		String subscriberid = tm.getSubscriberId();
-		String networktype = getNetworkTypeString(tm.getNetworkType());
+		String simserialno = null; //tm.getSimSerialNumber();
+		String subscriberid = null; //tm.getSubscriberId();
+		String networktype = null; //getNetworkTypeString(tm.getNetworkType());
 		String phonetype = getPhoneTypeString(tm.getPhoneType());
 		logString("CellID: " + cellid);
 		logString("LAC: " + lac);
@@ -176,7 +190,7 @@ public class PhoneStateSampleActivity extends Activity {
 		deviceinfo += ("Subscriber ID: " + subscriberid + "\n");
 		deviceinfo += ("Network Type: " + networktype + "\n");
 		deviceinfo += ("Phone Type: " + phonetype + "\n");
-		List<NeighboringCellInfo> cellinfo = tm.getNeighboringCellInfo();
+		List<NeighboringCellInfo> cellinfo = null; //tm.getNeighboringCellInfo();
 		if (null != cellinfo) {
 			for (NeighboringCellInfo info : cellinfo) {
 				deviceinfo += ("\tCellID: " + info.getCid() + ", RSSI: "
@@ -189,18 +203,18 @@ public class PhoneStateSampleActivity extends Activity {
 	private String getNetworkTypeString(int type) {
 		String typeString = "Unknown";
 		switch (type) {
-		case TelephonyManager.NETWORK_TYPE_EDGE:
-			typeString = "EDGE";
-			break;
-		case TelephonyManager.NETWORK_TYPE_GPRS:
-			typeString = "GPRS";
-			break;
-		case TelephonyManager.NETWORK_TYPE_UMTS:
-			typeString = "UMTS";
-			break;
-		default:
-			typeString = "UNKNOWN";
-			break;
+			case TelephonyManager.NETWORK_TYPE_EDGE:
+				typeString = "EDGE";
+				break;
+			case TelephonyManager.NETWORK_TYPE_GPRS:
+				typeString = "GPRS";
+				break;
+			case TelephonyManager.NETWORK_TYPE_UMTS:
+				typeString = "UMTS";
+				break;
+			default:
+				typeString = "UNKNOWN";
+				break;
 		}
 		return typeString;
 	}
@@ -208,15 +222,15 @@ public class PhoneStateSampleActivity extends Activity {
 	private String getPhoneTypeString(int type) {
 		String typeString = "Unknown";
 		switch (type) {
-		case TelephonyManager.PHONE_TYPE_GSM:
-			typeString = "GSM";
-			break;
-		case TelephonyManager.PHONE_TYPE_NONE:
-			typeString = "UNKNOWN";
-			break;
-		default:
-			typeString = "UNKNOWN";
-			break;
+			case TelephonyManager.PHONE_TYPE_GSM:
+				typeString = "GSM";
+				break;
+			case TelephonyManager.PHONE_TYPE_NONE:
+				typeString = "UNKNOWN";
+				break;
+			default:
+				typeString = "UNKNOWN";
+				break;
 		}
 		return typeString;
 	}
@@ -230,6 +244,17 @@ public class PhoneStateSampleActivity extends Activity {
 		@Override
 		public void onCallForwardingIndicatorChanged(boolean cfi) {
 			Log.i(APP_NAME, "onCallForwardingIndicatorChanged " + cfi);
+			if (ActivityCompat.checkSelfPermission(TelephonyManagerDemo.this,
+					Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+				// TODO: Consider calling
+				//    ActivityCompat#requestPermissions
+				// here to request the missing permissions, and then overriding
+				//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+				//                                          int[] grantResults)
+				// to handle the case where the user grants the permission. See the documentation
+				// for ActivityCompat#requestPermissions for more details.
+				return;
+			}
 			super.onCallForwardingIndicatorChanged(cfi);
 		}
 

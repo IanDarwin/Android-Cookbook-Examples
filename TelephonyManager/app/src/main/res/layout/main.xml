@@ -13,7 +13,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">          
-                        <TextView android:text="Service State" 
+                        <TextView android:text="Service State"
+                            android:textSize="20px"
 style="@style/labelStyleRight"/>
                         <TextView android:id="@+id/serviceState_info" 
 style="@style/textStyle"/>
@@ -22,35 +23,42 @@ style="@style/textStyle"/>
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">                
-                        <TextView android:text="Cell Location" 
+                        <TextView android:text="Cell Location"
+                            android:textSize="20px"
 style="@style/labelStyleRight"/>
-                        <TextView android:id="@+id/cellLocation_info" 
+                        <TextView android:id="@+id/cellLocation_info"
+                            android:textSize="20px"
 style="@style/textStyle"/>
                 </LinearLayout>              
                 <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">                
-                        <TextView android:text="Call State" 
+                        <TextView android:text="Call State"
+                            android:textSize="20px"
 style="@style/labelStyleRight"/>
-                        <TextView android:id="@+id/callState_info" 
+                        <TextView android:id="@+id/callState_info"
+                            android:textSize="20px"
 style="@style/textStyle"/>
                 </LinearLayout>            
                 <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">                    
-                        <TextView android:text="Connection State" 
+                        <TextView android:text="Connection State"
+                            android:textSize="20px"
 style="@style/labelStyleRight"/>
-                        <TextView android:id="@+id/connectionState_info" 
+                        <TextView android:id="@+id/connectionState_info"
+                            android:textSize="20px"
 style="@style/textStyle"/>
                 </LinearLayout>      
                 <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">                
-                        <TextView android:text="Signal Level" 
-style="@style/labelStyleRight"/>             
+                        <TextView android:text="Signal Level"
+                            android:textSize="20px"
+                            style="@style/labelStyleRight"/>
                         <LinearLayout
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -66,7 +74,8 @@ android:id="@+id/signalLevelInfo" style="@style/textSmallStyle"/>
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">            
-                        <TextView android:text="Data" 
+                        <TextView android:text="Data"
+                            android:textSize="20px"
 style="@style/labelStyleRight"/>
                         <ImageView android:id="@+id/dataDirection" 
 style="@style/imageStyle"/>

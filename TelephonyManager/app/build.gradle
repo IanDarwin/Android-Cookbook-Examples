@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.templateapplication"
+        applicationId "com.example.telephonymanager.TelephonyManager"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -25,7 +25,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    namespace 'com.templateapplication'
+    namespace 'com.example.telephonymanager'
 }
 
 dependencies {

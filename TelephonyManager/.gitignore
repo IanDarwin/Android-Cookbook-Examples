@@ -6,3 +6,5 @@
 /.idea/workspace.xml
 *.iml
 /local.properties
+app/build
+.idea
