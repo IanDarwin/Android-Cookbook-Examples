@@ -130,11 +130,12 @@ public class TelephonyManagerDemo extends Activity {
 		int events = PhoneStateListener.LISTEN_SIGNAL_STRENGTH
 				| PhoneStateListener.LISTEN_DATA_ACTIVITY
 				// | PhoneStateListener.LISTEN_CELL_LOCATION
-				| PhoneStateListener.LISTEN_CALL_STATE
-				| PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR
-				| PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
-				| PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
-				| PhoneStateListener.LISTEN_SERVICE_STATE;
+//				| PhoneStateListener.LISTEN_CALL_STATE
+//				| PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR
+//				| PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
+//				| PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
+//				| PhoneStateListener.LISTEN_SERVICE_STATE
+				;
 		tm.listen(phoneStateListener, events);
 	}
 
