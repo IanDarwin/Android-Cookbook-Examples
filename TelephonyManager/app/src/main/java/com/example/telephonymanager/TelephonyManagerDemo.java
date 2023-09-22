@@ -129,7 +129,7 @@ public class TelephonyManagerDemo extends Activity {
 		TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 		int events = PhoneStateListener.LISTEN_SIGNAL_STRENGTH
 				| PhoneStateListener.LISTEN_DATA_ACTIVITY
-				| PhoneStateListener.LISTEN_CELL_LOCATION
+				// | PhoneStateListener.LISTEN_CELL_LOCATION
 				| PhoneStateListener.LISTEN_CALL_STATE
 				| PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR
 				| PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
@@ -262,15 +262,15 @@ public class TelephonyManagerDemo extends Activity {
 		public void onCallStateChanged(int state, String incomingNumber) {
 			String callState = "UNKNOWN";
 			switch (state) {
-			case TelephonyManager.CALL_STATE_IDLE:
-				callState = "IDLE";
-				break;
-			case TelephonyManager.CALL_STATE_RINGING:
-				callState = "Ringing (" + incomingNumber + ")";
-				break;
-			case TelephonyManager.CALL_STATE_OFFHOOK:
-				callState = "Offhook";
-				break;
+				case TelephonyManager.CALL_STATE_IDLE:
+					callState = "IDLE";
+					break;
+				case TelephonyManager.CALL_STATE_RINGING:
+					callState = "Ringing (" + incomingNumber + ")";
+					break;
+				case TelephonyManager.CALL_STATE_OFFHOOK:
+					callState = "Offhook";
+					break;
 			}
 			setTextViewText(info_ids[INFO_CALL_STATE_INDEX], callState);
 			Log.i(APP_NAME, "onCallStateChanged " + callState);
@@ -283,6 +283,16 @@ public class TelephonyManagerDemo extends Activity {
 			setTextViewText(info_ids[INFO_CELL_LOCATION_INDEX], locationString);
 
 			Log.i(APP_NAME, "onCellLocationChanged " + locationString);
+			if (ActivityCompat.checkSelfPermission(TelephonyManagerDemo.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+				// TODO: Consider calling
+				//    ActivityCompat#requestPermissions
+				// here to request the missing permissions, and then overriding
+				//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+				//                                          int[] grantResults)
+				// to handle the case where the user grants the permission. See the documentation
+				// for ActivityCompat#requestPermissions for more details.
+				return;
+			}
 			super.onCellLocationChanged(location);
 		}
 
@@ -290,21 +300,21 @@ public class TelephonyManagerDemo extends Activity {
 		public void onDataActivity(int direction) {
 			String directionString = "none";
 			switch (direction) {
-			case TelephonyManager.DATA_ACTIVITY_IN:
-				directionString = "IN";
-				break;
-			case TelephonyManager.DATA_ACTIVITY_OUT:
-				directionString = "OUT";
-				break;
-			case TelephonyManager.DATA_ACTIVITY_INOUT:
-				directionString = "INOUT";
-				break;
-			case TelephonyManager.DATA_ACTIVITY_NONE:
-				directionString = "NONE";
-				break;
-			default:
-				directionString = "UNKNOWN: " + direction;
-				break;
+				case TelephonyManager.DATA_ACTIVITY_IN:
+					directionString = "IN";
+					break;
+				case TelephonyManager.DATA_ACTIVITY_OUT:
+					directionString = "OUT";
+					break;
+				case TelephonyManager.DATA_ACTIVITY_INOUT:
+					directionString = "INOUT";
+					break;
+				case TelephonyManager.DATA_ACTIVITY_NONE:
+					directionString = "NONE";
+					break;
+				default:
+					directionString = "UNKNOWN: " + direction;
+					break;
 			}
 
 			setDataDirection(info_ids[INFO_DATA_DIRECTION_INDEX], direction);
@@ -316,22 +326,22 @@ public class TelephonyManagerDemo extends Activity {
 		public void onDataConnectionStateChanged(int state) {
 			String connectionState = "Unknown";
 			switch (state) {
-			case TelephonyManager.DATA_CONNECTED:
-				connectionState = "Connected";
-				break;
-			case TelephonyManager.DATA_CONNECTING:
-				connectionState = "Connecting";
-				break;
-			case TelephonyManager.DATA_DISCONNECTED:
-				connectionState = "Disconnected";
-				break;
-			case TelephonyManager.DATA_SUSPENDED:
-				connectionState = "Suspended";
-				break;
-			default:
+				case TelephonyManager.DATA_CONNECTED:
+					connectionState = "Connected";
+					break;
+				case TelephonyManager.DATA_CONNECTING:
+					connectionState = "Connecting";
+					break;
+				case TelephonyManager.DATA_DISCONNECTED:
+					connectionState = "Disconnected";
+					break;
+				case TelephonyManager.DATA_SUSPENDED:
+					connectionState = "Suspended";
+					break;
+				default:
 
-				connectionState = "Unknown: " + state;
-				break;
+					connectionState = "Unknown: " + state;
+					break;
 			}
 
 			setTextViewText(info_ids[INFO_CONNECTION_STATE_INDEX],
@@ -345,6 +355,16 @@ public class TelephonyManagerDemo extends Activity {
 		@Override
 		public void onMessageWaitingIndicatorChanged(boolean mwi) {
 			Log.i(APP_NAME, "onMessageWaitingIndicatorChanged " + mwi);
+			if (ActivityCompat.checkSelfPermission(TelephonyManagerDemo.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+				// TODO: Consider calling
+				//    ActivityCompat#requestPermissions
+				// here to request the missing permissions, and then overriding
+				//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+				//                                          int[] grantResults)
+				// to handle the case where the user grants the permission. See the documentation
+				// for ActivityCompat#requestPermissions for more details.
+				return;
+			}
 			super.onMessageWaitingIndicatorChanged(mwi);
 		}
 
