@@ -1,0 +1,9 @@
+= MvvmDemo
+
+This is a simple app just to demonstrate the use of the MVVM Design Pattern.
+If you're familiar with MVC or MVP, that's a step in the right direction.
+MVVM is so-called since it uses a Model, a View, and a ViewModel.
+
+There are several ways to implement MVVM in Android.
+Since Android is a Google endeavor, we'll use Google's own DataBinding library.
+

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- bind the ViewModel to the XML layout -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.darwinsys.mvvmdemo.RegisterViewModel" />
+    </data>
+
+	<!-- Pretty fields all in a row, err, column -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Signup now!"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/inFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Your first name"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:text="@={viewModel.firstName}" />
+
+        <EditText
+            android:id="@+id/inLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Your Last Name"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:text="@={viewModel.lastName}" />
+
+        <EditText
+            android:id="@+id/inEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Your Email address"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:text="@={viewModel.email}" />
+
+        <EditText
+            android:id="@+id/inUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Desired login name"
+            android:inputType="text"
+            android:padding="8dp"
+            android:text="@={viewModel.userName}" />
+
+        <EditText
+            android:id="@+id/inPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:hint="New password"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:text="@={viewModel.password}" />
+
+		<EditText
+            android:id="@+id/inCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Country of residence"
+            android:inputType="textCapWords"
+            android:padding="8dp"
+            android:text="@={viewModel.country}" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accept terms and conditions"
+            android:padding="8dp"
+            android:value="@={viewModel.acceptTerms" />
+
+        <!-- Submit Button for Registration -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:onClick="@{() -> viewModel.onButtonClick()}"
+            android:text="Create Account"
+            android:textSize="24sp" />
+            <!-- bind:resultStatus="@={viewModel.resultStatus}" / -->
+
+    </LinearLayout>
+</layout>
