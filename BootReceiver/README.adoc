@@ -1,0 +1,2 @@
+This directory contains JUST the bitsies needed to ADD boot-time startup
+to an existing Android app. 
